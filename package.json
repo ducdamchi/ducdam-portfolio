@@ -2,6 +2,12 @@
   "name": "personal-web-react",
   "private": true,
   "version": "0.0.0",
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "tabWidth": 2,
+    "plugins": ["prettier-plugin-tailwindcss"]
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,8 +16,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
@@ -23,6 +31,8 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "vite": "^6.0.5"
   }
 }
