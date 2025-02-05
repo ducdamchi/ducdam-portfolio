@@ -12,23 +12,6 @@
 
 
 
-.navBar ul{
-  list-style-type: none;
-  text-align: center;
-  margin: 0;
-  padding: 5px 0px 25px 0px;
-}
-
-.navBar ul li{
-  display: inline-block;
-}
-
-.carousel {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
 .carousel-images {
   --slider-index: 1;
   display: flex;
@@ -38,17 +21,17 @@
 }
 
 .thumbnail {
-  /* inline-size: 100%; */
   flex: 0 0 33.33%;
   max-width: 33.33%;
-  padding: 0.25rem;
+  padding: 0.25rem; 
 }
 
 .thumbnail-img {
   inline-size: 100%;
+  /* make sure ratio is uniform */
   aspect-ratio: 3/2;
-  object-fit: cover;
+  /* make sure image is cropped, not stretched */
+  object-fit: cover; 
   opacity: 1;
   transition: opacity 150ms linear;
-  padding: 0.25rem;
 }
