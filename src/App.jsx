@@ -7,35 +7,36 @@ export default function App() {
     return (
       <>
           {/* Logo section */}
-          <div className="flex justify-center items-center p-2 m-2">
+          <div className="flex justify-center items-center p-1 m-1">
             {/* <span className="homeButton-ghost"></span> */}
-            <a href="index.html" target="_blank" rel="noopener noreferrer" className="bg-red-200 p-2 m-1">Logo</a>
+            <a href="index.html" target="_blank" rel="noopener noreferrer" className="bg-red-200 p-1 m-1">Logo</a>
             {/* <span class="home-button-real">Home</span> */}
           </div>
 
           {/* Navigation bar */}
           <nav className="flex justify-center items-center">
             <ul>
-              <li className="inline-block p-2 m-1 bg-neutral-300">Photography</li>
-              <li className="inline-block p-2 m-1 bg-neutral-300">Film</li>
-              <li className="inline-block p-2 m-1 bg-neutral-300">Woodworking</li>
-              <li className="inline-block p-2 m-1 bg-neutral-300">About</li>
+              <li className="inline-block p-1 m-1 bg-neutral-300">Photography</li>
+              <li className="inline-block p-1 m-1 bg-neutral-300">Film</li>
+              <li className="inline-block p-1 m-1 bg-neutral-300">Woodworking</li>
+              <li className="inline-block p-1 m-1 bg-neutral-300">About</li>
             </ul>
           </nav>
 
           {/* Title of page currently browsed */}
-          <h1 className="flex justify-center items-center p-2 m-2 text-2xl">Photography</h1>
+          <h1 className="flex justify-center items-center p-1 m-1 text-2xl">Photography</h1>
       </>
     )
   }
 
   function HighlightSection () {
 
-    /* Highlight section will always have 9 thumbnails, split into 3 slides.
+    /* Highlight section will always have 9 thumbnails, split into 3 p-1 slides.
     Need a variable to keep track of which slide we're on so can navigate left/right.
-    2 is the max number of slides right now.
+    1 is the max number of slides right now.
     TODO: What about non-laptop devices? Responsive design solution?
     */
+    const maxIndex = 1;
     const [carouselIndex, setCarouselIndex] = useState(0)
     console.log("Current carousel index: " + carouselIndex);
 
@@ -43,7 +44,7 @@ export default function App() {
       setCarouselIndex((prevIndex) => {
         const newIndex = prevIndex + 1;
         /* Loop back to first slide if at last slide */
-        return newIndex > 2 ? 0 : newIndex;
+        return newIndex > maxIndex ? 0 : newIndex;
       });
 
     }
@@ -52,7 +53,7 @@ export default function App() {
       setCarouselIndex((prevIndex) => {
         const newIndex = prevIndex - 1;
         /* Loop back to last slide if at first slide */
-        return newIndex < 0 ? 2 : newIndex;
+        return newIndex < 0 ? maxIndex : newIndex;
       });
     }
 
@@ -60,7 +61,7 @@ export default function App() {
       <>
 
         {/* Section title */}
-        <h2 className="flex items-center p-2 m-2 text-lg">Highlights</h2>
+        <h2 className="flex items-center p-1 m-1 text-lg">Highlights</h2>
 
         {/* Making infinite loop carousel */}
         <div className="flex justify-center items-center overflow-hidden">
@@ -76,32 +77,32 @@ export default function App() {
           {/* ALL THUMBNAILS
           TODO: How to automatically detect folders and render thumbnails?
           Hard coding images for now */}
-          <div className="carousel-images">
-            <div className="thumbnail">
+          <div className="flex w-[calc(100%-2*var(--slider-padding))]">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex1/img5.jpg"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex2/img9.jpg"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex3/img1.JPG"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex4/img1.jpg"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex5/img1.png"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex6/img1.jpg"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex7/img1.jpg"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex8/img1.JPG"/>
             </div>
-            <div className="thumbnail">
+            <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex9/img1.jpg"/>
             </div>
           </div>
@@ -122,7 +123,7 @@ export default function App() {
   function AllProjectsSection() {
     return (
       <div className="allProjects">
-        <h2 className="flex items-center p-2 m-2 text-lg">All Projects</h2>
+        <h2 className="flex items-center p-1 m-1 text-lg">All Projects</h2>
       </div>
     )
   }

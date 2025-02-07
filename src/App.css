@@ -7,23 +7,7 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 :root {
-  --slider-padding: 3rem;
-}
-
-
-
-.carousel-images {
-  --slider-index: 1;
-  display: flex;
-  width: calc(100% - 2 * var(--slider-padding));
-  transform: translateX(calc(var(--slider-index) * -100%));
-  transition: transform 300ms ease-in-out;
-}
-
-.thumbnail {
-  flex: 0 0 33.33%;
-  max-width: 33.33%;
-  padding: 0.25rem; 
+  --slider-padding: 2rem;
 }
 
 .thumbnail-img {
