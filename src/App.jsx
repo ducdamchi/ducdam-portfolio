@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './App.css'
 
 export default function App() {
@@ -37,8 +37,37 @@ export default function App() {
     TODO: What about non-laptop devices? Responsive design solution?
     */
     const maxIndex = 1;
-    const [carouselIndex, setCarouselIndex] = useState(0)
+
+    /* To keep track of which slide we're on */
+    const [carouselIndex, setCarouselIndex] = useState(0);
     console.log("Current carousel index: " + carouselIndex);
+
+    /* Use to store all the thumbnails, including clones */
+    // const [carousel, setCarousel] = useState([]);
+
+    const [clonesLeft, setClonesLeft] = useState([]);
+    const [clonesRight, setClonesRight] = useState([]);
+
+    /* For ease of modifying the thumbnails div*/
+    const thumbnails = useRef(null);
+
+    /* Making clones of first and last page of carousel to achieve infinite loop effect */
+    useEffect(() => {
+      /* Make sure thumbnails useRef object not null */
+      if (thumbnails.current) {
+
+        /* Select all thumbnail imgs, extract first three and last three */
+        const allThumbnails = thumbnails.current.querySelectorAll('.thumbnail-img');
+        const firstThree = [...allThumbnails].slice(0, 3);
+        const lastThree = [...allThumbnails].slice(-3, 0);
+
+        /* Make clones of those two 'slides', will call clonesLeft/Right in HTML */
+        setClonesLeft(firstThree.map((thumbnail) => 
+          thumbnail.cloneNode(true)))
+        setClonesRight(lastThree.map((thumbnail) => 
+          thumbnail.cloneNode(true)))
+      }
+    }, []);
 
     function nextSlide () {
       setCarouselIndex((prevIndex) => {
@@ -77,7 +106,10 @@ export default function App() {
           {/* ALL THUMBNAILS
           TODO: How to automatically detect folders and render thumbnails?
           Hard coding images for now */}
-          <div className="flex w-[calc(100%-2*var(--slider-padding))]">
+          <div ref = {thumbnails} className="flex w-[calc(100%-2*var(--slider-padding))]">
+
+            {}
+
             <div className="flex-none w-1/3 p-1">
               <img className="thumbnail-img p-1 m-1" src="./photography/ex1/img5.jpg"/>
             </div>
