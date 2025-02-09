@@ -10,7 +10,24 @@
   --slider-padding: 2rem;
 }
 
+/* .thumbnails {
+  display: flex;
+  width: calc(100% - 2 * var(--slider-padding));
+  transform: translateX(calc(var(--slider-index) * -100%));
+  transition: transform 300ms ease-in-out;
+} */
+
 .thumbnail-img {
+  inline-size: 100%;
+  /* make sure ratio is uniform */
+  aspect-ratio: 3/2;
+  /* make sure image is cropped, not stretched */
+  object-fit: cover; 
+  opacity: 1;
+  transition: opacity 150ms linear;
+}
+
+.thumbnail-img-clone{
   inline-size: 100%;
   /* make sure ratio is uniform */
   aspect-ratio: 3/2;
