@@ -42,6 +42,8 @@ export default function App() {
     but logically there are 5 slides with idx 0-4. */
     const maxIndex = 4;
     const ImagesPerPage = 3;
+    let widthPercent = (100 / ImagesPerPage).toString() + "%";
+
 
 
     /* STATES & VARS  */
@@ -53,69 +55,31 @@ export default function App() {
     const [leftDisabled, setLeftDisabled] = useState(false);
 
     /* Use 'style' attribute for thumbnails div for
-    ease of dynamically modifying 'carouselIndex' */
-    const thumbnails_style = {
+    ease of dynamically modifying 'carouselIndex'
+    Check App.css root for --slider-padding */
+    const carousel_style = {
       '--slider-index': carouselIndex,
-      // '--slider-padding': '2.5rem',
       display: 'flex',
       width: 'calc(100% - 2 * var(--slider-padding))',
       transform: 'translateX(calc(var(--slider-index) * -100%))',
+      // alignItems: 'stretch',
 
       /* If EdgeTransition flag is set, transform from clone slide to real 
       slide without any effects. If flag not set, use transform transition.*/
-      transition: isEdgeTransition? 'none' : 'transform 300ms ease-in-out',
-      // alignItems: 'center',
-      // justifyContent: 'center'
+      transition: isEdgeTransition? 'none' : 'transform 800ms ease-in-out',
     }
 
     const thumbnail_div_style = {
       flex: 'none',
       display: 'flex',
-      maxWidth: 'calc(100% / ImagesPerPage)',
+      maxWidth: widthPercent,
       alignContent: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+
+      // width: '100vh'
     }
 
-    /* Update function for whenever carousel index changes */
-    useEffect(() => {
-      // console.log("Current index: " + carouselIndex);
-
-      // Disable clicking until carousel fully loads
-      setRightDisabled(true);
-      setLeftDisabled(true);
-      // console.log("Right click disabled");
-
-      /* If swipe right at last slide */
-      if (carouselIndex === maxIndex) {
-        setTimeout(() => {
-          setEdgeTransition(true);
-          setCarouselIndex(1);
-          // console.log("transitioned to real page 2");
-          }, 250)
-      }
-
-      /* If swipe left at first slide */
-      if (carouselIndex === 0) {
-        setTimeout(() => {
-          setEdgeTransition(true);
-          setCarouselIndex(3);
-          // console.log("transitioned to real page 2");
-          }, 250)
-      }
-
-      setTimeout(() => {
-        setEdgeTransition(false);
-      }, 500)
-
-      // Enable clicking again
-      setTimeout(() => {
-        setRightDisabled(false);
-        setLeftDisabled(false);
-      }, 700)
-
-    }, [carouselIndex])
-
-    /* Add ref tag to div that contains all thumbnails.
+        /* Add ref tag to div that contains all thumbnails.
     Make clones of first and last page of carousel */
     const thumbnails = useRef(null);
     useEffect(() => {
@@ -136,23 +100,83 @@ export default function App() {
       }
     }, []);
 
-    function nextSlide () {
-      setCarouselIndex((prevIndex) => {
-        const newIndex = prevIndex + 1;
+    /* Disable a button for time_ms miliseconds */
+    function disableClickTemp (time_ms) {
+      // Disable clicking until carousel fully loads
+      setRightDisabled(true);
+      setLeftDisabled(true);
+      console.log("Click disabled");
 
-        /* Loop back to first slide if at last slide */
-        return newIndex > maxIndex ? 0 : newIndex;
-      });
+      // Enable clicking again
+      setTimeout(() => {
+        setRightDisabled(false);
+        setLeftDisabled(false);
+        console.log("Click enabled");
+      }, time_ms)
+    };
+
+    function nextSlide () {
+      if (!rightDisabled) {
+        disableClickTemp(1000);
+        setCarouselIndex((prevIndex) => {
+          const newIndex = prevIndex + 1;
+
+          // If index reach beyond last slide, loop back to first
+          if (newIndex > maxIndex) {
+            
+            /* Transition to fake slide takes 800ms, so wait 900ms total 
+            to transition 'none' from fake slide to real slide. */
+            setTimeout(() => {
+              setEdgeTransition(true)
+            }, 900)
+            return 0
+          } 
+
+          // Otherwise update index
+          else {
+            return newIndex
+          }
+        });
+      }
     }
 
     function prevSlide () {
-      setCarouselIndex((prevIndex) => {
-        const newIndex = prevIndex - 1;
+      if (!leftDisabled) {
+        disableClickTemp(1000);
+        setCarouselIndex((prevIndex) => {
+          const newIndex = prevIndex - 1;
 
-        /* Loop back to last slide if at first slide */
-        return newIndex < 0 ? maxIndex : newIndex;
-      });
+          // If index reach below first slide, loop back to last
+          if (newIndex < 0) {
+            
+            /* Transition to fake slide takes 800ms, so wait 900ms total 
+            to transition 'none' from fake slide to real slide. */
+            setTimeout(() => {
+              setEdgeTransition(true)
+            }, 900)
+            return maxIndex
+          } 
+
+          // Otherwise update index
+          else {
+            return newIndex
+          }
+        });
+      }
     }
+
+    /* Update function for whenever carousel index changes */
+    useEffect(() => {
+
+      setTimeout(() => {
+        setEdgeTransition(false);
+      }, 800)
+
+    }, [carouselIndex])
+
+
+
+
 
     return (
       <>
@@ -160,59 +184,59 @@ export default function App() {
         {/* Section title */}
         <h2 className="flex items-center p-1 m-1 text-lg">Highlights</h2>
 
-        {/* Making infinite loop carousel */}
-        <div className="flex justify-center items-center overflow-hidden">
+        {/* Div for the entire infinite loop carousel */}
+        <div className="carousel-whole">
 
           {/* Left side button */}
           <button 
             id="arrowLeft" 
-            className='text-4xl w-[var(--slider-padding)] border-none justify-center items-center bg-neutral-500 z-1'
+            className='carousel-btn'
             onClick={prevSlide}
             disabled={leftDisabled}>
-            <div class='arrowLeft'>&#8249;</div>
+            <div className='arrowLeft'>&#8249;</div>
           </button>
 
           {/* ALL THUMBNAILS
           TODO: How to automatically detect folders and render thumbnails?
           Hard coding images for now */}
-          <div ref={thumbnails} style={thumbnails_style}>
+          <div ref={thumbnails} style={carousel_style}>
 
             {clonesLeft.map((src, index) => (
-              <div key={`cloneLeft-${index}`} className="thumbnail-div">
+              <div key={`cloneLeft-${index}`} className="thumbnail-div" style={thumbnail_div_style}>
                 <img className="thumbnail-img" src={src}/>
               </div>
             ))}
 
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex1/img5.jpg"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex2/img9.jpg"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex3/img1.JPG"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex4/img1.jpg"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex5/img1.png"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex6/img1.jpg"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex7/img1.jpg"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex8/img1.JPG"/>
             </div>
-            <div className="thumbnail-div">
+            <div className="thumbnail-div" style={thumbnail_div_style}>
               <img className="thumbnail-img" src="./photography/ex9/img1.jpg"/>
             </div>
 
             {clonesRight.map((src, index) => (
-              <div key={`cloneRight-${index}`} className="thumbnail-div">
+              <div key={`cloneRight-${index}`} className="thumbnail-div" style={thumbnail_div_style}>
                 <img className="thumbnail-img" src={src}/>
               </div>
             ))}
@@ -222,12 +246,11 @@ export default function App() {
           {/* Right side button */}
           <button 
             id="arrowRight" 
-            className="text-4xl w-[var(--slider-padding)] justify-center items-center bg-neutral-300 z-1"
+            className="carousel-btn"
             onClick={nextSlide}
             disabled={rightDisabled}>
-            &#8250;
+            <div className='arrowRight'>&#8250;</div>
           </button>
-
         </div>
       </>
     )
