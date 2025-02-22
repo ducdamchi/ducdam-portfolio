@@ -66,7 +66,7 @@ export default function App() {
 
       /* If EdgeTransition flag is set, transform from clone slide to real 
       slide without any effects. If flag not set, use transform transition.*/
-      transition: isEdgeTransition? 'none' : 'transform 800ms ease-in-out',
+      transition: isEdgeTransition? 'none' : 'transform 750ms ease-in-out',
     }
 
     const thumbnail_div_style = {
@@ -105,62 +105,71 @@ export default function App() {
       // Disable clicking until carousel fully loads
       setRightDisabled(true);
       setLeftDisabled(true);
-      console.log("Click disabled");
+      // console.log("Click disabled");
 
       // Enable clicking again
       setTimeout(() => {
         setRightDisabled(false);
         setLeftDisabled(false);
-        console.log("Click enabled");
+        // console.log("Click enabled");
       }, time_ms)
+    };
+
+    function handleEdgeCase (newIndex) {
+
+      // If reached beyond the last slide, wrap to the first real slide
+      if (newIndex === maxIndex) {
+
+        // wait for 750ms transition to be over, then use
+        // 'none' transition from fake slide to real slide
+        setTimeout(() => {
+          setEdgeTransition(true);
+          setCarouselIndex(1);
+        }, 700);
+      } 
+
+      // If reached below the first slide, wrap to the last real slide
+      else if (newIndex === 0) {
+
+        // wait for 750ms transition to be over, then use
+        // 'none' transition from fake slide to real slide
+        setTimeout(() => {
+          setEdgeTransition(true);
+          setCarouselIndex(maxIndex-1);
+        }, 700);
+      } 
     };
 
     function nextSlide () {
       if (!rightDisabled) {
+
+        // Disable click to prevent spam
         disableClickTemp(1000);
         setCarouselIndex((prevIndex) => {
           const newIndex = prevIndex + 1;
 
-          // If index reach beyond last slide, loop back to first
-          if (newIndex > maxIndex) {
-            
-            /* Transition to fake slide takes 800ms, so wait 900ms total 
-            to transition 'none' from fake slide to real slide. */
-            setTimeout(() => {
-              setEdgeTransition(true)
-            }, 900)
-            return 0
-          } 
+          // If meet edge case, pass to function to handle transition
+          handleEdgeCase(newIndex);
 
-          // Otherwise update index
-          else {
-            return newIndex
-          }
+          // return newIndex regardless
+          return newIndex
         });
       }
     }
 
     function prevSlide () {
       if (!leftDisabled) {
+
+        // Disable click to prevent spam
         disableClickTemp(1000);
         setCarouselIndex((prevIndex) => {
           const newIndex = prevIndex - 1;
 
-          // If index reach below first slide, loop back to last
-          if (newIndex < 0) {
-            
-            /* Transition to fake slide takes 800ms, so wait 900ms total 
-            to transition 'none' from fake slide to real slide. */
-            setTimeout(() => {
-              setEdgeTransition(true)
-            }, 900)
-            return maxIndex
-          } 
+          // If meet edge case, pass to function to handle transition
+          handleEdgeCase(newIndex);
 
-          // Otherwise update index
-          else {
-            return newIndex
-          }
+          // return newIndex regardless
+          return newIndex;
         });
       }
     }
@@ -168,11 +177,14 @@ export default function App() {
     /* Update function for whenever carousel index changes */
     useEffect(() => {
 
-      setTimeout(() => {
-        setEdgeTransition(false);
-      }, 800)
+      if(isEdgeTransition) {
+        setTimeout(() => {
+          setEdgeTransition(false);
+        }, 300)
+      }
+      // console.log("idx: " + carouselIndex);
 
-    }, [carouselIndex])
+    }, [isEdgeTransition, carouselIndex])
 
 
 
