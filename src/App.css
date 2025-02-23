@@ -18,7 +18,7 @@
   overflow: hidden;
 }
 
-.thumbnail-img {
+.thumbnail-img, .thumbnail-img-clone {
   aspect-ratio: 3/2;   /* make sure ratio is uniform */
   object-fit: cover;   /* make sure image is cropped, not stretched */
   width: 100%; /* fills container */

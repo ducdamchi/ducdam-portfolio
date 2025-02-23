@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
-import { CarouselPhoto } from './CarouselPhoto';
+import HighlightsCarousel from './HighlightsCarousel';
 
 export default function App() {
 
@@ -32,23 +32,22 @@ export default function App() {
 
   function HighlightSection () {
 
-    /* Highlight section will always have 9 thumbnails, split into 3 p-1 slides.
-    Need a variable to keep track of which slide we're on so can navigate left/right.
-    2 is the max number of slides right now.
-    TODO: What about non-laptop devices? Responsive design solution?
-    */
-
     /* TO BE CHANGED FOR RESPONSIVE DESIGN */
-    /* From user's POV there are 3 slides with idx 0-2, 
-    but logically there are 5 slides with idx 0-4. */
-    const maxIndex = 4;
-    const imagesPerPage = 3;
-    const widthPercent = `${100 / imagesPerPage}%`;
+
+    /* Ex: If user's POV has 3 slides with idx 0-2, 
+    then logically there are 5 slides with idx 0-4, to accomodate for 2 clone slides. */
+    const numSlidesIndex = 4;
+
+    /* Number of images to display per slide */
+    const imagesPerSlide = 3;
+
+    /* How much of the screen's width would an image take up, stored as a str */
+    const imageWidthPercent = `${100 / imagesPerSlide}%`;
 
     return (
       <>
         <h2 className="flex items-center p-1 m-1 text-lg">Highlights</h2>
-        <CarouselPhoto maxIndex={maxIndex} imagesPerPage={imagesPerPage} widthPercent={widthPercent}/>
+        <HighlightsCarousel numSlidesIndex={numSlidesIndex} imagesPerSlide={imagesPerSlide} imageWidthPercent={imageWidthPercent}/>
       </>
     )
   }
