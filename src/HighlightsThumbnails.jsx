@@ -28,6 +28,27 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     justifyContent: 'center',
   }
 
+  /*************** CLASSES **************/
+  class Image {
+    constructor(src, description) {
+      this.src = src;
+      this.description = description;
+    }
+  }
+
+  class Album {
+    /* 
+    imgList: a list of Image objects
+    thumbnail: Image object
+    */
+    constructor(imgList, thumbnail, description, isHighlight) {
+      this.imgList = imgList;
+      this.thumbnail = thumbnail;
+      this.description = description;
+      this.isHighlight = isHighlight;
+    }
+  }
+
 
   /*************** HOOKS **************/
   /* Make clones of first and last page of carousel */
