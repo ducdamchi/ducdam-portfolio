@@ -3,7 +3,7 @@ import './App.css'
 import HighlightsCarousel from './HighlightsCarousel';
 
 export default function App() {
-
+  // const numSlidesIndex
   function NavSection() {
     return (
       <>

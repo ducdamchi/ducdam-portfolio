@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
+import albumsData from './albums.json'
+import ModalViewer from './ModalViewer';
 
 export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, imageWidthPercent, imagesPerSlide}) {
 
   /*************** STATES AND VARS **************/
+  const [openModalId, setOpenModalId] = useState(null);
   const [clonesLeft, setClonesLeft] = useState([]);    /* slide shows up when slide left on first page. */
   const [clonesRight, setClonesRight] = useState([]);   /* slide shows up when slide right on last page. */
 
@@ -28,29 +31,6 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     justifyContent: 'center',
   }
 
-  /*************** CLASSES **************/
-  class Image {
-    constructor(src, description) {
-      this.src = src;
-      this.description = description;
-    }
-  }
-
-  class Album {
-    /* 
-    imgList: a list of Image objects
-    thumbnail: Image object
-    */
-    constructor(imgList, thumbnail, description, isHighlight) {
-      this.imgList = imgList;
-      this.thumbnail = thumbnail;
-      this.description = description;
-      this.isHighlight = isHighlight;
-    }
-  }
-
-
-  /*************** HOOKS **************/
   /* Make clones of first and last page of carousel */
   const thumbnails = useRef(null);
   useEffect(() => {
@@ -78,7 +58,27 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         </div>
       ))}
 
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
+      {albumsData
+        .filter((album) => album.isHighlight === true)
+        .map((album) => (
+        <div 
+        className="thumbnail-div" 
+        key={album.id} 
+        style={THUMBNAIL_DIV_STYLE}
+        onClick={() => {
+          setOpenModalId(album.id);
+          console.log("opened modal", album.id);
+          // console.log(openModalId);
+          }
+        }>
+          <img className="thumbnail-img" src={album.thumbnail.src}/>
+          {(album.id === openModalId) &&
+            <ModalViewer openModalId={openModalId} closeModal={() => setOpenModalId(null)}/>
+          }
+        </div>
+      ))}
+
+      {/* <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
         <img className="thumbnail-img" src="./photography/ex1/img5.jpg"/>
       </div>
       <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
@@ -104,7 +104,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       </div>
       <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
         <img className="thumbnail-img" src="./photography/ex9/img1.jpg"/>
-      </div>
+      </div> */}
 
       {clonesRight.map((src, index) => (
         <div key={`cloneRight-${index}`} className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
