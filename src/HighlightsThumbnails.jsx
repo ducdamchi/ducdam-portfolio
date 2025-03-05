@@ -62,49 +62,30 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         .filter((album) => album.isHighlight === true)
         .map((album) => (
         <div 
-        className="thumbnail-div" 
-        key={album.id} 
-        style={THUMBNAIL_DIV_STYLE}
-        onClick={() => {
-          setOpenModalId(album.id);
-          console.log("opened modal", album.id);
-          // console.log(openModalId);
+          className="thumbnail-div" 
+          key={album.id} 
+          style={THUMBNAIL_DIV_STYLE}
+        >
+        
+          <img 
+            className="thumbnail-img" 
+            src={album.thumbnail.src}
+            onClick={() => {
+              setOpenModalId(album.id);
+              console.log("opened modal", album.id);}}
+          />
+
+          {(album.id === openModalId) && 
+            <ModalViewer 
+              openModalId={openModalId} 
+              closeModal={() => {
+                setOpenModalId(null);
+                console.log('closing modal');}} 
+            />
           }
-        }>
-          <img className="thumbnail-img" src={album.thumbnail.src}/>
-          {(album.id === openModalId) &&
-            <ModalViewer openModalId={openModalId} closeModal={() => setOpenModalId(null)}/>
-          }
+
         </div>
       ))}
-
-      {/* <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex1/img5.jpg"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex2/img9.jpg"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex3/img1.JPG"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex4/img1.jpg"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex5/img1.png"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex6/img1.jpg"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex7/img1.jpg"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex8/img1.JPG"/>
-      </div>
-      <div className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
-        <img className="thumbnail-img" src="./photography/ex9/img1.jpg"/>
-      </div> */}
 
       {clonesRight.map((src, index) => (
         <div key={`cloneRight-${index}`} className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
