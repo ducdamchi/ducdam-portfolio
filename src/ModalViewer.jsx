@@ -14,7 +14,7 @@ const MODAL_BG = {
 }
 
 
-export default function ModalViewer({ openModalId, closeModal }) {
+export default function ModalViewer({album, openModalId, closeModal }) {
   if (openModalId === null) {
     return null
 
@@ -22,7 +22,19 @@ export default function ModalViewer({ openModalId, closeModal }) {
     return ReactDom.createPortal (
       <>
         <div className="modal" style={MODAL_BG}>
-          This is modal number {openModalId}
+          <button>Prev</button>
+
+          <div className="slides-all">
+            {album.imgList.map((slide) => (
+              <img 
+                className="slides-each" 
+                key={slide.id}
+                src={slide.src}
+              />
+            ))}
+          </div>
+
+          <button>Next</button>
           <button onClick={closeModal}>Close</button>
         </div>
       </>,

@@ -76,7 +76,8 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
           />
 
           {(album.id === openModalId) && 
-            <ModalViewer 
+            <ModalViewer
+              album={album} 
               openModalId={openModalId} 
               closeModal={() => {
                 setOpenModalId(null);

@@ -4,33 +4,33 @@
   "numImages": 6,
   "imgList": [
    {
-    "id": 0,
+    "id": "1.1",
     "src": "photography/Highlights/ex1/img1.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "1.2",
     "src": "photography/Highlights/ex1/img2.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "1.3",
     "src": "photography/Highlights/ex1/img3.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "1.4",
     "src": "photography/Highlights/ex1/img4.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "1.5",
     "src": "photography/Highlights/ex1/img5.jpg",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "1.0",
    "src": "photography/Highlights/ex1/thumb.jpg",
    "description": ""
   },
@@ -41,53 +41,53 @@
   "numImages": 10,
   "imgList": [
    {
-    "id": 0,
+    "id": "2.1",
     "src": "photography/Highlights/ex2/img1.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.2",
     "src": "photography/Highlights/ex2/img2.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.3",
     "src": "photography/Highlights/ex2/img3.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.4",
     "src": "photography/Highlights/ex2/img4.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.5",
     "src": "photography/Highlights/ex2/img5.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.6",
     "src": "photography/Highlights/ex2/img6.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.7",
     "src": "photography/Highlights/ex2/img7.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.8",
     "src": "photography/Highlights/ex2/img8.jpg",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "2.9",
     "src": "photography/Highlights/ex2/img9.jpg",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "2.0",
    "src": "photography/Highlights/ex2/thumb.jpg",
    "description": ""
   },
@@ -98,33 +98,33 @@
   "numImages": 6,
   "imgList": [
    {
-    "id": 0,
+    "id": "3.1",
     "src": "photography/Highlights/ex3/img1.JPG",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "3.2",
     "src": "photography/Highlights/ex3/img2.JPG",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "3.3",
     "src": "photography/Highlights/ex3/img3.JPG",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "3.4",
     "src": "photography/Highlights/ex3/img4.JPG",
     "description": ""
    },
    {
-    "id": 0,
+    "id": "3.5",
     "src": "photography/Highlights/ex3/img5.JPG",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "3.0",
    "src": "photography/Highlights/ex3/thumb.JPG",
    "description": ""
   },
@@ -135,13 +135,13 @@
   "numImages": 2,
   "imgList": [
    {
-    "id": 0,
+    "id": "4.1",
     "src": "photography/Highlights/ex4/img1.jpg",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "4.0",
    "src": "photography/Highlights/ex4/thumb.jpg",
    "description": ""
   },
@@ -152,13 +152,13 @@
   "numImages": 2,
   "imgList": [
    {
-    "id": 0,
+    "id": "5.1",
     "src": "photography/Highlights/ex5/img1.png",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "5.0",
    "src": "photography/Highlights/ex5/thumb.png",
    "description": ""
   },
@@ -169,13 +169,13 @@
   "numImages": 2,
   "imgList": [
    {
-    "id": 0,
+    "id": "6.1",
     "src": "photography/Highlights/ex6/img1.jpg",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "6.0",
    "src": "photography/Highlights/ex6/thumb.jpg",
    "description": ""
   },
@@ -186,13 +186,13 @@
   "numImages": 2,
   "imgList": [
    {
-    "id": 0,
+    "id": "7.1",
     "src": "photography/Highlights/ex7/img1.jpg",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "7.0",
    "src": "photography/Highlights/ex7/thumb.jpg",
    "description": ""
   },
@@ -203,13 +203,13 @@
   "numImages": 2,
   "imgList": [
    {
-    "id": 0,
+    "id": "8.1",
     "src": "photography/Highlights/ex8/img1.JPG",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "8.0",
    "src": "photography/Highlights/ex8/thumb.JPG",
    "description": ""
   },
@@ -220,13 +220,13 @@
   "numImages": 2,
   "imgList": [
    {
-    "id": 0,
+    "id": "9.1",
     "src": "photography/Highlights/ex9/img1.jpg",
     "description": ""
    }
   ],
   "thumbnail": {
-   "id": 0,
+   "id": "9.0",
    "src": "photography/Highlights/ex9/thumb.jpg",
    "description": ""
   },
@@ -237,7 +237,7 @@
   "numImages": 1,
   "imgList": [
    {
-    "id": 0,
+    "id": "1.1",
     "src": "photography/Other/ex10/DSCF0339.JPG",
     "description": ""
    }
@@ -249,7 +249,7 @@
   "numImages": 1,
   "imgList": [
    {
-    "id": 0,
+    "id": "2.1",
     "src": "photography/Other/ex11/DSCF0335.JPG",
     "description": ""
    }
