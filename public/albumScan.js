@@ -67,6 +67,7 @@ function fetchSubDirAlbums (pathname, dir, subDirs, isHighlight) {
 
         // Set album thumbnail
         if (img.src.includes('thumb')) {
+          img_count--; //exclude thumbnail from image count
           img.id = `${album.id}.0`; 
           album.thumbnail = img;
         } else {
