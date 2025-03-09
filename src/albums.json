@@ -1,7 +1,7 @@
 [
  {
   "id": 1,
-  "numImages": 6,
+  "numImages": 5,
   "imgList": [
    {
     "id": "1.1",
@@ -38,7 +38,7 @@
  },
  {
   "id": 2,
-  "numImages": 10,
+  "numImages": 9,
   "imgList": [
    {
     "id": "2.1",
@@ -95,7 +95,7 @@
  },
  {
   "id": 3,
-  "numImages": 6,
+  "numImages": 5,
   "imgList": [
    {
     "id": "3.1",
@@ -132,7 +132,7 @@
  },
  {
   "id": 4,
-  "numImages": 2,
+  "numImages": 1,
   "imgList": [
    {
     "id": "4.1",
@@ -149,7 +149,7 @@
  },
  {
   "id": 5,
-  "numImages": 2,
+  "numImages": 1,
   "imgList": [
    {
     "id": "5.1",
@@ -166,7 +166,7 @@
  },
  {
   "id": 6,
-  "numImages": 2,
+  "numImages": 1,
   "imgList": [
    {
     "id": "6.1",
@@ -183,7 +183,7 @@
  },
  {
   "id": 7,
-  "numImages": 2,
+  "numImages": 1,
   "imgList": [
    {
     "id": "7.1",
@@ -200,7 +200,7 @@
  },
  {
   "id": 8,
-  "numImages": 2,
+  "numImages": 1,
   "imgList": [
    {
     "id": "8.1",
@@ -217,7 +217,7 @@
  },
  {
   "id": 9,
-  "numImages": 2,
+  "numImages": 1,
   "imgList": [
    {
     "id": "9.1",

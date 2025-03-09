@@ -117,7 +117,11 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
             <div className='arrowLeft'>&#8249;</div>
           </button>
 
-          <HighlightsThumbnails carouselIndex={carouselIndex} isEdgeTransition={isEdgeTransition} imageWidthPercent={imageWidthPercent} imagesPerSlide={imagesPerSlide}/>
+          <HighlightsThumbnails 
+            carouselIndex={carouselIndex} 
+            isEdgeTransition={isEdgeTransition} 
+            imageWidthPercent={imageWidthPercent} 
+            imagesPerSlide={imagesPerSlide}/>
 
           {/* Right side button */}
           <button 
