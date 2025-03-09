@@ -78,11 +78,10 @@ export default function ModalViewer({album, openModalId, closeModal }) {
     color: 'white'
   }
   
-  const [currIndex, setCurrIndex] = useState(0)
-  const [nextIndex, setNextIndex] = useState(null);
+  const [slideIndex, setSlideIndex] = useState(0);
   
   function prevSlide() {
-    setNextIndex((prevIndex) => {
+    setSlideIndex((prevIndex) => {
       let newIndex = prevIndex - 1;
       if (newIndex < 0) {
         newIndex = album.numImages - 1;
@@ -92,7 +91,7 @@ export default function ModalViewer({album, openModalId, closeModal }) {
   }
   
   function nextSlide() {
-    setNextIndex((prevIndex) => {
+    setSlideIndex((prevIndex) => {
       let newIndex = prevIndex + 1;
       if (newIndex > album.numImages - 1) {
         newIndex = 0;
@@ -103,19 +102,20 @@ export default function ModalViewer({album, openModalId, closeModal }) {
 
   const slides = useRef(null);
   useEffect(() => {
-    setCurrIndex(
-      
-    );
     console.log(`slide index: ${slideIndex}`);
     if (slides.current) {
 
       const allSlides = slides.current.querySelectorAll('.slides-each');
-      // Array.from(allSlides);
-      // allSlides.forEach((slide) => {
-      //   slide.style.display = "none";
-      // })
-      allSlides[currIndex].style.display = "none";
-      allSlides[nextIndex].style.display = "block";
+      Array.from(allSlides);
+
+      /* Only turn on block display for slide with current index */
+      for (let i=0; i < allSlides.length; i++) {
+        if (i != slideIndex) {
+          allSlides[i].style.display = "none";
+        } else {
+          allSlides[i].style.display = "block";
+        }
+      }
     }
   },[slideIndex])
 
@@ -138,6 +138,7 @@ export default function ModalViewer({album, openModalId, closeModal }) {
             {album.imgList.map((slide) => (
               <img 
                 className="slides-each"
+                style = {SLIDES_EACH}
                 key={slide.id}
                 src={slide.src}
               />
