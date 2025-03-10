@@ -6,13 +6,9 @@ import ModalViewer from './ModalViewer';
 
 export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, imageWidthPercent, imagesPerSlide}) {
 
-  /*************** STATES AND VARS **************/
-  const [openModalId, setOpenModalId] = useState(null);
-  const [clonesLeft, setClonesLeft] = useState([]);    /* slide shows up when slide left on first page. */
-  const [clonesRight, setClonesRight] = useState([]);   /* slide shows up when slide right on last page. */
 
   /*************** CSS **************/
-  const CAROUSEL_STYLE = {
+  const CAROUSEL = {
     '--slider-index': carouselIndex, // to be modified with useState()
     display: 'flex',
     width: 'calc(100% - 2 * var(--slider-padding))', // check App.css root for --slider-padding
@@ -23,7 +19,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     transition: isEdgeTransition? 'none' : 'transform 750ms ease-in-out',
   }
 
-  const THUMBNAIL_DIV_STYLE = {
+  const THUMBNAIL_WINDOW = {
     flex: 'none',
     display: 'flex',
     maxWidth: imageWidthPercent, 
@@ -31,6 +27,12 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     justifyContent: 'center',
   }
 
+  /*************** STATES AND VARS **************/
+  const [openModalId, setOpenModalId] = useState(null); /* keep track which album was clicked on */
+  const [clonesLeft, setClonesLeft] = useState([]);    /* slide shows up when slide left on first page. */
+  const [clonesRight, setClonesRight] = useState([]);   /* slide shows up when slide right on last page. */
+
+  /*************** HOOKS **************/
   /* Make clones of first and last page of carousel */
   const thumbnails = useRef(null);
   useEffect(() => {
@@ -50,46 +52,59 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
   }, []);
 
   return (
-    <div ref={thumbnails} style={CAROUSEL_STYLE}>
-
+    <div ref={thumbnails} style={CAROUSEL}>
+      
+      {/* Clones on left side */}
       {clonesLeft.map((src, index) => (
-        <div key={`cloneLeft-${index}`} className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
+        <div key={`cloneLeft-${index}`} className="thumbnail-window" style={THUMBNAIL_WINDOW}>
           <img className="thumbnail-img-clone" src={src}/>
         </div>
       ))}
-
+      
+      {/* Iterate through each album and present thumbnails on slides */}
       {albumsData
         .filter((album) => album.isHighlight === true)
         .map((album) => (
         <div 
-          className="thumbnail-div" 
+          className="thumbnail-window" 
           key={album.id} 
-          style={THUMBNAIL_DIV_STYLE}
-        >
+          style={THUMBNAIL_WINDOW}>
         
-          <img 
-            className="thumbnail-img" 
-            src={album.thumbnail.src}
-            onClick={() => {
-              setOpenModalId(album.id);
-              console.log("opened modal", album.id);}}
-          />
+          {/* Thumbnail box, containing thumbnail image and a description box
+          when thumbnail is hovered over. */}
+          <div
+            className="thumbnail-box">
 
+            <img 
+              className="thumbnail-img" 
+              src={album.thumbnail.src}
+              onClick={() => {
+                setOpenModalId(album.id);}}/>
+
+            <div
+              className="thumbnail-description">
+              This is a short description that should only show up 
+              when the user hovers over the thumbnail image.
+            </div>    
+          
+          </div>
+
+          {/* Modal Viewer, hidden until thumbnail is clicked on, 
+          then rendered on portal different from root */}
           {(album.id === openModalId) && 
             <ModalViewer
               album={album} 
               openModalId={openModalId} 
               closeModal={() => {
                 setOpenModalId(null);
-                console.log('closing modal');}} 
-            />
-          }
+                console.log('closing modal');}}/>}
 
         </div>
       ))}
 
+      {/* Clones on right side */}
       {clonesRight.map((src, index) => (
-        <div key={`cloneRight-${index}`} className="thumbnail-div" style={THUMBNAIL_DIV_STYLE}>
+        <div key={`cloneRight-${index}`} className="thumbnail-window" style={THUMBNAIL_WINDOW}>
           <img className="thumbnail-img-clone" src={src}/>
         </div>
       ))}

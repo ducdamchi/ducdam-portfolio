@@ -30,12 +30,16 @@
   justify-content: center;
 }
 
-.thumbnail-div:hover .thumbnail-img {
+.thumbnail-box {
+  /* position: relative; */
+
+  background-color: grey;
+}
+/* .thumbnail-window:hover .thumbnail-img {
   transform: scale(1.015);
   opacity: 0.9;
   transition: transform 200ms ease-in-out
-  /* box-shadow: 3px 3px 3px -3px; */
-}
+} */
 
 .carousel-btn {
   width: var(--slider-padding);

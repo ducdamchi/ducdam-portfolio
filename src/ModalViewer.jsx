@@ -7,6 +7,8 @@ import { TbSlideshow } from "react-icons/tb";
 import { TbBackground } from "react-icons/tb";
 
 export default function ModalViewer({ album, openModalId, closeModal }) {
+
+  /*************** CSS **************/
   const MODAL_BG = {
     zIndex: '20',
     position: 'fixed',
@@ -58,6 +60,7 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
     justifyContent: 'center',
   }
   
+  /*************** STATES AND VARS **************/
   const [slideIndex, setSlideIndex] = useState(0);
   const [isGalleryView, setGalleryView] = useState(false);
   const [bgColor, setBgColor] = useState('black');
@@ -66,6 +69,7 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
   const galleryRef = useRef(null);
   const slidesRef = useRef(null);
   
+  /*************** FUNCTIONS **************/
   function prevSlide() {
     setSlideIndex((prevIndex) => {
       let newIndex = prevIndex - 1;
@@ -109,6 +113,7 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
     setGalleryView(false);
   }
   
+  /*************** HOOKS **************/
   /* Handle prev/next transition in Slides View Mode */
   useEffect(() => {
     console.log(`slide index: ${slideIndex}`);
@@ -223,7 +228,8 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
           {/* Button for closing modal */}
           <button
             className="modal-btn close"
-            onClick={closeModal}>×</button>
+            onClick={closeModal}>×
+          </button>
 
           {/* Button for switching between Slides View and Gallery View */}
           <button
@@ -235,7 +241,8 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
           {/* Button for switching modal background colors (black, grey, white)*/}
           <button
             className="modal-btn bg"
-            onClick={toggleBackground}><TbBackground /></button>
+            onClick={toggleBackground}><TbBackground />
+          </button>
 
         </div>
       </>,
