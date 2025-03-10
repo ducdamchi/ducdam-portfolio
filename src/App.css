@@ -56,6 +56,71 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+
+/* SLIDES VIEW MODE CONTENT */
+.slides-btn {
+  position: absolute;
+  display: block;
+
+  font-size: 3vw;
+  color: white;
+}
+
+.left {
+  top: 45%;
+  left: 0%;
+}
+
+.right {
+  top: 45%;
+  right: 0%;
+}
+
+.counter {
+  top: 30%;
+  right: 0%;
+  font-size: 1.5vw;
+}
+
+/* GALLERY VIEW MODE CONTENT */
+.gallery-each {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0;
+
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.gallery-each:hover {
+  opacity: 0.85;
+}
+
+/* SHARED BUTTONS FOR SLIDES AND GALLERY VIEW MODE */
+.modal-btn {
+  position: absolute;
+  display: block;
+
+  right: 0%; 
+  
+  font-size: 2.5vw;
+}
+
+.close {
+  top: 0%;
+}
+
+.view {
+  top: 10%;
+}
+
+.bg {
+  top: 20%;
+}
+
+
+
 /* .slides-each {
   display: none;
   position: absolute;

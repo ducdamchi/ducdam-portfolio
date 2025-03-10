@@ -3,9 +3,10 @@ import path from "path";
 
 /*************** CLASSES **************/
 class Image {
-  constructor(id, src, description) {
+  constructor(id, src, index, description) {
     this.id = id;
     this.src = src;
+    this.index = index;
     this.description = description;
   }
 }
@@ -56,7 +57,7 @@ function fetchSubDirAlbums (pathname, dir, subDirs, isHighlight) {
          */
         let img_path = path.join(pathname, dir, subdir, content); 
         /* pathname/dir/subdir/content = ./photography/Highlights/ex2/DCD345.JPG */
-        let img = new Image(0, img_path, '');
+        let img = new Image(0, img_path, null, '');
 
         // Set album isHighlight
         if (isHighlight) {
@@ -67,11 +68,12 @@ function fetchSubDirAlbums (pathname, dir, subDirs, isHighlight) {
 
         // Set album thumbnail
         if (img.src.includes('thumb')) {
-          img_count--; //exclude thumbnail from image count
+          img_count--; //exclude thumbnail from image
           img.id = `${album.id}.0`; 
           album.thumbnail = img;
         } else {
-          img.id = `${album.id}.${img_count}`
+          img.id = `${album.id}.${img_count}`;
+          img.index = img_count -1;
           album_imgs.push(img);
         }
       }
