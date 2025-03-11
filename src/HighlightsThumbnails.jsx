@@ -27,9 +27,6 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     '--slider-index': carouselIndex, // to be modified with useState()
     transform: 'translateX(calc(var(--slider-index) * -100%))',
     transition: isEdgeTransition? 'none' : 'transform 750ms ease-in-out',
-
-    // overflow: 'visible',
-
   }
 
   const THUMBNAIL_FLEX_ITEM = {
@@ -69,11 +66,6 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       setClonesRight(firstPage.map((thumbnai) => thumbnai.src));
     }
   }, []);
-
-  // useEffect(() => {
-  //   console.log(clonesLeft);
-  //   console.log(clonesRight);
-  // },[clonesLeft, clonesRight])
 
   useEffect(() => {
 

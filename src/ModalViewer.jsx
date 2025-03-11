@@ -12,7 +12,6 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
   const MODAL_BG = {
     zIndex: '20',
     position: 'fixed',
-    display: 'block',
   
     top: '0%',
     width: '100%',
@@ -25,17 +24,14 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
     zIndex: '30',
     position: 'absolute',
     display: 'block',
-    overflow: 'hidden',
+    textAlign: 'center',
     
     width: '90%',
     height: '90%', 
     top: '5%',// = (100-height)/2
     left: '5%', // = (100-width)/2
-  
-    overflow: 'hidden',
 
     color: 'white',
-    
   }
   
   const SLIDES_ALL = {
@@ -46,14 +42,13 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
     display: 'none',
     position: 'absolute',
   
-    width: '70vw',
+    height: '100%',
     top: '0%',
     left: '11%',
   }
 
-  const GALLERY_ALL = {
+  const GALLERY_GRID_CONTAINER = {
     display: 'none',
-    overflow: 'scroll',
 
     gridTemplateColumns: 'repeat(3, minmax(150px, 450px))',
     gridGap: '30px',
@@ -127,7 +122,7 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
         if (i != slideIndex) {
           allSlides[i].style.display = "none";
         } else {
-          allSlides[i].style.display = "block";
+          allSlides[i].style.display = "inline-block";
         }
       }
     }
@@ -201,10 +196,12 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
 
             <button
               className="slides-btn right" 
-              onClick={nextSlide}>&#8250;</button>  
+              onClick={nextSlide}>&#8250;
+            </button>  
 
             <div
-              className="slides-btn counter">{`${slideIndex+1}/${album.numImages}`}</div>
+              className="slides-btn counter">{`${slideIndex+1}/${album.numImages}`}
+            </div>
 
           </div>
           
@@ -212,7 +209,7 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
           <div 
             ref={galleryRef} 
             className="gallery-all" 
-            style={GALLERY_ALL}>
+            style={GALLERY_GRID_CONTAINER}>
             {album.imgList.map((img) => (
               <img 
                 className="gallery-each" 
