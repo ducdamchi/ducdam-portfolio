@@ -5,6 +5,10 @@ import HighlightsThumbnails from './HighlightsThumbnails'
 
 export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, imageWidthPercent} ) {
 
+  const CAROUSEL_WHOLE = {
+    height: 'calc(((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666)'
+  }
+
   /*************** STATES AND VARS **************/
   const [carouselIndex, setCarouselIndex] = useState(1);  /* slide index we're on */
   const [isEdgeTransition, setEdgeTransition] = useState(false); /* handling Edge case transition? */
@@ -106,7 +110,7 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
 
   /*************** HTML **************/
   return (
-    <div className="carousel-whole">
+    <div className="carousel-whole" style={CAROUSEL_WHOLE}>
 
           {/* Left side button */}
           <button 

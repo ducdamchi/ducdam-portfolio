@@ -39,6 +39,7 @@ export default function App() {
     const numSlidesIndex = 4;
 
     /* Number of images to display per slide */
+    // Note: keep track of this in .root in App.css as well
     const imagesPerSlide = 3;
 
     /* How much of the screen's width would an image take up, stored as a str */
@@ -47,7 +48,10 @@ export default function App() {
     return (
       <>
         <h2 className="flex items-center p-1 m-1 text-lg">Highlights</h2>
-        <HighlightsCarousel numSlidesIndex={numSlidesIndex} imagesPerSlide={imagesPerSlide} imageWidthPercent={imageWidthPercent}/>
+        <HighlightsCarousel 
+          numSlidesIndex={numSlidesIndex} 
+          imagesPerSlide={imagesPerSlide} 
+          imageWidthPercent={imageWidthPercent}/>
       </>
     )
   }

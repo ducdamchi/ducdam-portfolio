@@ -8,61 +8,85 @@
 
 :root {
   --slider-padding: 2.5rem;
+  --images-per-slide: 3;
 }
 
 .carousel-whole {
-  height: 70vh;
+  height: 50vh;
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .thumbnail-img, .thumbnail-img-clone {
   display: inline-block;
 
-  padding: 0.3rem;
-
-  /* margin: 0.3rem; */
-  /* margin: 0 auto;
-  padding: 0.25rem; */
-
   width: 100%; 
   aspect-ratio: 3/2;   /* make sure ratio is uniform */
   object-fit: cover;   /* make sure image is cropped, not stretched */
   opacity: 1;
-  /* transition: opacity 150ms linear; */
-  /* padding: 0.25rem; */
 
-  /* align-content: center;
-  justify-content: center; */
+  z-index: 10;
 }
 
+.thumbnail-flex-item {
 
-.thumbnail-box {
-  /* position: relative; */
+  /* fits all items into flex container space 
+  but don't allow them to shrink */
+  flex: none;
+  position: relative;
+  text-align: center; /* to center img element */
 
-  /* background-color: grey; */
+  scale: 1;
+  height: 100%;
+  transition: 500ms ease-in-out;
+
+  /* border-width: 1px;
+  border-color: black;
+  border-style: solid; */
+  padding: 0.5rem;
+
+  background-color: white;
 }
-/* .thumbnail-window:hover .thumbnail-img {
-  transform: scale(1.015);
-  opacity: 0.9;
-  transition: transform 200ms ease-in-out
-} */
+
+.thumbnail-flex-item:hover {
+  z-index: 20;
+  scale: 1.04;
+  height: 115%;
+  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
+}
+
+.thumbnail-description {
+
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  
+  width: 100%;
+  z-index: -1;
+
+  padding: 0.5rem;
+  text-align: left;
+  color: black;
+  /* border-width: 2px;
+  border-color: black;
+  border-style: solid; */
+/* 
+  animation-name: slidedown;
+  animation-duration: 1s; */
+}
 
 .carousel-btn {
+  /* flex: none; */
   width: var(--slider-padding);
-  height: 100%;
+  /* height: 100%; */
+
   z-index: 10;
-  justify-content: center;
-  align-items: center;
+
   background-color: rgb(255, 255, 255);
   font-size: 3rem;
   transition: background-color 200ms ease-out;
-
-  /* display: flex; */
-  /* flex-grow: 1; */
-  /* border: none; */
 }
 
 .carousel-whole:hover .carousel-btn {
