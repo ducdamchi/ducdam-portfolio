@@ -8,23 +8,39 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
 
 
   /*************** CSS **************/
-  const CAROUSEL = {
-    '--slider-index': carouselIndex, // to be modified with useState()
+  // aka the flex container for all the thumbnails
+  const THUMBNAIL_FLEX_CONTAINER = {
+
     display: 'flex',
-    width: 'calc(100% - 2 * var(--slider-padding))', // check App.css root for --slider-padding
-    transform: 'translateX(calc(var(--slider-index) * -100%))',
+    alignItems: 'flex-start',
+    //justifyContent: should not be center because that would mess with slides order.
+
+    // check App.css root for --slider-padding
+    // TODO: dynamically change width between devices
+    position: 'relative',
+    top: '0%',
+    width: 'calc(100% - 2 * var(--slider-padding))',
+    // height: '30vh',
 
     /* If EdgeTransition flag is set, transform from clone slide to real 
     slide without any effects. If flag not set, use transform transition.*/
+    '--slider-index': carouselIndex, // to be modified with useState()
+    transform: 'translateX(calc(var(--slider-index) * -100%))',
     transition: isEdgeTransition? 'none' : 'transform 750ms ease-in-out',
+
+    // backgroundColor: 'yellow',
   }
 
-  const THUMBNAIL_WINDOW = {
-    flex: 'none',
-    display: 'flex',
+  const THUMBNAIL_FLEX_ITEM = {
+    position: 'relative',
+
+    //fits all items into flex container space 
+    // but don't allow them to shrink
+    flex: 'none', 
     maxWidth: imageWidthPercent, 
-    alignContent: 'center',
-    justifyContent: 'center',
+    textAlign: 'center', //to center img element
+
+    backgroundColor: 'yellow',
   }
 
   /*************** STATES AND VARS **************/
@@ -40,24 +56,52 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     /* Make sure thumbnails useRef object not null */
     if (thumbnails.current) {
 
+      //TODO: copy entire thumbnail box to clone, not just img
+
       /* Select all thumbnail imgs, extract first three and last three */
       const allThumbnails = thumbnails.current.querySelectorAll('.thumbnail-img');
+      // console.log(allThumbnails);
       const firstPage = [...allThumbnails].slice(0, imagesPerSlide);
       const lastPage = [...allThumbnails].slice(-imagesPerSlide);
 
       /* Make clones of those two 'slides', will call clonesLeft/Right in HTML */
       setClonesLeft(lastPage.map((thumbnail) => thumbnail.src));
-      setClonesRight(firstPage.map((thumbnail) => thumbnail.src));
+      setClonesRight(firstPage.map((thumbnai) => thumbnai.src));
     }
   }, []);
 
+  // useEffect(() => {
+  //   console.log(clonesLeft);
+  //   console.log(clonesRight);
+  // },[clonesLeft, clonesRight])
+
+
   return (
-    <div ref={thumbnails} style={CAROUSEL}>
+    <div ref={thumbnails} className="thumbnail-flex-container" style={THUMBNAIL_FLEX_CONTAINER}>
       
       {/* Clones on left side */}
       {clonesLeft.map((src, index) => (
-        <div key={`cloneLeft-${index}`} className="thumbnail-window" style={THUMBNAIL_WINDOW}>
-          <img className="thumbnail-img-clone" src={src}/>
+        <div 
+            key={`cloneLeft-${index}`} 
+            className="thumbnail-box" 
+            style={THUMBNAIL_FLEX_ITEM}>
+
+              <img className="thumbnail-img-clone" src={src}/>
+
+              <div
+                className="thumbnail-description absolute -bottom-10 bg-blue">
+                This is a short description that should only show up 
+                when the user hovers over the thumbnail image.
+              </div>    
+
+              <div
+                className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">EXAMPLE PROJECT TITLE
+              </div>
+
+              <div
+                className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">2020-PRESENT
+              </div>
+
         </div>
       ))}
       
@@ -66,46 +110,65 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         .filter((album) => album.isHighlight === true)
         .map((album) => (
         <div 
-          className="thumbnail-window" 
+          className="thumbnail-box" 
           key={album.id} 
-          style={THUMBNAIL_WINDOW}>
-        
-          {/* Thumbnail box, containing thumbnail image and a description box
-          when thumbnail is hovered over. */}
-          <div
-            className="thumbnail-box">
-
+          style={THUMBNAIL_FLEX_ITEM}>
+      
             <img 
               className="thumbnail-img" 
-              src={album.thumbnail.src}
+              src={album.thumbnail.src} 
               onClick={() => {
-                setOpenModalId(album.id);}}/>
-
+              setOpenModalId(album.id);}}/>
+              
             <div
-              className="thumbnail-description">
+              className="thumbnail-description absolute -bottom-15 text-left">
               This is a short description that should only show up 
               when the user hovers over the thumbnail image.
             </div>    
-          
-          </div>
 
-          {/* Modal Viewer, hidden until thumbnail is clicked on, 
-          then rendered on portal different from root */}
-          {(album.id === openModalId) && 
-            <ModalViewer
-              album={album} 
-              openModalId={openModalId} 
-              closeModal={() => {
-                setOpenModalId(null);
-                console.log('closing modal');}}/>}
+            <div
+              className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">EXAMPLE PROJECT TITLE
+            </div>
+
+            <div
+              className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">2020-PRESENT
+            </div>
+
+            {/* Modal Viewer, hidden until thumbnail is clicked on, 
+            then rendered on portal different from root */}
+            {(album.id === openModalId) && 
+              <ModalViewer
+                album={album} 
+                openModalId={openModalId} 
+                closeModal={() => {
+                  setOpenModalId(null);
+                  console.log('closing modal');}}/>}
 
         </div>
       ))}
 
       {/* Clones on right side */}
       {clonesRight.map((src, index) => (
-        <div key={`cloneRight-${index}`} className="thumbnail-window" style={THUMBNAIL_WINDOW}>
-          <img className="thumbnail-img-clone" src={src}/>
+        <div 
+          key={`cloneRight-${index}`} 
+          className="thumbnail-box" 
+          style={THUMBNAIL_FLEX_ITEM}>
+
+            <img className="thumbnail-img-clone" src={src}/>
+
+            <div
+              className="thumbnail-description absolute -bottom-10 bg-blue">
+              This is a short description that should only show up 
+              when the user hovers over the thumbnail image.
+            </div>    
+
+            <div
+              className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">EXAMPLE PROJECT TITLE
+            </div>
+
+            <div
+              className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">2020-PRESENT
+            </div>
         </div>
       ))}
 

@@ -11,29 +11,38 @@
 }
 
 .carousel-whole {
-  height: 50vh;
+  height: 70vh;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   overflow: hidden;
 }
 
 .thumbnail-img, .thumbnail-img-clone {
+  display: inline-block;
+
+  padding: 0.3rem;
+
+  /* margin: 0.3rem; */
+  /* margin: 0 auto;
+  padding: 0.25rem; */
+
+  width: 100%; 
   aspect-ratio: 3/2;   /* make sure ratio is uniform */
   object-fit: cover;   /* make sure image is cropped, not stretched */
-  width: 100%; /* fills container */
   opacity: 1;
   /* transition: opacity 150ms linear; */
-  padding: 0.25rem;
-  margin: 0.25rem;
-  align-content: center;
-  justify-content: center;
+  /* padding: 0.25rem; */
+
+  /* align-content: center;
+  justify-content: center; */
 }
+
 
 .thumbnail-box {
   /* position: relative; */
 
-  background-color: grey;
+  /* background-color: grey; */
 }
 /* .thumbnail-window:hover .thumbnail-img {
   transform: scale(1.015);
@@ -67,7 +76,6 @@
   display: block;
 
   font-size: 3vw;
-  color: white;
 }
 
 .left {
@@ -122,18 +130,3 @@
 .bg {
   top: 20%;
 }
-
-
-
-/* .slides-each {
-  display: none;
-  position: absolute;
-
-  width: 70vw;
-  top: 0%;
-  left: 11%
-}
-
-.slides-each .displaySlide {
-  display: block;
-} */

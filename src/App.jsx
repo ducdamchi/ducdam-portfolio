@@ -64,7 +64,7 @@ export default function App() {
     <>
       <NavSection/>
       <HighlightSection/>
-      <AllProjectsSection/>
+      {/* <AllProjectsSection/> */}
     </>
   )
 }

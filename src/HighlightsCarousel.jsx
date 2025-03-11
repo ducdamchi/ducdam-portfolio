@@ -99,7 +99,7 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
         setEdgeTransition(false);
       }, 300)
     }
-    // console.log("idx: " + carouselIndex);
+    console.log("Carousel index: " + carouselIndex);
 
   }, [isEdgeTransition, carouselIndex])
 

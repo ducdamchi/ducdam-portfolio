@@ -154,12 +154,42 @@
  },
  {
   "id": 4,
-  "numImages": 1,
+  "numImages": 6,
   "imgList": [
    {
     "id": "4.1",
-    "src": "photography/Highlights/ex4/img1.jpg",
+    "src": "photography/Highlights/ex4/DSCF0339.JPG",
     "index": 0,
+    "description": ""
+   },
+   {
+    "id": "4.2",
+    "src": "photography/Highlights/ex4/DSCF0340.JPG",
+    "index": 1,
+    "description": ""
+   },
+   {
+    "id": "4.3",
+    "src": "photography/Highlights/ex4/DSCF0341.JPG",
+    "index": 2,
+    "description": ""
+   },
+   {
+    "id": "4.4",
+    "src": "photography/Highlights/ex4/DSCF0344.JPG",
+    "index": 3,
+    "description": ""
+   },
+   {
+    "id": "4.5",
+    "src": "photography/Highlights/ex4/DSCF0346.JPG",
+    "index": 4,
+    "description": ""
+   },
+   {
+    "id": "4.6",
+    "src": "photography/Highlights/ex4/img1.jpg",
+    "index": 5,
     "description": ""
    }
   ],
