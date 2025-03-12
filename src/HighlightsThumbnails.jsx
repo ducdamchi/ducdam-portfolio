@@ -95,33 +95,35 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         <div 
           className="thumbnail-flex-item" 
           key={album.id} 
-          style={THUMBNAIL_FLEX_ITEM}
-          onMouseEnter={() => setHoverId(album.id)}
-          onMouseLeave={() => setHoverId(null)}>
+          style={THUMBNAIL_FLEX_ITEM}>
             
-            <div className="relative
-             border-3 border-green-500">
-              <img 
-                className="thumbnail-img" 
-                src={album.thumbnail.src} 
-                onClick={() => {
-                setOpenModalId(album.id);}}/>
+            <div 
+              className="thumbnail-box border-4 border-orange-500"
+              onMouseEnter={() => setHoverId(album.id)}
+              onMouseLeave={() => setHoverId(null)}>
+              <div className="thumbnail-img-title-container relative border-3 border-green-500">
+                <img 
+                  className="thumbnail-img" 
+                  src={album.thumbnail.src} 
+                  onClick={() => {
+                  setOpenModalId(album.id);}}/>
 
-              <div
-                className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">EXAMPLE PROJECT TITLE
+                <div
+                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">EXAMPLE PROJECT TITLE
+                </div>
+
+                <div
+                  className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">2020-PRESENT
+                </div> 
               </div>
-
-              <div
-                className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">2020-PRESENT
-              </div> 
-            </div>
-
-              
-            {(album.id === hoverId) && <div
-              className="thumbnail-description">
-              This is a short description that should only show up 
-              when the user hovers over the thumbnail image.
-            </div>}   
+          
+                
+              {(album.id === hoverId) && <div
+                className="thumbnail-description">
+                This is a short description that should only show up 
+                when the user hovers over the thumbnail image.
+              </div>}
+            </div>   
 
 
             {/* Modal Viewer, hidden until thumbnail is clicked on, 

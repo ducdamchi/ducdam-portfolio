@@ -7,90 +7,102 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 :root {
-  --slider-padding: 2.5rem;
+  --slider-padding: 3.5rem;
   --images-per-slide: 3;
 }
 
+/* HIGHTLIGHTS CAROUSEL */
 .carousel-whole {
+  position: relative;
+  height: calc((50% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666);
+  width: 100vw;
   display: flex;
   justify-content: center;
   overflow: hidden;
-}
-
-.thumbnail-img, .thumbnail-img-clone {
-  display: inline-block;
-
-  width: 100%; 
-  aspect-ratio: 3/2;   /* make sure ratio is uniform */
-  object-fit: cover;   /* make sure image is cropped, not stretched */
-  opacity: 1;
-
-  z-index: 10;
-}
-
-.thumbnail-flex-item {
-
-  /* fits all items into flex container space 
-  but don't allow them to shrink */
-  flex: none;
-  position: relative;
-  text-align: center; /* to center img element */
-
-  scale: 1;
-  height: 100%;
-  transition: 500ms ease-in-out;
-
-  padding: 0.5rem;
-
-  /* overflow-x: hidden;
-  overflow-y: visible; */
-
-  background-color: white;
-}
-
-.thumbnail-flex-item:hover {
-  z-index: 20;
-  scale: 1.04;
-  height: 115%;
-  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
-}
-
-.thumbnail-description {
-
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-  
-  width: 100%;
-  z-index: -1;
-
-  padding: 0.5rem;
-  text-align: left;
-  color: black;
-  /* border-width: 2px;
-  border-color: black;
-  border-style: solid; */
-/* 
-  animation-name: slidedown;
-  animation-duration: 1s; */
+  border-width: 4px;
+  border-style: solid;
+  border-color :aqua;
 }
 
 .carousel-btn {
-  /* flex: none; */
+  position: absolute;
+  top: 0%;
+  height: 100%;
   width: var(--slider-padding);
-  /* height: 100%; */
-
-  z-index: 10;
-
+  z-index: 2;
   background-color: rgb(255, 255, 255);
   font-size: 3rem;
   transition: background-color 200ms ease-out;
+  border-width: 4px;
+  border-color: blueviolet;
+  border-style: solid;
+}
+
+.carousel-btn-left {
+  left: 0%;
+}
+.carousel-btn-right {
+  right: 0%
 }
 
 .carousel-whole:hover .carousel-btn {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.thumbnail-img, .thumbnail-img-clone {
+  display: inline-block;
+  width: 100%; 
+  aspect-ratio: 3/2;   /* make sure ratio is uniform */
+  object-fit: cover;   /* make sure image is cropped, not stretched */
+  opacity: 1;
+  z-index: 2;
+}
+
+.thumbnail-flex-item {
+  flex: none;
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+  /* background-color: white; */
+}
+
+.thumbnail-box {
+  scale: 1;
+  transition: 200ms ease-in-out
+}
+
+.thumbnail-box:hover {
+  z-index: 3;
+  scale: 1.04;
+  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
+}
+
+
+
+@keyframes slidedown {
+  from {
+    transform: translateY(-5rem);
+  }
+
+  to {
+    transform: translateY(0rem);
+  }
+}
+
+.thumbnail-description {
+  position: relative;
+  width: 100%;
+  z-index: -1;
+  padding: 1rem;
+  text-align: left;
+  color: black;
+  border-width: 4px;
+  border-color: blue;
+
+  animation-name: slidedown;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in;
+}
 
 /* SLIDES VIEW MODE CONTENT */
 .slides-btn {
