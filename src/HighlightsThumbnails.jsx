@@ -10,20 +10,11 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
   /*************** CSS **************/
   // aka the flex container for all the thumbnails
   const THUMBNAIL_FLEX_CONTAINER = {
-
     display: 'flex',
     alignItems: 'flex-start',
-    //justifyContent: should not be center because that would mess with slides order.
-
-    // check App.css root for --slider-padding
-    // TODO: dynamically change width between devices
     position: 'relative',
     top: '0%',
     width: 'calc(100% - 2 * var(--slider-padding))',
-    // height: '30vh',
-
-    /* If EdgeTransition flag is set, transform from clone slide to real 
-    slide without any effects. If flag not set, use transform transition.*/
     '--slider-index': carouselIndex, // to be modified with useState()
     transform: 'translateX(calc(var(--slider-index) * -100%))',
     transition: isEdgeTransition? 'none' : 'transform 750ms ease-in-out',
@@ -31,6 +22,9 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
 
   const THUMBNAIL_FLEX_ITEM = {
     width: imageWidthPercent, 
+    borderWidth: '3px',
+    borderStyle: 'solid',
+    borderColor: 'red'
   }
 
   /*************** STATES AND VARS **************/
@@ -72,7 +66,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
   }, [hoverId])
 
   return (
-    <div ref={thumbnails} className="thumbnail-flex-container" style={THUMBNAIL_FLEX_CONTAINER}>
+    <div ref={thumbnails} style={THUMBNAIL_FLEX_CONTAINER}>
       
       {/* Clones on left side */}
       {clonesLeft.map((src, index) => (
@@ -105,7 +99,8 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
           onMouseEnter={() => setHoverId(album.id)}
           onMouseLeave={() => setHoverId(null)}>
             
-            <div className="relative">
+            <div className="relative
+             border-3 border-green-500">
               <img 
                 className="thumbnail-img" 
                 src={album.thumbnail.src} 

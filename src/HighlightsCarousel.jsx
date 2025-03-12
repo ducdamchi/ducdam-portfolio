@@ -6,7 +6,7 @@ import HighlightsThumbnails from './HighlightsThumbnails'
 export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, imageWidthPercent} ) {
 
   const CAROUSEL_WHOLE = {
-    height: 'calc(((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666)'
+    height: 'calc((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666)'
   }
 
   /*************** STATES AND VARS **************/
@@ -14,7 +14,6 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
   const [isEdgeTransition, setEdgeTransition] = useState(false); /* handling Edge case transition? */
   const [rightDisabled, setRightDisabled] = useState(false); /* disabling next button */
   const [leftDisabled, setLeftDisabled] = useState(false); /* disabling previous button */
-  const carousel = useRef(null)
 
   /*************** FUNCTIONS **************/
   /* Disable a button for time_ms miliseconds */
@@ -94,27 +93,6 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
     }
   }
 
-  function handleMouseEnter() {
-    if (carousel.current) {
-      carousel.current.style.height = 'calc((((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666) * 2)'
-      console.log(carousel.current.style.height);
-    }
-  }
-
-  function handleMouseLeave() {
-    if (carousel.current) {
-      carousel.current.style.height = 'calc(((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666)'
-      console.log(carousel.current.style.height);
-    }
-  }
-
-  useEffect(() => {
-    if (carousel.current) {
-      console.log(carousel.current.style.height);
-      const carouselHeight = carousel.current.style.height;
-    }
-  },[])
-
   /*************** HOOKS **************/
   /* Update function for whenever carouselIndex changes, or edgeTransition flag is set */
   useEffect(() => {
@@ -131,7 +109,7 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
 
   /*************** HTML **************/
   return (
-    <div ref={carousel} className="carousel-whole" style={CAROUSEL_WHOLE}>
+    <div className="carousel-whole" style={CAROUSEL_WHOLE}>
 
           {/* Left side button */}
           <button 

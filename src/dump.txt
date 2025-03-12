@@ -1,0 +1,88 @@
+.thumbnail-img, .thumbnail-img-clone {
+  display: inline-block;
+
+  width: 100%; 
+  aspect-ratio: 3/2;   /* make sure ratio is uniform */
+  object-fit: cover;   /* make sure image is cropped, not stretched */
+  opacity: 1;
+
+  z-index: 10;
+}
+
+.thumbnail-flex-item {
+
+  /* fits all items into flex container space 
+  but don't allow them to shrink */
+  flex: none;
+  position: relative;
+  text-align: center; /* to center img element */
+
+  scale: 1;
+  height: 100%;
+  transition: 500ms ease-in-out;
+
+  /* border-width: 1px;
+  border-color: black;
+  border-style: solid; */
+  padding: 0.5rem;
+
+  /* overflow-x: hidden;
+  overflow-y: visible; */
+
+  background-color: white;
+}
+
+.thumbnail-flex-item:hover {
+  z-index: 20;
+  scale: 1.04;
+  height: 115%;
+  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
+}
+
+.thumbnail-flex-item:hover .thumbnail-description{
+  z-index: 20;
+}
+
+.thumbnail-description {
+
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  
+  width: 100%;
+  z-index: -1;
+
+  padding: 0.5rem;
+  text-align: left;
+  color: black;
+}
+
+return (
+  <div 
+    className="flex justify-center overflow-hidden group w-screen h-96 border border-red-500">
+
+        {/* Left side button */}
+        <button 
+          id="arrowLeft" 
+          className='carousel-btn w-[var(--slider-padding)] z-2 bg-white/100 text-4xl transition-colors duration-200 ease-out group-hover:bg-white/50 border border-blue-500'
+          onClick={prevSlide}
+          disabled={leftDisabled}>
+          <div className='arrowLeft'>&#8249;</div>
+        </button>
+
+        <HighlightsThumbnails 
+          carouselIndex={carouselIndex} 
+          isEdgeTransition={isEdgeTransition} 
+          imageWidthPercent={imageWidthPercent} 
+          imagesPerSlide={imagesPerSlide}/>
+
+        {/* Right side button */}
+        <button 
+          id="arrowRight" 
+          className='carousel-btn w-[var(--slider-padding)] z-2 bg-white/100 text-4xl transition-colors duration-200 ease-out group-hover:bg-white/50 border border-blue-500'
+          onClick={nextSlide}
+          disabled={rightDisabled}>
+          <div className='arrowRight'>&#8250;</div>
+        </button>
+  </div>
+)

@@ -12,15 +12,9 @@
 }
 
 .carousel-whole {
-  height: 50vh;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   overflow: hidden;
-}
-
-.carousel-whole:hover {
-  height: 60vh;
 }
 
 .thumbnail-img, .thumbnail-img-clone {
@@ -46,9 +40,6 @@
   height: 100%;
   transition: 500ms ease-in-out;
 
-  /* border-width: 1px;
-  border-color: black;
-  border-style: solid; */
   padding: 0.5rem;
 
   /* overflow-x: hidden;
@@ -62,10 +53,6 @@
   scale: 1.04;
   height: 115%;
   box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
-}
-
-.thumbnail-flex-item:hover .thumbnail-description{
-  z-index: 20;
 }
 
 .thumbnail-description {
