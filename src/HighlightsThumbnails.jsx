@@ -114,19 +114,18 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                   setOpenModalId(album.id);}}/>
 
                 <div
-                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">EXAMPLE PROJECT TITLE
+                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">{album.title}
                 </div>
 
                 <div
-                  className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">2020-PRESENT
+                  className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">{album.year}
                 </div> 
               </div>
           
                 
               {(album.id === hoverId) && <div
                 className="thumbnail-description">
-                This is a short description that should only show up 
-                when the user hovers over the thumbnail image.
+                {album.description}
               </div>}
             </div>   
 
