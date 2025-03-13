@@ -6,27 +6,25 @@ export default function App() {
   // const numSlidesIndex
   function NavSection() {
     return (
-      <>
+      <div className='relative top-10'>
           {/* Logo section */}
-          <div className="flex justify-center items-center p-1 m-1">
+          <div className="relative flex justify-center items-center p-1 m-1 text-xl">
             {/* <span className="homeButton-ghost"></span> */}
             <a href="index.html" target="_blank" rel="noopener noreferrer" className="bg-red-200 p-1 m-1">Logo</a>
             {/* <span class="home-button-real">Home</span> */}
           </div>
 
           {/* Navigation bar */}
-          <nav className="flex justify-center items-center">
-            <ul>
-              <li className="inline-block p-1 m-1 bg-neutral-300">Photography</li>
-              <li className="inline-block p-1 m-1 bg-neutral-300">Film</li>
-              <li className="inline-block p-1 m-1 bg-neutral-300">Woodworking</li>
-              <li className="inline-block p-1 m-1 bg-neutral-300">About</li>
-            </ul>
+          <nav className="relative flex justify-center items-center p-2 m-2 text-xl font-medium gap-2">
+              <div className="navbar-item inline-block p-1 m-1">Photography</div>
+              <div className="navbar-item inline-block p-1 m-1">Film</div>
+              <div className="navbar-item inline-block p-1 m-1">Woodworking</div>
+              <div className="navbar-item inline-block p-1 m-1">About</div>
           </nav>
 
           {/* Title of page currently browsed */}
-          <h1 className="flex justify-center items-center p-1 m-1 text-2xl">Photography</h1>
-      </>
+          <h1 className="relative top-10 flex justify-center items-center p-1 m-1 text-3xl font-semibold">PHOTOGRAPHY</h1>
+      </div>
     )
   }
 
@@ -46,13 +44,13 @@ export default function App() {
     const imageWidthPercent = `${100 / imagesPerSlide}%`;
 
     return (
-      <>
-        <h2 className="flex items-center p-1 m-1 text-lg">Highlights</h2>
+      <div className='relative top-35'>
+        {/* <h2 className="relative left-27 p-1 m-1 text-2xl">Projects</h2>s */}
         <HighlightsCarousel 
           numSlidesIndex={numSlidesIndex} 
           imagesPerSlide={imagesPerSlide} 
           imageWidthPercent={imageWidthPercent}/>
-      </>
+      </div>
     )
   }
 
@@ -66,9 +64,11 @@ export default function App() {
 
   return (
     <>
-      <NavSection/>
-      <HighlightSection/>
-      {/* <AllProjectsSection/> */}
+      <div className='relative'>
+        <NavSection/>
+        <HighlightSection/>
+
+      </div>
     </>
   )
 }

@@ -21,9 +21,9 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
 
   const THUMBNAIL_FLEX_ITEM = {
     width: imageWidthPercent, 
-    borderWidth: '3px',
-    borderStyle: 'solid',
-    borderColor: 'red'
+    // borderWidth: '3px',
+    // borderStyle: 'solid',
+    // borderColor: 'red'
   }
 
   /*************** STATES AND VARS **************/
@@ -95,8 +95,8 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
             className="thumbnail-flex-item" 
             style={THUMBNAIL_FLEX_ITEM}>
 
-            <div className="thumbnail-box border-4 border-orange-500">
-              <div className="thumbnail-info-container-clone relative border-3 border-green-500">
+            <div className="thumbnail-box">
+              <div className="thumbnail-info-container-clone relative">
                 <img 
                   className="thumbnail-img-clone" 
                   src={cloneInfo[0]}/>
@@ -123,7 +123,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
           style={THUMBNAIL_FLEX_ITEM}>
             
             <div 
-              className="thumbnail-box border-4 border-orange-500"
+              className="thumbnail-box"
               onMouseEnter={() => {
                 setTimeout(() => {
                   setHoverId(album.id);
@@ -137,7 +137,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                 carouselBtnRight.current.style.opacity = '1';
                 }}>
 
-              <div className="thumbnail-info-container relative border-3 border-green-500">
+              <div className="thumbnail-info-container relative">
                 <img 
                   className="thumbnail-img" 
                   src={album.thumbnail.src} 
@@ -145,7 +145,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                   setOpenModalId(album.id);}}/>
 
                 <div
-                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">{album.title}
+                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-bold">{album.title}
                 </div>
 
                 <div
@@ -155,7 +155,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
           
                 
               {(album.id === hoverId) && <div
-                className="thumbnail-description">
+                className="thumbnail-description text-base font-[20]">
                 {album.description}
               </div>}
             </div>   
@@ -181,8 +181,8 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
           className="thumbnail-flex-item" 
           style={THUMBNAIL_FLEX_ITEM}>
 
-            <div className="thumbnail-box border-4 border-orange-500">
-              <div className="thumbnail-info-container-clone relative border-3 border-green-500">
+            <div className="thumbnail-box">
+              <div className="thumbnail-info-container-clone relative">
                 <img 
                   className="thumbnail-img-clone" 
                   src={cloneInfo[0]}/>
