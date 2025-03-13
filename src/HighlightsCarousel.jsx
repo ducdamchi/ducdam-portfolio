@@ -4,12 +4,29 @@ import './App.css'
 import HighlightsThumbnails from './HighlightsThumbnails'
 
 export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, imageWidthPercent} ) {
-
+  const CAROUSEL_BTN_STYLE = {
+    display: 'block',
+    position: 'absolute',
+    top: '0%',
+    height: '100%',
+    width: 'var(--slider-padding)',
+    fontSize: '4rem',
+    zIndex: '3',
+    opacity: '1',
+    // transition: 'opacity 600ms ease-in-out'
+    // backgroundColor: 'rgb(255, 255, 255)',
+    // borderWidth: '4px',
+    // borderColor:'rgb(231, 15, 198)',
+    // borderStyle: 'solid',
+    
+  }
   /*************** STATES AND VARS **************/
   const [carouselIndex, setCarouselIndex] = useState(1);  /* slide index we're on */
   const [isEdgeTransition, setEdgeTransition] = useState(false); /* handling Edge case transition? */
   const [rightDisabled, setRightDisabled] = useState(false); /* disabling next button */
   const [leftDisabled, setLeftDisabled] = useState(false); /* disabling previous button */
+  const carouselBtnLeft = useRef(null);
+  const carouselBtnRight = useRef(null);
 
   /*************** FUNCTIONS **************/
   /* Disable a button for time_ms miliseconds */
@@ -105,29 +122,43 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
 
   /*************** HTML **************/
   return (
+      
       <div className="carousel-whole">
 
         {/* Left side button */}
-        <button className='carousel-btn carousel-btn-left'
-          onClick={prevSlide}
-          disabled={leftDisabled}>
-          <div>&#8249;</div>
-        </button>
-   
+        <div>
+          <div className='carousel-btn-bg btn-bg-left'></div>
+          <button 
+            ref={carouselBtnLeft}
+            style={CAROUSEL_BTN_STYLE}
+            className='carousel-btn carousel-btn-left'
+            onClick={prevSlide}
+            disabled={leftDisabled}>
+            <div>&#8249;</div>
+          </button>
+        </div>
 
+   
         <HighlightsThumbnails 
           carouselIndex={carouselIndex} 
           isEdgeTransition={isEdgeTransition} 
           imageWidthPercent={imageWidthPercent} 
-          imagesPerSlide={imagesPerSlide}/>
+          imagesPerSlide={imagesPerSlide}
+          carouselBtnLeft={carouselBtnLeft}
+          carouselBtnRight={carouselBtnRight}/>
 
         {/* Right side button */}
-        <button className="carousel-btn carousel-btn-right"
-          onClick={nextSlide}
-          disabled={rightDisabled}>
-          <div>&#8250;</div>
-        </button>
-        
+        <div>
+          <div className='carousel-btn-bg btn-bg-right'></div>
+          <button
+            ref={carouselBtnRight}
+            style={CAROUSEL_BTN_STYLE}
+            className="carousel-btn carousel-btn-right"
+            onClick={nextSlide}
+            disabled={rightDisabled}>
+            <div>&#8250;</div>
+          </button>
+        </div>
 
       </div>
   )

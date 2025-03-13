@@ -7,14 +7,15 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 :root {
-  --slider-padding: 3.5rem;
+  --slider-padding: 5rem;
   --images-per-slide: 3;
+  --carousel-height: calc((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666);
 }
 
 /* HIGHTLIGHTS CAROUSEL */
 .carousel-whole {
   position: relative;
-  height: calc((50% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666);
+  height: var(--carousel-height);
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -24,18 +25,29 @@
   border-color :aqua;
 }
 
-.carousel-btn {
+.carousel-btn-bg {
   position: absolute;
   top: 0%;
   height: 100%;
   width: var(--slider-padding);
-  z-index: 2;
   background-color: rgb(255, 255, 255);
-  font-size: 3rem;
-  transition: background-color 200ms ease-out;
+  z-index: 2;
   border-width: 4px;
-  border-color: blueviolet;
+  border-color: rgb(231, 15, 198);
   border-style: solid;
+  transition: background-color 200ms ease-in-out;
+}
+
+.carousel-whole:hover .carousel-btn-bg {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-bg-left {
+  left: 0%;
+}
+
+.btn-bg-right {
+  right: 0%;
 }
 
 .carousel-btn-left {
@@ -43,10 +55,6 @@
 }
 .carousel-btn-right {
   right: 0%
-}
-
-.carousel-whole:hover .carousel-btn {
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .thumbnail-img, .thumbnail-img-clone {
@@ -75,13 +83,12 @@
   z-index: 3;
   scale: 1.04;
   box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
+  transition-delay: 400ms;
 }
-
-
 
 @keyframes slidedown {
   from {
-    transform: translateY(-5rem);
+    transform: translateY(-10rem);
   }
 
   to {
@@ -100,7 +107,7 @@
   border-color: blue;
 
   animation-name: slidedown;
-  animation-duration: 200ms;
+  animation-duration: 100ms;
   animation-timing-function: ease-in;
 }
 

@@ -1,3 +1,18 @@
+  const CAROUSEL_BTN_STYLE = {
+    position: 'absolute',
+    top: '0%',
+    height: '100%',
+    backgroundColor: 'rgb(255, 255, 255)',
+    width: 'var(--slider-padding)',
+    fontSize: '4rem',
+    zIndex: '3',
+    borderWidth: '4px',
+    borderColor:'rgb(231, 15, 198)',
+    borderStyle: 'solid',
+    opacity: '1',
+    transition: 'opacity 50ms ease-in-out'
+  }
+
 .thumbnail-img, .thumbnail-img-clone {
   display: inline-block;
 

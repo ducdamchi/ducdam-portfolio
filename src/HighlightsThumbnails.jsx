@@ -4,7 +4,7 @@ import './App.css'
 import albumsData from './albums.json'
 import ModalViewer from './ModalViewer';
 
-export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, imageWidthPercent, imagesPerSlide}) {
+export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, imageWidthPercent, imagesPerSlide, carouselBtnLeft, carouselBtnRight}) {
 
   /*************** CSS **************/
   // aka the flex container for all the thumbnails
@@ -85,10 +85,6 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     }
   }, []);
 
-  useEffect(() => {
-    console.log(clonesLeft);
-  },[])
-
   return (
     <div ref={thumbnails} style={THUMBNAIL_FLEX_CONTAINER}>
       
@@ -128,8 +124,18 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
             
             <div 
               className="thumbnail-box border-4 border-orange-500"
-              onMouseEnter={() => setHoverId(album.id)}
-              onMouseLeave={() => setHoverId(null)}>
+              onMouseEnter={() => {
+                setTimeout(() => {
+                  setHoverId(album.id);
+                  carouselBtnLeft.current.style.opacity = '0';
+                  carouselBtnRight.current.style.opacity = '0';
+                }, 400)
+              }}
+              onMouseLeave={() => {
+                setHoverId(null);
+                carouselBtnLeft.current.style.opacity = '1';
+                carouselBtnRight.current.style.opacity = '1';
+                }}>
 
               <div className="thumbnail-info-container relative border-3 border-green-500">
                 <img 
