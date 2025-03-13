@@ -7,7 +7,7 @@
 @import "tailwindcss/utilities.css" layer(utilities);
 
 :root {
-  --slider-padding: 5rem;
+  --slider-padding: 6rem;
   --images-per-slide: 3;
   --carousel-height: calc((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666);
 }
@@ -88,11 +88,11 @@
 
 @keyframes slidedown {
   from {
-    transform: translateY(-10rem);
+    opacity: 0;
   }
 
   to {
-    transform: translateY(0rem);
+    opacity: 1;
   }
 }
 
@@ -107,7 +107,7 @@
   border-color: blue;
 
   animation-name: slidedown;
-  animation-duration: 100ms;
+  animation-duration: 150ms;
   animation-timing-function: ease-in;
 }
 
