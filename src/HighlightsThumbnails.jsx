@@ -37,6 +37,11 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
   const [clonesLeft, setClonesLeft] = useState([]);    
   const [clonesRight, setClonesRight] = useState([]);   
 
+  function handleThumbnailHover(albumId) {
+    setHoverId(albumId);
+    carouselBtnLeft.current.style.opacity = '0';
+    carouselBtnRight.current.style.opacity = '0';
+  }
 
   /*************** HOOKS **************/
   /* Make clones of first and last page of carousel */
@@ -85,6 +90,17 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     }
   }, []);
 
+  /* Pick background color for thumbnail description that matches the image dominant color */
+  useEffect(() => {
+    if (hoverId != null) {
+      const img = document.getElementById(`thumbnail-img-${hoverId}`);
+      const thumbnail_description = document.getElementById(`thumbnail-description-${hoverId}`);
+      const colorThief = new ColorThief();
+      const domColor = colorThief.getColor(img);
+      thumbnail_description.style.backgroundColor = `rgb(${domColor[0]}, ${domColor[1]}, ${domColor[2]})`;
+    }
+  }, [hoverId])
+
   return (
     <div ref={thumbnails} style={THUMBNAIL_FLEX_CONTAINER}>
       
@@ -102,11 +118,11 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                   src={cloneInfo[0]}/>
 
                 <div
-                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">{cloneInfo[1]}
+                  className="thumbnail-title">{cloneInfo[1]}
                 </div>
 
                 <div
-                  className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">{cloneInfo[2]}
+                  className="thumbnail-year">{cloneInfo[2]}
                 </div> 
               </div>
             </div>
@@ -118,19 +134,13 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         .filter((album) => album.isHighlight === true)
         .map((album) => (
         <div 
-          className="thumbnail-flex-item" 
+          className="thumbnail-flex-item"
           key={album.id} 
           style={THUMBNAIL_FLEX_ITEM}>
             
             <div 
               className="thumbnail-box"
-              onMouseEnter={() => {
-                setTimeout(() => {
-                  setHoverId(album.id);
-                  carouselBtnLeft.current.style.opacity = '0';
-                  carouselBtnRight.current.style.opacity = '0';
-                }, 400)
-              }}
+              onMouseEnter={() => handleThumbnailHover(album.id)}
               onMouseLeave={() => {
                 setHoverId(null);
                 carouselBtnLeft.current.style.opacity = '1';
@@ -139,23 +149,32 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
 
               <div className="thumbnail-info-container relative">
                 <img 
-                  className="thumbnail-img" 
+                  className="thumbnail-img"
+                  id={`thumbnail-img-${album.id}`} 
                   src={album.thumbnail.src} 
                   onClick={() => {
                   setOpenModalId(album.id);}}/>
 
-                <div
-                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-bold">{album.title}
+                <div className='thumbnail-title-year-container'>
+                  <div
+                    className="thumbnail-title-year">
+                    <div
+                      className="thumbnail-year">
+                      {album.title}
+                    </div>
+                    <div
+                      className="thumbnail-year">
+                      {album.year}
+                    </div>
+                  </div>
                 </div>
-
-                <div
-                  className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">{album.year}
-                </div> 
               </div>
           
                 
-              {(album.id === hoverId) && <div
-                className="thumbnail-description text-base font-[20]">
+              {(album.id === hoverId) && 
+              <div
+                id={`thumbnail-description-${album.id}`}
+                className="thumbnail-description text-lg font-thin">
                 {album.description}
               </div>}
             </div>   
@@ -188,11 +207,11 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                   src={cloneInfo[0]}/>
 
                 <div
-                  className="thumbnail-title absolute bottom-15 left-6 text-2xl text-white font-extrabold">{cloneInfo[1]}
+                  className="thumbnail-title">{cloneInfo[1]}
                 </div>
 
                 <div
-                  className="thumbnail-year absolute bottom-8 left-6 text-lg text-white font-bold">{cloneInfo[2]}
+                  className="thumbnail-year">{cloneInfo[2]}
                 </div> 
               </div>
             </div>

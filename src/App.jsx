@@ -15,7 +15,7 @@ export default function App() {
           </div>
 
           {/* Navigation bar */}
-          <nav className="relative flex justify-center items-center p-2 m-2 text-xl font-medium gap-2">
+          <nav className="relative flex justify-center items-center p-2 m-2 font-medium gap-2">
               <div className="navbar-item inline-block p-1 m-1">Photography</div>
               <div className="navbar-item inline-block p-1 m-1">Film</div>
               <div className="navbar-item inline-block p-1 m-1">Woodworking</div>
@@ -23,7 +23,7 @@ export default function App() {
           </nav>
 
           {/* Title of page currently browsed */}
-          <h1 className="relative top-10 flex justify-center items-center p-1 m-1 text-3xl font-semibold">PHOTOGRAPHY</h1>
+          <h1 className="relative top-10 flex justify-center items-center p-1 m-1 font-semibold">PHOTOGRAPHY</h1>
       </div>
     )
   }
