@@ -43,6 +43,8 @@ export default function App() {
     /* How much of the screen's width would an image take up, stored as a str */
     const imageWidthPercent = `${100 / imagesPerSlide}%`;
 
+    
+
     return (
       <div className='relative top-35'>
         {/* <h2 className="relative left-27 p-1 m-1 text-2xl">Projects</h2>s */}

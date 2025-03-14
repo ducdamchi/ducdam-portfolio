@@ -159,7 +159,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                   <div
                     className="thumbnail-title-year">
                     <div
-                      className="thumbnail-year">
+                      className="thumbnail-title">
                       {album.title}
                     </div>
                     <div
