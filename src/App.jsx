@@ -50,21 +50,20 @@ export default function App() {
     useEffect(() => {
       if (screenWidth < 1200) {
         setImagesPerSlide(1);
-        document.documentElement.style.setProperty('--images-per-slide', '1')
       } else {
         setImagesPerSlide(3);
-        document.documentElement.style.setProperty('--images-per-slide', '3')
       }
-    }, [])
+    }, [screenWidth]);
 
     useEffect(() => {
       // number of slides + 2 fake slides - 1 to convert to indices
-      setNumSlidesIndex((numAlbums / imagesPerSlide) + 2 - 1);
-    },[imagesPerSlide]) 
+      setNumSlidesIndex(Math.floor(numAlbums / imagesPerSlide) + 2 - 1);
+    },[imagesPerSlide, numAlbums]) 
 
     useEffect(() => {
+      console.log("images per slide:", imagesPerSlide);
       console.log("number of slides index:", numSlidesIndex);
-    },[])
+    },[imagesPerSlide, numSlidesIndex])
 
     return (
       <div className='relative top-35'>

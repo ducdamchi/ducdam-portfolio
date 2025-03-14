@@ -8,8 +8,6 @@
 
 :root {
   --slider-padding: 7rem;
-  --images-per-slide: 3;
-  --carousel-height: calc((100% - 2 * var(--slider-padding)) / var(--images-per-slide) * 0.666);
   background-color:rgb(250,250,250);
 }
 
@@ -82,7 +80,7 @@ h1 {
 /* HIGHTLIGHTS CAROUSEL */
 .carousel-whole {
   position: relative;
-  height: var(--carousel-height);
+
   width: 100vw;
   display: flex;
   justify-content: center;

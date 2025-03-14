@@ -44,6 +44,10 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
   }
 
   /*************** HOOKS **************/
+  useEffect(() => {
+    console.log("from child, images per slide:", imagesPerSlide);
+  },[imagesPerSlide])
+
   /* Make clones of first and last page of carousel */
   const thumbnails = useRef(null);
   useEffect(() => {
@@ -82,13 +86,13 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         clonesRightLst.push(clone_info)
       }
     
-      // console.log("clones Left:", clonesLeftLst);
-      // console.log("clones Right:", clonesRightLst);
+      console.log("clones Left:", clonesLeftLst);
+      console.log("clones Right:", clonesRightLst);
 
       setClonesLeft(clonesLeftLst);
       setClonesRight(clonesRightLst);
     }
-  }, []);
+  }, [imagesPerSlide]);
 
   /* Pick background color for thumbnail description that matches the image dominant color */
   useEffect(() => {

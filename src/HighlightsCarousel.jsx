@@ -4,6 +4,10 @@ import './App.css'
 import HighlightsThumbnails from './HighlightsThumbnails'
 
 export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
+
+  const CAROUSEL_WHOLE = {
+    height: `calc((100% - 2 * var(--slider-padding)) / ${imagesPerSlide} * 0.666)`
+  }
   const CAROUSEL_BTN_STYLE = {
     display: 'block',
     position: 'absolute',
@@ -123,7 +127,7 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
   /*************** HTML **************/
   return (
       
-      <div className="carousel-whole">
+      <div className="carousel-whole" style={CAROUSEL_WHOLE}>
 
         {/* Left side button */}
         <div>
