@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import HighlightsThumbnails from './HighlightsThumbnails'
 
-export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, imageWidthPercent} ) {
+export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
   const CAROUSEL_BTN_STYLE = {
     display: 'block',
     position: 'absolute',
@@ -142,7 +142,6 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide, ima
         <HighlightsThumbnails 
           carouselIndex={carouselIndex} 
           isEdgeTransition={isEdgeTransition} 
-          imageWidthPercent={imageWidthPercent} 
           imagesPerSlide={imagesPerSlide}
           carouselBtnLeft={carouselBtnLeft}
           carouselBtnRight={carouselBtnRight}/>

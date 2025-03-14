@@ -4,7 +4,7 @@ import './App.css'
 import albumsData from './albums.json'
 import ModalViewer from './ModalViewer';
 
-export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, imageWidthPercent, imagesPerSlide, carouselBtnLeft, carouselBtnRight}) {
+export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, imagesPerSlide, carouselBtnLeft, carouselBtnRight}) {
 
   /*************** CSS **************/
   // aka the flex container for all the thumbnails
@@ -20,10 +20,10 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
   }
 
   const THUMBNAIL_FLEX_ITEM = {
-    width: imageWidthPercent, 
-    // borderWidth: '3px',
-    // borderStyle: 'solid',
-    // borderColor: 'red'
+    width: `${100 / imagesPerSlide}%`, 
+    borderWidth: '3px',
+    borderStyle: 'solid',
+    borderColor: 'red'
   }
 
   /*************** STATES AND VARS **************/
@@ -117,13 +117,20 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                   className="thumbnail-img-clone" 
                   src={cloneInfo[0]}/>
 
-                <div
-                  className="thumbnail-title">{cloneInfo[1]}
+                <div className='thumbnail-title-year-container'>
+                  <div
+                    className="thumbnail-title-year">
+                    <div
+                      className="thumbnail-title">
+                      {cloneInfo[1]}
+                    </div>
+                    <div
+                      className="thumbnail-year">
+                      {cloneInfo[2]}
+                    </div>
+                  </div>
                 </div>
 
-                <div
-                  className="thumbnail-year">{cloneInfo[2]}
-                </div> 
               </div>
             </div>
         </div>
@@ -206,13 +213,19 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
                   className="thumbnail-img-clone" 
                   src={cloneInfo[0]}/>
 
-                <div
-                  className="thumbnail-title">{cloneInfo[1]}
+                <div className='thumbnail-title-year-container'>
+                  <div
+                    className="thumbnail-title-year">
+                    <div
+                      className="thumbnail-title">
+                      {cloneInfo[1]}
+                    </div>
+                    <div
+                      className="thumbnail-year">
+                      {cloneInfo[2]}
+                    </div>
+                  </div>
                 </div>
-
-                <div
-                  className="thumbnail-year">{cloneInfo[2]}
-                </div> 
               </div>
             </div>
         </div>

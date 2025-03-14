@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
+import albumsData from './albums.json'
 import HighlightsCarousel from './HighlightsCarousel';
 
 export default function App() {
@@ -30,28 +31,47 @@ export default function App() {
 
   function HighlightSection () {
 
-    /* TO BE CHANGED FOR RESPONSIVE DESIGN */
+    const numAlbums = albumsData.filter((album) => album.isHighlight === true).length;
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [numSlidesIndex, setNumSlidesIndex] = useState(null);
+    const [imagesPerSlide, setImagesPerSlide] = useState(null); //keep track of this in .root in App.css as well
 
-    /* Ex: If user's POV has 3 slides with idx 0-2, 
-    then logically there are 5 slides with idx 0-4, to accomodate for 2 clone slides. */
-    const numSlidesIndex = 4;
+    useEffect(() => {
+      const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+      };
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
-    /* Number of images to display per slide */
-    // Note: keep track of this in .root in App.css as well
-    const imagesPerSlide = 3;
+    useEffect(() => {
+      if (screenWidth < 1200) {
+        setImagesPerSlide(1);
+        document.documentElement.style.setProperty('--images-per-slide', '1')
+      } else {
+        setImagesPerSlide(3);
+        document.documentElement.style.setProperty('--images-per-slide', '3')
+      }
+    }, [])
 
-    /* How much of the screen's width would an image take up, stored as a str */
-    const imageWidthPercent = `${100 / imagesPerSlide}%`;
+    useEffect(() => {
+      // number of slides + 2 fake slides - 1 to convert to indices
+      setNumSlidesIndex((numAlbums / imagesPerSlide) + 2 - 1);
+    },[imagesPerSlide]) 
 
-    
+    useEffect(() => {
+      console.log("number of slides index:", numSlidesIndex);
+    },[])
 
     return (
       <div className='relative top-35'>
         {/* <h2 className="relative left-27 p-1 m-1 text-2xl">Projects</h2>s */}
         <HighlightsCarousel 
           numSlidesIndex={numSlidesIndex} 
-          imagesPerSlide={imagesPerSlide} 
-          imageWidthPercent={imageWidthPercent}/>
+          imagesPerSlide={imagesPerSlide}/>
       </div>
     )
   }
