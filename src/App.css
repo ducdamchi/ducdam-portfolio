@@ -16,7 +16,7 @@
   font-size: clamp(0.1rem, calc(0.5vw + 0.5rem), 1.2rem);
 }
 
-h1, .thumbnail-title, .thumbnail-year {
+h1, .thumbnail-title, .thumbnail-year, .modal-slides-counter {
   font-family: 'Candara', 'Optima', 'Helvetica', sans-serif;
 }
 
@@ -177,62 +177,45 @@ h1 {
 }
 
 /* SLIDES VIEW MODE CONTENT */
-.slides-btn {
-  position: absolute;
-  display: block;
+@media (max-height: 450px) {
+  .modal-topRightNav {
+    gap: 5px;
+  }
 
-  font-size: 3vw;
+  .slides-each {
+    max-height: 329px;
+  }
 }
 
-.left {
-  top: 45%;
-  left: 0%;
-}
 
-.right {
-  top: 45%;
-  right: 0%;
-}
-
-.counter {
-  top: 30%;
-  right: 0%;
-  font-size: 1.5vw;
-}
 
 /* GALLERY VIEW MODE CONTENT */
-.gallery-each {
-  display: block;
-  position: relative;
-  width: 100%;
-  margin: 0;
 
+.gallery-all {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 600px));
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (max-width: 450px) {
+  .gallery-all {
+    gap: 5px;
+  }
+}
+
+@media (max-height: 1200px) {
+  .gallery-all {
+    max-height: 900px;
+  }
+}
+
+.gallery-each {
   opacity: 1;
   transition: opacity 200ms ease-in-out;
 }
 
 .gallery-each:hover {
-  opacity: 0.85;
-}
-
-/* SHARED BUTTONS FOR SLIDES AND GALLERY VIEW MODE */
-.modal-btn {
-  position: absolute;
-  display: block;
-
-  right: 0%; 
-  
-  font-size: 2.5vw;
-}
-
-.close {
-  top: 0%;
-}
-
-.view {
-  top: 10%;
-}
-
-.bg {
-  top: 20%;
+  opacity: 0.75;
 }

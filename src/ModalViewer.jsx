@@ -12,47 +12,21 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
   const MODAL_BG = {
     zIndex: '20',
     position: 'fixed',
-  
     top: '0%',
-    width: '100%',
-    height: '100%',
-  
+    width: '100vw',
+    height: '100vh',
     background: 'rgba(0, 0, 0, 0.9)',
   }
   
   const MODAL_CONTENT = {
     zIndex: '30',
     position: 'absolute',
-    display: 'block',
     textAlign: 'center',
-    
     width: '90%',
     height: '90%', 
     top: '5%',// = (100-height)/2
     left: '5%', // = (100-width)/2
-
     color: 'white',
-  }
-  
-  const SLIDES_ALL = {
-    display: 'block'
-  }
-
-  const SLIDES_EACH = {
-    display: 'none',
-    position: 'absolute',
-  
-    height: '100%',
-    top: '0%',
-    left: '11%',
-  }
-
-  const GALLERY_GRID_CONTAINER = {
-    display: 'none',
-
-    gridTemplateColumns: 'repeat(3, minmax(150px, 450px))',
-    gridGap: '30px',
-    justifyContent: 'center',
   }
   
   /*************** STATES AND VARS **************/
@@ -63,6 +37,8 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
   const modalRef = useRef(null);
   const galleryRef = useRef(null);
   const slidesRef = useRef(null);
+  const modal_slides_btnLeft = useRef(null);
+  const modal_slides_btnRight = useRef(null);
   
   /*************** FUNCTIONS **************/
   function prevSlide() {
@@ -135,6 +111,10 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
       if (isGalleryView) {
         /* Disable display and features for Slides View */
         slidesRef.current.style.display = 'none';
+        if (modal_slides_btnLeft.current && modal_slides_btnRight.current) {
+          modal_slides_btnLeft.current.style.display = 'none';
+          modal_slides_btnRight.current.style.display = 'none';
+        }
 
         /* Enable display for Gallery View */
         galleryRef.current.style.display = 'grid';
@@ -145,6 +125,10 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
 
         /* Enable display and features for Slides View */
         slidesRef.current.style.display = 'block';
+        if (modal_slides_btnLeft.current && modal_slides_btnRight.current) {
+          modal_slides_btnLeft.current.style.display = 'block';
+          modal_slides_btnRight.current.style.display = 'block';
+        }
       }
     }
   }, [isGalleryView])
@@ -154,12 +138,12 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
     if (bgRef.current) {
       if (bgColor === 'black') {
         bgRef.current.style.background = 'rgba(0, 0, 0, 0.95)';
-        modalRef.current.style.color = 'rgb(255, 255, 255)';
+        modalRef.current.style.color = 'rgb(250, 250, 250)';
       } else if (bgColor === 'grey') {
-        bgRef.current.style.background = 'rgba(127, 127, 127, 0.95)';
-        modalRef.current.style.color = 'rgb(255, 255, 255)';
+        bgRef.current.style.background = 'rgba(132, 132, 132, 0.95)';
+        modalRef.current.style.color = 'rgb(250, 250, 250)';
       } else {
-        bgRef.current.style.background = 'rgba(255, 255, 255, 0.95)';
+        bgRef.current.style.background = 'rgba(250, 250, 250, 0.95)';
         modalRef.current.style.color = 'rgb(0, 0, 0)';
       }
     }
@@ -175,72 +159,85 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
         <div ref={bgRef} className="modal-background" style={MODAL_BG}/>
         <div ref={modalRef} className="modal-content" style={MODAL_CONTENT}>
 
-          {/* Slides View Mode */}
-          <div 
-            ref={slidesRef} 
-            className="slides-all" 
-            style={SLIDES_ALL}>
+          <div className='modal-flexContainer flex justify-center border-3 border-blue-500 w-full h-full'>
 
-            <button
-              className="slides-btn left" 
-              onClick={prevSlide}>&#8249;</button>
-
-            {album.imgList.map((slide) => (
-              <img 
-                className="slides-each"
-                style = {SLIDES_EACH}
-                key={slide.id}
-                src={slide.src}
-              />
-            ))}
-
-            <button
-              className="slides-btn right" 
-              onClick={nextSlide}>&#8250;
-            </button>  
-
-            <div
-              className="slides-btn counter">{`${slideIndex+1}/${album.numImages}`}
+            <div className='modal-left-flexItem flex flex-auto w-[5%] h-full justify-center items-center border-3 border-green-500'>
+              <button
+                  ref={modal_slides_btnLeft}
+                  className="text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl" 
+                  onClick={prevSlide}>&#8249;
+              </button>
             </div>
 
-          </div>
+            <div className='modal-center-flexItem flex justify-center items-center -w-[100%] max-w-[1800px] h-auto border-3 border-red-500'>
+              {/* Slides View Mode */}
+              <div 
+                ref={slidesRef} 
+                className="slides-all">
+
+                {album.imgList.map((slide) => (
+                  <img 
+                    className="slides-each max-w-[85%] h-auto border-3 border-orange-500"
+                    key={slide.id}
+                    src={slide.src}
+                  />
+                ))}
+              </div>
+
+              {/* Gallery View Mode */}
+              <div 
+                ref={galleryRef} 
+                className="gallery-all">
+                {album.imgList.map((img) => (
+                  <img 
+                    className="gallery-each" 
+                    key={img.id}
+                    src={img.src}
+                    onClick={() => handleGalleryClick(img.index)}
+                  />
+                ))}
+              </div>
           
-          {/* Gallery View Mode */}
-          <div 
-            ref={galleryRef} 
-            className="gallery-all" 
-            style={GALLERY_GRID_CONTAINER}>
-            {album.imgList.map((img) => (
-              <img 
-                className="gallery-each" 
-                key={img.id}
-                src={img.src}
-                onClick={() => handleGalleryClick(img.index)}
-              />
-            ))}
+            </div>
+
+            <div className='modal-right-flexItem flex flex-auto w-[5%] h-full justify-center items-center border-3 border-green-500'>
+              <div className='flex w-full h-full justify-center items-center'>
+                <button
+                  ref={modal_slides_btnRight}
+                  className="text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl" 
+                  onClick={nextSlide}>&#8250;
+                </button>  
+              </div>
+
+              <div className='absolute w-inherit h-[45%] top-0 border-2 border-violet-500'>
+                <div className="modal-topRightNav flex flex-col gap-10 items-center justify-center h-full border-2 border-rose-500">
+
+                  {/* Button for closing modal, shared */}
+                  <button
+                    className="text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+                    onClick={closeModal}>×
+                  </button>
+
+                  <div
+                  className="font-bold text-sm sm:text-md md:text-lg lg:text-xl xl:text-3xl">{`${slideIndex+1}/${album.numImages}`}
+                  </div>
+
+                  {/* Button for switching between Slides View and Gallery View, shared */}
+                  <button
+                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-6xl"
+                    onClick={toggleView}>
+                      {isGalleryView ? <TbSlideshow /> : <PiGridNineBold />}
+                  </button>
+                  
+                  {/* Button for switching modal background colors (black, grey, white), shared*/}
+                  <button
+                    className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-6xl"
+                    onClick={toggleBackground}><TbBackground/>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-
-          {/* Shared buttons / functionalities */}
-
-          {/* Button for closing modal */}
-          <button
-            className="modal-btn close"
-            onClick={closeModal}>×
-          </button>
-
-          {/* Button for switching between Slides View and Gallery View */}
-          <button
-            className="modal-btn view"
-            onClick={toggleView}>
-              {isGalleryView ? <TbSlideshow /> : <PiGridNineBold />}
-          </button>
-          
-          {/* Button for switching modal background colors (black, grey, white)*/}
-          <button
-            className="modal-btn bg"
-            onClick={toggleBackground}><TbBackground />
-          </button>
-
         </div>
       </>,
       document.getElementById('portal')
