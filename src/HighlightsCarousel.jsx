@@ -14,7 +14,6 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
     top: '0%',
     height: '100%',
     width: 'var(--slider-padding)',
-    fontSize: '4rem',
     zIndex: '3',
     opacity: '1',
     // transition: 'opacity 600ms ease-in-out'
@@ -135,7 +134,7 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
           <button 
             ref={carouselBtnLeft}
             style={CAROUSEL_BTN_STYLE}
-            className='carousel-btn carousel-btn-left'
+            className='carousel-btn carousel-btn-left text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl'
             onClick={prevSlide}
             disabled={leftDisabled}>
             <div>&#8249;</div>
@@ -156,7 +155,7 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
           <button
             ref={carouselBtnRight}
             style={CAROUSEL_BTN_STYLE}
-            className="carousel-btn carousel-btn-right"
+            className="carousel-btn carousel-btn-right text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
             onClick={nextSlide}
             disabled={rightDisabled}>
             <div>&#8250;</div>

@@ -24,6 +24,18 @@ h1 {
   font-size: clamp(0.8rem, calc(2vw + 1rem), 2rem);
 }
 
+@media (max-width: 450px) {
+  :root {
+    --slider-padding: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --slider-padding: 2rem;
+  }
+}
+
 .thumbnail-title-year-container {
   position: absolute;
   bottom: 0%;
