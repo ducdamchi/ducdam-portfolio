@@ -169,20 +169,18 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
               </button>
             </div>
 
-            <div className='modal-center-flexItem flex justify-center items-center -w-[100%] max-w-[1800px] h-auto border-3 border-red-500'>
+            <div className='modal-center-flexItem flex flex-20 justify-center items-center w-[100%] max-w-[1800px] h-auto border-3 border-red-500'>
               {/* Slides View Mode */}
               <div 
                 ref={slidesRef} 
-                className="slides-all">
+                className="slides-all h-full w-full">
 
                 {album.imgList.map((slide) => (
-                  <div className='object-cover'>
                     <img 
-                    className="slides-each border-3 border-orange-500"
+                    className="slides-each w-full h-full object-contain border-3 border-orange-500"
                     key={slide.id}
                     src={slide.src}
                     />
-                  </div>
 
                 ))}
               </div>

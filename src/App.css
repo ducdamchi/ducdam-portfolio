@@ -147,7 +147,6 @@ h1 {
   flex: none;
   position: relative;
   text-align: center;
-  padding: 2rem;
   /* background-color: white; */
 }
 
@@ -194,17 +193,17 @@ h1 {
     gap: 5px;
   }
 
-  .slides-each {
+  /* .slides-each {
     max-height: 329px;
     width: auto;
-  }
+  } */
 }
 
-.slides-each {
+/* .slides-each {
   height: 100%;
   max-height: 1000px;
   width: auto; 
-}
+} */
 
 
 /* GALLERY VIEW MODE CONTENT */

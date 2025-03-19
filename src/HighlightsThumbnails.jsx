@@ -101,7 +101,22 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       const thumbnail_description = document.getElementById(`thumbnail-description-${hoverId}`);
       const colorThief = new ColorThief();
       const domColor = colorThief.getColor(img);
-      thumbnail_description.style.backgroundColor = `rgb(${domColor[0]}, ${domColor[1]}, ${domColor[2]})`;
+
+      /* Check brightness of dominant color to ensure readability */
+      const brightness = Math.round(Math.sqrt(domColor[0]*domColor[0]*0.241 + domColor[1]*domColor[1]*0.691 + domColor[2]*domColor[2]*0.068))
+      console.log(brightness);
+
+      /* If bg dark enough, font can be white */
+      if (brightness < 130) {
+        thumbnail_description.style.backgroundColor = `rgb(${domColor[0]}, ${domColor[1]}, ${domColor[2]})`;
+      /* If bg a little light, reduce each rgb value by 25% */
+      } else if (130 <= brightness < 194){
+        thumbnail_description.style.backgroundColor = `rgb(${domColor[0]*0.75}, ${domColor[1]*0.75}, ${domColor[2]*0.75})`;
+      /* If bg too light, reduce each rgb value by 50% */
+      } else {
+        thumbnail_description.style.backgroundColor = `rgb(${domColor[0]*0.5}, ${domColor[1]*0.5}, ${domColor[2]*0.5})`;
+      }
+
     }
   }, [hoverId])
 
@@ -112,7 +127,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       {clonesLeft.map((cloneInfo, index) => (
         <div 
             key={`cloneLeft-${index}`} 
-            className="thumbnail-flex-item" 
+            className="thumbnail-flex-item p-2 sm:p-4 md:p-6" 
             style={THUMBNAIL_FLEX_ITEM}>
 
             <div className="thumbnail-box">
@@ -145,7 +160,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         .filter((album) => album.isHighlight === true)
         .map((album) => (
         <div 
-          className="thumbnail-flex-item"
+          className="thumbnail-flex-item p-2 sm:p-4 md:p-6"
           key={album.id} 
           style={THUMBNAIL_FLEX_ITEM}>
             
@@ -208,7 +223,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       {clonesRight.map((cloneInfo, index) => (
         <div 
           key={`cloneRight-${index}`} 
-          className="thumbnail-flex-item" 
+          className="thumbnail-flex-item p-2 sm:p-4 md:p-6" 
           style={THUMBNAIL_FLEX_ITEM}>
 
             <div className="thumbnail-box">
