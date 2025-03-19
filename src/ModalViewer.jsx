@@ -176,11 +176,14 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
                 className="slides-all">
 
                 {album.imgList.map((slide) => (
-                  <img 
-                    className="slides-each max-w-[85%] h-auto border-3 border-orange-500"
+                  <div className='object-cover'>
+                    <img 
+                    className="slides-each border-3 border-orange-500"
                     key={slide.id}
                     src={slide.src}
-                  />
+                    />
+                  </div>
+
                 ))}
               </div>
 
