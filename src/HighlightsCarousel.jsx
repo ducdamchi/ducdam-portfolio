@@ -5,6 +5,7 @@ import HighlightsThumbnails from './HighlightsThumbnails'
 
 export default function HighlightsCarousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) {
 
+  /*************** CSS **************/
   const CAROUSEL_WHOLE = {
     height: `calc((100% - 2 * var(--slider-padding)) / ${albumsPerSlide} * 0.666)`
   }
@@ -16,13 +17,8 @@ export default function HighlightsCarousel( {numSlidesIndex, albumsPerSlide, odd
     width: 'var(--slider-padding)',
     zIndex: '3',
     opacity: '1',
-    // transition: 'opacity 600ms ease-in-out'
-    // backgroundColor: 'rgb(255, 255, 255)',
-    // borderWidth: '4px',
-    // borderColor:'rgb(231, 15, 198)',
-    // borderStyle: 'solid',
-    
   }
+
   /*************** STATES AND VARS **************/
   const [carouselIndex, setCarouselIndex] = useState(1);  /* slide index we're on */
   const [isEdgeTransition, setEdgeTransition] = useState(false); /* handling Edge case transition */

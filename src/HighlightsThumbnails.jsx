@@ -7,7 +7,6 @@ import ModalViewer from './ModalViewer';
 export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight}) {
 
   /*************** CSS **************/
-  // aka the flex container for all the thumbnails
   const THUMBNAIL_FLEX_CONTAINER = {
     display: 'flex',
     alignItems: 'flex-start',
@@ -49,12 +48,7 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
     }
   }
   
-
   /*************** HOOKS **************/
-  // useEffect(() => {
-  //   console.log("from child, images per slide:", albumsPerSlide);
-  // },[albumsPerSlide])
-
   /* Make clones of first and last page of carousel */
   const thumbnails = useRef(null);
   useEffect(() => {
@@ -168,7 +162,7 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
         .filter((album) => album.isHighlight === true)
         .map((album) => (
         <div 
-          className="thumbnail-flex-item p-2 sm:p-4 md:p-6"
+          className="thumbnail-flex-item p-2 sm:p-5 md:p-10"
           key={album.id} 
           style={THUMBNAIL_FLEX_ITEM}>
             
@@ -189,11 +183,11 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
                   <div
                     className="thumbnail-title-year">
                     <div
-                      className="thumbnail-title">
+                      className="thumbnail-title text-sm sm:text-lg md:text-2xl">
                       {album.title}
                     </div>
                     <div
-                      className="thumbnail-year">
+                      className="thumbnail-year text-xs sm:text-base md:text-xl">
                       {album.year}
                     </div>
                   </div>
