@@ -4,7 +4,7 @@ import './App.css'
 import albumsData from './albums.json'
 import ModalViewer from './ModalViewer';
 
-export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, imagesPerSlide, carouselBtnLeft, carouselBtnRight}) {
+export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight}) {
 
   /*************** CSS **************/
   // aka the flex container for all the thumbnails
@@ -14,13 +14,13 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
     position: 'relative',
     top: '0%',
     width: 'calc(100% - 2 * var(--slider-padding))',
-    '--slider-index': carouselIndex, // to be modified with useState()
-    transform: 'translateX(calc(var(--slider-index) * -100%))',
+    // transform: `translateX(calc(${carouselIndex}*${slidesOffset}) * (calc(100% - 2 * var(--slider-padding)) / ${albumsPerSlide}))`,
+    transform: `translateX(calc((${carouselIndex} + ${slidesOffset}) * -100%))`,
     transition: isEdgeTransition? 'none' : 'transform 750ms ease-in-out',
   }
 
   const THUMBNAIL_FLEX_ITEM = {
-    width: `${100 / imagesPerSlide}%`, 
+    width: `${100 / albumsPerSlide}%`, 
     borderWidth: '3px',
     borderStyle: 'solid',
     borderColor: 'red'
@@ -37,16 +37,23 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
   const [clonesLeft, setClonesLeft] = useState([]);    
   const [clonesRight, setClonesRight] = useState([]);   
 
-  function handleThumbnailHover(albumId) {
-    setHoverId(albumId);
-    carouselBtnLeft.current.style.opacity = '0';
-    carouselBtnRight.current.style.opacity = '0';
+  function handleThumbnailInteraction(albumId, isMouseEnter) {
+    if (isMouseEnter) {
+      setHoverId(albumId);
+      carouselBtnLeft.current.style.opacity = '0';
+      carouselBtnRight.current.style.opacity = '0';
+    } else {
+      setHoverId(null);
+      carouselBtnLeft.current.style.opacity = '1';
+      carouselBtnRight.current.style.opacity = '1';
+    }
   }
+  
 
   /*************** HOOKS **************/
-  useEffect(() => {
-    console.log("from child, images per slide:", imagesPerSlide);
-  },[imagesPerSlide])
+  // useEffect(() => {
+  //   console.log("from child, images per slide:", albumsPerSlide);
+  // },[albumsPerSlide])
 
   /* Make clones of first and last page of carousel */
   const thumbnails = useRef(null);
@@ -60,16 +67,16 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       const titles = thumbnails.current.querySelectorAll('.thumbnail-title');
       const years = thumbnails.current.querySelectorAll('.thumbnail-year')
 
-      const firstImgs = [...images].slice(0, imagesPerSlide);
-      const lastImgs = [...images].slice(-imagesPerSlide);
-      const firstTitles = [...titles].slice(0, imagesPerSlide);
-      const lastTitles = [...titles].slice(-imagesPerSlide);
-      const firstYears = [...years].slice(0, imagesPerSlide);
-      const lastYears = [...years].slice(-imagesPerSlide);
+      const firstImgs = [...images].slice(0, albumsPerSlide);
+      const lastImgs = [...images].slice(-albumsPerSlide);
+      const firstTitles = [...titles].slice(0, albumsPerSlide);
+      const lastTitles = [...titles].slice(-albumsPerSlide);
+      const firstYears = [...years].slice(0, albumsPerSlide);
+      const lastYears = [...years].slice(-albumsPerSlide);
 
       /* Make clones of those two 'slides' to reference in HTML */
       let clonesLeftLst = [];
-      for (let i=0; i < imagesPerSlide; i++) {
+      for (let i=0; i < albumsPerSlide; i++) {
         let clone_info = [];        
         clone_info.push(lastImgs[i].src);
         clone_info.push(lastTitles[i].innerHTML);
@@ -78,7 +85,7 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       }
 
       let clonesRightLst = [];
-      for (let i=0; i < imagesPerSlide; i++) {
+      for (let i=0; i < albumsPerSlide; i++) {
         let clone_info = [];        
         clone_info.push(firstImgs[i].src);
         clone_info.push(firstTitles[i].innerHTML);
@@ -86,13 +93,13 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
         clonesRightLst.push(clone_info)
       }
     
-      console.log("clones Left:", clonesLeftLst);
-      console.log("clones Right:", clonesRightLst);
+      // console.log("clones Left:", clonesLeftLst);
+      // console.log("clones Right:", clonesRightLst);
 
       setClonesLeft(clonesLeftLst);
       setClonesRight(clonesRightLst);
     }
-  }, [imagesPerSlide]);
+  }, [albumsPerSlide]);
 
   /* Pick background color for thumbnail description that matches the image dominant color */
   useEffect(() => {
@@ -102,9 +109,10 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
       const colorThief = new ColorThief();
       const domColor = colorThief.getColor(img);
 
-      /* Check brightness of dominant color to ensure readability */
+      /* Check brightness of dominant color to ensure readability 
+      Formula: https://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx */
       const brightness = Math.round(Math.sqrt(domColor[0]*domColor[0]*0.241 + domColor[1]*domColor[1]*0.691 + domColor[2]*domColor[2]*0.068))
-      console.log(brightness);
+      // console.log(brightness);
 
       /* If bg dark enough, font can be white */
       if (brightness < 130) {
@@ -166,12 +174,8 @@ export default function HighlightsThumbnails( {carouselIndex, isEdgeTransition, 
             
             <div 
               className="thumbnail-box"
-              onMouseEnter={() => handleThumbnailHover(album.id)}
-              onMouseLeave={() => {
-                setHoverId(null);
-                carouselBtnLeft.current.style.opacity = '1';
-                carouselBtnRight.current.style.opacity = '1';
-                }}>
+              onMouseEnter={() => handleThumbnailInteraction(album.id, true)}
+              onMouseLeave={() => handleThumbnailInteraction(album.id, false)}>
 
               <div className="thumbnail-info-container relative">
                 <img 

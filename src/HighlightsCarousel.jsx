@@ -3,10 +3,10 @@ import { useState, useRef, useEffect } from 'react'
 import './App.css'
 import HighlightsThumbnails from './HighlightsThumbnails'
 
-export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
+export default function HighlightsCarousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) {
 
   const CAROUSEL_WHOLE = {
-    height: `calc((100% - 2 * var(--slider-padding)) / ${imagesPerSlide} * 0.666)`
+    height: `calc((100% - 2 * var(--slider-padding)) / ${albumsPerSlide} * 0.666)`
   }
   const CAROUSEL_BTN_STYLE = {
     display: 'block',
@@ -25,9 +25,10 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
   }
   /*************** STATES AND VARS **************/
   const [carouselIndex, setCarouselIndex] = useState(1);  /* slide index we're on */
-  const [isEdgeTransition, setEdgeTransition] = useState(false); /* handling Edge case transition? */
+  const [isEdgeTransition, setEdgeTransition] = useState(false); /* handling Edge case transition */
   const [rightDisabled, setRightDisabled] = useState(false); /* disabling next button */
   const [leftDisabled, setLeftDisabled] = useState(false); /* disabling previous button */
+  const [slidesOffset, setSlidesOffset] = useState(0);
   const carouselBtnLeft = useRef(null);
   const carouselBtnRight = useRef(null);
 
@@ -50,27 +51,76 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
   /* Handles edge case transitions */
   function handleEdgeCase (newIndex) {
 
-    // If reached beyond the last slide, wrap to the first real slide
+    /* Sliding right near the last slides */
     if (newIndex === numSlidesIndex) {
 
-      // wait for 750ms transition to be over, then use
-      // 'none' transition from fake slide to real slide
-      setTimeout(() => {
-        setEdgeTransition(true);
-        setCarouselIndex(1);
-      }, 700);
+      /* If there are odd albums */
+      if (oddAlbums != 0) {
+
+        /* Last slide -> first slide */
+        if (oddAlbums != 0 && slidesOffset === 0) {
+          console.log('triggering slidesoffset');
+          setSlidesOffset(oddAlbums / albumsPerSlide);
+          setCarouselIndex(newIndex-1);
+        
+        /* Second last slide -> last slide, show odd album */
+        } else if (oddAlbums != 0 && slidesOffset != 0) {
+          // wait for 750ms transition to be over, then use
+          // 'none' transition from fake slide to real slide
+          setTimeout(() => {
+            setSlidesOffset(0);
+            setEdgeTransition(true);
+            setCarouselIndex(1);
+          }, 700);
+        }
+
+      /* If there are no odd albums */
+      } else {
+        setTimeout(() => {
+          setEdgeTransition(true);
+          setCarouselIndex(1);
+        }, 700);
+      }
     } 
 
-    // If reached below the first slide, wrap to the last real slide
+    /* Sliding left near the first slides */
     else if (newIndex === 0) {
 
-      // wait for 750ms transition to be over, then use
-      // 'none' transition from fake slide to real slide
-      setTimeout(() => {
-        setEdgeTransition(true);
-        setCarouselIndex(numSlidesIndex-1);
-      }, 700);
-    } 
+      /* If there are odd albums */
+      if (oddAlbums != 0) {
+
+        /* First slide -> last slide */
+        if (slidesOffset === 0) {
+          console.log('triggering slidesoffset');
+          // wait for 750ms transition to be over, then use
+          // 'none' transition from fake slide to real slide
+          setTimeout(() => {
+            setSlidesOffset(oddAlbums / albumsPerSlide);
+            setEdgeTransition(true);
+            setCarouselIndex(numSlidesIndex-1);
+          }, 700)
+        
+        /* Second slide -> first slide, show odd album */
+        } else {
+          setSlidesOffset(0);
+          setCarouselIndex(newIndex+1);
+        }
+      
+      /* If there are no odd albums */
+      } else {
+        setTimeout(() => {
+          setEdgeTransition(true);
+          setCarouselIndex(numSlidesIndex-1);
+        }, 700);
+      }
+    }
+
+    // // If reached second to last real slide
+    // else if (newIndex == numSlidesIndex) {
+    //   console.log('triggering slidesoffset');
+    //   setSlidesOffset(oddAlbums / albumsPerSlide);
+    //   setCarouselIndex(newIndex);
+    // }
   };
 
   /* Handles user right button clicks */
@@ -122,6 +172,9 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
 
   }, [isEdgeTransition, carouselIndex])
 
+  useEffect(() => {
+    console.log("slides offset:", slidesOffset);
+  }, [slidesOffset])
 
   /*************** HTML **************/
   return (
@@ -143,9 +196,10 @@ export default function HighlightsCarousel( {numSlidesIndex, imagesPerSlide} ) {
 
    
         <HighlightsThumbnails 
-          carouselIndex={carouselIndex} 
+          carouselIndex={carouselIndex}
+          slidesOffset={slidesOffset}
           isEdgeTransition={isEdgeTransition} 
-          imagesPerSlide={imagesPerSlide}
+          albumsPerSlide={albumsPerSlide}
           carouselBtnLeft={carouselBtnLeft}
           carouselBtnRight={carouselBtnRight}/>
 

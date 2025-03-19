@@ -34,8 +34,10 @@ export default function App() {
     const numAlbums = albumsData.filter((album) => album.isHighlight === true).length;
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [numSlidesIndex, setNumSlidesIndex] = useState(null);
-    const [imagesPerSlide, setImagesPerSlide] = useState(null); //keep track of this in .root in App.css as well
+    const [albumsPerSlide, setAlbumsPerSlide] = useState(null); //keep track of this in .root in App.css as well
+    const [oddAlbums, setOddAlbums] = useState(null); // number of odd slides (numAlbums not always divisible by albumsPerSlide)
 
+    /* Dynamically obtain window size to resize carousel accordingly */
     useEffect(() => {
       const handleResize = () => {
         setScreenWidth(window.innerWidth);
@@ -47,30 +49,43 @@ export default function App() {
       };
     }, []);
 
+    /* Set number of thumbnail imgs per slide based on screen width */
     useEffect(() => {
-      if (screenWidth < 1200) {
-        setImagesPerSlide(1);
-      } else {
-        setImagesPerSlide(3);
+      if (screenWidth < 1000) {
+        setAlbumsPerSlide(1);
+        console.log("Screen < 1200");
+      } else if (screenWidth >= 1000 && screenWidth < 1600) {
+        setAlbumsPerSlide(2);
+        console.log("1200 < Screen < 1600");
+      } else if (screenWidth >= 1600) {
+        setAlbumsPerSlide(3);
+        console.log("Screen > 1600");
       }
     }, [screenWidth]);
 
+    /* 
+    Set total number of indices for all slides, including clones 
+    Set number of odd slides*/
     useEffect(() => {
       // number of slides + 2 fake slides - 1 to convert to indices
-      setNumSlidesIndex(Math.floor(numAlbums / imagesPerSlide) + 2 - 1);
-    },[imagesPerSlide, numAlbums]) 
+      setNumSlidesIndex(Math.floor(numAlbums / albumsPerSlide) + 2 - 1);
+      setOddAlbums(numAlbums % albumsPerSlide);
+    },[albumsPerSlide, numAlbums]) 
 
     useEffect(() => {
-      console.log("images per slide:", imagesPerSlide);
-      console.log("number of slides index:", numSlidesIndex);
-    },[imagesPerSlide, numSlidesIndex])
+      // console.log("num albums total:", numAlbums);
+      console.log("albums per slide:", albumsPerSlide);
+      // console.log("num odd albums:", oddAlbums);
+      // console.log("number of slides index:", numSlidesIndex);
+    },[albumsPerSlide, numSlidesIndex])
 
     return (
       <div className='relative top-35'>
         {/* <h2 className="relative left-27 p-1 m-1 text-2xl">Projects</h2>s */}
         <HighlightsCarousel 
           numSlidesIndex={numSlidesIndex} 
-          imagesPerSlide={imagesPerSlide}/>
+          albumsPerSlide={albumsPerSlide}
+          oddAlbums={oddAlbums}/>
       </div>
     )
   }
