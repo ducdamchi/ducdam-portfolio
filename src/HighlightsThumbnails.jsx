@@ -129,7 +129,7 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
       {clonesLeft.map((cloneInfo, index) => (
         <div 
             key={`cloneLeft-${index}`} 
-            className="thumbnail-flex-item p-2 sm:p-4 md:p-6" 
+            className="thumbnail-flex-item p-2 sm:p-5 md:p-10" 
             style={THUMBNAIL_FLEX_ITEM}>
 
             <div className="thumbnail-box">
@@ -140,13 +140,13 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
 
                 <div className='thumbnail-title-year-container'>
                   <div
-                    className="thumbnail-title-year">
+                    className="thumbnail-title-year ">
                     <div
-                      className="thumbnail-title">
+                      className="thumbnail-title text-sm sm:text-lg md:text-2xl">
                       {cloneInfo[1]}
                     </div>
                     <div
-                      className="thumbnail-year">
+                      className="thumbnail-year text-xs sm:text-base md:text-xl">
                       {cloneInfo[2]}
                     </div>
                   </div>
@@ -221,7 +221,7 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
       {clonesRight.map((cloneInfo, index) => (
         <div 
           key={`cloneRight-${index}`} 
-          className="thumbnail-flex-item p-2 sm:p-4 md:p-6" 
+          className="thumbnail-flex-item p-2 sm:p-5 md:p-10" 
           style={THUMBNAIL_FLEX_ITEM}>
 
             <div className="thumbnail-box">
@@ -234,11 +234,11 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
                   <div
                     className="thumbnail-title-year">
                     <div
-                      className="thumbnail-title">
+                      className="thumbnail-title text-sm sm:text-lg md:text-2xl">
                       {cloneInfo[1]}
                     </div>
                     <div
-                      className="thumbnail-year">
+                      className="thumbnail-year text-xs sm:text-base md:text-xl">
                       {cloneInfo[2]}
                     </div>
                   </div>

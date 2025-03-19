@@ -53,13 +53,10 @@ export default function App() {
     useEffect(() => {
       if (screenWidth <= 1024) {
         setAlbumsPerSlide(1);
-        console.log("Screen < 1200");
       } else if (screenWidth > 1024 && screenWidth < 1536) {
         setAlbumsPerSlide(2);
-        console.log("1200 < Screen < 1600");
       } else if (screenWidth >= 1800) {
         setAlbumsPerSlide(3);
-        console.log("Screen > 1600");
       }
     }, [screenWidth]);
 
