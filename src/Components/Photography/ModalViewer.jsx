@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { useState, useRef, useEffect } from 'react'
-import './App.css'
+import '../../App.css'
+import './Photography.css'
 import { PiGridNineBold } from "react-icons/pi";
 import { TbSlideshow } from "react-icons/tb";
 import { TbBackground } from "react-icons/tb";

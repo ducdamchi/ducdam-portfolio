@@ -131,5 +131,5 @@ function fetchAlbums (pathname) {
 }
 
 const all_albums = fetchAlbums("./photography");
-fs.writeFileSync('/Users/ddam1/Desktop/Duc/Projects/personal-web-react/src/albums.json', JSON.stringify(all_albums, null, 1))
+fs.writeFileSync('/Users/ddam1/Desktop/Duc/Projects/personal-web-react/src/Components/Photography/albums.json', JSON.stringify(all_albums, null, 1))
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import './App.css'
+import '../../App.css'
+import './Photography.css'
 import albumsData from './albums.json'
 import ModalViewer from './ModalViewer';
 
@@ -36,6 +37,8 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
   const [clonesLeft, setClonesLeft] = useState([]);    
   const [clonesRight, setClonesRight] = useState([]);   
 
+
+  /*************** HOOKS & FUNCTIONS **************/
   function handleThumbnailInteraction(albumId, isMouseEnter) {
     if (isMouseEnter) {
       setHoverId(albumId);
@@ -48,7 +51,6 @@ export default function HighlightsThumbnails( {carouselIndex, slidesOffset, isEd
     }
   }
   
-  /*************** HOOKS **************/
   /* Make clones of first and last page of carousel */
   const thumbnails = useRef(null);
   useEffect(() => {

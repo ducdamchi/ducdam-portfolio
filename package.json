@@ -6,7 +6,9 @@
     "singleQuote": true,
     "semi": false,
     "tabWidth": 2,
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   },
   "type": "module",
   "scripts": {
@@ -19,6 +21,7 @@
     "@tailwindcss/vite": "^4.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.4.0",
     "tailwindcss": "^4.0.3"
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import './App.css'
+import '../../App.css'
+import './Photography.css'
 import HighlightsThumbnails from './HighlightsThumbnails'
 
 export default function HighlightsCarousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) {
@@ -164,13 +165,13 @@ export default function HighlightsCarousel( {numSlidesIndex, albumsPerSlide, odd
         setEdgeTransition(false);
       }, 300)
     }
-    console.log("Carousel index: " + carouselIndex);
+    // console.log("Carousel index: " + carouselIndex);
 
   }, [isEdgeTransition, carouselIndex])
 
-  useEffect(() => {
-    console.log("slides offset:", slidesOffset);
-  }, [slidesOffset])
+  // useEffect(() => {
+  //   console.log("slides offset:", slidesOffset);
+  // }, [slidesOffset])
 
   /*************** HTML **************/
   return (
