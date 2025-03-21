@@ -11,7 +11,7 @@ import { Route, Routes } from "react-router-dom"
 
 export default function App() {
   return (
-    <>
+    <div className="w-screen h-screen">
       <NavSection/>
       <div className='routes-container'>
         <Routes>
@@ -22,6 +22,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
-    </>
+    </div>
   )
 }
