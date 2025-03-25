@@ -1,23 +1,28 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import '../../App.css'
-import './Photography.css'
-import Thumbnails from './Thumbnails'
+// import '../../App.css'
+// import './Photography.css'
+import Carousel_Items from './Film_Carousel_Items'
 
-export default function Carousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) {
+export default function Carousel( {filmsData, numSlidesIndex} ) {
 
   /*************** CSS **************/
   const CAROUSEL_WHOLE = {
-    height: `calc((100% - 2 * var(--slider-padding)) / ${albumsPerSlide} * 0.666)`
+    height: '600px',
+    width: '1000px',
+    borderWidth: '2px',
+    borderColor: 'blue'
   }
   const CAROUSEL_BTN_STYLE = {
-    display: 'block',
-    position: 'absolute',
-    top: '0%',
-    height: '100%',
-    width: 'var(--slider-padding)',
-    zIndex: '3',
-    opacity: '1',
+    // display: 'block',
+    // position: 'absolute',
+    // top: '0%',
+    // height: '100%',
+    // // width: 'var(--slider-padding)',
+    // zIndex: '3',
+    // opacity: '1',
+    // borderWidth: '2px',
+    // borderColor: 'red'
   }
 
   /*************** STATES AND VARS **************/
@@ -25,7 +30,7 @@ export default function Carousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) 
   const [isEdgeTransition, setEdgeTransition] = useState(false); /* handling Edge case transition */
   const [rightDisabled, setRightDisabled] = useState(false); /* disabling next button */
   const [leftDisabled, setLeftDisabled] = useState(false); /* disabling previous button */
-  const [slidesOffset, setSlidesOffset] = useState(0);
+  // const [slidesOffset, setSlidesOffset] = useState(0);
   const carouselBtnLeft = useRef(null);
   const carouselBtnRight = useRef(null);
 
@@ -50,75 +55,20 @@ export default function Carousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) 
 
     /* Sliding right near the last slides */
     if (newIndex === numSlidesIndex) {
-
-      /* If there are odd albums */
-      if (oddAlbums != 0) {
-
-        /* Last slide -> first slide */
-        if (oddAlbums != 0 && slidesOffset === 0) {
-          console.log('triggering slidesoffset');
-          setSlidesOffset(oddAlbums / albumsPerSlide);
-          setCarouselIndex(newIndex-1);
-        
-        /* Second last slide -> last slide, show odd album */
-        } else if (oddAlbums != 0 && slidesOffset != 0) {
-          // wait for 750ms transition to be over, then use
-          // 'none' transition from fake slide to real slide
-          setTimeout(() => {
-            setSlidesOffset(0);
-            setEdgeTransition(true);
-            setCarouselIndex(1);
-          }, 700);
-        }
-
-      /* If there are no odd albums */
-      } else {
-        setTimeout(() => {
-          setEdgeTransition(true);
-          setCarouselIndex(1);
-        }, 700);
-      }
-    } 
-
+      setTimeout(() => {
+        setEdgeTransition(true);
+        setCarouselIndex(1);
+      }, 700);
+    }
+    
     /* Sliding left near the first slides */
     else if (newIndex === 0) {
-
-      /* If there are odd albums */
-      if (oddAlbums != 0) {
-
-        /* First slide -> last slide */
-        if (slidesOffset === 0) {
-          console.log('triggering slidesoffset');
-          // wait for 750ms transition to be over, then use
-          // 'none' transition from fake slide to real slide
-          setTimeout(() => {
-            setSlidesOffset(oddAlbums / albumsPerSlide);
-            setEdgeTransition(true);
-            setCarouselIndex(numSlidesIndex-1);
-          }, 700)
-        
-        /* Second slide -> first slide, show odd album */
-        } else {
-          setSlidesOffset(0);
-          setCarouselIndex(newIndex+1);
-        }
-      
-      /* If there are no odd albums */
-      } else {
-        setTimeout(() => {
-          setEdgeTransition(true);
-          setCarouselIndex(numSlidesIndex-1);
-        }, 700);
-      }
+      setTimeout(() => {
+        setEdgeTransition(true);
+        setCarouselIndex(numSlidesIndex-1);
+      }, 700);
     }
-
-    // // If reached second to last real slide
-    // else if (newIndex == numSlidesIndex) {
-    //   console.log('triggering slidesoffset');
-    //   setSlidesOffset(oddAlbums / albumsPerSlide);
-    //   setCarouselIndex(newIndex);
-    // }
-  };
+  }
 
   /* Handles user right button clicks */
   function nextSlide () {
@@ -169,18 +119,14 @@ export default function Carousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) 
 
   }, [isEdgeTransition, carouselIndex])
 
-  // useEffect(() => {
-  //   console.log("slides offset:", slidesOffset);
-  // }, [slidesOffset])
 
   /*************** HTML **************/
   return (
       
-      <div className="carousel-whole" style={CAROUSEL_WHOLE}>
+      <div className="carousel-whole flex items-center justify-center" style={CAROUSEL_WHOLE}>
 
         {/* Left side button */}
-        <div>
-          <div className='carousel-btn-bg btn-bg-left'></div>
+        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 p-1 m-1'>
           <button 
             ref={carouselBtnLeft}
             style={CAROUSEL_BTN_STYLE}
@@ -191,18 +137,17 @@ export default function Carousel( {numSlidesIndex, albumsPerSlide, oddAlbums} ) 
           </button>
         </div>
 
-   
-        <Thumbnails 
-          carouselIndex={carouselIndex}
-          slidesOffset={slidesOffset}
-          isEdgeTransition={isEdgeTransition} 
-          albumsPerSlide={albumsPerSlide}
-          carouselBtnLeft={carouselBtnLeft}
-          carouselBtnRight={carouselBtnRight}/>
+        <div className="h-full flex-10 border-2 border-green-500">
+          <Carousel_Items
+            filmsData={filmsData}
+            carouselIndex={carouselIndex}
+            isEdgeTransition={isEdgeTransition} 
+            carouselBtnLeft={carouselBtnLeft}
+            carouselBtnRight={carouselBtnRight}/>
+        </div>
 
         {/* Right side button */}
-        <div>
-          <div className='carousel-btn-bg btn-bg-right'></div>
+        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 p-1 m-1'>
           <button
             ref={carouselBtnRight}
             style={CAROUSEL_BTN_STYLE}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Carousel from './Carousel';
+import Carousel from './Photo_Carousel';
 import albumsData from './albums.json'
 
 export default function Photography() {
@@ -56,6 +56,7 @@ export default function Photography() {
 
       <div className='relative'>
         <Carousel 
+          albumsData={albumsData}
           numSlidesIndex={numSlidesIndex} 
           albumsPerSlide={albumsPerSlide}
           oddAlbums={oddAlbums}/>

@@ -2,10 +2,9 @@ import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import '../../App.css'
 import './Photography.css'
-import albumsData from './albums.json'
-import ModalViewer from './ModalViewer';
+import ModalViewer from './Photo_ModalViewer';
 
-export default function Thumbnails( {carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight}) {
+export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight}) {
 
   /*************** CSS **************/
   const THUMBNAIL_FLEX_CONTAINER = {
@@ -14,7 +13,6 @@ export default function Thumbnails( {carouselIndex, slidesOffset, isEdgeTransiti
     position: 'relative',
     top: '0%',
     width: 'calc(100% - 2 * var(--slider-padding))',
-    // transform: `translateX(calc(${carouselIndex}*${slidesOffset}) * (calc(100% - 2 * var(--slider-padding)) / ${albumsPerSlide}))`,
     transform: `translateX(calc((${carouselIndex} + ${slidesOffset}) * -100%))`,
     transition: isEdgeTransition? 'none' : 'transform 750ms ease-in-out',
   }
