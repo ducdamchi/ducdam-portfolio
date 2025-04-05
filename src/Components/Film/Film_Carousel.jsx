@@ -9,7 +9,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
   /*************** CSS **************/
   const CAROUSEL_WHOLE = {
     height: '600px',
-    width: '1000px',
+    width: '900px',
     borderWidth: '2px',
     borderColor: 'blue'
   }
@@ -118,7 +118,10 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
     // console.log("Carousel index: " + carouselIndex);
 
   }, [isEdgeTransition, carouselIndex])
-
+  
+  useEffect(() => {
+    console.log("Carousel index:", carouselIndex);
+  }, [carouselIndex])
 
   /*************** HTML **************/
   return (
@@ -126,7 +129,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
       <div className="carousel-whole flex items-center justify-center" style={CAROUSEL_WHOLE}>
 
         {/* Left side button */}
-        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 p-1 m-1'>
+        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button 
             ref={carouselBtnLeft}
             style={CAROUSEL_BTN_STYLE}
@@ -137,7 +140,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
           </button>
         </div>
 
-        <div className="h-full flex-10 border-2 border-green-500">
+        <div className="h-full flex-10 border-2 border-green-500 z-[2]">
           <Carousel_Items
             filmsData={filmsData}
             carouselIndex={carouselIndex}
@@ -147,7 +150,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
         </div>
 
         {/* Right side button */}
-        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 p-1 m-1'>
+        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button
             ref={carouselBtnRight}
             style={CAROUSEL_BTN_STYLE}
