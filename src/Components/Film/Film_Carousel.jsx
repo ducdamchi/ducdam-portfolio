@@ -9,7 +9,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
   /*************** CSS **************/
   const CAROUSEL_WHOLE = {
     height: '600px',
-    width: '900px',
+    width: '1000px',
     borderWidth: '2px',
     borderColor: 'blue'
   }
@@ -129,7 +129,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
       <div className="carousel-whole flex items-center justify-center" style={CAROUSEL_WHOLE}>
 
         {/* Left side button */}
-        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
+        <div className='w-[10%] h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button 
             ref={carouselBtnLeft}
             style={CAROUSEL_BTN_STYLE}
@@ -140,7 +140,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
           </button>
         </div>
 
-        <div className="h-full flex-10 border-2 border-green-500 z-[2]">
+        <div className="w-[80%] h-full flex-10 border-2 border-green-500 z-[2]">
           <Carousel_Items
             filmsData={filmsData}
             carouselIndex={carouselIndex}
@@ -150,7 +150,7 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
         </div>
 
         {/* Right side button */}
-        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
+        <div className='w-[10%] h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button
             ref={carouselBtnRight}
             style={CAROUSEL_BTN_STYLE}

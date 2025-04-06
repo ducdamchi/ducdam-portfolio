@@ -122,6 +122,7 @@ function fetchFilms (pathname) {
         film.title = film_data.title;
         film.year = film_data.year;
         film.director = film_data.director;
+        film.runtime = film_data.runtime;
         film.duration = film_data.duration;
         film.language = film_data.language;
         film.synopsis = film_data.synopsis;

@@ -212,7 +212,8 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                 openModalId={openModalId} 
                 closeModal={() => {
                   setOpenModalId(null);
-                  console.log('closing modal');}}/>}
+                  console.log('closing modal');
+                }}/>}
 
         </div>
       ))}
