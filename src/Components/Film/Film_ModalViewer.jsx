@@ -6,11 +6,11 @@ import { PiGridNineBold } from "react-icons/pi";
 import { TbSlideshow } from "react-icons/tb";
 import { TbBackground } from "react-icons/tb";
 
-export default function ModalViewer({ album, openModalId, closeModal }) {
+export default function ModalViewer({ film, openModalId, closeModal }) {
 
   /*************** CSS **************/
   const MODAL_BG = {
-    zIndex: '20',
+    zIndex: '4',
     position: 'fixed',
     top: '0%',
     width: '100vw',
@@ -19,7 +19,7 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
   }
   
   const MODAL_CONTENT = {
-    zIndex: '30',
+    zIndex: '5',
     position: 'absolute',
     textAlign: 'center',
     width: '90%',
@@ -38,10 +38,19 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
     return ReactDom.createPortal (
       <>
         <div className="modal-background" style={MODAL_BG}/>
-        <div className="modal-content" style={MODAL_CONTENT}>
-          <div className="flex w-full h-full justify-center items-center">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k?si=Lkw0yPdtRxfxjb_E" title="YouTube video player" allowFullScreen></iframe>
+        <div className="modal-content flex justify-center items-center" style={MODAL_CONTENT}>
+          <div className="flex flex-col w-[50%] h-[50%] justify-center items-center">
+
+            <div className="flex w-full justify-end border-2 border-blue-500 font-bold text-3xl" onClick={closeModal}>
+            ×
+            </div>
+
+            <div className="w-full h-full border-2 border-blue-500">
+              <iframe width="100%" height="100%" src={film.youtube} title="YouTube video player" allowFullScreen></iframe>
+            </div>
+
           </div>
+
         </div>
       </>,
       document.getElementById('portal')

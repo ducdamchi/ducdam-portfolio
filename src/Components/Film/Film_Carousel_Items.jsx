@@ -168,7 +168,7 @@ export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransit
             {/* Modal Viewer, hidden until poster is clicked on */}
             {(film.id == openModalId) && 
               <ModalViewer
-                filmId={film.id}
+                film={film}
                 openModalId={openModalId}
                 closeModal={() => {
                   setOpenModalId(null);

@@ -5,7 +5,7 @@ const require = createRequire(import.meta.url);
 
 /*************** CLASSES **************/
 class Film {
-  constructor(id, title, year, director, runtime, language, synopsis, recognition, screenings, poster) {
+  constructor(id, title, year, director, runtime, language, synopsis, recognition, screenings, poster, youtube) {
     this.id = id; //int, unique id of each film, starting from 1
     this.title = title; //str, tile of project
     this.year = year //str, year of release
@@ -14,8 +14,9 @@ class Film {
     this.language = language; //str, languages spoken
     this.synopsis = synopsis; //str, synopsis
     this.recognition = recognition; //str, awards, nominations, etc.
-    this.screenings = screenings //str, past screenings
-    this.poster = poster //str, src to film poster
+    this.screenings = screenings; //str, past screenings
+    this.poster = poster; //str, src to film poster
+    this.youtube = youtube; //link to a youtube video. right now, either trailer or full film
   }
 }
 
@@ -128,6 +129,7 @@ function fetchFilms (pathname) {
         film.synopsis = film_data.synopsis;
         film.recognition = film_data.recognition;
         film.screenings = film_data.screenings;
+        film.youtube = film_data.youtube;
       } 
 
       /* If content is an image file (poster), extract path */
