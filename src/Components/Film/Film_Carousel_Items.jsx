@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import ModalViewer from './Film_ModalViewer.jsx'
+import './Film.css'
 
 export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransition, carouselBtnLeft, carouselBtnRight}) {
   /*************** CSS **************/
@@ -123,9 +124,12 @@ export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransit
             <div className="flex-[1] w-[100%] h-auto max-w-[400px] border-2 border-red-500 p-2 m-2">
               <img
                 id={`poster-${film.id}`}
-                className='w-full h-full object-contain'
+                className='poster w-full h-full object-contain '
                 src={film.poster}
-                onClick={() => {setOpenModalId(film.id);}}/>
+                onClick={() => {
+                  setOpenModalId(film.id);
+                  console.log(`clicked poster ${film.id}`);
+                  }}/>
             </div>
 
             <div className='flex-[1] flex flex-col border-2 border-red-500 p-2 m-2'>

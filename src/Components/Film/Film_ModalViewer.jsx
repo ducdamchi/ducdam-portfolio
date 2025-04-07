@@ -27,6 +27,8 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
     top: '5%',// = (100-height)/2
     left: '5%', // = (100-width)/2
     color: 'white',
+    borderWidth: '2px',
+    borderColor: 'red'
   }
   
   /*************** STATES AND VARS **************/
@@ -35,10 +37,16 @@ export default function ModalViewer({ album, openModalId, closeModal }) {
   } else {
     return ReactDom.createPortal (
       <>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k?si=Lkw0yPdtRxfxjb_E" title="YouTube video player" allowFullScreen></iframe>
+        <div className="modal-background" style={MODAL_BG}/>
+        <div className="modal-content" style={MODAL_CONTENT}>
+          <div className="flex w-full h-full justify-center items-center">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k?si=Lkw0yPdtRxfxjb_E" title="YouTube video player" allowFullScreen></iframe>
+          </div>
+        </div>
       </>,
       document.getElementById('portal')
     );
   }
 }
 
+        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k?si=Lkw0yPdtRxfxjb_E" title="YouTube video player" allowFullScreen></iframe> */}
