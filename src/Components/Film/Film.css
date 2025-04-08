@@ -1,10 +1,12 @@
 
-/* .poster {
-  opacity:  100%;
+.poster {
+  z-index: 2;
   scale: 1;
+  transition: 200ms ease-in-out
 }
 
 .poster:hover {
-  opacity: 80%;
-  scale: 1.02;
-} */
+  scale: 1.05;
+  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
+  transition-delay: 400ms;
+}

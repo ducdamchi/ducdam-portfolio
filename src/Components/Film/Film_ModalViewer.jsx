@@ -39,7 +39,7 @@ export default function ModalViewer({ film, openModalId, closeModal }) {
       <>
         <div className="modal-background" style={MODAL_BG}/>
         <div className="modal-content flex justify-center items-center" style={MODAL_CONTENT}>
-          <div className="flex flex-col w-[50%] h-[50%] justify-center items-center">
+          <div className="flex flex-col w-[888px] h-[500px] justify-center items-center">
 
             <div className="flex w-full justify-end border-2 border-blue-500 font-bold text-3xl" onClick={closeModal}>
             ×

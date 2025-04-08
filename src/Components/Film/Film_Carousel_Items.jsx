@@ -121,10 +121,10 @@ export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransit
         key={film.id}
         id={`film-object-${film.id}`}>
 
-            <div className="flex-[1] w-[100%] h-auto max-w-[400px] border-2 border-red-500 p-2 m-2">
+            <div className="poster flex-[1] w-[100%] h-auto max-w-[400px] border-2 border-red-500 p-2 m-2">
               <img
                 id={`poster-${film.id}`}
-                className='poster w-full h-full object-contain '
+                className='w-full h-full object-contain '
                 src={film.poster}
                 onClick={() => {
                   setOpenModalId(film.id);

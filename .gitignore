@@ -24,3 +24,5 @@ dist-ssr
 *.sw?
 
 /public/photography/
+/public/film/
+/public/woodworking/
