@@ -1,0 +1,25 @@
+[
+ {
+  "id": 1,
+  "title": "345 Chairs",
+  "year": "2024",
+  "dimensions": "aW x bH x cL",
+  "materials": "plywood"
+ },
+ {
+  "id": 2,
+  "title": "Have A Good One",
+  "year": "2022",
+  "dimensions": "aW x bH x cL",
+  "materials": "plywood, paper receipts",
+  "thumbnail": "woodworking/ex2/thumb.JPG"
+ },
+ {
+  "id": 3,
+  "title": "Trash",
+  "year": "2021",
+  "dimensions": "aW x bH x cL",
+  "materials": "tape, receipts, paper, misc objects, wooden frame",
+  "thumbnail": "woodworking/ex3/thumb.JPG"
+ }
+]
