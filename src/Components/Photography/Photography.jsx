@@ -28,7 +28,7 @@ export default function Photography() {
       setAlbumsPerSlide(1);
     } else if (screenWidth > 1024 && screenWidth < 1536) {
       setAlbumsPerSlide(2);
-    } else if (screenWidth >= 1800) {
+    } else if (screenWidth >= 1536) {
       setAlbumsPerSlide(3);
     }
   }, [screenWidth]);

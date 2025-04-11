@@ -96,7 +96,7 @@ function fetchFilms (pathname) {
 
   let all_films = [];
   let film_id = 0;
-  const imgExtentions = ['.jpg', '.png', ',jpeg', '.JPG', '.PNG', '.JPEG'];
+  const imgExtentions = ['.jpg', '.png', '.jpeg', '.JPG', '.PNG', '.JPEG'];
 
   /* Read all files and dirs that pathname led to */
   const contents = fs.readdirSync(pathname); 

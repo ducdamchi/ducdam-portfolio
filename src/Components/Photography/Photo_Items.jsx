@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import '../../App.css'
 import './Photography.css'
-import ModalViewer from './Photo_ModalViewer';
+import Modal from './Photo_Modal';
 
 export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight}) {
 
@@ -129,7 +129,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
       {clonesLeft.map((cloneInfo, index) => (
         <div 
             key={`cloneLeft-${index}`} 
-            className="thumbnail-flex-item p-2 sm:p-5 md:p-10" 
+            className="thumbnail-flex-item" 
             style={THUMBNAIL_FLEX_ITEM}>
 
             <div className="thumbnail-box">
@@ -142,11 +142,11 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                   <div
                     className="thumbnail-title-year ">
                     <div
-                      className="thumbnail-title text-sm sm:text-lg md:text-2xl">
+                      className="thumbnail-title">
                       {cloneInfo[1]}
                     </div>
                     <div
-                      className="thumbnail-year text-xs sm:text-base md:text-xl">
+                      className="thumbnail-year">
                       {cloneInfo[2]}
                     </div>
                   </div>
@@ -162,7 +162,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
         .filter((album) => album.isHighlight === true)
         .map((album) => (
         <div 
-          className="thumbnail-flex-item p-2 sm:p-5 md:p-10"
+          className="thumbnail-flex-item"
           key={album.id} 
           style={THUMBNAIL_FLEX_ITEM}>
             
@@ -170,7 +170,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
               className="thumbnail-box"
               onMouseEnter={() => handleThumbnailInteraction(album.id, true)}
               onMouseLeave={() => handleThumbnailInteraction(album.id, false)}>
-
+                
               <div className="thumbnail-info-container relative">
                 <img 
                   className="thumbnail-img"
@@ -183,11 +183,11 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                   <div
                     className="thumbnail-title-year">
                     <div
-                      className="thumbnail-title text-sm sm:text-lg md:text-2xl">
+                      className="thumbnail-title">
                       {album.title}
                     </div>
                     <div
-                      className="thumbnail-year text-xs sm:text-base md:text-xl">
+                      className="thumbnail-year">
                       {album.year}
                     </div>
                   </div>
@@ -207,7 +207,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
             {/* Modal Viewer, hidden until thumbnail is clicked on, 
             then rendered on portal different from root */}
             {(album.id === openModalId) && 
-              <ModalViewer
+              <Modal
                 album={album} 
                 openModalId={openModalId} 
                 closeModal={() => {
@@ -222,7 +222,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
       {clonesRight.map((cloneInfo, index) => (
         <div 
           key={`cloneRight-${index}`} 
-          className="thumbnail-flex-item p-2 sm:p-5 md:p-10" 
+          className="thumbnail-flex-item" 
           style={THUMBNAIL_FLEX_ITEM}>
 
             <div className="thumbnail-box">
@@ -235,11 +235,11 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                   <div
                     className="thumbnail-title-year">
                     <div
-                      className="thumbnail-title text-sm sm:text-lg md:text-2xl">
+                      className="thumbnail-title">
                       {cloneInfo[1]}
                     </div>
                     <div
-                      className="thumbnail-year text-xs sm:text-base md:text-xl">
+                      className="thumbnail-year">
                       {cloneInfo[2]}
                     </div>
                   </div>

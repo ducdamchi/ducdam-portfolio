@@ -2,24 +2,85 @@
  {
   "id": 1,
   "title": "345 Chairs",
+  "description": "This is the description of project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "year": "2024",
   "dimensions": "aW x bH x cL",
-  "materials": "plywood"
+  "materials": "plywood",
+  "thumbnail": "woodworking/ex1/thumb.jpeg",
+  "numImages": 3,
+  "imgList": [
+   {
+    "id": "1.1",
+    "src": "woodworking/ex1/img1.jpeg",
+    "index": 0,
+    "description": ""
+   },
+   {
+    "id": "1.2",
+    "src": "woodworking/ex1/img2.jpeg",
+    "index": 1,
+    "description": ""
+   },
+   {
+    "id": "1.3",
+    "src": "woodworking/ex1/img3.jpeg",
+    "index": 2,
+    "description": ""
+   }
+  ]
  },
  {
   "id": 2,
   "title": "Have A Good One",
+  "description": "This is the description of project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "year": "2022",
   "dimensions": "aW x bH x cL",
   "materials": "plywood, paper receipts",
-  "thumbnail": "woodworking/ex2/thumb.JPG"
+  "thumbnail": "woodworking/ex2/thumb.JPG",
+  "numImages": 3,
+  "imgList": [
+   {
+    "id": "2.1",
+    "src": "woodworking/ex2/img1.JPG",
+    "index": 0,
+    "description": ""
+   },
+   {
+    "id": "2.2",
+    "src": "woodworking/ex2/img2.JPG",
+    "index": 1,
+    "description": ""
+   },
+   {
+    "id": "2.3",
+    "src": "woodworking/ex2/img3.JPG",
+    "index": 2,
+    "description": ""
+   }
+  ]
  },
  {
   "id": 3,
   "title": "Trash",
+  "description": "This is the description of project 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   "year": "2021",
   "dimensions": "aW x bH x cL",
   "materials": "tape, receipts, paper, misc objects, wooden frame",
-  "thumbnail": "woodworking/ex3/thumb.JPG"
+  "thumbnail": "woodworking/ex3/thumb.JPG",
+  "numImages": 2,
+  "imgList": [
+   {
+    "id": "3.1",
+    "src": "woodworking/ex3/img1.JPG",
+    "index": 0,
+    "description": ""
+   },
+   {
+    "id": "3.2",
+    "src": "woodworking/ex3/img2.JPG",
+    "index": 1,
+    "description": ""
+   }
+  ]
  }
 ]

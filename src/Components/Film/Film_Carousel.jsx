@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 // import '../../App.css'
 // import './Photography.css'
-import Carousel_Items from './Film_Carousel_Items'
+import Carousel_Items from './Film_Items'
 
 export default function Carousel( {filmsData, numSlidesIndex} ) {
 

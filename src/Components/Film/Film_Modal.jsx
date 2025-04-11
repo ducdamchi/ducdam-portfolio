@@ -1,10 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { useState, useRef, useEffect } from 'react'
-import '../../App.css'
-import { PiGridNineBold } from "react-icons/pi";
-import { TbSlideshow } from "react-icons/tb";
-import { TbBackground } from "react-icons/tb";
+// import { useState, useRef, useEffect } from 'react'
 
 export default function ModalViewer({ film, openModalId, closeModal }) {
 
@@ -57,5 +53,3 @@ export default function ModalViewer({ film, openModalId, closeModal }) {
     );
   }
 }
-
-        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k?si=Lkw0yPdtRxfxjb_E" title="YouTube video player" allowFullScreen></iframe> */}

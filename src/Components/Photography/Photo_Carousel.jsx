@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import '../../App.css'
 import './Photography.css'
-import Carousel_Items from './Photo_Carousel_Items'
+import Carousel_Items from './Photo_Items'
 
 export default function Carousel( {albumsData, numSlidesIndex, albumsPerSlide, oddAlbums} ) {
 
@@ -184,7 +184,7 @@ export default function Carousel( {albumsData, numSlidesIndex, albumsPerSlide, o
           <button 
             ref={carouselBtnLeft}
             style={CAROUSEL_BTN_STYLE}
-            className='carousel-btn carousel-btn-left text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl'
+            className='carousel-btn carousel-btn-left'
             onClick={prevSlide}
             disabled={leftDisabled}>
             <div>&#8249;</div>
@@ -207,7 +207,7 @@ export default function Carousel( {albumsData, numSlidesIndex, albumsPerSlide, o
           <button
             ref={carouselBtnRight}
             style={CAROUSEL_BTN_STYLE}
-            className="carousel-btn carousel-btn-right text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+            className="carousel-btn carousel-btn-right"
             onClick={nextSlide}
             disabled={rightDisabled}>
             <div>&#8250;</div>

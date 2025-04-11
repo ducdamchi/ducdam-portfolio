@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import woodData from './wood.json'
-import Carousel from './Wood_Carousel'
+import Carousel from './Wood_carousel'
 
 export default function Woodworking() {
   

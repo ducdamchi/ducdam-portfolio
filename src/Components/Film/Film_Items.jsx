@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react'
-import ModalViewer from './Film_ModalViewer.jsx'
+import Modal from './Film_Modal'
 import './Film.css'
 
 export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransition, carouselBtnLeft, carouselBtnRight}) {
@@ -167,7 +167,7 @@ export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransit
 
             {/* Modal Viewer, hidden until poster is clicked on */}
             {(film.id == openModalId) && 
-              <ModalViewer
+              <Modal
                 film={film}
                 openModalId={openModalId}
                 closeModal={() => {

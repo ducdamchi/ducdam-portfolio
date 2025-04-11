@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 /*************** CLASSES **************/
 class Image {
   constructor(id, src, index, description) {
-    this.id = id; //str, unique id of the image within an album. Ex: 2.4 = album 2, image 4
+    this.id = id; //str, unique id of the image within an album. Ex: 2.4 = album 2, image 4. exclude thumbnail.
     this.src = src; //str, source of image
     this.index = index; //int, for indexing purposes within an album
     this.description = description; //str, description of the image
@@ -28,7 +28,7 @@ class Album {
 
 function fetchSubDirAlbums (pathname, dir, subDirs, isHighlight) {
 
-  const imgExtentions = ['.jpg', '.png', ',jpeg', '.JPG', '.PNG', '.JPEG'];
+  const imgExtentions = ['.jpg', '.png', '.jpeg', '.JPG', '.PNG', '.JPEG'];
   const subDirAlbums = [];
   let album_id = 0;
 

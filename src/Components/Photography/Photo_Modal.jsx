@@ -7,7 +7,7 @@ import { PiGridNineBold } from "react-icons/pi";
 import { TbSlideshow } from "react-icons/tb";
 import { TbBackground } from "react-icons/tb";
 
-export default function ModalViewer({ album, openModalId, closeModal }) {
+export default function Modal({ album, openModalId, closeModal }) {
 
   /*************** CSS **************/
   const MODAL_BG = {
