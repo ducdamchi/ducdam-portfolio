@@ -59,7 +59,8 @@ export default function Photography() {
           albumsData={albumsData}
           numSlidesIndex={numSlidesIndex} 
           albumsPerSlide={albumsPerSlide}
-          oddAlbums={oddAlbums}/>
+          oddAlbums={oddAlbums}
+          screenWidth={screenWidth}/>
       </div>
     </>
   )

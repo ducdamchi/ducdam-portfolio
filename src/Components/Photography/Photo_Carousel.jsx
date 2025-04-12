@@ -4,7 +4,7 @@ import '../../App.css'
 import './Photography.css'
 import Carousel_Items from './Photo_Items'
 
-export default function Carousel( {albumsData, numSlidesIndex, albumsPerSlide, oddAlbums} ) {
+export default function Carousel( {albumsData, numSlidesIndex, albumsPerSlide, oddAlbums, screenWidth} ) {
 
   /*************** CSS **************/
   const CAROUSEL_WHOLE = {
@@ -199,7 +199,8 @@ export default function Carousel( {albumsData, numSlidesIndex, albumsPerSlide, o
           isEdgeTransition={isEdgeTransition} 
           albumsPerSlide={albumsPerSlide}
           carouselBtnLeft={carouselBtnLeft}
-          carouselBtnRight={carouselBtnRight}/>
+          carouselBtnRight={carouselBtnRight}
+          screenWidth={screenWidth}/>
 
         {/* Right side button */}
         <div>

@@ -4,8 +4,19 @@ import '../../App.css'
 import './Photography.css'
 import Modal from './Photo_Modal';
 
-export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight}) {
+export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight, screenWidth}) {
+  /*************** STATES AND VARS **************/
+  /* store which album was clicked on */
+  const [openModalId, setOpenModalId] = useState(null); 
+  /* store which thumbnail is being hovered on */
+  const [hoverId, setHoverId] = useState(null);
+  /* store clone slides */
+  const [clonesLeft, setClonesLeft] = useState([]);    
+  const [clonesRight, setClonesRight] = useState([]);
+  const [imgWidth, setImgWidth] = useState(null);
+  const thumbnails = useRef(null);
 
+  
   /*************** CSS **************/
   const THUMBNAIL_FLEX_CONTAINER = {
     display: 'flex',
@@ -24,18 +35,15 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
     borderColor: 'red'
   }
 
-  /*************** STATES AND VARS **************/
-  /* store which album was clicked on */
-  const [openModalId, setOpenModalId] = useState(null); 
+  const THUMBNAIL_TITLE = {
+    fontSize: `${imgWidth * 0.05}px`
+  }
 
-  /* store which thumbnail is being hovered on */
-  const [hoverId, setHoverId] = useState(null);
+  const THUMBNAIL_YEAR = {
+    fontSize: `${imgWidth * 0.04}px`
+  }
 
-  /* store clone slides */
-  const [clonesLeft, setClonesLeft] = useState([]);    
-  const [clonesRight, setClonesRight] = useState([]);   
-
-
+  
   /*************** HOOKS & FUNCTIONS **************/
   function handleThumbnailInteraction(albumId, isMouseEnter) {
     if (isMouseEnter) {
@@ -50,7 +58,6 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
   }
   
   /* Make clones of first and last page of carousel */
-  const thumbnails = useRef(null);
   useEffect(() => {
 
     /* Make sure thumbnails useRef object not null */
@@ -121,6 +128,13 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
 
     }
   }, [hoverId])
+ 
+  useEffect(() => {
+    const boxes = document.getElementById('thumbnail-title-year');
+    // console.log("These are the boxes:", boxes);
+    // console.log(boxes.clientWidth);
+    setImgWidth(boxes.clientWidth)
+  }, [screenWidth])
 
   return (
     <div ref={thumbnails} style={THUMBNAIL_FLEX_CONTAINER}>
@@ -170,27 +184,18 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
               className="thumbnail-box"
               onMouseEnter={() => handleThumbnailInteraction(album.id, true)}
               onMouseLeave={() => handleThumbnailInteraction(album.id, false)}>
-                
+
               <div className="thumbnail-info-container relative">
                 <img 
                   className="thumbnail-img"
                   id={`thumbnail-img-${album.id}`} 
                   src={album.thumbnail.src} 
                   onClick={() => {
-                  setOpenModalId(album.id);}}/>
+                    setOpenModalId(album.id);}}/>
 
-                <div className='thumbnail-title-year-container'>
-                  <div
-                    className="thumbnail-title-year">
-                    <div
-                      className="thumbnail-title">
-                      {album.title}
-                    </div>
-                    <div
-                      className="thumbnail-year">
-                      {album.year}
-                    </div>
-                  </div>
+                <div id='thumbnail-title-year' className='thumbnail-title-year flex flex-col justify-center items-start'>
+                    <div className='thumbnail-title border-2 border-green-500 text-left' style={THUMBNAIL_TITLE} >THIS IS A SUPER DUPER LONG EXAMPLE TITLE NAME <br/>
+                    <span className="thumbnail-year" style={THUMBNAIL_YEAR}>{album.year}</span></div>
                 </div>
               </div>
           
