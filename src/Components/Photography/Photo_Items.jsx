@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import '../../App.css'
 import './Photography.css'
 import Modal from './Photo_Modal';
@@ -15,6 +15,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
   const [clonesRight, setClonesRight] = useState([]);
   const [imgWidth, setImgWidth] = useState(null);
   const thumbnails = useRef(null);
+  const box = useRef(null);
 
   
   /*************** CSS **************/
@@ -43,7 +44,6 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
     fontSize: `${imgWidth * 0.04}px`
   }
 
-  
   /*************** HOOKS & FUNCTIONS **************/
   function handleThumbnailInteraction(albumId, isMouseEnter) {
     if (isMouseEnter) {
@@ -130,11 +130,11 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
   }, [hoverId])
  
   useEffect(() => {
-    const boxes = document.getElementById('thumbnail-title-year');
-    // console.log("These are the boxes:", boxes);
-    // console.log(boxes.clientWidth);
-    setImgWidth(boxes.clientWidth)
-  }, [screenWidth])
+    if (box.current) {
+      console.log(box.current);
+      setImgWidth(box.current.clientWidth);
+    }
+  }, [])
 
   return (
     <div ref={thumbnails} style={THUMBNAIL_FLEX_CONTAINER}>
@@ -193,7 +193,9 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                   onClick={() => {
                     setOpenModalId(album.id);}}/>
 
-                <div id='thumbnail-title-year' className='thumbnail-title-year flex flex-col justify-center items-start'>
+                <div 
+                  ref={album.id === 0 ? box : null}
+                  className='thumbnail-title-year flex flex-col justify-center items-start'>
                     <div className='thumbnail-title border-2 border-green-500 text-left' style={THUMBNAIL_TITLE} >THIS IS A SUPER DUPER LONG EXAMPLE TITLE NAME <br/>
                     <span className="thumbnail-year" style={THUMBNAIL_YEAR}>{album.year}</span></div>
                 </div>
