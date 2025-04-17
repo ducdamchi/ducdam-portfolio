@@ -3,6 +3,7 @@ import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import '../../App.css'
 import './Photography.css'
 import Modal from './Photo_Modal';
+import useResizeObserver from '@react-hook/resize-observer';
 
 export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight, screenWidth}) {
   /*************** STATES AND VARS **************/
@@ -37,11 +38,11 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
   }
 
   const THUMBNAIL_TITLE = {
-    fontSize: `${imgWidth * 0.05}px`
+    fontSize: `${size.width * 0.05}px`
   }
 
   const THUMBNAIL_YEAR = {
-    fontSize: `${imgWidth * 0.04}px`
+    fontSize: `${size.width * 0.04}px`
   }
 
   /*************** HOOKS & FUNCTIONS **************/
@@ -57,6 +58,18 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
     }
   }
   
+  function useSize(target) {
+    const [size, setSize] = useState()
+
+    useLayoutEffect(() => {
+      setSize(target.current.getBoundingClientRect())
+    }, [target])
+
+    useResizeObserver(target, (entry) => setSize(entry.contentRect))
+    return size
+  }
+  const size = useSize(box)
+
   /* Make clones of first and last page of carousel */
   useEffect(() => {
 
@@ -100,7 +113,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
       setClonesLeft(clonesLeftLst);
       setClonesRight(clonesRightLst);
     }
-  }, [albumsPerSlide]);
+  }, [albumsPerSlide])
 
   /* Pick background color for thumbnail description that matches the image dominant color */
   useEffect(() => {
@@ -129,12 +142,14 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
     }
   }, [hoverId])
  
-  useEffect(() => {
-    if (box.current) {
-      console.log(box.current);
-      setImgWidth(box.current.clientWidth);
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (box.current) {
+  //     console.log(box.current)
+  //     const size = useSize(box)
+  //     // setImgWidth(box.current.clientWidth)
+  //   }
+  // }, [])
+
 
   return (
     <div ref={thumbnails} style={THUMBNAIL_FLEX_CONTAINER}>
@@ -191,10 +206,10 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                   id={`thumbnail-img-${album.id}`} 
                   src={album.thumbnail.src} 
                   onClick={() => {
-                    setOpenModalId(album.id);}}/>
+                    setOpenModalId(album.id)}}/>
 
                 <div 
-                  ref={album.id === 0 ? box : null}
+                  ref={album.id === 1 ? box : null}
                   className='thumbnail-title-year flex flex-col justify-center items-start'>
                     <div className='thumbnail-title border-2 border-green-500 text-left' style={THUMBNAIL_TITLE} >THIS IS A SUPER DUPER LONG EXAMPLE TITLE NAME <br/>
                     <span className="thumbnail-year" style={THUMBNAIL_YEAR}>{album.year}</span></div>
@@ -218,8 +233,8 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                 album={album} 
                 openModalId={openModalId} 
                 closeModal={() => {
-                  setOpenModalId(null);
-                  console.log('closing modal');
+                  setOpenModalId(null)
+                  console.log('closing modal')
                 }}/>}
 
         </div>
