@@ -8,15 +8,15 @@ import useResizeObserver from '@react-hook/resize-observer';
 export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight, screenWidth}) {
   /*************** STATES AND VARS **************/
   /* store which album was clicked on */
-  const [openModalId, setOpenModalId] = useState(null); 
+  const [openModalId, setOpenModalId] = useState(null)
   /* store which thumbnail is being hovered on */
-  const [hoverId, setHoverId] = useState(null);
+  const [hoverId, setHoverId] = useState(null)
   /* store clone slides */
-  const [clonesLeft, setClonesLeft] = useState([]);    
-  const [clonesRight, setClonesRight] = useState([]);
-  const [imgWidth, setImgWidth] = useState(null);
-  const thumbnails = useRef(null);
-  const box = useRef(null);
+  const [clonesLeft, setClonesLeft] = useState([])
+  const [clonesRight, setClonesRight] = useState([])
+  const [titleSize, setTitleSize] = useState([])
+  const thumbnails = useRef(null)
+  const titleRef = useRef(null)
 
   
   /*************** CSS **************/
@@ -32,20 +32,13 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
 
   const THUMBNAIL_FLEX_ITEM = {
     width: `${100 / albumsPerSlide}%`, 
-    borderWidth: '3px',
-    borderStyle: 'solid',
-    borderColor: 'red'
-  }
-
-  const THUMBNAIL_TITLE = {
-    fontSize: `${size.width * 0.05}px`
-  }
-
-  const THUMBNAIL_YEAR = {
-    fontSize: `${size.width * 0.04}px`
+    // borderWidth: '3px',
+    // borderStyle: 'solid',
+    // borderColor: 'red'
   }
 
   /*************** HOOKS & FUNCTIONS **************/
+  /* Identify which thumbnail is being hovered on, dim button background */
   function handleThumbnailInteraction(albumId, isMouseEnter) {
     if (isMouseEnter) {
       setHoverId(albumId);
@@ -58,63 +51,6 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
     }
   }
   
-  function useSize(target) {
-    const [size, setSize] = useState()
-
-    useLayoutEffect(() => {
-      setSize(target.current.getBoundingClientRect())
-    }, [target])
-
-    useResizeObserver(target, (entry) => setSize(entry.contentRect))
-    return size
-  }
-  const size = useSize(box)
-
-  /* Make clones of first and last page of carousel */
-  useEffect(() => {
-
-    /* Make sure thumbnails useRef object not null */
-    if (thumbnails.current) {
-
-      /* Select all thumbnail imgs, extract first three and last three */
-      const images = thumbnails.current.querySelectorAll('.thumbnail-img');
-      const titles = thumbnails.current.querySelectorAll('.thumbnail-title');
-      const years = thumbnails.current.querySelectorAll('.thumbnail-year')
-
-      const firstImgs = [...images].slice(0, albumsPerSlide);
-      const lastImgs = [...images].slice(-albumsPerSlide);
-      const firstTitles = [...titles].slice(0, albumsPerSlide);
-      const lastTitles = [...titles].slice(-albumsPerSlide);
-      const firstYears = [...years].slice(0, albumsPerSlide);
-      const lastYears = [...years].slice(-albumsPerSlide);
-
-      /* Make clones of those two 'slides' to reference in HTML */
-      let clonesLeftLst = [];
-      for (let i=0; i < albumsPerSlide; i++) {
-        let clone_info = [];        
-        clone_info.push(lastImgs[i].src);
-        clone_info.push(lastTitles[i].innerHTML);
-        clone_info.push(lastYears[i].innerHTML);
-        clonesLeftLst.push(clone_info)
-      }
-
-      let clonesRightLst = [];
-      for (let i=0; i < albumsPerSlide; i++) {
-        let clone_info = [];        
-        clone_info.push(firstImgs[i].src);
-        clone_info.push(firstTitles[i].innerHTML);
-        clone_info.push(firstYears[i].innerHTML);
-        clonesRightLst.push(clone_info)
-      }
-    
-      // console.log("clones Left:", clonesLeftLst);
-      // console.log("clones Right:", clonesRightLst);
-
-      setClonesLeft(clonesLeftLst);
-      setClonesRight(clonesRightLst);
-    }
-  }, [albumsPerSlide])
-
   /* Pick background color for thumbnail description that matches the image dominant color */
   useEffect(() => {
     if (hoverId != null) {
@@ -142,47 +78,61 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
     }
   }, [hoverId])
  
-  // useEffect(() => {
-  //   if (box.current) {
-  //     console.log(box.current)
-  //     const size = useSize(box)
-  //     // setImgWidth(box.current.clientWidth)
-  //   }
-  // }, [])
+  /* Use ResizeObserver to observe size of thumbnail, and adjust size of title accordingly.  */
+  useEffect(() => {
+    const target = titleRef.current
+    if (!target) return
+    
+    const resizeObserver = new ResizeObserver((entries) => {
+      const titleElement = entries[0]
+      const titleWidth = titleElement.contentRect.width
+      setTitleSize(titleWidth)
+    })
 
+    resizeObserver.observe(target)
 
+    return () => resizeObserver.disconnect()
+  }, [])
+
+  // const size = useSize(box)
   return (
     <div ref={thumbnails} style={THUMBNAIL_FLEX_CONTAINER}>
       
       {/* Clones on left side */}
-      {clonesLeft.map((cloneInfo, index) => (
+      {albumsData
+        .filter((album) => album.isHighlight === true)
+        .slice(albumsData.length-albumsPerSlide-2)
+        .map((album) => (
         <div 
-            key={`cloneLeft-${index}`} 
-            className="thumbnail-flex-item" 
-            style={THUMBNAIL_FLEX_ITEM}>
+          key={`cloneLeft-${album.id}`} 
+          className="thumbnail-flex-item"
+          style={THUMBNAIL_FLEX_ITEM}>
+            
+          <div className="thumbnail-box">
 
-            <div className="thumbnail-box">
-              <div className="thumbnail-info-container-clone relative">
-                <img 
-                  className="thumbnail-img-clone" 
-                  src={cloneInfo[0]}/>
+            <div className="thumbnail-info-container-clone relative">
 
-                <div className='thumbnail-title-year-container'>
-                  <div
-                    className="thumbnail-title-year ">
-                    <div
-                      className="thumbnail-title">
-                      {cloneInfo[1]}
-                    </div>
-                    <div
-                      className="thumbnail-year">
-                      {cloneInfo[2]}
-                    </div>
-                  </div>
+              <img 
+                className="thumbnail-img-clone"
+                src={album.thumbnail.src}/>
+
+              <div 
+                className='thumbnail-title-year'>
+                <div 
+                className='thumbnail-title' 
+                style={{fontSize: `${titleSize * 0.055}px` }}>
+
+                  {album.title} <br/> 
+
+                  <span 
+                  className="thumbnail-year" 
+                  style={{fontSize: `${titleSize * 0.045}px` }}>
+                    {album.year}
+                  </span>
                 </div>
-
               </div>
             </div>
+          </div>   
         </div>
       ))}
       
@@ -201,6 +151,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
               onMouseLeave={() => handleThumbnailInteraction(album.id, false)}>
 
               <div className="thumbnail-info-container relative">
+
                 <img 
                   className="thumbnail-img"
                   id={`thumbnail-img-${album.id}`} 
@@ -209,10 +160,22 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                     setOpenModalId(album.id)}}/>
 
                 <div 
-                  ref={album.id === 1 ? box : null}
-                  className='thumbnail-title-year flex flex-col justify-center items-start'>
-                    <div className='thumbnail-title border-2 border-green-500 text-left' style={THUMBNAIL_TITLE} >THIS IS A SUPER DUPER LONG EXAMPLE TITLE NAME <br/>
-                    <span className="thumbnail-year" style={THUMBNAIL_YEAR}>{album.year}</span></div>
+                  ref={album.id === 1 ? titleRef : null}
+                  className='thumbnail-title-year'>
+
+                    <div 
+                    className='thumbnail-title' 
+                    style={{fontSize: `${titleSize * 0.055}px` }}>
+
+                      {album.title} <br/>
+
+                      <span 
+                      className="thumbnail-year" 
+                      style={{fontSize: `${titleSize * 0.045}px` }}>
+                        {album.year}
+                      </span>
+                
+                    </div>
                 </div>
               </div>
           
@@ -241,36 +204,42 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
       ))}
 
       {/* Clones on right side */}
-      {clonesRight.map((cloneInfo, index) => (
+      {albumsData
+        .filter((album) => album.isHighlight === true)
+        .slice(0, albumsPerSlide+1)
+        .map((album) => (
         <div 
-          key={`cloneRight-${index}`} 
-          className="thumbnail-flex-item" 
+          key={`cloneRight-${album.id}`} 
+          className="thumbnail-flex-item"
           style={THUMBNAIL_FLEX_ITEM}>
+            
+          <div className="thumbnail-box">
 
-            <div className="thumbnail-box">
-              <div className="thumbnail-info-container-clone relative">
-                <img 
-                  className="thumbnail-img-clone" 
-                  src={cloneInfo[0]}/>
+            <div className="thumbnail-info-container-clone relative">
 
-                <div className='thumbnail-title-year-container'>
-                  <div
-                    className="thumbnail-title-year">
-                    <div
-                      className="thumbnail-title">
-                      {cloneInfo[1]}
-                    </div>
-                    <div
-                      className="thumbnail-year">
-                      {cloneInfo[2]}
-                    </div>
-                  </div>
+              <img 
+                className="thumbnail-img-clone"
+                src={album.thumbnail.src}/>
+
+              <div 
+                className='thumbnail-title-year'>
+                <div 
+                className='thumbnail-title' 
+                style={{fontSize: `${titleSize * 0.055}px` }}>
+
+                  {album.title} <br/> 
+
+                  <span 
+                  className="thumbnail-year" 
+                  style={{fontSize: `${titleSize * 0.045}px` }}>
+                    {album.year}
+                  </span>
                 </div>
               </div>
             </div>
+          </div>   
         </div>
       ))}
-
     </div>
   )
 }
