@@ -1,4 +1,9 @@
 
+/* .film-carousel-whole {
+  height: 37.5rem;
+  width: 62.5rem;
+} */
+
 .poster {
   z-index: 2;
   scale: 1;
@@ -9,4 +14,89 @@
   scale: 1.05;
   box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
   transition-delay: 400ms;
+}
+
+.info-slide {
+  line-height: 1.8;
+  overflow: scroll;
+}
+
+/* Responsive based on width */
+@media (min-width: 20rem) {
+  .carousel-btn {
+    font-size: 1.2rem;
+  }
+
+  .film-carousel-whole {
+    height: 56.25rem;
+    width: 100vw;
+  }
+
+  .film-object {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .film-container {
+    align-items: start;
+  }
+
+  .btn-div {
+    width: 15%;
+  }
+}
+
+@media (min-width: 30rem) {
+
+  .carousel-btn {
+    font-size: 1.5rem;
+  }
+
+  /* .gallery-all {
+    gap: 5px;
+  } */
+
+  .thumbnail-flex-item {
+    padding: 0.5rem;
+  }
+}
+
+@media (min-width: 40rem) {
+
+
+  .carousel-btn {
+    font-size: 2rem;
+  }
+
+  .thumbnail-flex-item {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 48rem) {
+
+
+  .carousel-btn {
+    font-size: 2.5rem;
+  }
+
+  .thumbnail-flex-item {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  /* .film-carousel-whole {
+    height: 37.5rem;
+    width: 62.5rem;
+  } */
+
+  .film-object {
+    flex-direction: row;
+    align-items: start;
+  }
+
+  .film-container {
+    align-items: center;
+  }
 }

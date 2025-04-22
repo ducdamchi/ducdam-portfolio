@@ -1,29 +1,10 @@
 import React from 'react'
 import { useState, useRef, useEffect } from 'react'
-// import '../../App.css'
+import './Film.css'
 // import './Photography.css'
 import Carousel_Items from './Film_Items'
 
 export default function Carousel( {filmsData, numSlidesIndex} ) {
-
-  /*************** CSS **************/
-  const CAROUSEL_WHOLE = {
-    height: '600px',
-    width: '1000px',
-    borderWidth: '2px',
-    borderColor: 'blue'
-  }
-  const CAROUSEL_BTN_STYLE = {
-    // display: 'block',
-    // position: 'absolute',
-    // top: '0%',
-    // height: '100%',
-    // // width: 'var(--slider-padding)',
-    // zIndex: '3',
-    // opacity: '1',
-    // borderWidth: '2px',
-    // borderColor: 'red'
-  }
 
   /*************** STATES AND VARS **************/
   const [carouselIndex, setCarouselIndex] = useState(1);  /* slide index we're on */
@@ -119,28 +100,23 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
 
   }, [isEdgeTransition, carouselIndex])
   
-  useEffect(() => {
-    console.log("Carousel index:", carouselIndex);
-  }, [carouselIndex])
-
   /*************** HTML **************/
   return (
       
-      <div className="carousel-whole flex items-center justify-center" style={CAROUSEL_WHOLE}>
+      <div className="film-carousel-whole flex items-center justify-center">
 
         {/* Left side button */}
-        <div className='w-[10%] h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
+        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button 
             ref={carouselBtnLeft}
-            style={CAROUSEL_BTN_STYLE}
-            className='carousel-btn carousel-btn-left text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl'
+            className='carousel-btn carousel-btn-left'
             onClick={prevSlide}
             disabled={leftDisabled}>
             <div>&#8249;</div>
           </button>
         </div>
 
-        <div className="w-[80%] h-full flex-10 border-2 border-green-500 z-[2]">
+        <div className="w-[80%] h-full flex-7 border-2 border-green-500 z-[2]">
           <Carousel_Items
             filmsData={filmsData}
             carouselIndex={carouselIndex}
@@ -150,11 +126,10 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
         </div>
 
         {/* Right side button */}
-        <div className='w-[10%] h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
+        <div className='btn-div h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button
             ref={carouselBtnRight}
-            style={CAROUSEL_BTN_STYLE}
-            className="carousel-btn carousel-btn-right text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+            className="carousel-btn carousel-btn-right"
             onClick={nextSlide}
             disabled={rightDisabled}>
             <div>&#8250;</div>

@@ -136,25 +136,25 @@
 }
 
 /* SLIDES VIEW MODE CONTENT */
-@media (max-height: 450px) {
+@media (max-height: 28.125rem) {
   .modal-topRightNav {
-    gap: 5px;
+    gap: .3125rem;
   }
 }
 
 /* GALLERY VIEW MODE CONTENT */
 .gallery-all {
   display: grid;
-  grid-template-columns: repeat(3, minmax(50px, 600px));
+  grid-template-columns: repeat(3, minmax(3.125rem, 37.5rem));
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 1.875rem;
 }
 
 
-@media (max-height: 1200px) {
+@media (max-height: 75rem) {
   .gallery-all {
-    max-height: 900px;
+    max-height: 56.25rem;
   }
 }
 

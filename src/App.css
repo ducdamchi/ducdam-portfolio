@@ -12,7 +12,10 @@
 
 .navbar-item, .thumbnail-description{
   font-family: 'Calisto', 'Palatino', 'Garamond', 'Georgia', serif;
-  /* font-size: clamp(0.1rem, calc(0.5vw + 0.5rem), 1.2rem); */
+}
+
+.navbar-item {
+  font-size: clamp(0.4rem, calc(1.5vw + 0.4rem), 1rem);
 }
 
 h1, .thumbnail-title, .thumbnail-year, .modal-slides-counter {
@@ -20,8 +23,11 @@ h1, .thumbnail-title, .thumbnail-year, .modal-slides-counter {
 }
 
 h1 {
-  /* font-size: clamp(0.8rem, calc(2vw + 1rem), 2rem); */
+  font-size: clamp(0.5rem, calc(2vw + 0.5rem), 1.6rem);
 }
 
+.logo {
+  font-family: 'Candara', 'Optima', 'Helvetica', sans-serif;
+}
 
 

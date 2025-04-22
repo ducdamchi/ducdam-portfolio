@@ -5,8 +5,8 @@ export default function NavSection() {
     <div className='static top-0 flex flex-col items-center justify-center w-full h-[20%] border-2 border-yellow-500'>
 
         {/* Logo section */}
-        <div className="flex justify-center items-center p-1 m-1 text-xl border-2 border-blue-400">
-          <Link to="/">Logo</Link>
+        <div className="logo flex justify-center items-center p-1 m-1 text-xl border-2 border-blue-400">
+          <Link to="/">DUC DAM</Link>
         </div>
 
         {/* Navigation bar */}
