@@ -102,21 +102,20 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
   
   /*************** HTML **************/
   return (
-      
-      <div className="film-carousel-whole flex items-center justify-center">
+      <div className="film-carousel-whole">
 
         {/* Left side button */}
         <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button 
             ref={carouselBtnLeft}
-            className='carousel-btn carousel-btn-left'
+            className='film-carousel-btn film-carousel-btn-left'
             onClick={prevSlide}
             disabled={leftDisabled}>
             <div>&#8249;</div>
           </button>
         </div>
 
-        <div className="w-[80%] h-full flex-7 border-2 border-green-500 z-[2]">
+        <div className="h-full flex-5 border-2 border-green-500 z-[2]">
           <Carousel_Items
             filmsData={filmsData}
             carouselIndex={carouselIndex}
@@ -126,10 +125,10 @@ export default function Carousel( {filmsData, numSlidesIndex} ) {
         </div>
 
         {/* Right side button */}
-        <div className='btn-div h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
+        <div className='h-full flex flex-1 items-center justify-center border-2 border-red-500 z-[3] bg-[rgb(250,250,250)]'>
           <button
             ref={carouselBtnRight}
-            className="carousel-btn carousel-btn-right"
+            className="film-carousel-btn film-carousel-btn-right"
             onClick={nextSlide}
             disabled={rightDisabled}>
             <div>&#8250;</div>

@@ -1,13 +1,16 @@
 
-/* .film-carousel-whole {
-  height: 37.5rem;
-  width: 62.5rem;
-} */
+.film-carousel-whole {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
 .poster {
   z-index: 2;
   scale: 1;
-  transition: 200ms ease-in-out
+  transition: 200ms ease-in-out;
+  height: auto;
 }
 
 .poster:hover {
@@ -21,68 +24,93 @@
   overflow: scroll;
 }
 
+
 /* Responsive based on width */
 @media (min-width: 20rem) {
-  .carousel-btn {
+  /* .carousel-btn {
     font-size: 1.2rem;
-  }
+  } */
 
   .film-carousel-whole {
-    height: 56.25rem;
-    width: 100vw;
+    height: 70vh;
+    width: 90vw;
   }
 
-  .film-object {
+  .poster {
+    max-width: 240px;
+  }
+
+  /* .film-object {
     flex-direction: column;
     align-items: center;
-  }
+  } */
 
-  .film-container {
+  /* .film-container {
     align-items: start;
   }
 
   .btn-div {
     width: 15%;
-  }
+  } */
 }
 
 @media (min-width: 30rem) {
 
-  .carousel-btn {
-    font-size: 1.5rem;
+  .film-carousel-whole {
+    height: 70vh;
+    width: 80vw;
   }
+
+  .poster {
+    max-width: 300px;
+  }
+
+  /* .carousel-btn {
+    font-size: 1.5rem;
+  } */
 
   /* .gallery-all {
     gap: 5px;
   } */
 
-  .thumbnail-flex-item {
+  /* .thumbnail-flex-item {
     padding: 0.5rem;
-  }
+  } */
 }
 
 @media (min-width: 40rem) {
 
+  .film-carousel-whole {
+    height: 70vh;
+    width: 75vw;
+  }
 
-  .carousel-btn {
+  .poster {
+    max-width: 320px;
+  }
+
+  /* .carousel-btn {
     font-size: 2rem;
-  }
+  } */
 
-  .thumbnail-flex-item {
+  /* .thumbnail-flex-item {
     padding: 1rem;
-  }
+  } */
 }
 
 @media (min-width: 48rem) {
+  .film-carousel-whole {
+    height: 70vh;
+    width: 70vw;
+  }
 
-
-  .carousel-btn {
+  /* .carousel-btn {
     font-size: 2.5rem;
-  }
+  } */
 
-  .thumbnail-flex-item {
+  /* .thumbnail-flex-item {
     padding: 1.5rem;
-  }
+  } */
 }
 
 @media (min-width: 64rem) {
@@ -91,12 +119,12 @@
     width: 62.5rem;
   } */
 
-  .film-object {
+  /* .film-object {
     flex-direction: row;
     align-items: start;
   }
 
   .film-container {
     align-items: center;
-  }
+  } */
 }

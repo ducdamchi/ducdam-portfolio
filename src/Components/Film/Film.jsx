@@ -16,7 +16,7 @@ export default function Film() {
         FILM
       </h1>
 
-      <div className="flex justify-center items-center">
+      <div className="relative flex justify-center items-center">
         <Carousel 
           filmsData={filmsData}
           numSlidesIndex={numSlidesIndex}/>
