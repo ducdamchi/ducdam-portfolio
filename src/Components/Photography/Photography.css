@@ -6,9 +6,9 @@
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css" layer(utilities);
 
-/* :root {
-  --slider-padding: 7rem;
-} */
+:root {
+  --slider-padding: 1.5rem;
+}
 
 .thumbnail-title-year{
   position: absolute;
@@ -73,6 +73,10 @@
   background-color: rgba(250, 250, 250, 0.4);
 }
 
+.carousel-btn {
+  font-size: 1rem;
+}
+
 .btn-bg-left, .carousel-btn-left {
   left: 0%;
 }
@@ -94,7 +98,7 @@
   flex: none;
   position: relative;
   text-align: center;
-  padding: 1rem;
+  padding: 0.2rem;
   /* background-color: white; */
 }
 

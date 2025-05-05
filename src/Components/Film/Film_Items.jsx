@@ -60,7 +60,7 @@ export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransit
       {filmsData.map((film) => (
         (film.id === filmsData.length) &&
         <div 
-          className="film-object cloneLeft flex items-center justify-center shrink-[0] w-[100%] border-3 border-amber-600" 
+          className="film-object cloneLeft h-full flex items-center justify-center shrink-[0] w-[100%] border-3 border-amber-600" 
           key={film.id}
           id='film-object-0'>
 
@@ -76,11 +76,11 @@ export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransit
       {/* Real slides */}
       {filmsData.map((film) => (
         <div 
-        className="film-object flex items-center justify-center shrink-[0] w-[100%] border-3 border-amber-600" 
+        className="film-object h-full flex items-center justify-center shrink-[0] w-[100%] border-3 border-amber-600" 
         key={film.id}
         id={`film-object-${film.id}`}>
 
-            <div className="poster  border-2 border-red-500 p-2 m-2">
+            <div className="poster border-2 border-red-500 p-2 m-2">
               <img
                 id={`poster-${film.id}`}
                 className='w-full h-full object-contain '
@@ -108,7 +108,7 @@ export default function Carousel_Items( {filmsData, carouselIndex, isEdgeTransit
       {filmsData.map((film) => (
         (film.id === 1) &&
         <div 
-        className="film-object cloneRight flex items-center justify-center shrink-[0] w-[100%] border-3 border-amber-600" 
+        className="film-object cloneRight h-full flex items-center justify-center shrink-[0] w-[100%] border-3 border-amber-600" 
         key={film.id}
         id={`film-object-${filmsData.length+1}`}>
 
