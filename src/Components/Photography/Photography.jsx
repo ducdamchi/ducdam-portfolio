@@ -50,9 +50,12 @@ export default function Photography() {
 
   return (
     <>
-      <h1 className="relative flex justify-center items-center p-1 m-1 font-semibold border-2 border-yellow-500">
-        PHOTOGRAPHY
+    <div className="w-[100vw] border-2 border-yellow-500 flex justify-center items-center">
+      <h1 className="flex justify-center items-center p-1 m-1 font-semibold">
+          PHOTOGRAPHY
       </h1>
+    </div>
+
 
       <div className='relative'>
         <Carousel 

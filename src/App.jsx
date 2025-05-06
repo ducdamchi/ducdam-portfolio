@@ -15,7 +15,7 @@ export default function App() {
       <NavSection/>
       <div className='routes-container'>
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/photography" element={<Photography />} />
           <Route path="/film" element={<Film />} />
           <Route path="/woodworking" element={<Woodworking />} />
