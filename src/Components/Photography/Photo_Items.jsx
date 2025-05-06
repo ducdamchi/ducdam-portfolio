@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useRef, useEffect, useLayoutEffect } from 'react'
+import { Link } from "react-router-dom"
 import '../../App.css'
 import './Photography.css'
 import Modal from './Photo_Modal';
@@ -151,6 +152,9 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
               onMouseLeave={() => handleThumbnailInteraction(album.id, false)}>
 
               <div className="thumbnail-info-container relative">
+                <Link 
+                  to={`../photography/${album.id}`}
+                  className="absolute w-full h-full border-2 border-green-500"/>
 
                 <img 
                   className="thumbnail-img"
