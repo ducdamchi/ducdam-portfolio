@@ -153,7 +153,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
 
               <div className="thumbnail-info-container relative">
                 <Link 
-                  to={`../photography/${album.id}`}
+                  to={`../photography/${album.url}`}
                   className="absolute w-full h-full border-2 border-green-500"/>
 
                 <img 

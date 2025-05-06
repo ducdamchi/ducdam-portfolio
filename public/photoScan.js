@@ -14,7 +14,7 @@ class Image {
 }
 
 class Album {
-  constructor(id, title, year, description, numImages, isHighlight, thumbnail, imgList) {
+  constructor(id, title, year, description, numImages, isHighlight, thumbnail, url, imgList) {
     this.id = id; //int, unique id of the album among all albums, starting from x.1
     this.title = title; //string, tile of project
     this.year = year //string, year of project ('2018-2020', '2013-current', etc.)
@@ -22,8 +22,21 @@ class Album {
     this.numImages = numImages; //int, number of images in the album, excluding the thumbnail
     this.isHighlight = isHighlight; //boolean, is the album put in the Highlights folder?
     this.thumbnail = thumbnail; //Image object, store info about thumbnail. Has ID x.0
+    this.url = url; //url extention, for example: 'example-project-1' in 'abc.com/photo/example-project-1'
+
     this.imgList = imgList; //list of Image objects
+
   }
+}
+
+function toDashedLowerCase(str) {
+  return str
+    .trim() // Remove leading/trailing whitespace
+    .toLowerCase() // Convert to lowercase
+    .replace(/\s+/g, '-') // Replace whitespace with dashes
+    .replace(/[^a-z0-9-]/g, '') // Remove special characters (optional)
+    .replace(/-+/g, '-') // Replace multiple dashes with single dash
+    .replace(/^-|-$/g, ''); // Remove leading/trailing dashes
 }
 
 function fetchSubDirAlbums (pathname, dir, subDirs, isHighlight) {
@@ -50,6 +63,8 @@ function fetchSubDirAlbums (pathname, dir, subDirs, isHighlight) {
         album.title = album_data.title;
         album.year = album_data.year;
         album.description = album_data.description;
+        album.url = toDashedLowerCase(album_data.title);
+        // console.log(album.url)
       }
 
       // Check if content of dir has valid image extensions.

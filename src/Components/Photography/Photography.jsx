@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import NavSection from '../NavSection';
 import Carousel from './Photo_Carousel';
 import albumsData from './albums.json'
 
@@ -50,11 +51,13 @@ export default function Photography() {
 
   return (
     <>
-    <div className="w-[100vw] border-2 border-yellow-500 flex justify-center items-center">
-      <h1 className="flex justify-center items-center p-1 m-1 font-semibold">
-          PHOTOGRAPHY
-      </h1>
-    </div>
+      <NavSection/>
+      
+      <div className="w-[100vw] border-2 border-yellow-500 flex justify-center items-center">
+        <h1 className="flex justify-center items-center p-1 m-1 font-semibold">
+            PHOTOGRAPHY
+        </h1>
+      </div>
 
 
       <div className='relative'>

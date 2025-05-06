@@ -6,22 +6,23 @@ import './Photography.css'
 import albumsData from './albums.json'
 
 export default function Landing () {
-  const { photoId } = useParams()
+  const { photoURL} = useParams()
+  console.log(photoURL)
   
-  /* Check if id is valid */
-  const ids = []
+  /* Check if url is valid */
+  const all_urls = []
   albumsData.forEach(album =>
-    ids.push(album.id)
+    all_urls.push(album.url)
   )
-  const ids_str = ids.map(String)
+  const urls_str = all_urls.map(String)
 
-  if (!ids_str.includes(photoId)) {
+  if (!urls_str.includes(photoURL)) {
     return <div>Page not found</div>
   }
 
   return (
-    <div>
-      <h1>Welcome to album number {photoId}</h1>
+    <div className="w-screen h-screen">
+      <h1>Welcome to album "{photoURL}"</h1>
     </div>
   )
 }

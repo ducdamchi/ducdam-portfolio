@@ -12,18 +12,16 @@ import { Route, Routes } from "react-router-dom"
 
 export default function App() {
   return (
-    <div className="w-screen h-screen">
-      <NavSection/>
       <div className='routes-container'>
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/photography" element={<Photography />} />
-          <Route path="/photography/:photoId" element={<Photo_Landing />}/>
+          <Route path="/photography/:photoURL" element={<Photo_Landing />}/>
           <Route path="/film" element={<Film />} />
           <Route path="/woodworking" element={<Woodworking />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </div>
-    </div>
+    // </div>
   )
 }

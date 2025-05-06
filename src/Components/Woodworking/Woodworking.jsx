@@ -12,9 +12,13 @@ export default function Woodworking() {
   
   return (
     <>
-      <h1 className="relative flex justify-center items-center p-1 m-1 font-semibold border-2 border-yellow-500">
-        WOODWORKING
-      </h1>
+      <NavSection />
+
+      <div className="w-[100vw] border-2 border-yellow-500 flex justify-center items-center">
+        <h1 className="flex justify-center items-center p-1 m-1 font-semibold">
+            WOODWORKING
+        </h1>
+      </div>
 
       <div className="flex justify-center items-center">
         <Carousel 
