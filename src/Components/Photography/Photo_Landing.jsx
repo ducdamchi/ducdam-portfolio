@@ -6,7 +6,7 @@ import './Photography.css'
 import albumsData from './albums.json'
 
 export default function Landing () {
-  const { photoURL} = useParams()
+  const {photoURL} = useParams()
   console.log(photoURL)
   
   /* Check if url is valid */
@@ -23,6 +23,7 @@ export default function Landing () {
   return (
     <div className="w-screen h-screen">
       <h1>Welcome to album "{photoURL}"</h1>
+      <div></div>
     </div>
   )
 }
