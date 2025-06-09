@@ -9,7 +9,7 @@ import useResizeObserver from '@react-hook/resize-observer';
 export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset, isEdgeTransition, albumsPerSlide, carouselBtnLeft, carouselBtnRight, screenWidth}) {
   /*************** STATES AND VARS **************/
   /* store which album was clicked on */
-  const [openModalId, setOpenModalId] = useState(null)
+  // const [openModalId, setOpenModalId] = useState(null)
   /* store which thumbnail is being hovered on */
   const [hoverId, setHoverId] = useState(null)
   /* store clone slides */
@@ -160,8 +160,7 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
                   className="thumbnail-img"
                   id={`thumbnail-img-${album.id}`} 
                   src={album.thumbnail.src} 
-                  onClick={() => {
-                    setOpenModalId(album.id)}}/>
+                  />
 
                 <div 
                   ref={album.id === 1 ? titleRef : null}
@@ -195,14 +194,14 @@ export default function Carousel_Items( {albumsData, carouselIndex, slidesOffset
 
             {/* Modal Viewer, hidden until thumbnail is clicked on, 
             then rendered on portal different from root */}
-            {(album.id === openModalId) && 
+            {/* {(album.id === openModalId) && 
               <Modal
                 album={album} 
                 openModalId={openModalId} 
                 closeModal={() => {
                   setOpenModalId(null)
                   console.log('closing modal')
-                }}/>}
+                }}/>}   */}
 
         </div>
       ))}

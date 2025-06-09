@@ -180,7 +180,7 @@ export default function Modal({ album, openModalId, closeModal }) {
                     <img 
                     className="slides-each w-full h-full object-contain border-3 border-orange-500"
                     key={slide.id}
-                    src={slide.src}
+                    src={`/${slide.src}`}
                     />
 
                 ))}
@@ -194,7 +194,7 @@ export default function Modal({ album, openModalId, closeModal }) {
                   <img 
                     className="gallery-each" 
                     key={img.id}
-                    src={img.src}
+                    src={`/${img.src}`}
                     onClick={() => handleGalleryClick(img.index)}
                   />
                 ))}
