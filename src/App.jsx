@@ -14,7 +14,7 @@ export default function App() {
   return (
       <div className='routes-container'>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Photography />} />
           <Route path="/photography" element={<Photography />} />
           <Route path="/photography/:photoURL" element={<Photo_Landing />}/>
           <Route path="/film" element={<Film />} />
