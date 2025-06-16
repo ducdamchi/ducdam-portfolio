@@ -58,3 +58,40 @@
   
                   </div>
               </div>
+
+
+
+       {/* MODAL - NAV WINDOW */}
+
+       <div className="modal-topRightNav flex h-full flex-col items-center justify-center gap-10 border-2 border-rose-500">
+       {/* Button for closing modal, shared */}
+       <button
+         className="text-md sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+         onClick={closeModal}
+       >
+         ×
+       </button>
+
+       <div className="sm:text-md text-sm font-bold md:text-lg lg:text-xl xl:text-3xl">
+         {`${slideIndex + 1}/${album.numImages}`}
+       </div>
+
+       {/* Button for switching between Slides View and Gallery View, shared */}
+       <button
+         className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-6xl"
+         onClick={toggleView}
+       >
+         {isGalleryView ? <TbSlideshow /> : <PiGridNineBold />}
+       </button>
+
+       {/* Button for switching modal background colors (black, grey, white), shared*/}
+       <button
+         className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-6xl"
+         onClick={toggleBackground}
+       >
+         <TbBackground />
+       </button>
+     </div>
+
+
+<div className="w-inherit absolute top-0 h-[45%] border-2 border-violet-500"></div>
