@@ -19,7 +19,7 @@ export default function Modal({ album, openModalId, closeModal }) {
     position: 'fixed',
     top: '0%',
     width: '100vw',
-    height: '100vh',
+    height: '150vh',
     background: 'rgb(255, 255, 255)',
   }
 
@@ -28,7 +28,7 @@ export default function Modal({ album, openModalId, closeModal }) {
     // position: 'absolute',
     textAlign: 'center',
     width: '100%',
-    height: '80%',
+    height: '70%',
     // top: '12.5%', // = (100-height)/2
     // left: '0%', // = (100-width)/2
     // color: 'white',
@@ -92,7 +92,7 @@ export default function Modal({ album, openModalId, closeModal }) {
   /*************** HOOKS **************/
   /* Handle prev/next transition in Slides View Mode */
   useEffect(() => {
-    console.log(`slide index: ${slideIndex}`)
+    // console.log(`slide index: ${slideIndex}`)
     if (slidesRef.current) {
       const allSlides = slidesRef.current.querySelectorAll('.slides-each')
       Array.from(allSlides)
@@ -100,9 +100,17 @@ export default function Modal({ album, openModalId, closeModal }) {
       /* Only turn on block display for slide with current index */
       for (let i = 0; i < allSlides.length; i++) {
         if (i != slideIndex) {
-          allSlides[i].style.display = 'none'
+          // allSlides[i].style.display = 'none'
+          allSlides[i].classList.remove('visible')
+          setTimeout(() => {
+            allSlides[i].style.display = 'none'
+          }, 300)
         } else {
+          setTimeout(() => {
+            allSlides[i].classList.add('visible')
+          }, 300)
           allSlides[i].style.display = 'inline-block'
+          // console.log(allSlides[i].style)
         }
       }
     }
@@ -160,11 +168,11 @@ export default function Modal({ album, openModalId, closeModal }) {
 
         <div
           ref={modalRef}
-          className="relative z-30 flex h-screen w-screen flex-col items-center justify-center gap-10 border-2 border-amber-500"
+          className="relative z-30 flex h-[120vh] w-[100vw] flex-col items-center justify-start gap-0 border-2 border-amber-500"
         >
           {/* NAVBAR */}
-          <div className="modal-navbar-wrapper z-30 flex w-full justify-center border-2 border-blue-500">
-            <div className="modal-navbar flex w-[85%] max-w-[2400px] items-center justify-between gap-10 border-2 border-green-500 font-thin">
+          <div className="modal-navbar-wrapper z-30 mt-5 flex w-full justify-center border-2 border-blue-500">
+            <div className="modal-navbar flex w-[85%] max-w-[2400px] items-center justify-between gap-10 border-2 border-green-500 p-2 font-thin">
               {/* Button for closing modal, shared */}
               <button
                 className="modal-navbar-back text-md border-2 border-orange-300 sm:text-xl md:text-xl lg:text-2xl xl:text-3xl"
@@ -188,7 +196,7 @@ export default function Modal({ album, openModalId, closeModal }) {
 
                 {/* Button for switching modal background colors (black, grey, white), shared*/}
                 <button
-                  className="border-2 border-orange-300 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl"
+                  className="text-md border-2 border-orange-300 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
                   onClick={toggleBackground}
                 >
                   <PiSelectionBackgroundThin />
@@ -198,7 +206,7 @@ export default function Modal({ album, openModalId, closeModal }) {
           </div>
 
           {/* TITLE */}
-          <div className="modal-title z-30 flex w-full justify-center border-2 border-blue-500 font-thin">
+          <div className="modal-title z-30 mb-10 flex w-full justify-center border-2 border-blue-500 p-2 font-thin">
             <div className="capitalize normal-case">{album.title}</div>
           </div>
 
@@ -257,6 +265,15 @@ export default function Modal({ album, openModalId, closeModal }) {
               </div>
             </div>
           </div>
+
+          {/* PHOTO DESCRIPTION (ONLY IN SLIDES MODE)*/}
+          {!isGalleryView && (
+            <div className="modal-description z-30 flex w-full justify-center border-2 border-blue-500 font-thin">
+              <div className="max-w-[2400px w-[80%] p-3 text-xs">
+                {album.imgList[slideIndex].description}
+              </div>
+            </div>
+          )}
         </div>
       </>,
       document.getElementById('portal'),

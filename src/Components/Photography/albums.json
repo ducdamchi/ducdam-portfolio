@@ -1,383 +1,383 @@
 [
- {
-  "id": 1,
-  "title": "EXAMPLE PROJECT 1",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 5,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "1.0",
-   "src": "photography/Highlights/ex01/thumb.jpg",
-   "index": null,
-   "description": ""
+  {
+    "id": 1,
+    "title": "EXAMPLE PROJECT 1",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 5,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "1.0",
+      "src": "photography/Highlights/ex01/thumb.jpg",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-1",
+    "imgList": [
+      {
+        "id": "1.1",
+        "src": "photography/Highlights/ex01/img1.jpg",
+        "index": 0,
+        "description": "0000 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
+      },
+      {
+        "id": "1.2",
+        "src": "photography/Highlights/ex01/img2.jpg",
+        "index": 1,
+        "description": "1111 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
+      },
+      {
+        "id": "1.3",
+        "src": "photography/Highlights/ex01/img3.jpg",
+        "index": 2,
+        "description": "2222 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
+      },
+      {
+        "id": "1.4",
+        "src": "photography/Highlights/ex01/img4.jpg",
+        "index": 3,
+        "description": "3333 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
+      },
+      {
+        "id": "1.5",
+        "src": "photography/Highlights/ex01/img5.jpg",
+        "index": 4,
+        "description": "4444 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
+      }
+    ]
   },
-  "url": "example-project-1",
-  "imgList": [
-   {
-    "id": "1.1",
-    "src": "photography/Highlights/ex01/img1.jpg",
-    "index": 0,
-    "description": ""
-   },
-   {
-    "id": "1.2",
-    "src": "photography/Highlights/ex01/img2.jpg",
-    "index": 1,
-    "description": ""
-   },
-   {
-    "id": "1.3",
-    "src": "photography/Highlights/ex01/img3.jpg",
-    "index": 2,
-    "description": ""
-   },
-   {
-    "id": "1.4",
-    "src": "photography/Highlights/ex01/img4.jpg",
-    "index": 3,
-    "description": ""
-   },
-   {
-    "id": "1.5",
-    "src": "photography/Highlights/ex01/img5.jpg",
-    "index": 4,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 2,
-  "title": "EXAMPLE PROJECT 2",
-  "year": "1990-2001",
-  "description": "This is an example description for example project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 9,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "2.0",
-   "src": "photography/Highlights/ex02/thumb.jpg",
-   "index": null,
-   "description": ""
+  {
+    "id": 2,
+    "title": "EXAMPLE PROJECT 2",
+    "year": "1990-2001",
+    "description": "This is an example description for example project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 9,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "2.0",
+      "src": "photography/Highlights/ex02/thumb.jpg",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-2",
+    "imgList": [
+      {
+        "id": "2.1",
+        "src": "photography/Highlights/ex02/img1.jpg",
+        "index": 0,
+        "description": ""
+      },
+      {
+        "id": "2.2",
+        "src": "photography/Highlights/ex02/img2.jpg",
+        "index": 1,
+        "description": ""
+      },
+      {
+        "id": "2.3",
+        "src": "photography/Highlights/ex02/img3.jpg",
+        "index": 2,
+        "description": ""
+      },
+      {
+        "id": "2.4",
+        "src": "photography/Highlights/ex02/img4.jpg",
+        "index": 3,
+        "description": ""
+      },
+      {
+        "id": "2.5",
+        "src": "photography/Highlights/ex02/img5.jpg",
+        "index": 4,
+        "description": ""
+      },
+      {
+        "id": "2.6",
+        "src": "photography/Highlights/ex02/img6.jpg",
+        "index": 5,
+        "description": ""
+      },
+      {
+        "id": "2.7",
+        "src": "photography/Highlights/ex02/img7.jpg",
+        "index": 6,
+        "description": ""
+      },
+      {
+        "id": "2.8",
+        "src": "photography/Highlights/ex02/img8.jpg",
+        "index": 7,
+        "description": ""
+      },
+      {
+        "id": "2.9",
+        "src": "photography/Highlights/ex02/img9.jpg",
+        "index": 8,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-2",
-  "imgList": [
-   {
-    "id": "2.1",
-    "src": "photography/Highlights/ex02/img1.jpg",
-    "index": 0,
-    "description": ""
-   },
-   {
-    "id": "2.2",
-    "src": "photography/Highlights/ex02/img2.jpg",
-    "index": 1,
-    "description": ""
-   },
-   {
-    "id": "2.3",
-    "src": "photography/Highlights/ex02/img3.jpg",
-    "index": 2,
-    "description": ""
-   },
-   {
-    "id": "2.4",
-    "src": "photography/Highlights/ex02/img4.jpg",
-    "index": 3,
-    "description": ""
-   },
-   {
-    "id": "2.5",
-    "src": "photography/Highlights/ex02/img5.jpg",
-    "index": 4,
-    "description": ""
-   },
-   {
-    "id": "2.6",
-    "src": "photography/Highlights/ex02/img6.jpg",
-    "index": 5,
-    "description": ""
-   },
-   {
-    "id": "2.7",
-    "src": "photography/Highlights/ex02/img7.jpg",
-    "index": 6,
-    "description": ""
-   },
-   {
-    "id": "2.8",
-    "src": "photography/Highlights/ex02/img8.jpg",
-    "index": 7,
-    "description": ""
-   },
-   {
-    "id": "2.9",
-    "src": "photography/Highlights/ex02/img9.jpg",
-    "index": 8,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 3,
-  "title": "EXAMPLE PROJECT 3",
-  "year": "1999-2012",
-  "description": "This is an example description for example project 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 5,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "3.0",
-   "src": "photography/Highlights/ex03/thumb.JPG",
-   "index": null,
-   "description": ""
+  {
+    "id": 3,
+    "title": "EXAMPLE PROJECT 3",
+    "year": "1999-2012",
+    "description": "This is an example description for example project 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 5,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "3.0",
+      "src": "photography/Highlights/ex03/thumb.JPG",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-3",
+    "imgList": [
+      {
+        "id": "3.1",
+        "src": "photography/Highlights/ex03/img1.JPG",
+        "index": 0,
+        "description": ""
+      },
+      {
+        "id": "3.2",
+        "src": "photography/Highlights/ex03/img2.JPG",
+        "index": 1,
+        "description": ""
+      },
+      {
+        "id": "3.3",
+        "src": "photography/Highlights/ex03/img3.JPG",
+        "index": 2,
+        "description": ""
+      },
+      {
+        "id": "3.4",
+        "src": "photography/Highlights/ex03/img4.JPG",
+        "index": 3,
+        "description": ""
+      },
+      {
+        "id": "3.5",
+        "src": "photography/Highlights/ex03/img5.JPG",
+        "index": 4,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-3",
-  "imgList": [
-   {
-    "id": "3.1",
-    "src": "photography/Highlights/ex03/img1.JPG",
-    "index": 0,
-    "description": ""
-   },
-   {
-    "id": "3.2",
-    "src": "photography/Highlights/ex03/img2.JPG",
-    "index": 1,
-    "description": ""
-   },
-   {
-    "id": "3.3",
-    "src": "photography/Highlights/ex03/img3.JPG",
-    "index": 2,
-    "description": ""
-   },
-   {
-    "id": "3.4",
-    "src": "photography/Highlights/ex03/img4.JPG",
-    "index": 3,
-    "description": ""
-   },
-   {
-    "id": "3.5",
-    "src": "photography/Highlights/ex03/img5.JPG",
-    "index": 4,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 4,
-  "title": "EXAMPLE PROJECT 4",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 1,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "4.0",
-   "src": "photography/Highlights/ex04/thumb.jpg",
-   "index": null,
-   "description": ""
+  {
+    "id": 4,
+    "title": "EXAMPLE PROJECT 4",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 1,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "4.0",
+      "src": "photography/Highlights/ex04/thumb.jpg",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-4",
+    "imgList": [
+      {
+        "id": "4.1",
+        "src": "photography/Highlights/ex04/img1.jpg",
+        "index": 0,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-4",
-  "imgList": [
-   {
-    "id": "4.1",
-    "src": "photography/Highlights/ex04/img1.jpg",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 5,
-  "title": "EXAMPLE PROJECT 5",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 5. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 2,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "5.0",
-   "src": "photography/Highlights/ex05/thumb.png",
-   "index": null,
-   "description": ""
+  {
+    "id": 5,
+    "title": "EXAMPLE PROJECT 5",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 5. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 2,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "5.0",
+      "src": "photography/Highlights/ex05/thumb.png",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-5",
+    "imgList": [
+      {
+        "id": "5.1",
+        "src": "photography/Highlights/ex05/img1.jpeg",
+        "index": 0,
+        "description": ""
+      },
+      {
+        "id": "5.2",
+        "src": "photography/Highlights/ex05/img1.png",
+        "index": 1,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-5",
-  "imgList": [
-   {
-    "id": "5.1",
-    "src": "photography/Highlights/ex05/img1.jpeg",
-    "index": 0,
-    "description": ""
-   },
-   {
-    "id": "5.2",
-    "src": "photography/Highlights/ex05/img1.png",
-    "index": 1,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 6,
-  "title": "EXAMPLE PROJECT 6",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 6. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 1,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "6.0",
-   "src": "photography/Highlights/ex06/thumb.jpg",
-   "index": null,
-   "description": ""
+  {
+    "id": 6,
+    "title": "EXAMPLE PROJECT 6",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 6. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 1,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "6.0",
+      "src": "photography/Highlights/ex06/thumb.jpg",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-6",
+    "imgList": [
+      {
+        "id": "6.1",
+        "src": "photography/Highlights/ex06/img1.jpg",
+        "index": 0,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-6",
-  "imgList": [
-   {
-    "id": "6.1",
-    "src": "photography/Highlights/ex06/img1.jpg",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 7,
-  "title": "EXAMPLE PROJECT 7",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 7. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 1,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "7.0",
-   "src": "photography/Highlights/ex07/thumb.jpg",
-   "index": null,
-   "description": ""
+  {
+    "id": 7,
+    "title": "EXAMPLE PROJECT 7",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 7. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 1,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "7.0",
+      "src": "photography/Highlights/ex07/thumb.jpg",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-7",
+    "imgList": [
+      {
+        "id": "7.1",
+        "src": "photography/Highlights/ex07/img1.jpg",
+        "index": 0,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-7",
-  "imgList": [
-   {
-    "id": "7.1",
-    "src": "photography/Highlights/ex07/img1.jpg",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 8,
-  "title": "EXAMPLE PROJECT 8",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 8. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 1,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "8.0",
-   "src": "photography/Highlights/ex08/thumb.JPG",
-   "index": null,
-   "description": ""
+  {
+    "id": 8,
+    "title": "EXAMPLE PROJECT 8",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 8. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 1,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "8.0",
+      "src": "photography/Highlights/ex08/thumb.JPG",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-8",
+    "imgList": [
+      {
+        "id": "8.1",
+        "src": "photography/Highlights/ex08/img1.JPG",
+        "index": 0,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-8",
-  "imgList": [
-   {
-    "id": "8.1",
-    "src": "photography/Highlights/ex08/img1.JPG",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 9,
-  "title": "EXAMPLE PROJECT 9",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 1,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "9.0",
-   "src": "photography/Highlights/ex09/thumb.jpg",
-   "index": null,
-   "description": ""
+  {
+    "id": 9,
+    "title": "EXAMPLE PROJECT 9",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 1,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "9.0",
+      "src": "photography/Highlights/ex09/thumb.jpg",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-9",
+    "imgList": [
+      {
+        "id": "9.1",
+        "src": "photography/Highlights/ex09/img1.jpg",
+        "index": 0,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-9",
-  "imgList": [
-   {
-    "id": "9.1",
-    "src": "photography/Highlights/ex09/img1.jpg",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 10,
-  "title": "EXAMPLE PROJECT 10",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 1,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "10.0",
-   "src": "photography/Highlights/ex10/thumb.JPG",
-   "index": null,
-   "description": ""
+  {
+    "id": 10,
+    "title": "EXAMPLE PROJECT 10",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 1,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "10.0",
+      "src": "photography/Highlights/ex10/thumb.JPG",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-10",
+    "imgList": [
+      {
+        "id": "10.1",
+        "src": "photography/Highlights/ex10/img1.jpg",
+        "index": 0,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-10",
-  "imgList": [
-   {
-    "id": "10.1",
-    "src": "photography/Highlights/ex10/img1.jpg",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 11,
-  "title": "EXAMPLE PROJECT 11",
-  "year": "2001-CURRENT",
-  "description": "This is an example description for example project 11. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "numImages": 1,
-  "isHighlight": true,
-  "thumbnail": {
-   "id": "11.0",
-   "src": "photography/Highlights/ex11/thumb.JPG",
-   "index": null,
-   "description": ""
+  {
+    "id": 11,
+    "title": "EXAMPLE PROJECT 11",
+    "year": "2001-CURRENT",
+    "description": "This is an example description for example project 11. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "numImages": 1,
+    "isHighlight": true,
+    "thumbnail": {
+      "id": "11.0",
+      "src": "photography/Highlights/ex11/thumb.JPG",
+      "index": null,
+      "description": ""
+    },
+    "url": "example-project-11",
+    "imgList": [
+      {
+        "id": "11.1",
+        "src": "photography/Highlights/ex11/DSCF0335.JPG",
+        "index": 0,
+        "description": ""
+      }
+    ]
   },
-  "url": "example-project-11",
-  "imgList": [
-   {
-    "id": "11.1",
-    "src": "photography/Highlights/ex11/DSCF0335.JPG",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 1,
-  "numImages": 1,
-  "isHighlight": false,
-  "imgList": [
-   {
-    "id": "1.1",
-    "src": "photography/Other/ex10/DSCF0339.JPG",
-    "index": 0,
-    "description": ""
-   }
-  ]
- },
- {
-  "id": 2,
-  "numImages": 1,
-  "isHighlight": false,
-  "imgList": [
-   {
-    "id": "2.1",
-    "src": "photography/Other/ex11/DSCF0335.JPG",
-    "index": 0,
-    "description": ""
-   }
-  ]
- }
+  {
+    "id": 1,
+    "numImages": 1,
+    "isHighlight": false,
+    "imgList": [
+      {
+        "id": "1.1",
+        "src": "photography/Other/ex10/DSCF0339.JPG",
+        "index": 0,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "numImages": 1,
+    "isHighlight": false,
+    "imgList": [
+      {
+        "id": "2.1",
+        "src": "photography/Other/ex11/DSCF0335.JPG",
+        "index": 0,
+        "description": ""
+      }
+    ]
+  }
 ]

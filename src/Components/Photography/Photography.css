@@ -269,6 +269,15 @@
   }
 }
 
+.slides-each {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.slides-each.visible {
+  opacity: 1;
+}
+
 /* GALLERY VIEW MODE CONTENT */
 .gallery-all {
   display: grid;
