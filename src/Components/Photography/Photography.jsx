@@ -1,46 +1,48 @@
 import { useState, useEffect } from 'react'
-import NavSection from '../NavSection';
-import Carousel from './Photo_Carousel';
+import NavSection from '../NavSection'
+import Carousel from './Photo_Carousel'
+import Footer from '../Footer'
 import albumsData from './albums.json'
 
 export default function Photography() {
-  
-  const numAlbums = albumsData.filter((album) => album.isHighlight === true).length;
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [numSlidesIndex, setNumSlidesIndex] = useState(null);
-  const [albumsPerSlide, setAlbumsPerSlide] = useState(null); //keep track of this in .root in App.css as well
-  const [oddAlbums, setOddAlbums] = useState(null); // number of odd slides (numAlbums not always divisible by albumsPerSlide)
+  const numAlbums = albumsData.filter(
+    (album) => album.isHighlight === true,
+  ).length
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [numSlidesIndex, setNumSlidesIndex] = useState(null)
+  const [albumsPerSlide, setAlbumsPerSlide] = useState(null) //keep track of this in .root in App.css as well
+  const [oddAlbums, setOddAlbums] = useState(null) // number of odd slides (numAlbums not always divisible by albumsPerSlide)
 
   /* Dynamically obtain window size to resize carousel accordingly */
   useEffect(() => {
     const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
+      setScreenWidth(window.innerWidth)
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   /* Set number of thumbnail imgs per slide based on screen width */
   useEffect(() => {
     if (screenWidth <= 1024) {
-      setAlbumsPerSlide(1);
+      setAlbumsPerSlide(1)
     } else if (screenWidth > 1024 && screenWidth < 1536) {
-      setAlbumsPerSlide(2);
+      setAlbumsPerSlide(2)
     } else if (screenWidth >= 1536) {
-      setAlbumsPerSlide(3);
+      setAlbumsPerSlide(3)
     }
-  }, [screenWidth]);
+  }, [screenWidth])
 
   /* Set total number of indices for all slides, including clones 
   Set number of odd slides */
   useEffect(() => {
     // number of slides + 2 fake slides - 1 to convert to indices
-    setNumSlidesIndex(Math.floor(numAlbums / albumsPerSlide) + 2 - 1);
-    setOddAlbums(numAlbums % albumsPerSlide);
-  },[albumsPerSlide, numAlbums]) 
+    setNumSlidesIndex(Math.floor(numAlbums / albumsPerSlide) + 2 - 1)
+    setOddAlbums(numAlbums % albumsPerSlide)
+  }, [albumsPerSlide, numAlbums])
 
   // useEffect(() => {
   //   // console.log("num albums total:", numAlbums);
@@ -51,23 +53,25 @@ export default function Photography() {
 
   return (
     <>
-      <NavSection/>
-      
-      <div className="w-[100vw] border-2 border-yellow-500 flex justify-center items-center">
-        <h1 className="flex justify-center items-center p-1 m-1 font-semibold">
-            PHOTOGRAPHY
+      <NavSection />
+
+      <div className="relative top-10 flex w-[100vw] items-center justify-center border-2 border-yellow-500 p-5">
+        <h1 className="m-1 flex items-center justify-center p-1 font-semibold">
+          PHOTOGRAPHY
         </h1>
       </div>
 
-
-      <div className='relative'>
-        <Carousel 
+      <div className="relative top-20">
+        <Carousel
           albumsData={albumsData}
-          numSlidesIndex={numSlidesIndex} 
+          numSlidesIndex={numSlidesIndex}
           albumsPerSlide={albumsPerSlide}
           oddAlbums={oddAlbums}
-          screenWidth={screenWidth}/>
+          screenWidth={screenWidth}
+        />
       </div>
+
+      <Footer />
     </>
   )
 }

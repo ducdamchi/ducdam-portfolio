@@ -1,41 +1,33 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 
 export default function NavSection() {
   return (
-    <div className='static top-0 flex flex-col items-center justify-center w-full h-[20%] border-2 border-yellow-500'>
+    <div className="static top-0 flex h-[20%] w-full items-center justify-start border-2 border-yellow-500 p-5">
+      {/* Logo section */}
+      <div className="logo m-1 flex h-full items-center justify-center border-2 border-blue-400 p-1 text-xl font-bold">
+        {/* <Link to="/">DUC DAM</Link> */}
+        DUC <br />
+        DAM
+      </div>
 
-        {/* Logo section */}
-        <div className="logo h-[50px] flex justify-center items-center p-1 m-1 text-xl font-bold text-nowrap border-2 border-blue-400">
-          {/* <Link to="/">DUC DAM</Link> */}
-          DUC DAM
+      {/* Navigation bar */}
+      <nav className="m-2 flex min-w-[320px] items-center justify-center gap-2 border-2 border-blue-400 p-2 font-medium">
+        <div className="navbar-item m-1 inline-block p-1">
+          <Link to="/photography">Photography</Link>
         </div>
 
-        {/* Navigation bar */}
-        <nav className="flex min-w-[320px] justify-center items-center p-2 m-2 font-medium gap-2 border-2 border-blue-400">
-            <div className="navbar-item inline-block p-1 m-1">
-              <Link to="/photography">
-                Photography
-              </Link>
-            </div>
+        <div className="navbar-item m-1 inline-block p-1">
+          <Link to="/film">Film</Link>
+        </div>
 
-            <div className="navbar-item inline-block p-1 m-1">
-              <Link to="/film">
-                Film
-              </Link>
-            </div>            
-            
-            <div className="navbar-item inline-block p-1 m-1">
-              <Link to="/woodworking">
-                Woodworking
-              </Link>
-            </div>            
-            
-            <div className="navbar-item inline-block p-1 m-1">
-              <Link to="/about">
-                About
-              </Link>
-            </div>
-        </nav>
+        <div className="navbar-item m-1 inline-block p-1">
+          <Link to="/woodworking">Woodworking</Link>
+        </div>
+
+        <div className="navbar-item m-1 inline-block p-1">
+          <Link to="/about">About</Link>
+        </div>
+      </nav>
     </div>
   )
 }

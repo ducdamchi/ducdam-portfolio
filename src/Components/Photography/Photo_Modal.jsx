@@ -7,7 +7,7 @@ import { PiGridNineBold } from 'react-icons/pi'
 import { TbSlideshow } from 'react-icons/tb'
 import { TbBackground } from 'react-icons/tb'
 import { ImArrowLeft } from 'react-icons/im'
-import { HiArrowLeft } from 'react-icons/hi2'
+import { BiArrowBack } from 'react-icons/bi'
 import { CgLayoutGridSmall } from 'react-icons/cg'
 import { TfiLayoutSlider } from 'react-icons/tfi'
 import { PiSelectionBackgroundThin } from 'react-icons/pi'
@@ -170,7 +170,7 @@ export default function Modal({ album, openModalId, closeModal }) {
                 className="modal-navbar-back text-md border-2 border-orange-300 sm:text-xl md:text-xl lg:text-2xl xl:text-3xl"
                 onClick={closeModal}
               >
-                <HiArrowLeft />
+                <BiArrowBack />
               </button>
 
               <div className="flex items-center gap-5 border-2 border-red-500">
