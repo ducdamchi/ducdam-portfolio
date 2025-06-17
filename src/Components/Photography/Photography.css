@@ -276,6 +276,9 @@
 
 /* w-screen h-auto absolute z-1 top-0 left-0 */
 
+.modal-navbar-back {
+  justify-self: start;
+}
 /* SLIDES VIEW MODE CONTENT */
 @media (max-height: 28.125rem) {
   .modal-topRightNav {

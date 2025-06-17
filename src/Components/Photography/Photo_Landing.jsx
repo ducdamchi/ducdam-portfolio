@@ -6,6 +6,7 @@ import '../../App.css'
 import './Photography.css'
 import Modal from './Photo_Modal'
 import albumsData from './albums.json'
+import { HiArrowLeft } from 'react-icons/hi2'
 
 export default function Landing() {
   const [openModalId, setOpenModalId] = useState(null)
@@ -32,12 +33,12 @@ export default function Landing() {
 
         <div className="landing-backArrow-wrapper-2 flex justify-center">
           <div className="landing-backArrow-wrapper-1 flex">
-            <div className="landing-backArrow">
+            <div className="landing-backArrow text-3xl">
               <Link
                 to={`../photography`}
                 className="landing-backArrow-link border-2 border-green-500"
               />
-              BACK
+              <HiArrowLeft />
             </div>
             {/* <div className="landing-backArrow-empty"></div> */}
           </div>
