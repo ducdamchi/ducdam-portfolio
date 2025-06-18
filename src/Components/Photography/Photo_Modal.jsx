@@ -102,14 +102,13 @@ export default function Modal({ album, openModalId, closeModal }) {
         if (i != slideIndex) {
           // allSlides[i].style.display = 'none'
           allSlides[i].classList.remove('visible')
-          setTimeout(() => {
-            allSlides[i].style.display = 'none'
-          }, 300)
+          allSlides[i].style.display = 'none'
         } else {
+          allSlides[i].style.display = 'inline-block'
           setTimeout(() => {
             allSlides[i].classList.add('visible')
-          }, 300)
-          allSlides[i].style.display = 'inline-block'
+          }, 100)
+
           // console.log(allSlides[i].style)
         }
       }
