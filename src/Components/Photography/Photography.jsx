@@ -55,13 +55,13 @@ export default function Photography() {
     <>
       <NavSection />
 
-      <div className="relative top-10 flex w-[100vw] items-center justify-center border-2 border-yellow-500 p-5">
-        <h1 className="m-1 flex items-center justify-center p-1 font-semibold">
+      <div className="relative top-10 flex w-full min-w-[320px] items-center justify-center overflow-hidden border-2 border-yellow-500 p-5">
+        <h1 className="m-1 flex items-center justify-center overflow-hidden p-1 font-semibold">
           PHOTOGRAPHY
         </h1>
       </div>
 
-      <div className="relative top-20">
+      <div className="relative top-20 min-w-[375px]">
         <Carousel
           albumsData={albumsData}
           numSlidesIndex={numSlidesIndex}

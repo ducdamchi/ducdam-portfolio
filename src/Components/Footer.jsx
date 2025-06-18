@@ -7,7 +7,7 @@ import { BiCopyright } from 'react-icons/bi'
 
 export default function Footer() {
   return (
-    <div className="absolute bottom-[0rem] flex w-[100%] items-center justify-between border-2 border-yellow-500 p-3">
+    <div className="fixed bottom-[0rem] flex w-[100%] items-center justify-between border-2 border-yellow-500 p-3">
       <div className="flex gap-2 text-center text-black">
         <div className="flex items-center text-3xl">
           <a

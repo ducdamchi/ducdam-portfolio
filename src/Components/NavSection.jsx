@@ -11,7 +11,7 @@ export default function NavSection() {
       </div>
 
       {/* Navigation bar */}
-      <nav className="m-2 flex min-w-[320px] items-center justify-center gap-2 border-2 border-blue-400 p-2 font-medium">
+      <nav className="m-2 flex max-w-[80%] items-center justify-center gap-2 border-2 border-blue-400 p-2 font-medium">
         <div className="navbar-item m-1 inline-block p-1">
           <Link to="/photography">Photography</Link>
         </div>

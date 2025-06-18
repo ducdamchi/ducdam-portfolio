@@ -34,13 +34,13 @@ export default function Landing() {
         <img
           className="landing-background"
           src={`/${matchedFilm.thumbnail}`}
-          id={`thumbnail-img-${matchedFilm.id}`}
+          id={`thumbnail-film-${matchedFilm.id}`}
           alt=""
         />
 
         <div className="landing-backArrow-wrapper-2 flex justify-center">
           <div className="landing-backArrow-wrapper-1 flex">
-            <div className="landing-backArrow text-4xl">
+            <div className="landing-backArrow text-4xl" id="landing-backArrow">
               <Link to={`../film`} className="landing-backArrow-link" />
               <BiArrowBack />
             </div>
