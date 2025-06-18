@@ -29,6 +29,8 @@
   position: absolute;
   bottom: 25%;
   left: 7%;
+  /* border-width: 2px;
+  border-color: blue; */
   font-weight: 1000;
   line-height: 0.9;
   text-align: left;
@@ -90,12 +92,12 @@
 .thumbnail-img,
 .thumbnail-img-clone {
   display: inline-block;
-  /* make sure image is cropped, not stretched */
   opacity: 1;
   z-index: 2;
+  /* make sure ratio is uniform */
   aspect-ratio: 3/2;
   width: 100%;
-  /* make sure ratio is uniform */
+  /* make sure image is cropped, not stretched */
   object-fit: cover;
 }
 

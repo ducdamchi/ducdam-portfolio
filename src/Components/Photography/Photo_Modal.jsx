@@ -21,6 +21,11 @@ export default function Modal({ album, openModalId, closeModal }) {
     width: '100vw',
     height: '150vh',
     background: 'rgb(255, 255, 255)',
+    transition: '400ms ease-in-out',
+  }
+
+  const MODAL_REF = {
+    transition: 'color 400ms ease-in-out',
   }
 
   const MODAL_CONTENT = {
@@ -76,10 +81,10 @@ export default function Modal({ album, openModalId, closeModal }) {
     setBgColor((prevBg) => {
       if (prevBg === 'white') {
         return 'black'
-      } else if (prevBg === 'grey') {
-        return 'white'
+        // } else if (prevBg === 'grey') {
+        //   return 'white'
       } else {
-        return 'grey'
+        return 'white'
       }
     })
   }
@@ -148,9 +153,9 @@ export default function Modal({ album, openModalId, closeModal }) {
       if (bgColor === 'black') {
         bgRef.current.style.background = 'rgb(0, 0, 0)'
         modalRef.current.style.color = 'rgb(250, 250, 250)'
-      } else if (bgColor === 'grey') {
-        bgRef.current.style.background = 'rgba(132, 132, 132, 1)'
-        modalRef.current.style.color = 'rgb(255, 255, 255)'
+        // } else if (bgColor === 'grey') {
+        //   bgRef.current.style.background = 'rgb(195, 195, 195)'
+        //   modalRef.current.style.color = 'rgb(255, 255, 255)'
       } else {
         bgRef.current.style.background = 'rgba(250, 250, 250, 1)'
         modalRef.current.style.color = 'rgb(0, 0, 0)'
@@ -167,6 +172,7 @@ export default function Modal({ album, openModalId, closeModal }) {
 
         <div
           ref={modalRef}
+          style={MODAL_REF}
           className="relative z-30 flex h-[120vh] w-[100vw] flex-col items-center justify-start gap-0 border-2 border-amber-500"
         >
           {/* NAVBAR */}
@@ -187,10 +193,14 @@ export default function Modal({ album, openModalId, closeModal }) {
 
                 {/* Button for switching between Slides View and Gallery View, shared */}
                 <button
-                  className="border-2 border-orange-300 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl"
+                  className="m-1 border-2 border-orange-300"
                   onClick={toggleView}
                 >
-                  {isGalleryView ? <TfiLayoutSlider /> : <CgLayoutGridSmall />}
+                  {isGalleryView ? (
+                    <TfiLayoutSlider className="text-3xl" />
+                  ) : (
+                    <CgLayoutGridSmall className="text-3xl" />
+                  )}
                 </button>
 
                 {/* Button for switching modal background colors (black, grey, white), shared*/}

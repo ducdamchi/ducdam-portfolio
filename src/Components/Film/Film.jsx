@@ -1,32 +1,31 @@
 import { useState, useRef, useEffect } from 'react'
-import NavSection from '../NavSection';
+import NavSection from '../NavSection'
 import filmsData from './films.json'
 import Carousel from './Film_Carousel'
+import Footer from '../Footer'
 
 export default function Film() {
-  
-  const [numSlidesIndex, setNumSlidesIndex] = useState(null);
+  const [numSlidesIndex, setNumSlidesIndex] = useState(null)
 
   useEffect(() => {
-    setNumSlidesIndex(filmsData.length + 2 - 1);
+    setNumSlidesIndex(filmsData.length + 2 - 1)
   }, [filmsData])
-  
+
   return (
     <>
       <NavSection />
-      
-      <div className="w-[100vw] border-2 border-yellow-500 flex justify-center items-center">
-        <h1 className="flex justify-center items-center p-1 m-1 font-semibold">
-            FILM
+
+      <div className="relative top-10 flex w-[100vw] items-center justify-center border-2 border-yellow-500 p-5">
+        <h1 className="m-1 flex items-center justify-center p-1 font-semibold">
+          FILM
         </h1>
       </div>
 
-      <div className="relative flex justify-center items-center">
-        <Carousel 
-          filmsData={filmsData}
-          numSlidesIndex={numSlidesIndex}/>
+      <div className="relative top-25 flex items-center justify-center">
+        <Carousel filmsData={filmsData} numSlidesIndex={numSlidesIndex} />
       </div>
-    </>
 
+      <Footer />
+    </>
   )
 }

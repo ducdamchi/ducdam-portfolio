@@ -37,6 +37,7 @@ export default function Carousel_Items({
     width: 'calc(100% - 2 * var(--slider-padding))',
     transform: `translateX(calc((${carouselIndex} + ${slidesOffset}) * -100%))`,
     transition: isEdgeTransition ? 'none' : 'transform 750ms ease-in-out',
+    // overlow: 'visible',
   }
 
   const THUMBNAIL_FLEX_ITEM = {
@@ -59,6 +60,14 @@ export default function Carousel_Items({
       carouselBtnRight.current.style.opacity = '1'
     }
   }
+
+  // function handleClickZoom(albumId) {
+  //   console.log('clicked on img')
+  //   const targetImg = document.getElementById(`thumbnail-img-${albumId}`)
+  //   targetImg.style.zIndex = '50'
+  //   targetImg.style.display = 'static'
+  //   targetImg.style.scale = '5'
+  // }
 
   /* Pick background color for thumbnail description that matches the image dominant color */
   useEffect(() => {
