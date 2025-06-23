@@ -3,6 +3,7 @@ import NavSection from '../NavSection'
 import Carousel from './Photo_Carousel'
 import Footer from '../Footer'
 import albumsData from './albums.json'
+import '../../App.css'
 
 export default function Photography() {
   const numAlbums = albumsData.filter(
@@ -52,16 +53,16 @@ export default function Photography() {
   // },[albumsPerSlide, numSlidesIndex])
 
   return (
-    <>
+    <div className="">
       <NavSection />
 
-      <div className="relative top-10 flex w-full min-w-[320px] items-center justify-center overflow-hidden border-2 border-yellow-500 p-5">
-        <h1 className="m-1 flex items-center justify-center overflow-hidden p-1 font-semibold">
+      <div className="relative top-10 z-20 flex w-[100%] items-center justify-center overflow-hidden border-2 border-yellow-500 p-5">
+        <h1 className="m-1 flex w-[100vw] items-center justify-center overflow-hidden p-1 font-semibold">
           PHOTOGRAPHY
         </h1>
       </div>
 
-      <div className="relative top-20 min-w-[375px]">
+      <div className="relative top-20">
         <Carousel
           albumsData={albumsData}
           numSlidesIndex={numSlidesIndex}
@@ -72,6 +73,6 @@ export default function Photography() {
       </div>
 
       <Footer />
-    </>
+    </div>
   )
 }
