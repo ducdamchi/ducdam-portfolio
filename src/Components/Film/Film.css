@@ -1,17 +1,16 @@
-
 .film-carousel-whole {
-  width: 300px;
-  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
   transition: 200ms ease-in-out;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
 }
 
 .poster {
-  z-index: 2;
   scale: 1;
+  z-index: 2;
   transition: 200ms ease-in-out;
   /* max-width: 200px; */
   height: auto;
@@ -19,52 +18,122 @@
 
 .poster:hover {
   scale: 1.05;
-  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
   transition-delay: 400ms;
+  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
 }
 
 .info-slide {
-  line-height: 1.8;
   overflow: scroll;
+  line-height: 1.8;
 }
 
+/* LANDING PAGE */
+.landing-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.landing-backArrow-wrapper-1 {
+  position: absolute;
+  top: 5rem;
+  z-index: 2;
+  width: 80%;
+  color: white;
+}
+
+.landing-backArrow {
+  position: relative;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-width: 2px;
+  border-color: orange;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+}
+
+.landing-backArrow-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-viewButton {
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  color: white;
+}
+
+.landing-info-all {
+  display: flex;
+  position: absolute;
+  bottom: 15%;
+  justify-content: start;
+  z-index: 2;
+  width: 80%;
+}
+
+.landing-info {
+  flex-basis: 80%;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  max-width: 48rem;
+  height: auto;
+  color: white;
+}
+
+.landing-footer {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
+}
 
 /* Responsive based on width */
-@media (min-width: 20rem) {
-  /* .carousel-btn {
-    font-size: 1.2rem;
-  } */
-
+@media (min-width: 0rem) {
   .film-carousel-whole {
-    width: 300px;
+    width: 100%;
     height: 300px;
-    /* max-width: 460px; */
-    /* max-height: 420px; */
+  }
+  .poster {
+    max-width: 240px;
+  }
+}
+
+@media (min-width: 20rem) {
+  .film-carousel-whole {
+    width: 100%;
+    height: 400px;
   }
 
   .poster {
     max-width: 240px;
   }
-
-  /* .film-object {
-    flex-direction: column;
-    align-items: center;
-  } */
-
-  /* .film-container {
-    align-items: start;
-  }
-
-  .btn-div {
-    width: 15%;
-  } */
 }
 
 @media (min-width: 30rem) {
-
   .film-carousel-whole {
-    height: 450px;
     width: 450px;
+    height: 450px;
   }
 
   .poster {
@@ -85,10 +154,9 @@
 }
 
 @media (min-width: 40rem) {
-
   .film-carousel-whole {
-    height: 520px;
     width: 520px;
+    height: 520px;
   }
 
   .poster {
@@ -106,8 +174,8 @@
 
 @media (min-width: 48rem) {
   .film-carousel-whole {
-    height: 600px;
     width: 600px;
+    height: 600px;
   }
 
   .poster {

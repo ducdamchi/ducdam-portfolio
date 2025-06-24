@@ -51,8 +51,8 @@
   display: flex;
   position: relative;
   justify-content: center;
-  border-width: 2px;
-  border-color: orange;
+  /* border-width: 2px;
+  border-color: orange; */
   width: 100vw;
   height: auto;
   overflow: hidden;
@@ -116,10 +116,8 @@
 }
 
 .thumbnail-box:hover {
-  scale: 1.05;
   transition-delay: 400ms;
   box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
-  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
 }
 
 @keyframes slidedown {
@@ -155,24 +153,20 @@
   top: 0;
   left: 0;
   z-index: 1;
-  width: inherit;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .landing-backArrow-wrapper-1 {
   position: absolute;
   top: 5rem;
   z-index: 2;
-  /* border-width: 2px;
-  border-color: blue; */
   width: 80%;
   color: white;
 }
 
 .landing-backArrow {
-  /* position: absolute; */
-  /* flex-grow: 1; */
-  /* flex-basis: 10%; */
   position: relative;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
@@ -182,19 +176,17 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
-  /* width: 5rem; */
 }
 
 .landing-backArrow-link {
   position: absolute;
-  /* padding: 1rem; */
   width: 100%;
   height: 100%;
 }
 
 .landing-viewButton {
   position: absolute;
-  top: 45%;
+  top: 30%;
   z-index: 2;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
@@ -208,55 +200,33 @@
 .landing-info-all {
   display: flex;
   position: absolute;
-  bottom: 10rem;
+  bottom: 10%;
   justify-content: start;
   z-index: 2;
-  /* border-width: 2px;
-  border-color: blue; */
   width: 80%;
+  max-height: 30%;
 }
 
 .landing-info {
-  flex-basis: 50%;
-  /* position: absolute; */
+  /* flex-basis: 80%; */
   z-index: 2;
-
   backdrop-filter: blur(4px);
-
   -webkit-backdrop-filter: blur(4px);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
+  padding: 1rem;
+  max-width: 48rem;
   height: auto;
-
   color: white;
-}
-
-.landing-info-empty {
-  flex-basis: 50%;
-  z-index: 2;
-  /* border-width: 2px;
-  border-color: orange; */
-}
-
-.landing-info-title {
 }
 
 .landing-footer {
-  display: flex;
-  position: absolute;
-  /* left: 10rem; */
-  bottom: 5rem;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 2;
-
-  /* border-width: 2px;
-  border-color: blue; */
-  width: 80%;
-
-  color: white;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* w-screen h-auto absolute z-1 top-0 left-0 */
@@ -264,6 +234,7 @@
 .modal-navbar-back {
   justify-self: start;
 }
+
 /* SLIDES VIEW MODE CONTENT */
 @media (max-height: 28.125rem) {
   .modal-topRightNav {
@@ -305,6 +276,12 @@
 }
 
 /* Responsive based on width */
+@media (min-width: 0rem) {
+  .modal-flexContainer {
+    height: 50%;
+  }
+}
+
 @media (min-width: 20rem) {
   :root {
     --slider-padding: 2rem;
@@ -314,12 +291,12 @@
     font-size: 1.2rem;
   }
 
-  /* .gallery-all {
-    gap: 5px;
-  } */
-
   .thumbnail-flex-item {
-    padding: 0.2rem;
+    padding: 0.5rem;
+  }
+
+  .thumbnail-box:hover {
+    scale: 1.02;
   }
 }
 
@@ -335,10 +312,6 @@
   /* .gallery-all {
     gap: 5px;
   } */
-
-  .thumbnail-flex-item {
-    padding: 0.5rem;
-  }
 }
 
 @media (min-width: 40rem) {
@@ -366,6 +339,10 @@
 
   .thumbnail-flex-item {
     padding: 1.5rem;
+  }
+
+  .thumbnail-box:hover {
+    scale: 1.05;
   }
 }
 
@@ -406,5 +383,16 @@
 
   .thumbnail-flex-item {
     padding: 2rem;
+  }
+}
+
+@media (min-height: 0rem) {
+  .landing-info-all {
+    bottom: 10%;
+  }
+}
+@media (min-height: 48rem) {
+  .landing-info-all {
+    bottom: 15%;
   }
 }

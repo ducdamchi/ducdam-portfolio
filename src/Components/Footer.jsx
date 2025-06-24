@@ -9,35 +9,36 @@ import '../App.css'
 
 export default function Footer() {
   return (
-    <div className="fixed bottom-[0rem] z-100 flex w-[100%] items-center justify-between border-2 border-yellow-500 bg-zinc-50 p-3">
-      <div className="flex gap-2 text-center text-black">
-        <div className="flex items-center text-2xl">
-          <a
-            href={`mailto:ducdamchi@gmail.com?
-              &subject=Just visited your website
-              &body=I would appreciate any thoughts that you have! --Duc`}
-          >
-            <BiLogoGmail />
-          </a>
+    <>
+      <div className="fixed bottom-0 z-100 flex w-[100%] items-center justify-between bg-zinc-50 p-3">
+        <div className="flex gap-2 text-center text-black">
+          <div className="flex items-center text-2xl">
+            <a
+              href={`mailto:ducdamchi@gmail.com?
+              &subject=Just visited your website`}
+            >
+              <BiLogoGmail />
+            </a>
+          </div>
+          <div className="text-2xl">
+            <a href="https://www.instagram.com/ducdamchi" target="_blank">
+              <BiLogoInstagramAlt />
+            </a>
+          </div>
+          {/* <div className='landing-footer-facebook'>Facebook</div> */}
+          <div className="text-2xl">
+            <a href="https://github.com/ducdamchi" target="_blank">
+              <BiLogoGithub />
+            </a>
+          </div>
         </div>
-        <div className="text-2xl">
-          <a href="https://www.instagram.com/ducdamchi" target="_blank">
-            <BiLogoInstagramAlt />
-          </a>
-        </div>
-        {/* <div className='landing-footer-facebook'>Facebook</div> */}
-        <div className="text-2xl">
-          <a href="https://github.com/ducdamchi" target="_blank">
-            <BiLogoGithub />
-          </a>
-        </div>
-      </div>
 
-      <div className="text-black">
-        <div className="flex items-center gap-1 text-[0.6rem] font-thin">
-          <span className="footer-text">ALL IMAGES &#169; DUC DAM 2025</span>
+        <div className="text-black">
+          <div className="flex items-center gap-1 text-[0.6rem] font-thin">
+            <span className="footer-text">ALL IMAGES &#169; DUC DAM 2025</span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

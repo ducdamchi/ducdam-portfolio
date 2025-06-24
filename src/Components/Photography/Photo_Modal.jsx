@@ -16,20 +16,24 @@ export default function Modal({ album, openModalId, closeModal }) {
   /*************** CSS **************/
   const MODAL_BG = {
     zIndex: '20',
-    position: 'fixed',
+    position: 'absolute',
     top: '0%',
     width: '100vw',
-    height: '150vh',
-    background: 'rgb(255, 255, 255)',
-    transition: '400ms ease-in-out',
+    height: '100vh',
+    background: 'rgb(250, 250, 250)',
+    transition: 'background 400ms ease-in-out',
   }
 
   const MODAL_REF = {
     transition: 'color 400ms ease-in-out',
   }
 
+  const MODAL_DESC_REF = {
+    transition: 'all 400ms ease-in-out',
+  }
+
   const MODAL_CONTENT = {
-    zIndex: '30',
+    // zIndex: '130',
     // position: 'absolute',
     textAlign: 'center',
     width: '100%',
@@ -45,11 +49,12 @@ export default function Modal({ album, openModalId, closeModal }) {
   const [bgColor, setBgColor] = useState('white')
   const bgRef = useRef(null)
   const modalRef = useRef(null)
+  const modalDescriptionRef = useRef(null)
   const galleryRef = useRef(null)
   const slidesRef = useRef(null)
   const modal_slides_btnLeft = useRef(null)
   const modal_slides_btnRight = useRef(null)
-
+  // const bottomPadding = document.getElementById('photo-bottomPadding')
   /*************** FUNCTIONS **************/
   function prevSlide() {
     setSlideIndex((prevIndex) => {
@@ -148,83 +153,87 @@ export default function Modal({ album, openModalId, closeModal }) {
   }, [isGalleryView])
 
   /* Handle transition between background colors */
-  useEffect(() => {
-    if (bgRef.current) {
-      if (bgColor === 'black') {
-        bgRef.current.style.background = 'rgb(0, 0, 0)'
-        modalRef.current.style.color = 'rgb(250, 250, 250)'
-        // } else if (bgColor === 'grey') {
-        //   bgRef.current.style.background = 'rgb(195, 195, 195)'
-        //   modalRef.current.style.color = 'rgb(255, 255, 255)'
-      } else {
-        bgRef.current.style.background = 'rgba(250, 250, 250, 1)'
-        modalRef.current.style.color = 'rgb(0, 0, 0)'
-      }
-    }
-  }, [bgColor])
+  // useEffect(() => {
+  //   if (bgRef.current) {
+  //     if (bgColor === 'black') {
+  //       bgRef.current.style.background = 'rgb(5, 5, 5)'
+  //       modalRef.current.style.color = 'rgb(255, 255, 255)'
+  //       modalDescriptionRef.current.style.background = 'rgb(5, 5, 5)'
+  //       modalDescriptionRef.current.style.color = 'rgb(255, 255, 255)'
+  //       // bottomPadding.style.color = 'rgb(5, 5, 5)'
+
+  //       // } else if (bgColor === 'grey') {
+  //       //   bgRef.current.style.background = 'rgb(195, 195, 195)'
+  //       //   modalRef.current.style.color = 'rgb(255, 255, 255)'
+  //     } else {
+  //       bgRef.current.style.background = 'rgb(250, 250, 250)'
+  //       modalRef.current.style.color = 'rgb(0, 0, 0)'
+  //       modalDescriptionRef.current.style.background = 'rgb(250, 250, 250)'
+  //       modalDescriptionRef.current.style.color = 'rgb(0, 0, 0)'
+  //     }
+  //   }
+  // }, [bgColor])
 
   if (openModalId === null) {
     return null
   } else {
     return ReactDom.createPortal(
-      <>
+      <div>
         <div ref={bgRef} className="modal-background" style={MODAL_BG} />
 
         <div
           ref={modalRef}
           style={MODAL_REF}
-          className="relative z-30 flex h-[120vh] w-[100vw] flex-col items-center justify-start gap-0 border-2 border-amber-500"
+          className="absolute top-0 z-30 flex h-[120vh] w-[100vw] flex-col items-center justify-start gap-0"
         >
           {/* NAVBAR */}
-          <div className="modal-navbar-wrapper z-30 mt-5 flex w-full justify-center border-2 border-blue-500">
-            <div className="modal-navbar flex w-[85%] max-w-[2400px] items-center justify-between gap-10 border-2 border-green-500 p-2 font-thin">
+          <div className="modal-navbar-wrapper z-30 mt-5 flex w-full justify-center">
+            <div className="modal-navbar flex w-[85%] max-w-[2400px] items-center justify-between gap-10 p-2 font-thin">
               {/* Button for closing modal, shared */}
               <button
-                className="modal-navbar-back text-md border-2 border-orange-300 sm:text-xl md:text-xl lg:text-2xl xl:text-3xl"
+                className="modal-navbar-back text-md sm:text-xl md:text-xl lg:text-2xl xl:text-3xl"
                 onClick={closeModal}
               >
                 <BiArrowBack />
               </button>
 
-              <div className="flex items-center gap-5 border-2 border-red-500">
-                <div className="sm:text-md xl:text- border-2 border-orange-300 text-xs font-thin md:text-base lg:text-lg">
+              <div className="flex items-center gap-2">
+                <div className="text-xs font-thin md:text-sm xl:text-base">
                   {`${slideIndex + 1}/${album.numImages}`}
                 </div>
 
                 {/* Button for switching between Slides View and Gallery View, shared */}
                 <button
-                  className="m-1 border-2 border-orange-300"
+                  className="text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
                   onClick={toggleView}
                 >
-                  {isGalleryView ? (
-                    <TfiLayoutSlider className="text-3xl" />
-                  ) : (
-                    <CgLayoutGridSmall className="text-3xl" />
-                  )}
+                  {isGalleryView ? <TfiLayoutSlider /> : <CgLayoutGridSmall />}
                 </button>
 
                 {/* Button for switching modal background colors (black, grey, white), shared*/}
-                <button
+                {/* <button
                   className="text-md border-2 border-orange-300 sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
                   onClick={toggleBackground}
                 >
                   <PiSelectionBackgroundThin />
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
 
           {/* TITLE */}
-          <div className="modal-title z-30 mb-10 flex w-full justify-center border-2 border-blue-500 p-2 font-thin">
-            <div className="capitalize normal-case">{album.title}</div>
+          <div className="modal-title z-30 mb-10 flex w-full justify-center p-2 font-thin">
+            <div className="modal-title capitalize normal-case">
+              {album.title}
+            </div>
           </div>
 
           {/* IMAGE DISPLAY WINDOW */}
           <div className="modal-content" style={MODAL_CONTENT}>
             {/* MODAL - VIEWING WINDOW */}
-            <div className="modal-flexContainer flex h-full w-full justify-center border-3 border-blue-500">
+            <div className="modal-flexContainer flex w-full justify-center">
               {/* MODAL - LEFT BUTTON*/}
-              <div className="modal-left-flexItem flex h-full w-[5%] flex-auto items-center justify-center border-3 border-green-500">
+              <div className="modal-left-flexItem flex h-full w-[5%] flex-auto items-center justify-center">
                 <button
                   ref={modal_slides_btnLeft}
                   className="text-md font-thin sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
@@ -240,7 +249,7 @@ export default function Modal({ album, openModalId, closeModal }) {
                 <div ref={slidesRef} className="slides-all h-full w-full">
                   {album.imgList.map((slide) => (
                     <img
-                      className="slides-each h-full w-full border-3 border-orange-500 object-contain"
+                      className="slides-each h-full w-full object-contain"
                       key={slide.id}
                       src={`/${slide.src}`}
                     />
@@ -261,7 +270,7 @@ export default function Modal({ album, openModalId, closeModal }) {
               </div>
 
               {/* MODAL - RIGHT BUTTON*/}
-              <div className="modal-right-flexItem flex h-full w-[5%] flex-auto items-center justify-center border-3 border-green-500">
+              <div className="modal-right-flexItem flex h-full w-[5%] flex-auto items-center justify-center">
                 <div className="flex h-full w-full items-center justify-center">
                   <button
                     ref={modal_slides_btnRight}
@@ -277,14 +286,18 @@ export default function Modal({ album, openModalId, closeModal }) {
 
           {/* PHOTO DESCRIPTION (ONLY IN SLIDES MODE)*/}
           {!isGalleryView && (
-            <div className="modal-description z-30 flex w-full justify-center border-2 border-blue-500 font-thin">
+            <div
+              style={MODAL_DESC_REF}
+              ref={modalDescriptionRef}
+              className="modal-description z-30 flex w-full justify-center border-2 border-blue-500 font-thin"
+            >
               <div className="max-w-[2400px w-[80%] p-3 text-xs">
                 {album.imgList[slideIndex].description}
               </div>
             </div>
           )}
         </div>
-      </>,
+      </div>,
       document.getElementById('portal'),
     )
   }

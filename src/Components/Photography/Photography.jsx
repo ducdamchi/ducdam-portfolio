@@ -53,10 +53,10 @@ export default function Photography() {
   // },[albumsPerSlide, numSlidesIndex])
 
   return (
-    <div className="">
+    <>
       <NavSection />
 
-      <div className="relative top-10 z-20 flex w-[100%] items-center justify-center overflow-hidden border-2 border-yellow-500 p-5">
+      <div className="relative top-10 z-20 flex w-[100%] items-center justify-center overflow-hidden p-5">
         <h1 className="m-1 flex w-[100vw] items-center justify-center overflow-hidden p-1 font-semibold">
           PHOTOGRAPHY
         </h1>
@@ -72,7 +72,9 @@ export default function Photography() {
         />
       </div>
 
+      <div className="relative bottom-0 z-0 h-[15rem]"></div>
+
       <Footer />
-    </div>
+    </>
   )
 }

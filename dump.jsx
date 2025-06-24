@@ -95,3 +95,54 @@
 
 
 <div className="w-inherit absolute top-0 h-[45%] border-2 border-violet-500"></div>
+
+        {/* <div className="landing-footer-wrapper flex justify-center">
+          <div className="landing-footer">
+            <div className="landing-footer-left flex gap-2 text-center">
+              <div className="landing-footer-gmail flex items-center text-3xl">
+                <a
+                  href={`mailto:ducdamchi@gmail.com?
+                  &subject=Just viewed your album '${matchedAlbum.title}'
+                  &body=I would appreciate any thoughts that you have! --Duc`}
+                >
+                  <BiLogoGmail />
+                </a>
+              </div>
+              <div className="landing-footer-insta flex items-center text-4xl">
+                <a href="https://www.instagram.com/ducdamchi" target="_blank">
+                  <BiLogoInstagram />
+                </a>
+              </div>
+              {/* <div className='landing-footer-facebook'>Facebook</div> */}
+              <div className="landing-footer-git flex items-center text-4xl">
+                <a href="https://github.com/ducdamchi" target="_blank">
+                  <BiLogoGithub />
+                </a>
+              </div>
+            </div>
+
+            <div className="landing-footer-right">
+              <div className="landing-footer-copyright flex items-center text-base">
+                <BiCopyright />
+                <span>Duc Dam 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+      /* .landing-footer {
+  display: flex;
+  position: absolute;
+  /* left: 10rem; */
+  bottom: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+
+  /* border-width: 2px;
+  border-color: blue; */
+  width: 80%;
+
+  color: white;
+} */

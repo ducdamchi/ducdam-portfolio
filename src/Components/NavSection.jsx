@@ -49,7 +49,7 @@ export default function NavSection() {
       {!isHamburger && (
         <div className="static top-0 flex h-[20%] w-full items-center justify-start border-2 border-yellow-500 p-5">
           {/* Logo section */}
-          <div className="logo m-1 flex h-full items-center justify-center border-2 border-blue-400 p-1 text-xl font-bold">
+          <div className="logo m-1 flex h-full items-center justify-center border-2 border-blue-400 p-1 text-xl font-medium">
             {/* <Link to="/">DUC DAM</Link> */}
             DUC <br />
             DAM
@@ -78,8 +78,8 @@ export default function NavSection() {
 
       {isHamburger && (
         <>
-          <div className="relative top-0 z-80 flex h-[20%] max-h-[5rem] w-full items-center justify-start border-2 border-yellow-500 bg-zinc-50">
-            <button className="p-2">
+          <div className="relative top-0 z-80 flex h-[20%] max-h-[5rem] w-full items-center justify-start bg-zinc-50">
+            <button className="p-1 pl-4">
               {menuOpened ? (
                 <MdClose
                   className="text-2xl"
@@ -91,7 +91,7 @@ export default function NavSection() {
             </button>
 
             {/* Logo section */}
-            <div className="logo-hamburger z-80 m-1 flex h-full items-center justify-center p-1 text-lg font-bold">
+            <div className="logo-hamburger z-80 flex h-full items-center justify-center p-3 text-center text-base font-medium">
               {/* <Link to="/">DUC DAM</Link> */}
               DUC DAM
             </div>
@@ -99,19 +99,19 @@ export default function NavSection() {
 
           <div className="navModal" ref={navModalRef}>
             <nav className="relative flex w-full flex-col">
-              <div className="navbar-item inline-block w-full border-b-1 border-zinc-200 p-2 pl-8">
+              <div className="navbar-item inline-block w-full border-zinc-200 p-2 pl-5">
                 <Link to="/photography">Photography</Link>
               </div>
 
-              <div className="navbar-item inline-block w-full border-b-1 border-zinc-200 p-2 pl-8">
+              <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
                 <Link to="/film">Film</Link>
               </div>
 
-              <div className="navbar-item inline-block w-full border-b-1 border-zinc-200 p-2 pl-8">
+              <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
                 <Link to="/woodworking">Woodworking</Link>
               </div>
 
-              <div className="navbar-item inline-block w-full border-zinc-200 p-2 pl-8">
+              <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
                 <Link to="/about">About</Link>
               </div>
             </nav>

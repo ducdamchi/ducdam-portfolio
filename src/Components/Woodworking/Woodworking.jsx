@@ -3,6 +3,7 @@ import woodData from './wood.json'
 import Carousel from './Wood_carousel'
 import NavSection from '../NavSection'
 import Footer from '../Footer'
+import '../../App.css'
 
 export default function Woodworking() {
   const [numSlidesIndex, setNumSlidesIndex] = useState(null)
@@ -15,14 +16,15 @@ export default function Woodworking() {
     <>
       <NavSection />
 
-      <div className="flex w-[100vw] items-center justify-center border-2 border-yellow-500">
-        <h1 className="m-1 flex items-center justify-center p-1 font-semibold">
+      <div className="relative top-10 flex w-[100vw] items-center justify-center border-2 border-yellow-500 p-5">
+        <h1 className="m-1 flex w-[100vw] items-center justify-center overflow-hidden p-1 font-semibold">
           WOODWORKING
         </h1>
       </div>
 
-      <div className="relative top-50 flex items-center justify-center">
-        Oops... (wood)Working on it! Please visit other sections for now :)
+      <div className="wood-text relative top-50 flex items-center justify-center p-5">
+        Oops... (wood)Working on it! <br />
+        Please visit other sections for now :)
         {/* <Carousel woodData={woodData} numSlidesIndex={numSlidesIndex} /> */}
       </div>
 

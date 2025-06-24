@@ -15,8 +15,8 @@ export default function Film() {
     <>
       <NavSection />
 
-      <div className="relative top-10 flex w-[100vw] items-center justify-center border-2 border-yellow-500 p-5">
-        <h1 className="m-1 flex items-center justify-center p-1 font-semibold">
+      <div className="relative top-10 z-20 flex w-[100%] items-center justify-center overflow-hidden border-2 border-yellow-500 p-5">
+        <h1 className="m-1 flex w-[100vw] items-center justify-center overflow-hidden p-1 font-semibold">
           FILM
         </h1>
       </div>
@@ -24,6 +24,8 @@ export default function Film() {
       <div className="relative top-25 flex items-center justify-center">
         <Carousel filmsData={filmsData} numSlidesIndex={numSlidesIndex} />
       </div>
+
+      <div className="relative bottom-0 h-[15rem] border-1 border-blue-500"></div>
 
       <Footer />
     </>

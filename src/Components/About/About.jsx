@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 
 import NavSection from '../NavSection'
 import Footer from '../Footer'
+import '../../App.css'
 
 export default function About() {
   return (
@@ -14,12 +15,13 @@ export default function About() {
         </h1>
       </div>
 
-      <div className="mb-[4rem] flex items-center justify-center">
-        <div className="border-blue-505 relative top-20 flex h-[90vh] w-[35%] max-w-[800px] min-w-[320px] flex-col gap-2 border-1 p-2">
+      <div className="about-text mb-[4rem] flex items-center justify-center">
+        <div className="relative top-20 flex h-[90vh] w-[35%] max-w-[800px] min-w-[320px] flex-col gap-2 p-2">
           <img src="about/about.jpg" alt="" />
           <div className="border-1 border-green-500 p-2">
             Duc Dam is a Vietnamese filmmaker and photographer based in Hanoi
-            and Philadelphia. He coded this website in his free time.
+            and Philadelphia. He developed an interest for web design in college
+            and coded this site in his free time.
           </div>
           <div className="border-1 border-green-500 p-2">
             <div>
@@ -33,20 +35,22 @@ export default function About() {
           </div>
           <div className="border-1 border-green-500 p-2">
             <div>
-              SCREENINGS: <br />
+              EVENTS: <br />
             </div>
             <div className="ml-5">
-              A Short Film About Loving (2021): <br />
+              A Short Film About Loving (2021) screenings: <br />
             </div>
-            <div className="ml-5">
-              OKIA Outdoor Cinema, Hanoi, Vietnam <br />
-              Fulbright University, HCMC, Vietnam <br />
-              Mahindra United World College, Pune, India <br />
-              2020 Indie Shorts Awards, Cannes, France
+            <div className="ml-8">
+              &#x2022; OKIA Outdoor Cinema, Hanoi, Vietnam <br />
+              &#x2022; Fulbright University, HCMC, Vietnam <br />
+              &#x2022; Mahindra United World College, Pune, India <br />
+              &#x2022; 2020 Indie Shorts Awards, Cannes, France
             </div>
           </div>
         </div>
       </div>
+
+      <div className="relative bottom-0 z-0 h-[20rem] border-1 border-blue-500"></div>
 
       <Footer />
     </>

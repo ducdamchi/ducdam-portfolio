@@ -175,7 +175,7 @@ export default function Carousel_Items({
               <div className="thumbnail-info-container relative">
                 <Link
                   to={`../photography/${album.url}`}
-                  className="absolute h-full w-full border-2 border-green-500"
+                  className="absolute h-full w-full"
                 />
 
                 <img
@@ -208,21 +208,10 @@ export default function Carousel_Items({
                   id={`thumbnail-description-${album.id}`}
                   className="thumbnail-description text-lg font-thin"
                 >
-                  {album.description}
+                  {`${album.description.substring(0, 250)} [...]`}
                 </div>
               )}
             </div>
-
-            {/* Modal Viewer, hidden until thumbnail is clicked on, 
-            then rendered on portal different from root */}
-            {/* {(album.id === openModalId) && 
-              <Modal
-                album={album} 
-                openModalId={openModalId} 
-                closeModal={() => {
-                  setOpenModalId(null)
-                  console.log('closing modal')
-                }}/>}   */}
           </div>
         ))}
 
