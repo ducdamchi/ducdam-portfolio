@@ -62,7 +62,7 @@ export default function Carousel({
       if (oddAlbums != 0) {
         /* Last slide -> first slide */
         if (oddAlbums != 0 && slidesOffset === 0) {
-          console.log('triggering slidesoffset')
+          // console.log('triggering slidesoffset')
           setSlidesOffset(oddAlbums / albumsPerSlide)
           setCarouselIndex(newIndex - 1)
 
@@ -90,7 +90,7 @@ export default function Carousel({
       if (oddAlbums != 0) {
         /* First slide -> last slide */
         if (slidesOffset === 0) {
-          console.log('triggering slidesoffset')
+          // console.log('triggering slidesoffset')
           // wait for 750ms transition to be over, then use
           // 'none' transition from fake slide to real slide
           setTimeout(() => {

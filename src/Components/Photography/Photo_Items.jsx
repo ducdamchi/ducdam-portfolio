@@ -73,11 +73,18 @@ export default function Carousel_Items({
   useEffect(() => {
     if (hoverId != null) {
       const img = document.getElementById(`thumbnail-img-${hoverId}`)
+      // console.log(img)
       const thumbnail_description = document.getElementById(
         `thumbnail-description-${hoverId}`,
       )
       const colorThief = new ColorThief()
-      const domColor = colorThief.getColor(img)
+      let domColor
+
+      try {
+        domColor = colorThief.getColor(img)
+      } catch (err) {
+        console.log(err)
+      }
 
       /* Check brightness of dominant color to ensure readability 
       Formula: https://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx */

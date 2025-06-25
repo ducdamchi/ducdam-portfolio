@@ -16,7 +16,7 @@ export default function Woodworking() {
     <>
       <NavSection />
 
-      <div className="relative top-10 flex w-[100vw] items-center justify-center border-2 border-yellow-500 p-5">
+      <div className="relative top-10 flex w-[100vw] items-center justify-center border-yellow-500 p-5">
         <h1 className="m-1 flex w-[100vw] items-center justify-center overflow-hidden p-1 font-semibold">
           WOODWORKING
         </h1>

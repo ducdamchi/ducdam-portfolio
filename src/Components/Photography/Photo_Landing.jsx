@@ -195,10 +195,13 @@ export default function Landing() {
         <Modal
           album={matchedAlbum}
           openModalId={openModalId}
+          screenHeight={screenHeight}
+          screenWidth={screenWidth}
+          isMobileMode={isMobileMode}
           closeModal={() => {
             setOpenModalId(null)
             setModalOpened(false)
-            console.log('closing modal')
+            // console.log('closing modal')
           }}
         />
       )}

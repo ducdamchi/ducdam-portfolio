@@ -70,11 +70,11 @@ export default function Carousel_Items({
         (film) =>
           film.id === filmsData.length && (
             <div
-              className="film-object cloneLeft flex h-full w-[100%] shrink-[0] items-center justify-center border-3 border-amber-600"
+              className="film-object cloneLeft flex h-full w-[100%] shrink-[0] items-center justify-center"
               key={film.id}
               id="film-object-0"
             >
-              <div className="poster m-2 h-auto w-[100%] max-w-[400px] border-2 border-red-500 p-2">
+              <div className="poster m-2 h-auto w-[100%] max-w-[400px] p-2">
                 <img
                   id="poster-0"
                   className="h-full w-full object-contain"
@@ -88,14 +88,14 @@ export default function Carousel_Items({
       {/* Real slides */}
       {filmsData.map((film) => (
         <div
-          className="film-object flex h-full w-[100%] shrink-[0] items-center justify-center border-3 border-amber-600"
+          className="film-object flex h-full w-[100%] shrink-[0] items-center justify-center"
           key={film.id}
           id={`film-object-${film.id}`}
         >
-          <div className="poster m-2 h-auto w-[100%] max-w-[400px] border-2 border-red-500 p-2">
+          <div className="poster m-2 h-auto w-[100%] max-w-[400px] p-2">
             <Link
               to={`../film/${film.url}`}
-              className="absolute h-full w-full border-2 border-green-500"
+              className="absolute h-full w-full"
             />
             <img
               id={`poster-${film.id}`}
@@ -122,11 +122,11 @@ export default function Carousel_Items({
         (film) =>
           film.id === 1 && (
             <div
-              className="film-object cloneRight flex h-full w-[100%] shrink-[0] items-center justify-center border-3 border-amber-600"
+              className="film-object cloneRight flex h-full w-[100%] shrink-[0] items-center justify-center"
               key={film.id}
               id={`film-object-${filmsData.length + 1}`}
             >
-              <div className="poster m-2 h-auto w-[100%] max-w-[400px] border-2 border-red-500 p-2">
+              <div className="poster m-2 h-auto w-[100%] max-w-[400px] p-2">
                 <img
                   className="h-full w-full object-contain"
                   src={film.poster}

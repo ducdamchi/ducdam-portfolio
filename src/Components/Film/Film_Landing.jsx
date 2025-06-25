@@ -47,7 +47,7 @@ export default function Landing() {
   return (
     <div>
       <div>
-        <div className="landing-whole relative top-0 left-0 h-screen w-screen overflow-hidden border-2 border-blue-500">
+        <div className="landing-whole relative top-0 left-0 h-screen w-screen overflow-hidden">
           <img
             className="landing-background"
             src={`/${matchedFilm.thumbnail}`}
@@ -94,7 +94,7 @@ export default function Landing() {
           </div>
 
           {!isMobileMode && (
-            <div className="landing-footer absolute bottom-0 z-100 flex w-[100%] items-center justify-between border-2 border-yellow-500 p-3">
+            <div className="landing-footer absolute bottom-0 z-100 flex w-[100%] items-center justify-between p-3">
               <div className="flex gap-2 text-center text-white">
                 <div className="flex items-center text-2xl">
                   <a

@@ -9,7 +9,7 @@ export default function About() {
     <>
       <NavSection />
 
-      <div className="relative top-10 flex w-[100vw] items-center justify-center border-2 border-yellow-500 p-5">
+      <div className="relative top-10 flex w-[100vw] items-center justify-center p-5">
         <h1 className="m-1 flex items-center justify-center p-1 font-semibold">
           ABOUT
         </h1>
@@ -18,12 +18,12 @@ export default function About() {
       <div className="about-text mb-[4rem] flex items-center justify-center">
         <div className="relative top-20 flex h-[90vh] w-[35%] max-w-[800px] min-w-[320px] flex-col gap-2 p-2">
           <img src="about/about.jpg" alt="" />
-          <div className="border-1 border-green-500 p-2">
+          <div className="border-green-500 p-2">
             Duc Dam is a Vietnamese filmmaker and photographer based in Hanoi
             and Philadelphia. He developed an interest for web design in college
             and coded this site in his free time.
           </div>
-          <div className="border-1 border-green-500 p-2">
+          <div className="border-green-500 p-2">
             <div>
               EDUCATION: <br />
             </div>
@@ -33,7 +33,7 @@ export default function About() {
               Baccalaureate
             </div>
           </div>
-          <div className="border-1 border-green-500 p-2">
+          <div className="border-green-500 p-2">
             <div>
               EVENTS: <br />
             </div>
@@ -50,7 +50,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="relative bottom-0 z-0 h-[20rem] border-1 border-blue-500"></div>
+      <div className="relative bottom-0 z-0 h-[20rem] border-blue-500"></div>
 
       <Footer />
     </>
