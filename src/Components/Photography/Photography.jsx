@@ -20,6 +20,8 @@ export default function Photography() {
       setScreenWidth(window.innerWidth)
     }
     handleResize()
+    console.log(`oddAlbums: ${oddAlbums}`)
+    console.log(`numSlidesIndex: ${numSlidesIndex}`)
     window.addEventListener('resize', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)

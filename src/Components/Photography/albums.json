@@ -1,383 +1,882 @@
 [
-  {
-    "id": 1,
-    "title": "EXAMPLE PROJECT 1",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 5,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "1.0",
-      "src": "photography/Highlights/ex01/thumb.jpg",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-1",
-    "imgList": [
-      {
-        "id": "1.1",
-        "src": "photography/Highlights/ex01/img1.jpg",
-        "index": 0,
-        "description": "0000 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
-      },
-      {
-        "id": "1.2",
-        "src": "photography/Highlights/ex01/img2.jpg",
-        "index": 1,
-        "description": "1111 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
-      },
-      {
-        "id": "1.3",
-        "src": "photography/Highlights/ex01/img3.jpg",
-        "index": 2,
-        "description": "2222 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
-      },
-      {
-        "id": "1.4",
-        "src": "photography/Highlights/ex01/img4.jpg",
-        "index": 3,
-        "description": "3333 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
-      },
-      {
-        "id": "1.5",
-        "src": "photography/Highlights/ex01/img5.jpg",
-        "index": 4,
-        "description": "4444 Cras convallis quis orci sed tempor. Sed vel sem id purus convallis rutrum ut at ex. Nunc libero odio, ultricies et iaculis sit amet, semper congue nunc. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla tincidunt ante urna, nec dignissim ipsum consequat eget. Praesent scelerisque velit dignissim porta pharetra. Pellentesque eget odio lorem. Ut pulvinar est nec consectetur viverra. Aliquam vel volutpat ex."
-      }
-    ]
+ {
+  "id": 1,
+  "title": "TIL THERE'S NO WIND",
+  "year": "2021-2025",
+  "description": [
+   "Three years before I took the first photo of this series, T and I had become friends in an international high school. I was the first Vietnamese that he met, and he was the first American to openly joke with me about the war. Halfway through his studies, T had to take an academic leave. Before leaving, he invited me to visit his home in New Mexico if I ever had the chance to.",
+   "Picking me up at the Albuquerque airport was T and two new faces–his childhood friend, and a hitchhiker from Kentucky. They were both crashing at T’s section-8 one-bedroom apartment, located on the edge of a small town two hours North. After spending Christmas together, T and I decided to go on a road trip to meet someone we both knew from high school. Things went unexpectedly as I had kept T’s arrival a secret.",
+   "This photo series is about leaving and being left behind in the vast landscapes of the American Southwest. The photographed subjects are in a constant state of arrival, yet in the very moment that they are captured, there is a seed of departure. This duality–of coming and leaving–can be abrupt and escapes understanding of the participant, its reverberations only to be experienced in the future tense.",
+   "Regardless, in the stories that I have encountered on this journey, there is always a desire to seek stillness among ever-changing conditions--often without a promise of attainment. This desire is perfectly captured in a remark that T once made: 'I don’t mind the cold as long as it’s not windy. I don’t mind the clouds as long as it’s not windy. I don’t mind the snow as long as it’s not windy.'"
+  ],
+  "captions": [
+   "T’s apartment, living room. S unpacking in the corner, C watching TV.",
+   "C, T’s childhood friend, had been staying with T after a family argument. He was the only one in the house old enough to buy alcohol. In 3 weeks, C and T will get into a big fight.",
+   "S talking about his direct experience with God after taking psychedelics. He was hitchhiking from Kentucky to California and back when T’s father picked him up in Albuquerque. His friends nicknamed him “Messi”, short for “Messiah”.",
+   "T’s recently adopted cat. He named it “Muc”, meaning ink in Vietnamese. One year later, Muc would run away and couldn’t be found.",
+   "T  playing his guitar. He refused to go on the road trip without it.",
+   "T’s 2001 manual Nissan, a pass-down from his dad. In 2 years, this Nissan would lose a race against a Chevy Camaro before being towed by the police. It has not been recovered since.",
+   "Messi in a natural hot spring tub. 2 years ago, his girlfriend'd just had a baby before they met.",
+   "T cooling off from a dip. Moments later, a passerby shouted You’re not supposed to be naked. T goes to the hot spring when he feels low.",
+   "T on his dad: 'He would go out for a pack of cigarettes and be gone for a year.'",
+   "T and his dad after checking on the Nissan. It was deemed unfit for the upcoming trip.",
+   "T's friend C offered him his car. It was a manual Subaru WRX that C had saved up for over many years.",
+   "T took the Subaru to a mechanic who was a friend of his dad. It was in dire need of fresh tires and an oil change.",
+   "The mechanic lived on a ranch with a pack of dogs. There, T met and adopted a pitbull. It's been named been named “Fat Boy” by its previous owner, who recently got sentenced to jail.",
+   "T was ready to start the trip.",
+   "'It’s time to go home', Messi said. None of us have heard from him since.",
+   "A cemetery on the outskirts of T’s hometown.",
+   "By sunset, the car made it to Taos. Its battery died and there wouldn’t be help until the next morning.",
+   "Entering Colorado. I saw snow for the first time.",
+   "T walking Fat Boy outside of a gas station.",
+   "Entering Utah. The camera got jammed.",
+   "Waiting out a storm in Salt Lake City.",
+   "Fat Boy standing before a frozen lake, Nevada.",
+   "Setting up camp.",
+   "Entering the Sierra Nevada.",
+   "Fat Boy running on a backroad. In 12 hours, the car battery will die again.",
+   "A retired LAPD officer jumped the car. A year ago, his pitbull died and was buried nearby. “I got a gun”, he warned when T first approached. He let his guard down after seeing Fat Boy.",
+   "Fat Boy taking a nap. In 6 months, he’d have a new owner.",
+   "Deep Springs Valley, California. The destination.",
+   "K, who we'd driven all the way to meet, took us to a natural hot spring.",
+   "T’s arrival came as a big surprise to K. They used to live in the same dorm in high school.",
+   "T had a reputation.",
+   "The following day, we went on a day trip.",
+   "Death Valley, California.",
+   "An argument broke out. T decided to leave.",
+   "We bid farewell. In a week, T’d be locked outside of the Subaru on his way home. He’d have to break the window to get in.",
+   "K standing on the dumpsite of his college. Less than 20 students were enrolled at any given point.",
+   "K and I got Covid and was quarantined in a spare cottage. Ten minutes earlier, someone had left a half-empty bottle of whiskey on the porch.",
+   "K was a Czech photojournalist who’d recently returned from Ukraine. Out of boredom, he suggested going on a hike.",
+   "The Druid, Deep Springs Valley, California.",
+   "K overlooking the Deep Springs valley. In less than a year, K would drop out and go to Ukraine again.",
+   "K took a shot with my camera. Two years later, the frame would be developed in a public bathroom at a college on the East coast.",
+   "End of roll."
+  ],
+  "numImages": 42,
+  "viewTime": 22,
+  "isHighlight": true,
+  "thumbnail": {
+   "id": "1.0",
+   "src": "photography/Highlights/01-til theres no wind/thumb.jpg",
+   "index": null,
+   "description": ""
   },
-  {
-    "id": 2,
-    "title": "EXAMPLE PROJECT 2",
-    "year": "1990-2001",
-    "description": "This is an example description for example project 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 9,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "2.0",
-      "src": "photography/Highlights/ex02/thumb.jpg",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-2",
-    "imgList": [
-      {
-        "id": "2.1",
-        "src": "photography/Highlights/ex02/img1.jpg",
-        "index": 0,
-        "description": ""
-      },
-      {
-        "id": "2.2",
-        "src": "photography/Highlights/ex02/img2.jpg",
-        "index": 1,
-        "description": ""
-      },
-      {
-        "id": "2.3",
-        "src": "photography/Highlights/ex02/img3.jpg",
-        "index": 2,
-        "description": ""
-      },
-      {
-        "id": "2.4",
-        "src": "photography/Highlights/ex02/img4.jpg",
-        "index": 3,
-        "description": ""
-      },
-      {
-        "id": "2.5",
-        "src": "photography/Highlights/ex02/img5.jpg",
-        "index": 4,
-        "description": ""
-      },
-      {
-        "id": "2.6",
-        "src": "photography/Highlights/ex02/img6.jpg",
-        "index": 5,
-        "description": ""
-      },
-      {
-        "id": "2.7",
-        "src": "photography/Highlights/ex02/img7.jpg",
-        "index": 6,
-        "description": ""
-      },
-      {
-        "id": "2.8",
-        "src": "photography/Highlights/ex02/img8.jpg",
-        "index": 7,
-        "description": ""
-      },
-      {
-        "id": "2.9",
-        "src": "photography/Highlights/ex02/img9.jpg",
-        "index": 8,
-        "description": ""
-      }
-    ]
+  "url": "til-theres-no-wind",
+  "imgList": [
+   {
+    "id": "1.1",
+    "src": "photography/Highlights/01-til theres no wind/01.jpg",
+    "index": 0,
+    "description": "T’s apartment, living room. S unpacking in the corner, C watching TV."
+   },
+   {
+    "id": "1.2",
+    "src": "photography/Highlights/01-til theres no wind/02.jpg",
+    "index": 1,
+    "description": "C, T’s childhood friend, had been staying with T after a family argument. He was the only one in the house old enough to buy alcohol. In 3 weeks, C and T will get into a big fight."
+   },
+   {
+    "id": "1.3",
+    "src": "photography/Highlights/01-til theres no wind/03.jpg",
+    "index": 2,
+    "description": "S talking about his direct experience with God after taking psychedelics. He was hitchhiking from Kentucky to California and back when T’s father picked him up in Albuquerque. His friends nicknamed him “Messi”, short for “Messiah”."
+   },
+   {
+    "id": "1.4",
+    "src": "photography/Highlights/01-til theres no wind/04.jpg",
+    "index": 3,
+    "description": "T’s recently adopted cat. He named it “Muc”, meaning ink in Vietnamese. One year later, Muc would run away and couldn’t be found."
+   },
+   {
+    "id": "1.5",
+    "src": "photography/Highlights/01-til theres no wind/05.jpg",
+    "index": 4,
+    "description": "T  playing his guitar. He refused to go on the road trip without it."
+   },
+   {
+    "id": "1.6",
+    "src": "photography/Highlights/01-til theres no wind/06.jpg",
+    "index": 5,
+    "description": "T’s 2001 manual Nissan, a pass-down from his dad. In 2 years, this Nissan would lose a race against a Chevy Camaro before being towed by the police. It has not been recovered since."
+   },
+   {
+    "id": "1.7",
+    "src": "photography/Highlights/01-til theres no wind/07.jpg",
+    "index": 6,
+    "description": "Messi in a natural hot spring tub. 2 years ago, his girlfriend'd just had a baby before they met."
+   },
+   {
+    "id": "1.8",
+    "src": "photography/Highlights/01-til theres no wind/08.jpg",
+    "index": 7,
+    "description": "T cooling off from a dip. Moments later, a passerby shouted You’re not supposed to be naked. T goes to the hot spring when he feels low."
+   },
+   {
+    "id": "1.9",
+    "src": "photography/Highlights/01-til theres no wind/09.jpg",
+    "index": 8,
+    "description": "T on his dad: 'He would go out for a pack of cigarettes and be gone for a year.'"
+   },
+   {
+    "id": "1.10",
+    "src": "photography/Highlights/01-til theres no wind/10.jpg",
+    "index": 9,
+    "description": "T and his dad after checking on the Nissan. It was deemed unfit for the upcoming trip."
+   },
+   {
+    "id": "1.11",
+    "src": "photography/Highlights/01-til theres no wind/11.jpg",
+    "index": 10,
+    "description": "T's friend C offered him his car. It was a manual Subaru WRX that C had saved up for over many years."
+   },
+   {
+    "id": "1.12",
+    "src": "photography/Highlights/01-til theres no wind/12.jpg",
+    "index": 11,
+    "description": "T took the Subaru to a mechanic who was a friend of his dad. It was in dire need of fresh tires and an oil change."
+   },
+   {
+    "id": "1.13",
+    "src": "photography/Highlights/01-til theres no wind/13.jpg",
+    "index": 12,
+    "description": "The mechanic lived on a ranch with a pack of dogs. There, T met and adopted a pitbull. It's been named been named “Fat Boy” by its previous owner, who recently got sentenced to jail."
+   },
+   {
+    "id": "1.14",
+    "src": "photography/Highlights/01-til theres no wind/14.jpg",
+    "index": 13,
+    "description": "T was ready to start the trip."
+   },
+   {
+    "id": "1.15",
+    "src": "photography/Highlights/01-til theres no wind/15.jpg",
+    "index": 14,
+    "description": "'It’s time to go home', Messi said. None of us have heard from him since."
+   },
+   {
+    "id": "1.16",
+    "src": "photography/Highlights/01-til theres no wind/16.jpg",
+    "index": 15,
+    "description": "A cemetery on the outskirts of T’s hometown."
+   },
+   {
+    "id": "1.17",
+    "src": "photography/Highlights/01-til theres no wind/17.jpg",
+    "index": 16,
+    "description": "By sunset, the car made it to Taos. Its battery died and there wouldn’t be help until the next morning."
+   },
+   {
+    "id": "1.18",
+    "src": "photography/Highlights/01-til theres no wind/18.jpg",
+    "index": 17,
+    "description": "Entering Colorado. I saw snow for the first time."
+   },
+   {
+    "id": "1.19",
+    "src": "photography/Highlights/01-til theres no wind/19.jpg",
+    "index": 18,
+    "description": "T walking Fat Boy outside of a gas station."
+   },
+   {
+    "id": "1.20",
+    "src": "photography/Highlights/01-til theres no wind/20.jpg",
+    "index": 19,
+    "description": "Entering Utah. The camera got jammed."
+   },
+   {
+    "id": "1.21",
+    "src": "photography/Highlights/01-til theres no wind/21.jpg",
+    "index": 20,
+    "description": "Waiting out a storm in Salt Lake City."
+   },
+   {
+    "id": "1.22",
+    "src": "photography/Highlights/01-til theres no wind/22.jpg",
+    "index": 21,
+    "description": "Fat Boy standing before a frozen lake, Nevada."
+   },
+   {
+    "id": "1.23",
+    "src": "photography/Highlights/01-til theres no wind/23.jpg",
+    "index": 22,
+    "description": "Setting up camp."
+   },
+   {
+    "id": "1.24",
+    "src": "photography/Highlights/01-til theres no wind/24.jpg",
+    "index": 23,
+    "description": "Entering the Sierra Nevada."
+   },
+   {
+    "id": "1.25",
+    "src": "photography/Highlights/01-til theres no wind/25.jpg",
+    "index": 24,
+    "description": "Fat Boy running on a backroad. In 12 hours, the car battery will die again."
+   },
+   {
+    "id": "1.26",
+    "src": "photography/Highlights/01-til theres no wind/26.jpg",
+    "index": 25,
+    "description": "A retired LAPD officer jumped the car. A year ago, his pitbull died and was buried nearby. “I got a gun”, he warned when T first approached. He let his guard down after seeing Fat Boy."
+   },
+   {
+    "id": "1.27",
+    "src": "photography/Highlights/01-til theres no wind/27.jpg",
+    "index": 26,
+    "description": "Fat Boy taking a nap. In 6 months, he’d have a new owner."
+   },
+   {
+    "id": "1.28",
+    "src": "photography/Highlights/01-til theres no wind/28.jpg",
+    "index": 27,
+    "description": "Deep Springs Valley, California. The destination."
+   },
+   {
+    "id": "1.29",
+    "src": "photography/Highlights/01-til theres no wind/29.jpg",
+    "index": 28,
+    "description": "K, who we'd driven all the way to meet, took us to a natural hot spring."
+   },
+   {
+    "id": "1.30",
+    "src": "photography/Highlights/01-til theres no wind/30.jpg",
+    "index": 29,
+    "description": "T’s arrival came as a big surprise to K. They used to live in the same dorm in high school."
+   },
+   {
+    "id": "1.31",
+    "src": "photography/Highlights/01-til theres no wind/31.jpg",
+    "index": 30,
+    "description": "T had a reputation."
+   },
+   {
+    "id": "1.32",
+    "src": "photography/Highlights/01-til theres no wind/32.jpg",
+    "index": 31,
+    "description": "The following day, we went on a day trip."
+   },
+   {
+    "id": "1.33",
+    "src": "photography/Highlights/01-til theres no wind/33.jpg",
+    "index": 32,
+    "description": "Death Valley, California."
+   },
+   {
+    "id": "1.34",
+    "src": "photography/Highlights/01-til theres no wind/34.jpg",
+    "index": 33,
+    "description": "An argument broke out. T decided to leave."
+   },
+   {
+    "id": "1.35",
+    "src": "photography/Highlights/01-til theres no wind/35.jpg",
+    "index": 34,
+    "description": "We bid farewell. In a week, T’d be locked outside of the Subaru on his way home. He’d have to break the window to get in."
+   },
+   {
+    "id": "1.36",
+    "src": "photography/Highlights/01-til theres no wind/36.jpg",
+    "index": 35,
+    "description": "K standing on the dumpsite of his college. Less than 20 students were enrolled at any given point."
+   },
+   {
+    "id": "1.37",
+    "src": "photography/Highlights/01-til theres no wind/37.jpg",
+    "index": 36,
+    "description": "K and I got Covid and was quarantined in a spare cottage. Ten minutes earlier, someone had left a half-empty bottle of whiskey on the porch."
+   },
+   {
+    "id": "1.38",
+    "src": "photography/Highlights/01-til theres no wind/38.jpg",
+    "index": 37,
+    "description": "K was a Czech photojournalist who’d recently returned from Ukraine. Out of boredom, he suggested going on a hike."
+   },
+   {
+    "id": "1.39",
+    "src": "photography/Highlights/01-til theres no wind/39.jpg",
+    "index": 38,
+    "description": "The Druid, Deep Springs Valley, California."
+   },
+   {
+    "id": "1.40",
+    "src": "photography/Highlights/01-til theres no wind/40.jpg",
+    "index": 39,
+    "description": "K overlooking the Deep Springs valley. In less than a year, K would drop out and go to Ukraine again."
+   },
+   {
+    "id": "1.41",
+    "src": "photography/Highlights/01-til theres no wind/41.jpg",
+    "index": 40,
+    "description": "K took a shot with my camera. Two years later, the frame would be developed in a public bathroom at a college on the East coast."
+   },
+   {
+    "id": "1.42",
+    "src": "photography/Highlights/01-til theres no wind/42.jpg",
+    "index": 41,
+    "description": "End of roll."
+   }
+  ]
+ },
+ {
+  "id": 2,
+  "title": "STRAW HAT IN THE WEST",
+  "year": "2025-PRESENT",
+  "description": [
+   "This series follows C as he traveled through the American West carrying something special: a straw hat with a red ribbon. In the famous manga One Piece, the protagonist is known for always wearing a hat with the exact same pattern. Bringing a symbol of Japanese pop culture into iconic landscapes of the United States. C created a playful stage from two distinct cultural sentiments that captured, quite literally, a comical moment in globalization."
+  ],
+  "captions": [
+   "Lake Powell, Arizona.",
+   "Grand Canyon, Arizona.",
+   "Bryce Canyon, Utah.",
+   "Zion, Utah.",
+   "The Narrows, Utah.",
+   "Lake Powell, Arizona.",
+   "Coral Pink Sand Dunes, Utah.",
+   "C and his straw hat. To be continued."
+  ],
+  "numImages": 8,
+  "viewTime": 5,
+  "isHighlight": true,
+  "thumbnail": {
+   "id": "2.0",
+   "src": "photography/Highlights/02-straw hat in the west/thumb.jpg",
+   "index": null,
+   "description": ""
   },
-  {
-    "id": 3,
-    "title": "EXAMPLE PROJECT 3",
-    "year": "1999-2012",
-    "description": "This is an example description for example project 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 5,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "3.0",
-      "src": "photography/Highlights/ex03/thumb.JPG",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-3",
-    "imgList": [
-      {
-        "id": "3.1",
-        "src": "photography/Highlights/ex03/img1.JPG",
-        "index": 0,
-        "description": ""
-      },
-      {
-        "id": "3.2",
-        "src": "photography/Highlights/ex03/img2.JPG",
-        "index": 1,
-        "description": ""
-      },
-      {
-        "id": "3.3",
-        "src": "photography/Highlights/ex03/img3.JPG",
-        "index": 2,
-        "description": ""
-      },
-      {
-        "id": "3.4",
-        "src": "photography/Highlights/ex03/img4.JPG",
-        "index": 3,
-        "description": ""
-      },
-      {
-        "id": "3.5",
-        "src": "photography/Highlights/ex03/img5.JPG",
-        "index": 4,
-        "description": ""
-      }
-    ]
+  "url": "straw-hat-in-the-west",
+  "imgList": [
+   {
+    "id": "2.1",
+    "src": "photography/Highlights/02-straw hat in the west/01.jpg",
+    "index": 0,
+    "description": "Lake Powell, Arizona."
+   },
+   {
+    "id": "2.2",
+    "src": "photography/Highlights/02-straw hat in the west/02.jpg",
+    "index": 1,
+    "description": "Grand Canyon, Arizona."
+   },
+   {
+    "id": "2.3",
+    "src": "photography/Highlights/02-straw hat in the west/03.jpg",
+    "index": 2,
+    "description": "Bryce Canyon, Utah."
+   },
+   {
+    "id": "2.4",
+    "src": "photography/Highlights/02-straw hat in the west/04.jpg",
+    "index": 3,
+    "description": "Zion, Utah."
+   },
+   {
+    "id": "2.5",
+    "src": "photography/Highlights/02-straw hat in the west/05.jpg",
+    "index": 4,
+    "description": "The Narrows, Utah."
+   },
+   {
+    "id": "2.6",
+    "src": "photography/Highlights/02-straw hat in the west/06.jpg",
+    "index": 5,
+    "description": "Lake Powell, Arizona."
+   },
+   {
+    "id": "2.7",
+    "src": "photography/Highlights/02-straw hat in the west/07.jpg",
+    "index": 6,
+    "description": "Coral Pink Sand Dunes, Utah."
+   },
+   {
+    "id": "2.8",
+    "src": "photography/Highlights/02-straw hat in the west/08.jpg",
+    "index": 7,
+    "description": "C and his straw hat. To be continued."
+   }
+  ]
+ },
+ {
+  "id": 3,
+  "title": "WEDDING IN LOLO VILLAGE",
+  "year": "2020",
+  "description": [
+   "I met Th the summer of 2020 while visiting Lung Cu, Ha Giang, the northernmost commune of Vietnam. He’d just finished military service and returned to his village, home to a big population of the Vietnamese Lolo ethnic group. He introduced me to his family and L, his then fianceé. After drinking lots of homemade corn wine, I received an invitation to their wedding in October.",
+   "Th and L had already had their engagement photo taken by a studio when I arrived. With days to spare, I wanted to offer a mundane perspective into the scenes behind their big ceremony–gatherings in the house, actions in the yard, and sometimes objects displayed on the wall. There was no catering services, which I think was only possible because everyone didn’t hesitate to roll up their sleeves. With only a thousand people in Lolo village, this was undoubtedly the spirit that bonded families and doubled enjoyments in both moments of labor and rest.",
+   "Th and L are still living in Lolo village and recently had their second child together."
+  ],
+  "captions": [
+   "Three days before the wedding. A photo of Th and L.",
+   "Th writing invitation cards with his dad.",
+   "Th’s dad making dinner.",
+   "Th serving homemade corn wine to his mom.",
+   "Th’s dad smoking ‘thuoc lao’ from a bamboo bong",
+   "Two days before the wedding. Th’s mom standing in front of their house.",
+   "Sports medals, certificates for outstanding achievements, and an embroidery hanging on the wall of Th’s house.",
+   "Free-range chickens.",
+   "Neighbors helping Th’s family set up a tent.",
+   "Wifi router, karaoke setup, and a portrait of Ho Chi Minh on the wall of L’s house.",
+   "Boiled chicken and chicken blood, two staple dishes in Vietnamese gatherings",
+   "Th’s bachelors party.",
+   "One day before the wedding. Two men setting up a tent.",
+   "A pig being sacrificed. Th’s father-in-law standing to his right.",
+   "L’s mom cooking.",
+   "A boy making hot lemonade (left), a man stirring a pot of pork (right).",
+   "Tables being prepared for the pre-wedding ceremony.",
+   "Th’s sister putting on a traditional Lolo dress.",
+   "A table for women elders.",
+   "Tables for men.",
+   "Th having a toast with each table.",
+   "A child tugging on a dress.",
+   "A woman eating watermelon.",
+   "Offerings being brought from the groom's to the bride's family. The flagpole in the distance marks the northernmost point of Vietnam.",
+   "Day of the wedding. A photo of Th and his family.",
+   "L getting dressed. Together with Th, they will be greeting over a thousand guests.",
+   "Guests being greeted by both family as they arrive.",
+   "Three days before the wedding. L and Th at a dinner table."
+  ],
+  "numImages": 28,
+  "viewTime": 15,
+  "isHighlight": true,
+  "thumbnail": {
+   "id": "3.0",
+   "src": "photography/Highlights/03-wedding in lolo village/thumb.jpg",
+   "index": null,
+   "description": ""
   },
-  {
-    "id": 4,
-    "title": "EXAMPLE PROJECT 4",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 4. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 1,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "4.0",
-      "src": "photography/Highlights/ex04/thumb.jpg",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-4",
-    "imgList": [
-      {
-        "id": "4.1",
-        "src": "photography/Highlights/ex04/img1.jpg",
-        "index": 0,
-        "description": ""
-      }
-    ]
+  "url": "wedding-in-lolo-village",
+  "imgList": [
+   {
+    "id": "3.1",
+    "src": "photography/Highlights/03-wedding in lolo village/01.jpg",
+    "index": 0,
+    "description": "Three days before the wedding. A photo of Th and L."
+   },
+   {
+    "id": "3.2",
+    "src": "photography/Highlights/03-wedding in lolo village/02.jpg",
+    "index": 1,
+    "description": "Th writing invitation cards with his dad."
+   },
+   {
+    "id": "3.3",
+    "src": "photography/Highlights/03-wedding in lolo village/03.jpg",
+    "index": 2,
+    "description": "Th’s dad making dinner."
+   },
+   {
+    "id": "3.4",
+    "src": "photography/Highlights/03-wedding in lolo village/04.jpg",
+    "index": 3,
+    "description": "Th serving homemade corn wine to his mom."
+   },
+   {
+    "id": "3.5",
+    "src": "photography/Highlights/03-wedding in lolo village/05.jpg",
+    "index": 4,
+    "description": "Th’s dad smoking ‘thuoc lao’ from a bamboo bong"
+   },
+   {
+    "id": "3.6",
+    "src": "photography/Highlights/03-wedding in lolo village/06.jpg",
+    "index": 5,
+    "description": "Two days before the wedding. Th’s mom standing in front of their house."
+   },
+   {
+    "id": "3.7",
+    "src": "photography/Highlights/03-wedding in lolo village/07.jpg",
+    "index": 6,
+    "description": "Sports medals, certificates for outstanding achievements, and an embroidery hanging on the wall of Th’s house."
+   },
+   {
+    "id": "3.8",
+    "src": "photography/Highlights/03-wedding in lolo village/08.jpg",
+    "index": 7,
+    "description": "Free-range chickens."
+   },
+   {
+    "id": "3.9",
+    "src": "photography/Highlights/03-wedding in lolo village/09.jpg",
+    "index": 8,
+    "description": "Neighbors helping Th’s family set up a tent."
+   },
+   {
+    "id": "3.10",
+    "src": "photography/Highlights/03-wedding in lolo village/10.jpg",
+    "index": 9,
+    "description": "Wifi router, karaoke setup, and a portrait of Ho Chi Minh on the wall of L’s house."
+   },
+   {
+    "id": "3.11",
+    "src": "photography/Highlights/03-wedding in lolo village/11.jpg",
+    "index": 10,
+    "description": "Boiled chicken and chicken blood, two staple dishes in Vietnamese gatherings"
+   },
+   {
+    "id": "3.12",
+    "src": "photography/Highlights/03-wedding in lolo village/12.jpg",
+    "index": 11,
+    "description": "Th’s bachelors party."
+   },
+   {
+    "id": "3.13",
+    "src": "photography/Highlights/03-wedding in lolo village/13.jpg",
+    "index": 12,
+    "description": "One day before the wedding. Two men setting up a tent."
+   },
+   {
+    "id": "3.14",
+    "src": "photography/Highlights/03-wedding in lolo village/14.jpg",
+    "index": 13,
+    "description": "A pig being sacrificed. Th’s father-in-law standing to his right."
+   },
+   {
+    "id": "3.15",
+    "src": "photography/Highlights/03-wedding in lolo village/15.jpg",
+    "index": 14,
+    "description": "L’s mom cooking."
+   },
+   {
+    "id": "3.16",
+    "src": "photography/Highlights/03-wedding in lolo village/16.jpg",
+    "index": 15,
+    "description": "A boy making hot lemonade (left), a man stirring a pot of pork (right)."
+   },
+   {
+    "id": "3.17",
+    "src": "photography/Highlights/03-wedding in lolo village/17.jpg",
+    "index": 16,
+    "description": "Tables being prepared for the pre-wedding ceremony."
+   },
+   {
+    "id": "3.18",
+    "src": "photography/Highlights/03-wedding in lolo village/18.jpg",
+    "index": 17,
+    "description": "Th’s sister putting on a traditional Lolo dress."
+   },
+   {
+    "id": "3.19",
+    "src": "photography/Highlights/03-wedding in lolo village/19.jpg",
+    "index": 18,
+    "description": "A table for women elders."
+   },
+   {
+    "id": "3.20",
+    "src": "photography/Highlights/03-wedding in lolo village/20.jpg",
+    "index": 19,
+    "description": "Tables for men."
+   },
+   {
+    "id": "3.21",
+    "src": "photography/Highlights/03-wedding in lolo village/21.jpg",
+    "index": 20,
+    "description": "Th having a toast with each table."
+   },
+   {
+    "id": "3.22",
+    "src": "photography/Highlights/03-wedding in lolo village/22.jpg",
+    "index": 21,
+    "description": "A child tugging on a dress."
+   },
+   {
+    "id": "3.23",
+    "src": "photography/Highlights/03-wedding in lolo village/23.jpg",
+    "index": 22,
+    "description": "A woman eating watermelon."
+   },
+   {
+    "id": "3.24",
+    "src": "photography/Highlights/03-wedding in lolo village/24.jpg",
+    "index": 23,
+    "description": "Offerings being brought from the groom's to the bride's family. The flagpole in the distance marks the northernmost point of Vietnam."
+   },
+   {
+    "id": "3.25",
+    "src": "photography/Highlights/03-wedding in lolo village/25.jpg",
+    "index": 24,
+    "description": "Day of the wedding. A photo of Th and his family."
+   },
+   {
+    "id": "3.26",
+    "src": "photography/Highlights/03-wedding in lolo village/26.jpg",
+    "index": 25,
+    "description": "L getting dressed. Together with Th, they will be greeting over a thousand guests."
+   },
+   {
+    "id": "3.27",
+    "src": "photography/Highlights/03-wedding in lolo village/27.jpg",
+    "index": 26,
+    "description": "Guests being greeted by both family as they arrive."
+   },
+   {
+    "id": "3.28",
+    "src": "photography/Highlights/03-wedding in lolo village/28.jpg",
+    "index": 27,
+    "description": "Three days before the wedding. L and Th at a dinner table."
+   }
+  ]
+ },
+ {
+  "id": 4,
+  "title": "VERTICAL AFTERNOONS",
+  "year": "2018-PRESENT",
+  "description": [
+   "Hanoi is a very busy city, where people being busy against the backdrop of other busy things has become the center thesis of many foreign photographers. However, there is also a local sentiment that is widely shared, but often unspoken: when the sun retreats to the horizon, people also desire a retreat from the chaos of the day. This desire creates a distinct sense of relief that many associate with the afternoon hours of Hanoi.",
+   "For me, the temporal dimension of this sentiment is best captured not through people, but through signposts in which people sometimes are a part of. The vertical orientation of this series tries to mimic that precise effect of signposts–they stand vertically to isolate themselves from chaos, and quietly inform us of what’s about to come."
+  ],
+  "captions": [
+   "Flag Tower of Hanoi.",
+   "Red River.",
+   "Long Bien bridge entrance.",
+   "Chuong Duong bridge.",
+   "View from Chuong Duong bridge.",
+   "View from Long Bien bridge.",
+   "Father and daughter swimming in Red river.",
+   "Woman walking past a reed field.",
+   "A couple watching sunset in West Lake.",
+   "Men resting after doing stand-up paddling.",
+   "Man fishing.",
+   "Girl walking around a museum.",
+   "Bicycle in a puddle.",
+   "Bougainvillea on the side of a building.",
+   "Clothes hanger and paper money furnace on top story of a house.",
+   "Reflections on West Lake.",
+   "Tin roofs in a neighborhood.",
+   "Afternoon light reaching a room"
+  ],
+  "numImages": 18,
+  "viewTime": 10,
+  "isHighlight": true,
+  "thumbnail": {
+   "id": "4.0",
+   "src": "photography/Highlights/04-vertical afternoons/thumb.jpg",
+   "index": null,
+   "description": ""
   },
-  {
-    "id": 5,
-    "title": "EXAMPLE PROJECT 5",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 5. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 2,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "5.0",
-      "src": "photography/Highlights/ex05/thumb.png",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-5",
-    "imgList": [
-      {
-        "id": "5.1",
-        "src": "photography/Highlights/ex05/img1.jpeg",
-        "index": 0,
-        "description": ""
-      },
-      {
-        "id": "5.2",
-        "src": "photography/Highlights/ex05/img1.png",
-        "index": 1,
-        "description": ""
-      }
-    ]
+  "url": "vertical-afternoons",
+  "imgList": [
+   {
+    "id": "4.1",
+    "src": "photography/Highlights/04-vertical afternoons/01.jpg",
+    "index": 0,
+    "description": "Flag Tower of Hanoi."
+   },
+   {
+    "id": "4.2",
+    "src": "photography/Highlights/04-vertical afternoons/02.jpg",
+    "index": 1,
+    "description": "Red River."
+   },
+   {
+    "id": "4.3",
+    "src": "photography/Highlights/04-vertical afternoons/03.jpg",
+    "index": 2,
+    "description": "Long Bien bridge entrance."
+   },
+   {
+    "id": "4.4",
+    "src": "photography/Highlights/04-vertical afternoons/04.jpg",
+    "index": 3,
+    "description": "Chuong Duong bridge."
+   },
+   {
+    "id": "4.5",
+    "src": "photography/Highlights/04-vertical afternoons/05.jpg",
+    "index": 4,
+    "description": "View from Chuong Duong bridge."
+   },
+   {
+    "id": "4.6",
+    "src": "photography/Highlights/04-vertical afternoons/06.jpg",
+    "index": 5,
+    "description": "View from Long Bien bridge."
+   },
+   {
+    "id": "4.7",
+    "src": "photography/Highlights/04-vertical afternoons/07.jpg",
+    "index": 6,
+    "description": "Father and daughter swimming in Red river."
+   },
+   {
+    "id": "4.8",
+    "src": "photography/Highlights/04-vertical afternoons/08.jpg",
+    "index": 7,
+    "description": "Woman walking past a reed field."
+   },
+   {
+    "id": "4.9",
+    "src": "photography/Highlights/04-vertical afternoons/09.jpg",
+    "index": 8,
+    "description": "A couple watching sunset in West Lake."
+   },
+   {
+    "id": "4.10",
+    "src": "photography/Highlights/04-vertical afternoons/10.jpg",
+    "index": 9,
+    "description": "Men resting after doing stand-up paddling."
+   },
+   {
+    "id": "4.11",
+    "src": "photography/Highlights/04-vertical afternoons/11.jpg",
+    "index": 10,
+    "description": "Man fishing."
+   },
+   {
+    "id": "4.12",
+    "src": "photography/Highlights/04-vertical afternoons/12.jpg",
+    "index": 11,
+    "description": "Girl walking around a museum."
+   },
+   {
+    "id": "4.13",
+    "src": "photography/Highlights/04-vertical afternoons/13.jpg",
+    "index": 12,
+    "description": "Bicycle in a puddle."
+   },
+   {
+    "id": "4.14",
+    "src": "photography/Highlights/04-vertical afternoons/14.jpg",
+    "index": 13,
+    "description": "Bougainvillea on the side of a building."
+   },
+   {
+    "id": "4.15",
+    "src": "photography/Highlights/04-vertical afternoons/15.jpg",
+    "index": 14,
+    "description": "Clothes hanger and paper money furnace on top story of a house."
+   },
+   {
+    "id": "4.16",
+    "src": "photography/Highlights/04-vertical afternoons/16.jpg",
+    "index": 15,
+    "description": "Reflections on West Lake."
+   },
+   {
+    "id": "4.17",
+    "src": "photography/Highlights/04-vertical afternoons/17.jpg",
+    "index": 16,
+    "description": "Tin roofs in a neighborhood."
+   },
+   {
+    "id": "4.18",
+    "src": "photography/Highlights/04-vertical afternoons/18.jpg",
+    "index": 17,
+    "description": "Afternoon light reaching a room"
+   }
+  ]
+ },
+ {
+  "id": 5,
+  "title": "FIRE CALENDAR",
+  "year": "2018-2020",
+  "description": [
+   "In light of the 2020 Australian fires, a student-led Fire and Rescue team wanted to make a calendar as part of a fundraising and awareness campaign within their campus community. The team worked year-round to protect a biodiversity reserve that were prone to wildfires during its 7-month dry seasons. In this calendar, they wanted to showcase moments of teamwork and service that take place in the natural landscapes that housed their community",
+   "These photos were captured during various service hours between 2018 and 2020, when I was a part of the team."
+  ],
+  "captions": [
+   "August",
+   "September",
+   "October",
+   "November",
+   "December",
+   "January",
+   "February",
+   "March",
+   "April",
+   "May",
+   "June",
+   "July",
+   "Bonus"
+  ],
+  "numImages": 13,
+  "viewTime": 8,
+  "isHighlight": true,
+  "thumbnail": {
+   "id": "5.0",
+   "src": "photography/Highlights/05-fire calendar/thumb.jpg",
+   "index": null,
+   "description": ""
   },
-  {
-    "id": 6,
-    "title": "EXAMPLE PROJECT 6",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 6. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 1,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "6.0",
-      "src": "photography/Highlights/ex06/thumb.jpg",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-6",
-    "imgList": [
-      {
-        "id": "6.1",
-        "src": "photography/Highlights/ex06/img1.jpg",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "title": "EXAMPLE PROJECT 7",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 7. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 1,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "7.0",
-      "src": "photography/Highlights/ex07/thumb.jpg",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-7",
-    "imgList": [
-      {
-        "id": "7.1",
-        "src": "photography/Highlights/ex07/img1.jpg",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "title": "EXAMPLE PROJECT 8",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 8. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 1,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "8.0",
-      "src": "photography/Highlights/ex08/thumb.JPG",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-8",
-    "imgList": [
-      {
-        "id": "8.1",
-        "src": "photography/Highlights/ex08/img1.JPG",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  },
-  {
-    "id": 9,
-    "title": "EXAMPLE PROJECT 9",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 9. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 1,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "9.0",
-      "src": "photography/Highlights/ex09/thumb.jpg",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-9",
-    "imgList": [
-      {
-        "id": "9.1",
-        "src": "photography/Highlights/ex09/img1.jpg",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "title": "EXAMPLE PROJECT 10",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 10. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 1,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "10.0",
-      "src": "photography/Highlights/ex10/thumb.JPG",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-10",
-    "imgList": [
-      {
-        "id": "10.1",
-        "src": "photography/Highlights/ex10/img1.jpg",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  },
-  {
-    "id": 11,
-    "title": "EXAMPLE PROJECT 11",
-    "year": "2001-CURRENT",
-    "description": "This is an example description for example project 11. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "numImages": 1,
-    "isHighlight": true,
-    "thumbnail": {
-      "id": "11.0",
-      "src": "photography/Highlights/ex11/thumb.JPG",
-      "index": null,
-      "description": ""
-    },
-    "url": "example-project-11",
-    "imgList": [
-      {
-        "id": "11.1",
-        "src": "photography/Highlights/ex11/DSCF0335.JPG",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  },
-  {
-    "id": 1,
-    "numImages": 1,
-    "isHighlight": false,
-    "imgList": [
-      {
-        "id": "1.1",
-        "src": "photography/Other/ex10/DSCF0339.JPG",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "numImages": 1,
-    "isHighlight": false,
-    "imgList": [
-      {
-        "id": "2.1",
-        "src": "photography/Other/ex11/DSCF0335.JPG",
-        "index": 0,
-        "description": ""
-      }
-    ]
-  }
+  "url": "fire-calendar",
+  "imgList": [
+   {
+    "id": "5.1",
+    "src": "photography/Highlights/05-fire calendar/01-aug.jpg",
+    "index": 0,
+    "description": "August"
+   },
+   {
+    "id": "5.2",
+    "src": "photography/Highlights/05-fire calendar/02-sep.jpg",
+    "index": 1,
+    "description": "September"
+   },
+   {
+    "id": "5.3",
+    "src": "photography/Highlights/05-fire calendar/03-oct.jpg",
+    "index": 2,
+    "description": "October"
+   },
+   {
+    "id": "5.4",
+    "src": "photography/Highlights/05-fire calendar/04-nov.jpg",
+    "index": 3,
+    "description": "November"
+   },
+   {
+    "id": "5.5",
+    "src": "photography/Highlights/05-fire calendar/05-dec.jpg",
+    "index": 4,
+    "description": "December"
+   },
+   {
+    "id": "5.6",
+    "src": "photography/Highlights/05-fire calendar/06-jan.jpg",
+    "index": 5,
+    "description": "January"
+   },
+   {
+    "id": "5.7",
+    "src": "photography/Highlights/05-fire calendar/07-feb.jpg",
+    "index": 6,
+    "description": "February"
+   },
+   {
+    "id": "5.8",
+    "src": "photography/Highlights/05-fire calendar/08-mar.jpg",
+    "index": 7,
+    "description": "March"
+   },
+   {
+    "id": "5.9",
+    "src": "photography/Highlights/05-fire calendar/09-apr.jpg",
+    "index": 8,
+    "description": "April"
+   },
+   {
+    "id": "5.10",
+    "src": "photography/Highlights/05-fire calendar/10-may.jpg",
+    "index": 9,
+    "description": "May"
+   },
+   {
+    "id": "5.11",
+    "src": "photography/Highlights/05-fire calendar/11-jun.jpg",
+    "index": 10,
+    "description": "June"
+   },
+   {
+    "id": "5.12",
+    "src": "photography/Highlights/05-fire calendar/12-jul.jpg",
+    "index": 11,
+    "description": "July"
+   },
+   {
+    "id": "5.13",
+    "src": "photography/Highlights/05-fire calendar/13-bonus.jpg",
+    "index": 12,
+    "description": "Bonus"
+   }
+  ]
+ }
 ]

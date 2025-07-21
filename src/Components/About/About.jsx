@@ -16,12 +16,11 @@ export default function About() {
       </div>
 
       <div className="about-text mb-[4rem] flex items-center justify-center">
-        <div className="relative top-20 flex h-[90vh] w-[35%] max-w-[800px] min-w-[320px] flex-col gap-2 p-2">
+        <div className="relative top-20 flex h-[90vh] w-[35%] max-w-[800px] min-w-[360px] flex-col gap-2 p-2">
           <img src="about/about.jpg" alt="" />
           <div className="border-green-500 p-2">
-            Duc Dam is a Vietnamese filmmaker and photographer based in Hanoi
-            and Philadelphia. He developed an interest for web design in college
-            and coded this site in his free time.
+            Duc Dam is a Vietnamese filmmaker, photographer, and web designer
+            based in Hanoi and Philadelphia.
           </div>
           <div className="border-green-500 p-2">
             <div>

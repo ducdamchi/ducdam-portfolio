@@ -11,6 +11,7 @@ import { BiArrowBack } from 'react-icons/bi'
 import { CgLayoutGridSmall } from 'react-icons/cg'
 import { TfiLayoutSlider } from 'react-icons/tfi'
 import { PiSelectionBackgroundThin } from 'react-icons/pi'
+import { BiLeftArrowAlt } from 'react-icons/bi'
 
 export default function Modal({
   album,
@@ -118,14 +119,16 @@ export default function Modal({
       /* Only turn on block display for slide with current index */
       for (let i = 0; i < allSlides.length; i++) {
         if (i != slideIndex) {
-          // allSlides[i].style.display = 'none'
-          allSlides[i].classList.remove('visible')
           allSlides[i].style.display = 'none'
+          // setTimeout(() => {
+          //   allSlides[i].style.display = 'none'
+          // }, 300)
+          // allSlides[i].classList.remove('visible')
         } else {
           allSlides[i].style.display = 'inline-block'
-          setTimeout(() => {
-            allSlides[i].classList.add('visible')
-          }, 100)
+          // setTimeout(() => {
+          //   allSlides[i].classList.add('visible')
+          // }, 200)
 
           // console.log(allSlides[i].style)
         }
@@ -224,7 +227,7 @@ export default function Modal({
                 className="modal-navbar-back text-md sm:text-xl md:text-xl lg:text-2xl xl:text-3xl"
                 onClick={closeModal}
               >
-                <BiArrowBack />
+                <BiLeftArrowAlt />
               </button>
 
               <div className="flex items-center gap-2">

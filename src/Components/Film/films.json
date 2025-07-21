@@ -1,47 +1,18 @@
 [
  {
   "id": 1,
-  "title": "A Short Film about Loving",
+  "title": "A SHORT FILM ABOUT LOVING",
   "year": "2020",
   "director": "Duc Dam",
-  "runtime": "42 minutes",
+  "runtime": "42",
+  "country": "India, Vietnam",
   "language": "French, English, Spanish, Malay",
-  "synopsis": "Due to COVID-19, students from a utopian international high school were forced to return home. Heartbroken from a recent break up, Tom wanders around and confronts lovers who were also experiencing separation.",
+  "synopsis": "Due to COVID-19, students from a utopian high school were forced to return home. Heartbroken from a recent break up, Tom wanders around and confronts lovers who were also experiencing separation. The film is only available for offline screenings, please contact for more information.",
   "recognition": "Official Selection, Cannes Indie Shorts",
   "screenings": "OKIA Outdoor Cinema (Hanoi, Vietnam), Fulbright University Vietnam (HCMC, Vietnam), Mahindra United World College (Pune, India), Olympia Cinema (Cannes, France)",
-  "poster": "film/ex1/poster.jpg",
-  "thumbnail": "film/ex1/thumb.jpeg",
+  "poster": "film/1/poster.jpg",
+  "thumbnail": "film/1/thumb.jpg",
   "youtube": "https://www.youtube.com/embed/R3FXbEKPpLw?si=NKTsv8k6vMgUTnJh",
   "url": "a-short-film-about-loving-2020"
- },
- {
-  "id": 2,
-  "title": "The Taste of Things",
-  "year": "2023",
-  "director": "Tran Anh Hung",
-  "runtime": "136 minutes",
-  "language": "French",
-  "synopsis": "Cook Eugenie and her boss Dodin have grown fond of one another over 20 years, and their romance gives rise to dishes that impress the world's most illustrious chefs. When Dodin is faced with Eugenie's reluctance to commit, he begins to cook for her.",
-  "recognition": "Best Director, Cannes Film Festival",
-  "screenings": "",
-  "poster": "film/ex2/poster.jpg",
-  "thumbnail": "film/ex2/thumb.jpg",
-  "youtube": "https://www.youtube.com/embed/cKKCGtoIOVY?si=PPHOO9l5QQAfXLF6",
-  "url": "the-taste-of-things-2023"
- },
- {
-  "id": 3,
-  "title": "Great Freedom",
-  "year": "2021",
-  "director": "Sebastian Meise",
-  "runtime": "116 minutes",
-  "language": "German",
-  "synopsis": "In post-war Germany, liberation by the Allies does not mean freedom for all. Hans experiences repeated imprisonment under paragraph 175 of the penal code, which criminalizes homosexuality and systematically destroys his desire for freedom. Over the decades, he develops an unlikely bond with his cellmate Viktor, a convicted murderer. What starts as revulsion grows into affection.",
-  "recognition": "Un Certain Regard (Jury Prize), Cannes Film Festival; Queer Palm, Cannes Film Festival",
-  "screenings": "",
-  "poster": "film/ex3/poster.png",
-  "thumbnail": "film/ex3/thumb.jpg",
-  "youtube": "https://www.youtube.com/embed/3Ejx94LC1R8?si=jbg2Io6uVLHzjf3P",
-  "url": "great-freedom-2021"
  }
 ]

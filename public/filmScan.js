@@ -11,6 +11,7 @@ class Film {
     year,
     director,
     runtime,
+    country,
     language,
     synopsis,
     recognition,
@@ -25,6 +26,7 @@ class Film {
     this.year = year //str, year of release
     this.director = director //str, director's name
     this.runtime = runtime //str, runtime in minutes
+    this.country = country //str, list of production countries
     this.language = language //str, languages spoken
     this.synopsis = synopsis //str, synopsis
     this.recognition = recognition //str, awards, nominations, etc.
@@ -82,6 +84,7 @@ function fetchFilms(pathname) {
         film.director = film_data.director
         film.runtime = film_data.runtime
         film.duration = film_data.duration
+        film.country = film_data.country
         film.language = film_data.language
         film.synopsis = film_data.synopsis
         film.recognition = film_data.recognition

@@ -76,7 +76,6 @@ export default function Carousel({
             setCarouselIndex(1)
           }, 700)
         }
-
         /* If there are no odd albums */
       } else {
         setTimeout(() => {
@@ -84,8 +83,8 @@ export default function Carousel({
           setCarouselIndex(1)
         }, 700)
       }
-    } else if (newIndex === 0) {
       /* Sliding left near the first slides */
+    } else if (newIndex === 0) {
       /* If there are odd albums */
       if (oddAlbums != 0) {
         /* First slide -> last slide */
@@ -98,7 +97,6 @@ export default function Carousel({
             setEdgeTransition(true)
             setCarouselIndex(numSlidesIndex - 1)
           }, 700)
-
           /* Second slide -> first slide, show odd album */
         } else {
           setSlidesOffset(0)

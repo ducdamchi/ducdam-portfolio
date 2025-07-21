@@ -25,9 +25,17 @@ h1,
 .footer-text,
 .about-text,
 .wood-text,
-.landing-info,
-.landing-info-mobile,
-.modal-title {
+.photo-landing-info,
+.film-landing-info,
+.film-landing-synopsis,
+.film-landing-mobile-info,
+.film-landing-backArrow,
+.photo-landing-backArrow,
+.photo-landing-mobile-title-year,
+.photo-landing-mobile-info,
+.photo-landing-buttons,
+.modal-title,
+.modal-description {
   font-family: 'Candara', 'Optima', 'Helvetica', sans-serif;
 }
 
@@ -40,17 +48,44 @@ h1 {
   font-size: clamp(0.9rem, calc(2vw + 0.5rem), 1.3rem);
 }
 
+.film-landing-info-title,
+.photo-landing-mobile-title,
+.photo-landing-info-title {
+  font-weight: 800;
+  font-size: clamp(1.3rem, calc(1.5vw + 0.4rem), 1.4rem);
+}
+
+.film-landing-director,
+.film-landing-mobile-info,
+.film-landing-backArrow,
+.photo-landing-backArrow,
+.photo-landing-mobile-year,
+.photo-landing-info-year {
+  font-weight: 100;
+  font-size: clamp(1.05rem, calc(1.3vw + 0.3rem), 1.2rem);
+}
+/* 
+.film-landing-text-sm {
+  font-weight: 100;
+  font-size: clamp(0.9rem, calc(0.9rem + 0.3rem), 1rem);
+} */
+
 /* Medium size */
 .navbar-item,
 .about-text,
-.thumbnail-description {
+.thumbnail-description,
+.film-landing-synopsis,
+.film-landing-country,
+.film-landing-runtime,
+.modal-description {
   font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem);
 }
 
 /* Small size, grey text */
 .modal-description {
-  color: rgb(100, 100, 100);
-  font-size: clamp(0.7rem, calc(1.5vw + 0.4rem), 0.9rem);
+  color: rgb(60, 60, 60);
+  font-weight: 300;
+  /* font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem); */
 }
 
 /* Smallest, footer text */
@@ -66,105 +101,6 @@ h1 {
 }
 /*********************************************/
 
-/**************** LANDING PAGE *****************/
-.landing-info-all {
-  text-shadow: -1px 2px 3px rgba(31, 38, 135, 0.4);
-}
-
-.landing-backArrow,
-.landing-viewButton {
-  filter: drop-shadow(-1px 2px 3px rgba(31, 38, 135, 0.8));
-}
-
-.landing-info-title {
-  font-weight: 800;
-  font-size: clamp(1.2rem, calc(1.5vw + 0.4rem), 1.7rem);
-}
-
-.landing-info-year {
-  font-weight: 100;
-  font-size: clamp(0.9rem, calc(1.3vw + 0.3rem), 1.2rem);
-}
-
-.landing-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.landing-backArrow-wrapper-1 {
-  position: absolute;
-  top: 5rem;
-  z-index: 2;
-  width: 80%;
-  color: white;
-}
-
-.landing-backArrow {
-  position: relative;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border-width: 2px;
-  border-color: orange;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-}
-
-.landing-backArrow-link {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.landing-viewButton {
-  position: absolute;
-  top: 40%;
-  z-index: 2;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  color: white;
-}
-
-.landing-info-all {
-  display: flex;
-  position: absolute;
-  bottom: 10%;
-  justify-content: start;
-  z-index: 2;
-  width: 80%;
-  max-height: 30%;
-}
-
-.landing-info {
-  z-index: 2;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  max-width: 48rem;
-  height: auto;
-  color: white;
-}
-
-.landing-footer {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
-}
 /*********************************************/
 
 .navModal {

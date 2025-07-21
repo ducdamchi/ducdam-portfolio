@@ -14,6 +14,11 @@ import { BiLogoGithub } from 'react-icons/bi'
 import { BiCopyright } from 'react-icons/bi'
 import { BiFolderOpen } from 'react-icons/bi'
 import { BiArrowBack } from 'react-icons/bi'
+import { BiChevronLeft } from 'react-icons/bi'
+import { BiChevronRight } from 'react-icons/bi'
+import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
+import { BiSolidTimeFive } from 'react-icons/bi'
+import { BiTimeFive } from 'react-icons/bi'
 
 export default function Landing() {
   const [openModalId, setOpenModalId] = useState(null)
@@ -21,10 +26,17 @@ export default function Landing() {
   const [screenHeight, setScreenHeight] = useState(window.innerHeight)
   const [isMobileMode, setIsMobileMode] = useState(false)
   const [modalOpened, setModalOpened] = useState(false)
+  // const [domColor, setDomColor] = useState(null)
+  const imgRef = useRef(null)
+  const infoBoxRef = useRef(null)
 
   const { photoURL } = useParams()
 
   const matchedAlbum = albumsData.find((album) => album.url === photoURL)
+
+  // const INFO_BOX_STYLE = {
+  //   borderColor: `rgb(${domColor[0]}, ${domColor[1]}, ${domColor[2]})`,
+  // }
 
   /* Dynamically obtain window size */
   useEffect(() => {
@@ -47,6 +59,87 @@ export default function Landing() {
     // console.log(`Mobile mode: ${isMobileMode}`)
   }, [screenWidth])
 
+  // /* Pick color for info-box border from dominant color of background */
+  // useEffect(() => {
+  //   if (matchedAlbum) {
+  //     const img = document.getElementById(`landing-bg-${matchedAlbum.id}`)
+  //     const infoBox = document.getElementById(
+  //       `landing-info-all-${matchedAlbum.id}`,
+  //     )
+  //     // console.log(infoBox)
+  //     const colorThief = new ColorThief()
+
+  //     if (!isMobileMode) {
+  //       try {
+  //         setDomColor(colorThief.getColor(img))
+  //         infoBox.style.borderColor = `rgb(${domColor[0]}, ${domColor[1]}, ${domColor[2]})`
+  //       } catch (err) {
+  //         console.log(err)
+  //       }
+  //     }
+  //   }
+  // }, [])
+
+  // useEffect(() => {
+  //   if (!matchedAlbum || isMobileMode) return
+
+  //   const img = document.getElementById(`landing-bg-${matchedAlbum.id}`)
+  //   const infoBox = document.getElementById(
+  //     `landing-info-all-${matchedAlbum.id}`,
+  //   )
+  //   const colorThief = new ColorThief()
+
+  //   const applyColor = () => {
+  //     try {
+  //       const color = colorThief.getColor(img)
+  //       setDomColor(color)
+  //       if (infoBox) {
+  //         infoBox.style.borderColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`
+  //       }
+  //     } catch (err) {
+  //       console.warn('Failed to extract color', err)
+  //     }
+  //   }
+
+  //   if (img) {
+  //     if (img.complete && img.naturalHeight !== 0) {
+  //       // Image already loaded and rendered
+  //       applyColor()
+  //     } else {
+  //       // Wait for it to load (important for back button case too)
+  //       img.addEventListener('load', applyColor)
+  //       return () => img.removeEventListener('load', applyColor)
+  //     }
+  //   }
+  // }, [matchedAlbum?.id, isMobileMode])
+
+  useEffect(() => {
+    if (!matchedAlbum || isMobileMode || modalOpened) return
+
+    const img = imgRef.current
+    const infoBox = infoBoxRef.current
+    const colorThief = new ColorThief()
+
+    const applyColor = () => {
+      try {
+        const color = colorThief.getColor(img) // sync
+        const rgb = `rgb(${color[0]}, ${color[1]}, ${color[2]})`
+        if (infoBox) infoBox.style.borderColor = rgb
+      } catch (err) {
+        console.warn('ColorThief error:', err)
+      }
+    }
+
+    if (img && img.complete && img.naturalHeight !== 0) {
+      // Cached image already loaded
+      applyColor()
+    } else if (img) {
+      // Wait for image to load
+      img.addEventListener('load', applyColor)
+      return () => img.removeEventListener('load', applyColor)
+    }
+  }, [matchedAlbum?.id, isMobileMode, modalOpened])
+
   if (!matchedAlbum) {
     return <div>Page not found</div>
   }
@@ -54,103 +147,166 @@ export default function Landing() {
   return (
     <div>
       <div>
-        <div className="landing-whole relative top-0 left-0 h-screen w-screen">
+        <div className="photo-landing-whole relative top-0 left-0 h-screen w-screen">
           <img
-            className="landing-background"
+            ref={imgRef}
+            className="photo-landing-background"
             src={`/${matchedAlbum.thumbnail.src}`}
-            id={`thumbnail-img-${matchedAlbum.id}`}
+            id={`photo-landing-bg-${matchedAlbum.id}`}
             alt=""
           />
+          <div className="photo-landing-overlay"></div>
 
-          <div className="landing-backArrow-wrapper-2 flex justify-center">
-            <div className="landing-backArrow-wrapper-1 flex">
-              <div className="landing-backArrow md:3xl text-xl">
-                <Link
-                  to={`../photography`}
-                  className="landing-backArrow-link"
-                />
-
-                <BiArrowBack
-                // stroke="rgba(31, 38, 135, 0.7)"
-                // strokeWidth={0.2}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="landing-viewButton-wrapper flex justify-center">
-            <div
-              className="landing-viewButton md:5xl text-3xl"
-              onClick={() => {
-                setOpenModalId(matchedAlbum.id)
-                setModalOpened(true)
-              }}
-            >
-              <BiFolderOpen
-              // stroke="rgba(31, 38, 135, 0.7)"
-              // strokeWidth={0.2}
-              />
-            </div>
-          </div>
-
-          <div className="landing-info-wrapper flex justify-center">
-            <div className="landing-info-all">
-              <div className="landing-info">
-                <div className="landing-info-title">{matchedAlbum.title}</div>
-                <div className="landing-info-year">{matchedAlbum.year}</div>
-                {!isMobileMode && (
-                  <div className="landing-info-description">
-                    {matchedAlbum.description}
+          {isMobileMode && !modalOpened && (
+            <>
+              <div className="photo-landing-backArrow-wrapper-2 flex justify-center">
+                <div className="photo-landing-backArrow-wrapper-1 flex p-6">
+                  <div className="photo-landing-backArrow">
+                    <Link
+                      to={`/photography`}
+                      className="flex items-center gap-1 font-bold"
+                    >
+                      <BiLeftArrowAlt className="text-xl" />
+                      BACK
+                    </Link>
                   </div>
-                )}
+                </div>
               </div>
-            </div>
-          </div>
+
+              <div className="photo-landing-viewButton-wrapper flex justify-center">
+                <div
+                  className="photo-landing-viewButton md:5xl text-4xl"
+                  onClick={() => {
+                    setOpenModalId(matchedAlbum.id)
+                    setModalOpened(true)
+                  }}
+                >
+                  <BiFolderOpen />
+                </div>
+              </div>
+
+              <div>
+                <div className="photo-landing-mobile-title-year flex flex-col p-6">
+                  <div className="photo-landing-mobile-title">
+                    {matchedAlbum.title}
+                  </div>
+                  <div className="photo-landing-mobile-year">
+                    {matchedAlbum.year}
+                  </div>
+                  <div className="photo-landing-mobile-time mb-8 flex items-center gap-1">
+                    <BiTimeFive />
+                    {`${matchedAlbum.viewTime} mins`}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
 
           {!isMobileMode && !modalOpened && (
-            <div className="landing-footer absolute bottom-0 z-100 flex w-[100%] items-center justify-between border-2 border-yellow-500 p-3">
-              <div className="flex gap-2 text-center text-white">
-                <div className="flex items-center text-2xl">
-                  <a
-                    href={`mailto:ducdamchi@gmail.com?
-                    &subject=Just visited your website`}
-                  >
-                    <BiLogoGmail />
-                  </a>
-                </div>
-                <div className="text-2xl">
-                  <a href="https://www.instagram.com/ducdamchi" target="_blank">
-                    <BiLogoInstagramAlt />
-                  </a>
-                </div>
-                {/* <div className='landing-footer-facebook'>Facebook</div> */}
-                <div className="text-2xl">
-                  <a href="https://github.com/ducdamchi" target="_blank">
-                    <BiLogoGithub />
-                  </a>
+            <>
+              <div className="photo-landing-info-wrapper flex justify-center">
+                <div
+                  className="photo-landing-info-all flex flex-col border-3"
+                  id={`photo-landing-info-all-${matchedAlbum.id}`}
+                  ref={infoBoxRef}
+                >
+                  <div className="photo-landing-info flex flex-col p-6">
+                    <div className="photo-landing-info-title">
+                      {matchedAlbum.title}
+                    </div>
+                    <div className="photo-landing-info-year">
+                      {matchedAlbum.year}
+                    </div>
+                    <div className="photo-landing-info-time mb-8 flex items-center gap-1">
+                      <BiTimeFive />
+                      {`${matchedAlbum.viewTime} mins`}
+                    </div>
+
+                    <div className="photo-landing-info-description">
+                      {matchedAlbum.description.map((paragraph, index) => (
+                        <p key={index} className="mb-2">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="photo-landing-buttons absolute bottom-0 flex w-full justify-between p-6">
+                    <div className="photo-landing-button-back z-2 flex items-center justify-center">
+                      <Link
+                        to={`/photography`}
+                        onClick={() => console.log('clicked on link')}
+                        className="flex items-center justify-center"
+                      >
+                        <BiLeftArrowAlt className="text-2xl" />
+                        BACK
+                      </Link>
+                    </div>
+                    <div
+                      className="photo-landing-button-view flex items-center justify-center"
+                      onClick={() => {
+                        setOpenModalId(matchedAlbum.id)
+                        setModalOpened(true)
+                      }}
+                    >
+                      <div className="">VIEW</div>
+                      <BiRightArrowAlt className="text-2xl" />
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="">
-                <div className="flex items-center gap-1 text-[0.6rem] font-thin">
-                  <span className="footer-text text-white">
-                    ALL IMAGES &#169; DUC DAM 2025
-                  </span>
+              <div className="photo-landing-footer absolute bottom-0 z-100 flex w-[100%] items-center justify-between p-3">
+                <div className="flex gap-2 text-center text-white">
+                  <div className="flex items-center text-2xl">
+                    <a
+                      href={`mailto:ducdamchi@gmail.com?
+                      &subject=Just visited your website`}
+                    >
+                      <BiLogoGmail />
+                    </a>
+                  </div>
+                  <div className="text-2xl">
+                    <a
+                      href="https://www.instagram.com/ducdamchi"
+                      target="_blank"
+                    >
+                      <BiLogoInstagramAlt />
+                    </a>
+                  </div>
+                  <div className="text-2xl">
+                    <a href="https://github.com/ducdamchi" target="_blank">
+                      <BiLogoGithub />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="">
+                  <div className="flex items-center gap-1 text-[0.6rem] font-thin">
+                    <span className="footer-text text-white">
+                      ALL IMAGES &#169; DUC DAM 2025
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
         </div>
 
         {isMobileMode && !modalOpened && (
           <div className="relative">
-            <div className="landing-mobileBottom relative bg-zinc-50">
-              <div className="landing-info-mobile flex flex-col justify-center gap-2 p-6">
+            <div className="photo-landing-mobileBottom relative bg-zinc-50">
+              <div className="photo-landing-mobile-info flex flex-col justify-center gap-2 p-6">
                 <div>
-                  DESCRIPTION
+                  INTRODUCTION
                   <br />
                 </div>
-                <div>{matchedAlbum.description}</div>
+                <div>
+                  {matchedAlbum.description.map((paragraph, index) => (
+                    <p key={index} className="mb-2">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
 

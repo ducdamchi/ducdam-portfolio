@@ -36,6 +36,7 @@ export default function Carousel_Items({
     top: '0%',
     width: 'calc(100% - 2 * var(--slider-padding))',
     transform: `translateX(calc((${carouselIndex} + ${slidesOffset}) * -100%))`,
+    // transform: `translateX(-266.66%)`,
     transition: isEdgeTransition ? 'none' : 'transform 750ms ease-in-out',
     // overlow: 'visible',
   }
@@ -123,6 +124,9 @@ export default function Carousel_Items({
 
     resizeObserver.observe(target)
 
+    console.log(`carouselIndex: ${carouselIndex}`)
+    console.log(`slidesOffset: ${slidesOffset}`)
+
     return () => resizeObserver.disconnect()
   }, [])
 
@@ -132,7 +136,8 @@ export default function Carousel_Items({
       {/* Clones on left side */}
       {albumsData
         .filter((album) => album.isHighlight === true)
-        .slice(albumsData.length - albumsPerSlide - 2)
+        /* slice albumsPerSlide last items of the album list */
+        .slice(-albumsPerSlide)
         .map((album) => (
           <div
             key={`cloneLeft-${album.id}`}
@@ -141,10 +146,13 @@ export default function Carousel_Items({
           >
             <div className="thumbnail-box">
               <div className="thumbnail-info-container-clone relative">
-                <img
-                  className="thumbnail-img-clone"
-                  src={album.thumbnail.src}
-                />
+                <div>
+                  <img
+                    className="thumbnail-img-clone"
+                    src={album.thumbnail.src}
+                  />
+                  <div className="thumbnail-img-overlay"></div>
+                </div>
 
                 <div className="thumbnail-title-year">
                   <div
@@ -182,14 +190,16 @@ export default function Carousel_Items({
               <div className="thumbnail-info-container relative">
                 <Link
                   to={`../photography/${album.url}`}
-                  className="absolute h-full w-full"
+                  className="absolute top-0 left-0 z-4 h-full w-full"
                 />
-
-                <img
-                  className="thumbnail-img"
-                  id={`thumbnail-img-${album.id}`}
-                  src={album.thumbnail.src}
-                />
+                <div>
+                  <img
+                    className="thumbnail-img"
+                    id={`thumbnail-img-${album.id}`}
+                    src={album.thumbnail.src}
+                  />
+                  <div className="thumbnail-img-overlay"></div>
+                </div>
 
                 <div
                   ref={album.id === 1 ? titleRef : null}
@@ -215,7 +225,7 @@ export default function Carousel_Items({
                   id={`thumbnail-description-${album.id}`}
                   className="thumbnail-description text-lg font-thin"
                 >
-                  {`${album.description.substring(0, 250)} [...]`}
+                  {`${album.description[0].substring(0, 250)} [...]`}
                 </div>
               )}
             </div>
@@ -225,7 +235,7 @@ export default function Carousel_Items({
       {/* Clones on right side */}
       {albumsData
         .filter((album) => album.isHighlight === true)
-        .slice(0, albumsPerSlide + 1)
+        .slice(0, albumsPerSlide)
         .map((album) => (
           <div
             key={`cloneRight-${album.id}`}
@@ -234,10 +244,13 @@ export default function Carousel_Items({
           >
             <div className="thumbnail-box">
               <div className="thumbnail-info-container-clone relative">
-                <img
-                  className="thumbnail-img-clone"
-                  src={album.thumbnail.src}
-                />
+                <div>
+                  <img
+                    className="thumbnail-img-clone"
+                    src={album.thumbnail.src}
+                  />
+                  <div className="thumbnail-img-overlay"></div>
+                </div>
 
                 <div className="thumbnail-title-year">
                   <div

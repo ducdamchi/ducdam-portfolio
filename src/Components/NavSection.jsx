@@ -49,7 +49,7 @@ export default function NavSection() {
       {!isHamburger && (
         <div className="navbar-all static top-0 flex h-[20%] w-full items-center justify-start p-5">
           {/* Logo section */}
-          <div className="navbar-name m-1 flex h-full items-center justify-center border-4 border-black p-3 text-xl font-medium">
+          <div className="navbar-name m-1 flex aspect-square h-full items-center justify-center border-2 border-black p-2 text-xl font-medium">
             {/* <Link to="/">DUC DAM</Link> */}
             DUC <br />
             DAM

@@ -28,7 +28,8 @@
 }
 
 /* LANDING PAGE */
-/* .landing-background {
+.film-landing-background,
+.film-landing-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,75 +39,88 @@
   object-fit: cover;
 }
 
-.landing-backArrow-wrapper-1 {
+.film-landing-overlay {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.35) 30%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.film-landing-viewButton,
+.film-landing-viewButton-icon {
+  transition: 200ms ease-out;
+}
+
+.film-landing-viewButton:hover {
+  background-color: white;
+  color: rgba(0, 0, 0, 50);
+}
+
+.film-landing-viewButton:hover .film-landing-viewButton-icon {
+  scale: 1.05;
+}
+
+.film-landing-backArrow-wrapper-1 {
   position: absolute;
-  top: 5rem;
+  top: 2rem;
   z-index: 2;
-  width: 80%;
+  width: 100%;
   color: white;
 }
 
-.landing-backArrow {
+.film-landing-backArrow {
   position: relative;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border-width: 2px;
-  border-color: orange;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
+  transition: 200ms ease-out;
 }
 
-.landing-backArrow-link {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.film-landing-backArrow:hover {
+  scale: 1.05;
+  text-decoration: underline;
 }
 
-.landing-viewButton {
+.film-landing-viewButton {
   position: absolute;
   top: 40%;
   z-index: 2;
-  -webkit-backdrop-filter: blur(4px);
+  /* -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1); */
+  border: 1px solid rgba(255, 255, 255, 1);
   padding: 1rem;
   color: white;
 }
 
-.landing-info-all {
+.film-landing-info-all {
   display: flex;
   position: absolute;
-  bottom: 15%;
+  bottom: 0%;
   justify-content: start;
   z-index: 2;
-  width: 80%;
+  width: 100%;
 }
 
-.landing-info {
-  flex-basis: 80%;
+.film-landing-info {
+  position: relative;
+  bottom: 5%;
+  /* left: 0%; */
+  flex-basis: 100%;
+  z-index: 3;
+  width: 100%;
+  min-width: 10rem;
+  color: white;
+}
+
+.film-landing-synopsis {
+  flex-basis: 40%;
   z-index: 2;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   max-width: 48rem;
   height: auto;
   color: white;
 }
-
-.landing-footer {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1);
-} */
 
 /* Responsive based on width */
 @media (min-width: 0rem) {
@@ -164,6 +178,7 @@
   }
 }
 
+/* Non-mobile break point */
 @media (min-width: 48rem) {
   .film-carousel-whole {
     width: 600px;
@@ -176,6 +191,23 @@
 
   .poster {
     max-width: 400px;
+  }
+
+  .film-landing-info {
+    flex-basis: 40%;
+    padding: 1rem;
+    max-width: 48rem;
+    height: auto;
+  }
+
+  .film-landing-info-all {
+    bottom: 8%;
+    width: 80%;
+  }
+
+  .film-landing-backArrow-wrapper-1 {
+    top: 5rem;
+    width: 80%;
   }
 }
 

@@ -19,7 +19,9 @@ class Album {
     title,
     year,
     description,
+    captions,
     numImages,
+    viewTime,
     isHighlight,
     thumbnail,
     url,
@@ -29,7 +31,9 @@ class Album {
     this.title = title //string, tile of project
     this.year = year //string, year of project ('2018-2020', '2013-current', etc.)
     this.description = description //string, album description
+    this.captions = captions // list of string, captions for each img
     this.numImages = numImages //int, number of images in the album, excluding the thumbnail
+    this.viewTime = viewTime //int, minutes it takes to look through the album
     this.isHighlight = isHighlight //boolean, is the album put in the Highlights folder?
     this.thumbnail = thumbnail //Image object, store info about thumbnail. Has ID x.0
     this.url = url //url extention, for example: 'example-project-1' in 'abc.com/photo/example-project-1'
@@ -52,6 +56,7 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
   const imgExtentions = ['.jpg', '.png', '.jpeg', '.JPG', '.PNG', '.JPEG']
   const subDirAlbums = []
   let album_id = 0
+  let album_data
 
   // For each Album folder
   subDirs.forEach((subdir) => {
@@ -61,21 +66,27 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
     let album_imgs = []
     let img_count = 0
 
+    //Locate info.json in content of each folder
+    const json_file = subdir_contents.find((file) => file === 'info.json')
+    if (json_file) {
+      let json_path = path.resolve(pathname, dir, subdir, json_file)
+      album_data = require(json_path)
+      album.title = album_data.title
+      album.year = album_data.year
+      album.description = album_data.description
+      album.captions = album_data.captions
+      album.url = toDashedLowerCase(album_data.title)
+    } else {
+      console.log(`Warning: info.json not found for ${subdir}`)
+    }
+
     // For each Image in the Album folder
     subdir_contents.forEach((content) => {
-      // If content is the info.json file, extract album metadata
-      if (content.includes('info.json')) {
-        const json_path = path.resolve(pathname, dir, subdir, 'info.json')
-        const album_data = require(json_path)
-        album.title = album_data.title
-        album.year = album_data.year
-        album.description = album_data.description
-        album.url = toDashedLowerCase(album_data.title)
-        // console.log(album.url)
-      }
-
       // Check if content of dir has valid image extensions.
-      if (imgExtentions.some((extension) => content.includes(extension))) {
+      if (
+        json_file &&
+        imgExtentions.some((extension) => content.includes(extension))
+      ) {
         img_count += 1
 
         /* 
@@ -95,14 +106,17 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
           album.isHighlight = false
         }
 
-        // Set album thumbnail
+        // If img is thumbnail
         if (img.src.includes('thumb')) {
           img_count-- //exclude thumbnail from image
           img.id = `${album.id}.0`
           album.thumbnail = img
+          // If img is part of series
         } else {
           img.id = `${album.id}.${img_count}`
           img.index = img_count - 1
+          img.description = album.captions[img.index]
+          // console.log(`${album.title}: ${img.description}`)
           album_imgs.push(img)
         }
       }
@@ -110,6 +124,15 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
 
     // Set album numImages and imgList
     album.numImages = img_count
+    // For subdirs with a json file, check if number of imgs matches number of captions
+    if (json_file) {
+      if (album.numImages != album.captions.length) {
+        console.log(
+          `Warning: num imgs and captions mismatched for ${album.title}`,
+        )
+      }
+    }
+    album.viewTime = Math.round((img_count * 30) / 60 + 1) // 20 secs for each image + 1 min reading introduction
     album.imgList = album_imgs
     subDirAlbums.push(album)
   })
