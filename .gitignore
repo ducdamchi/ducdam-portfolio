@@ -25,5 +25,5 @@ dist-ssr
 
 # /public/photography/
 # /public/film/
-# /public/woodworking/
+/public/woodworking/
 /project_snapshots
