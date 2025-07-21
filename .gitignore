@@ -23,8 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-/public/photography/
-/public/film/
-/public/woodworking/
-/dump.jsx
+# /public/photography/
+# /public/film/
+# /public/woodworking/
 /project_snapshots
