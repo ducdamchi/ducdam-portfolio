@@ -95,6 +95,7 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
         (instead of path.resolve, which will return absolute path)
          */
         let img_path = path.join(pathname, dir, subdir, content)
+        // console.log(img_path)
 
         /* pathname/dir/subdir/content = ./photography/Highlights/ex2/DCD345.JPG */
         let img = new Image(0, img_path, null, '')
@@ -177,7 +178,7 @@ function fetchAlbums(pathname) {
   return all_albums
 }
 
-const all_albums = fetchAlbums('./photography')
+const all_albums = fetchAlbums('photography')
 fs.writeFileSync(
   '/Users/ddam1/Desktop/Duc/CS Projects/personal-web-react-online/src/Components/Photography/albums.json',
   JSON.stringify(all_albums, null, 1),
