@@ -111,6 +111,6 @@ function fetchFilms(pathname) {
 
 const all_films = fetchFilms('./film')
 fs.writeFileSync(
-  '/Users/ddam1/Desktop/Duc/CS Projects/personal-web-react/src/Components/Film/films.json',
+  '/Users/ddam1/Desktop/Duc/CS Projects/personal-web-react-online/src/Components/Film/films.json',
   JSON.stringify(all_films, null, 1),
 )
