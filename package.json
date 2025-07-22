@@ -1,4 +1,5 @@
 {
+  "homepage": "https://ducdamchi.github.io/ducdam-portfolio/",
   "name": "personal-web-react",
   "private": true,
   "version": "0.0.0",
@@ -16,7 +17,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react-hook/resize-observer": "^2.0.2",
@@ -35,6 +38,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
