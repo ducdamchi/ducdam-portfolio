@@ -151,7 +151,7 @@ export default function Landing() {
           <img
             ref={imgRef}
             className="photo-landing-background"
-            src={`/${matchedAlbum.thumbnail.src}`}
+            src={`${import.meta.env.BASE_URL}${matchedAlbum.thumbnail.src}`}
             id={`photo-landing-bg-${matchedAlbum.id}`}
             alt=""
           />

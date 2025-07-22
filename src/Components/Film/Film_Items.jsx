@@ -78,7 +78,7 @@ export default function Carousel_Items({
                 <img
                   id="poster-0"
                   className="h-full w-full object-contain"
-                  src={film.poster}
+                  src={`${import.meta.env.BASE_URL}${film.poster}`}
                 />
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function Carousel_Items({
             <img
               id={`poster-${film.id}`}
               className="h-full w-full object-contain"
-              src={film.poster}
+              src={`${import.meta.env.BASE_URL}${film.poster}`}
             />
           </div>
 
@@ -129,7 +129,7 @@ export default function Carousel_Items({
               <div className="poster m-2 h-auto w-[100%] max-w-[400px] p-2">
                 <img
                   className="h-full w-full object-contain"
-                  src={film.poster}
+                  src={`${import.meta.env.BASE_URL}${film.poster}`}
                   id={`poster-${filmsData.length + 1}`}
                 />
               </div>

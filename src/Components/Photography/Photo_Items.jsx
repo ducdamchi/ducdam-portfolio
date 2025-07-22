@@ -149,7 +149,7 @@ export default function Carousel_Items({
                 <div>
                   <img
                     className="thumbnail-img-clone"
-                    src={album.thumbnail.src}
+                    src={`${import.meta.env.BASE_URL}${album.thumbnail.src}`}
                   />
                   <div className="thumbnail-img-overlay"></div>
                 </div>
@@ -196,7 +196,7 @@ export default function Carousel_Items({
                   <img
                     className="thumbnail-img"
                     id={`thumbnail-img-${album.id}`}
-                    src={album.thumbnail.src}
+                    src={`${import.meta.env.BASE_URL}${album.thumbnail.src}`}
                   />
                   <div className="thumbnail-img-overlay"></div>
                 </div>
@@ -247,7 +247,7 @@ export default function Carousel_Items({
                 <div>
                   <img
                     className="thumbnail-img-clone"
-                    src={album.thumbnail.src}
+                    src={`${import.meta.env.BASE_URL}${album.thumbnail.src}`}
                   />
                   <div className="thumbnail-img-overlay"></div>
                 </div>

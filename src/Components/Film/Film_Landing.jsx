@@ -51,7 +51,7 @@ export default function Landing() {
         <div className="film-landing-whole relative top-0 left-0 h-screen w-screen overflow-hidden">
           <img
             className="film-landing-background"
-            src={`/${matchedFilm.thumbnail}`}
+            src={`${import.meta.env.BASE_URL}${matchedFilm.thumbnail}`}
             id={`thumbnail-film-${matchedFilm.id}`}
             alt=""
           />

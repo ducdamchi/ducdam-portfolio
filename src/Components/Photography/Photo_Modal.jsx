@@ -290,7 +290,7 @@ export default function Modal({
                     <img
                       className="slides-each h-full w-full object-contain"
                       key={slide.id}
-                      src={`/${slide.src}`}
+                      src={`${import.meta.env.BASE_URL}${slide.src}`}
                     />
                   ))}
                 </div>
@@ -301,7 +301,7 @@ export default function Modal({
                     <img
                       className="gallery-each"
                       key={img.id}
-                      src={`/${img.src}`}
+                      src={`${import.meta.env.BASE_URL}${img.src}`}
                       onClick={() => handleGalleryClick(img.index)}
                     />
                   ))}

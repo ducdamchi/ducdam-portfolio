@@ -96,10 +96,10 @@ function fetchFilms(pathname) {
       /* If content is an image file, it can be either the poster or thumbnail. Extract path to each*/
       if (imgExtentions.some((extension) => content.includes(extension))) {
         if (content.includes('poster')) {
-          let poster_path = path.join('main/public', pathname, dir, content)
+          let poster_path = path.join(pathname, dir, content)
           film.poster = poster_path
         } else if (content.includes('thumb')) {
-          let thumbnail_path = path.join('main/public', pathname, dir, content)
+          let thumbnail_path = path.join(pathname, dir, content)
           film.thumbnail = thumbnail_path
         }
       }

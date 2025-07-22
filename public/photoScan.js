@@ -94,7 +94,7 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
         Ex: src="http://localhost:51xx/photography/Highlights/..."
         (instead of path.resolve, which will return absolute path)
          */
-        let img_path = path.join('main/public', pathname, dir, subdir, content)
+        let img_path = path.join(pathname, dir, subdir, content)
 
         /* pathname/dir/subdir/content = ./photography/Highlights/ex2/DCD345.JPG */
         let img = new Image(0, img_path, null, '')
