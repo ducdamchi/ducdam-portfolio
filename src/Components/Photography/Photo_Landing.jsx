@@ -161,7 +161,7 @@ export default function Landing() {
             <>
               <div className="photo-landing-backArrow-wrapper-2 flex justify-center">
                 <div className="photo-landing-backArrow-wrapper-1 flex p-6">
-                  <div className="photo-landing-backArrow">
+                  <div className="photo-landing-backArrow z-10">
                     <Link
                       to={`/photography`}
                       className="flex items-center gap-1 font-bold"
@@ -235,14 +235,14 @@ export default function Landing() {
                       <Link
                         to={`/photography`}
                         onClick={() => console.log('clicked on link')}
-                        className="flex items-center justify-center"
+                        className="z-10 flex items-center justify-center"
                       >
                         <BiLeftArrowAlt className="text-2xl" />
                         BACK
                       </Link>
                     </div>
                     <div
-                      className="photo-landing-button-view flex items-center justify-center"
+                      className="photo-landing-button-view z-10 flex items-center justify-center"
                       onClick={() => {
                         setOpenModalId(matchedAlbum.id)
                         setModalOpened(true)
@@ -273,11 +273,11 @@ export default function Landing() {
                       <BiLogoInstagramAlt />
                     </a>
                   </div>
-                  <div className="text-2xl">
+                  {/* <div className="text-2xl">
                     <a href="https://github.com/ducdamchi" target="_blank">
                       <BiLogoGithub />
                     </a>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="">

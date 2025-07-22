@@ -26,11 +26,11 @@ export default function Footer() {
             </a>
           </div>
           {/* <div className='landing-footer-facebook'>Facebook</div> */}
-          <div className="text-2xl">
+          {/* <div className="text-2xl">
             <a href="https://github.com/ducdamchi" target="_blank">
               <BiLogoGithub />
             </a>
-          </div>
+          </div> */}
         </div>
 
         <div className="text-black">

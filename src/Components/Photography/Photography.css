@@ -261,14 +261,16 @@
   display: flex;
   position: absolute;
 
-  top: 15%;
+  top: 12.5%;
   justify-content: start;
   z-index: 2;
   background: rgb(250, 250, 250);
   width: 60%;
   min-width: 40rem;
-  max-width: 48rem;
-  height: 70%;
+  max-width: 80rem;
+  height: 75%;
+  min-height: 30rem;
+  max-height: 60rem;
 }
 
 .photo-landing-info {
@@ -281,6 +283,7 @@
   display: grid;
   position: relative;
   top: 3rem;
+  bottom: 10rem;
   grid-template-columns: repeat(3, minmax(3.125rem, 37.5rem));
   justify-content: center;
   align-items: center;
@@ -371,11 +374,19 @@
   .thumbnail-box:hover {
     scale: 1.05;
   }
+
+  .gallery-all {
+    top: 10rem;
+  }
 }
 
 @media (min-width: 64rem) {
   .thumbnail-flex-item {
     padding: 1.2rem;
+  }
+
+  .gallery-all {
+    /* top: 12rem; */
   }
 }
 

@@ -12,6 +12,8 @@ import { CgLayoutGridSmall } from 'react-icons/cg'
 import { TfiLayoutSlider } from 'react-icons/tfi'
 import { PiSelectionBackgroundThin } from 'react-icons/pi'
 import { BiLeftArrowAlt } from 'react-icons/bi'
+import { BiChevronLeft } from 'react-icons/bi'
+import { BiChevronRight } from 'react-icons/bi'
 
 export default function Modal({
   album,
@@ -224,7 +226,7 @@ export default function Modal({
             <div className="modal-navbar flex w-[85%] max-w-[2400px] items-center justify-between gap-10 p-2 font-thin">
               {/* Button for closing modal, shared */}
               <button
-                className="modal-navbar-back text-md sm:text-xl md:text-xl lg:text-2xl xl:text-3xl"
+                className="modal-navbar-back text-md duration-200 ease-out hover:scale-[1.1] sm:text-xl md:text-xl lg:text-2xl xl:text-3xl"
                 onClick={closeModal}
               >
                 <BiLeftArrowAlt />
@@ -237,10 +239,14 @@ export default function Modal({
 
                 {/* Button for switching between Slides View and Gallery View, shared */}
                 <button
-                  className="text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
+                  className="text-md duration-200 ease-out hover:scale-[1.1] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
                   onClick={toggleView}
                 >
-                  {isGalleryView ? <TfiLayoutSlider /> : <CgLayoutGridSmall />}
+                  {isGalleryView ? (
+                    <TfiLayoutSlider className="m-[5px] text-xl" />
+                  ) : (
+                    <CgLayoutGridSmall className="text-3xl" />
+                  )}
                 </button>
 
                 {/* Button for switching modal background colors (black, grey, white), shared*/}
@@ -275,10 +281,10 @@ export default function Modal({
               <div className="modal-left-flexItem flex h-full w-[10%] max-w-[11rem] items-center justify-center">
                 <button
                   ref={modal_slides_btnLeft}
-                  className="text-md font-thin sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+                  className="text-md font-thin duration-200 ease-out hover:scale-[1.1] sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
                   onClick={prevSlide}
                 >
-                  &#8249;
+                  <BiChevronLeft />
                 </button>
               </div>
 
@@ -312,10 +318,10 @@ export default function Modal({
               <div className="modal-right-flexItem flex h-full w-[10%] max-w-[11rem] items-center justify-center">
                 <button
                   ref={modal_slides_btnRight}
-                  className="text-md font-thin sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+                  className="text-md font-thin duration-200 ease-out hover:scale-[1.1] sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
                   onClick={nextSlide}
                 >
-                  &#8250;
+                  <BiChevronRight />
                 </button>
               </div>
             </div>

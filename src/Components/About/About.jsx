@@ -20,7 +20,8 @@ export default function About() {
           <img src="about/about.jpg" alt="" />
           <div className="border-green-500 p-2">
             Duc Dam is a Vietnamese filmmaker, photographer, and web designer
-            based in Hanoi and Philadelphia.
+            based in Hanoi and Philadelphia. For all inquries, please contact
+            via email.
           </div>
           <div className="border-green-500 p-2">
             <div>

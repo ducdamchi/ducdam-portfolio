@@ -3,6 +3,8 @@ import { useState, useRef, useEffect } from 'react'
 import '../../App.css'
 import './Photography.css'
 import Carousel_Items from './Photo_Items'
+import { BiChevronLeft } from 'react-icons/bi'
+import { BiChevronRight } from 'react-icons/bi'
 
 export default function Carousel({
   albumsData,
@@ -182,7 +184,7 @@ export default function Carousel({
           onClick={prevSlide}
           disabled={leftDisabled}
         >
-          <div>&#8249;</div>
+          <BiChevronLeft />
         </button>
       </div>
 
@@ -207,7 +209,7 @@ export default function Carousel({
           onClick={nextSlide}
           disabled={rightDisabled}
         >
-          <div>&#8250;</div>
+          <BiChevronRight />
         </button>
       </div>
     </div>

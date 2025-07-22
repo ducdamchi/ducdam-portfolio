@@ -57,19 +57,19 @@ export default function NavSection() {
 
           {/* Navigation bar */}
           <nav className="m-2 flex max-w-[80%] items-center justify-center gap-2 p-2 font-medium">
-            <div className="navbar-item m-1 inline-block p-1">
+            <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
               <Link to="/photography">Photography</Link>
             </div>
 
-            <div className="navbar-item m-1 inline-block p-1">
+            <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
               <Link to="/film">Film</Link>
             </div>
 
-            <div className="navbar-item m-1 inline-block p-1">
+            <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
               <Link to="/woodworking">Woodworking</Link>
             </div>
 
-            <div className="navbar-item m-1 inline-block p-1">
+            <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
               <Link to="/about">About</Link>
             </div>
           </nav>
