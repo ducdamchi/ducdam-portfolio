@@ -80,34 +80,34 @@ export default function Carousel_Items({
       )
       const colorThief = new ColorThief()
       let domColor
+      let brightness
 
       try {
         domColor = colorThief.getColor(img)
+        /* Check brightness of dominant color to ensure readability 
+      Formula: https://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx */
+        brightness = Math.round(
+          Math.sqrt(
+            domColor[0] * domColor[0] * 0.241 +
+              domColor[1] * domColor[1] * 0.691 +
+              domColor[2] * domColor[2] * 0.068,
+          ),
+        )
+        /* If bg dark enough, font can be white */
+        if (brightness < 130) {
+          thumbnail_description.style.backgroundColor = `rgba(${domColor[0]}, ${domColor[1]}, ${domColor[2]}, 0.7)`
+          /* If bg a little light, reduce each rgb value by 25% */
+        } else if (130 <= brightness < 194) {
+          thumbnail_description.style.backgroundColor = `rgba(${domColor[0] * 0.75}, ${domColor[1] * 0.75}, ${domColor[2] * 0.75}, 0.7)`
+          /* If bg too light, reduce each rgb value by 50% */
+        } else {
+          thumbnail_description.style.backgroundColor = `rgba(${domColor[0] * 0.5}, ${domColor[1] * 0.5}, ${domColor[2] * 0.5}, 0.7)`
+        }
       } catch (err) {
         console.log(err)
       }
 
-      /* Check brightness of dominant color to ensure readability 
-      Formula: https://www.nbdtech.com/Blog/archive/2008/04/27/Calculating-the-Perceived-Brightness-of-a-Color.aspx */
-      const brightness = Math.round(
-        Math.sqrt(
-          domColor[0] * domColor[0] * 0.241 +
-            domColor[1] * domColor[1] * 0.691 +
-            domColor[2] * domColor[2] * 0.068,
-        ),
-      )
       // console.log(brightness);
-
-      /* If bg dark enough, font can be white */
-      if (brightness < 130) {
-        thumbnail_description.style.backgroundColor = `rgba(${domColor[0]}, ${domColor[1]}, ${domColor[2]}, 0.7)`
-        /* If bg a little light, reduce each rgb value by 25% */
-      } else if (130 <= brightness < 194) {
-        thumbnail_description.style.backgroundColor = `rgba(${domColor[0] * 0.75}, ${domColor[1] * 0.75}, ${domColor[2] * 0.75}, 0.7)`
-        /* If bg too light, reduce each rgb value by 50% */
-      } else {
-        thumbnail_description.style.backgroundColor = `rgba(${domColor[0] * 0.5}, ${domColor[1] * 0.5}, ${domColor[2] * 0.5}, 0.7)`
-      }
     }
   }, [hoverId])
 
@@ -124,8 +124,8 @@ export default function Carousel_Items({
 
     resizeObserver.observe(target)
 
-    console.log(`carouselIndex: ${carouselIndex}`)
-    console.log(`slidesOffset: ${slidesOffset}`)
+    // console.log(`carouselIndex: ${carouselIndex}`)
+    // console.log(`slidesOffset: ${slidesOffset}`)
 
     return () => resizeObserver.disconnect()
   }, [])
