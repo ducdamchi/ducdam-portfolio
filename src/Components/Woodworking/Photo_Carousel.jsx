@@ -206,13 +206,13 @@ export default function Carousel({
       {/* Left side button */}
       <div>
         <div className="carousel-btn-bg btn-bg-left">
-          <FlickeringGrid
+          {/* <FlickeringGrid
             squareSize={4}
             gridGap={10}
             flickerChance={0.15}
             color="rgba(125, 125, 125, 1)"
             maxOpacity={0.4}
-          />
+          /> */}
         </div>
         <button
           ref={carouselBtnLeft}
@@ -241,13 +241,13 @@ export default function Carousel({
       {/* Right side button */}
       <div>
         <div className="carousel-btn-bg btn-bg-right">
-          <FlickeringGrid
+          {/* <FlickeringGrid
             squareSize={4}
             gridGap={10}
             flickerChance={0.15}
             color="rgba(125, 125, 125, 1)"
             maxOpacity={0.4}
-          />
+          /> */}
         </div>
         <button
           ref={carouselBtnRight}

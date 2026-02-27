@@ -106,14 +106,14 @@ export default function Carousel({ filmsData, numSlidesIndex }) {
         className="film-carousel-btn-bg relative z-[3] ml-[-2px] flex flex-1 items-center justify-center border-0 border-amber-500 bg-[rgb(250,250,250)]"
         ref={carouselBtnLeft}
       >
-        <FlickeringGrid
+        {/* <FlickeringGrid
           className="absolute -z-10 h-full w-full"
           squareSize={4}
           gridGap={10}
           flickerChance={0.15}
           color="rgba(125, 125, 125, 1)"
           maxOpacity={0.4}
-        />
+        /> */}
         <button
           className="film-carousel-btn film-carousel-btn-left"
           onClick={prevSlide}
@@ -141,14 +141,14 @@ export default function Carousel({ filmsData, numSlidesIndex }) {
         className="film-carousel-btn-bg relative z-[3] mr-[-2px] flex flex-1 items-center justify-center border-0 border-amber-500 bg-[rgb(250,250,250)]"
         ref={carouselBtnRight}
       >
-        <FlickeringGrid
+        {/* <FlickeringGrid
           className="absolute -z-10 h-full w-full"
           squareSize={4}
           gridGap={10}
           flickerChance={0.15}
           color="rgba(125, 125, 125, 1)"
           maxOpacity={0.4}
-        />
+        /> */}
         <button
           className="film-carousel-btn film-carousel-btn-right"
           onClick={nextSlide}

@@ -62,20 +62,20 @@ export default function NavSection() {
       {!isHamburger && (
         <div className="navbar-all absolute top-0 z-100 flex h-auto w-full items-center justify-start p-5">
           {/* Logo section */}
-          <div className="navbar-name m-1 flex aspect-square h-[4rem] items-center justify-center rounded-sm border-1 border-black bg-zinc-50 p-2 text-xl font-medium">
+          <div className="navbar-name m-1 flex aspect-square h-[4rem] items-center justify-center rounded-none border-2 border-black bg-zinc-50 p-2 text-xl font-medium">
             {/* <Link to="/">DUC DAM</Link> */}
             DUC <br />
             DAM
           </div>
 
           {/* Navigation bar */}
-          <nav className="m-2 flex h-[4rem] max-w-[80%] items-center justify-center gap-2 rounded-sm border-1 bg-zinc-50 p-2 font-medium">
+          <nav className="m-2 flex h-[4rem] max-w-[80%] items-center justify-center gap-2 rounded-none border-0 bg-zinc-50 p-2 font-medium">
             <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
-              <CustomLink to="/photography">Photography</CustomLink>
+              <CustomLink to="/film">Film</CustomLink>
             </div>
 
             <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
-              <CustomLink to="/film">Film</CustomLink>
+              <CustomLink to="/photography">Photography</CustomLink>
             </div>
 
             <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
@@ -120,12 +120,12 @@ export default function NavSection() {
 
           <div className="navModal" ref={navModalRef}>
             <nav className="relative flex w-full flex-col">
-              <div className="navbar-item inline-block w-full border-zinc-200 p-2 pl-5">
-                <CustomLink to="/photography">Photography</CustomLink>
+              <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
+                <CustomLink to="/film">Film</CustomLink>
               </div>
 
               <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
-                <CustomLink to="/film">Film</CustomLink>
+                <CustomLink to="/photography">Photography</CustomLink>
               </div>
 
               <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">

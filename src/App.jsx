@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="bg-zinc-50">
       {/* <NavSection /> */}
-      <div className="absolute z-0 h-screen w-screen">
+      {/* <div className="absolute z-0 h-screen w-screen">
         <FlickeringGrid
           squareSize={4}
           gridGap={10}
@@ -25,7 +25,7 @@ export default function App() {
           color="rgba(125, 125, 125, 1)"
           maxOpacity={0.4}
         />
-      </div>
+      </div> */}
       <div className="routes-container">
         <Routes>
           <Route path="/" element={<Photography />} />

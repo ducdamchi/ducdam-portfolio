@@ -234,7 +234,7 @@ export default function Landing() {
                   </div>
                   {matchedFilm?.pressGallery && (
                     <div
-                      className="film-landing-press ml-1 flex items-center gap-1 rounded-sm border-1 bg-transparent p-2 text-white transition-all duration-300 ease-out hover:bg-white hover:text-[var(--backdropColor)]"
+                      className="film-landing-press ml-1 flex items-center gap-1 rounded-none border-1 bg-transparent p-2 text-white transition-all duration-300 ease-out hover:bg-white hover:text-[var(--backdropColor)]"
                       style={{
                         '--backdropColor': `${backdropColor}`,
                       }}
@@ -303,7 +303,7 @@ export default function Landing() {
                 </div>
                 {matchedFilm?.pressGallery && (
                   <div className="film-landing-press-mobile mt-3">
-                    <div className="flex max-w-[10rem] min-w-[8rem] items-center gap-1 rounded-sm border-1 p-1 pl-2.5">
+                    <div className="flex max-w-[10rem] min-w-[8rem] items-center gap-1 rounded-none border-1 p-1 pl-2.5">
                       <div>
                         <BiNews />
                       </div>

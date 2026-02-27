@@ -42,16 +42,16 @@ export default function Contact() {
       <NavSection />
 
       <div className="relative top-25 flex w-[100vw] items-center justify-center p-5">
-        <h1 className="m-1 flex w-auto items-center justify-center overflow-hidden rounded-xl border-0 bg-zinc-50 p-4 font-black">
+        <h1 className="m-1 flex w-auto items-center justify-center overflow-hidden rounded-none border-0 bg-zinc-50 p-4 font-black">
           CONTACT
         </h1>
       </div>
 
       <div className="contact-all relative mt-30 mb-[4rem] flex h-auto w-full flex-col items-center justify-center gap-1">
-        <div className="m-2 rounded-xl bg-zinc-50 p-4">
+        <div className="m-2 rounded-none bg-zinc-50 p-4">
           For all inquiries, please contact Duc using the form below.
         </div>
-        <div className="contact-form m-2 gap-1 rounded-md border-1 p-7">
+        <div className="contact-form m-2 gap-1 rounded-none border-1 p-7">
           <form onSubmit={onSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
               {/* <label htmlFor="name" className="font-bold">
@@ -62,7 +62,7 @@ export default function Contact() {
                 name="name"
                 id="name"
                 autoComplete="name"
-                className="rounded-sm border-1 bg-zinc-100 p-2"
+                className="rounded-none border-1 bg-zinc-50 p-2"
                 placeholder="Name"
                 required
               ></input>
@@ -76,7 +76,7 @@ export default function Contact() {
                 name="email"
                 id="email"
                 autoComplete="email"
-                className="rounded-sm border-1 bg-zinc-100 p-2"
+                className="rounded-none border-1 bg-zinc-50 p-2"
                 placeholder="Email address"
                 required
               ></input>
@@ -88,13 +88,13 @@ export default function Contact() {
               <textarea
                 name="message"
                 id="message"
-                className="message-box rounded-sm border-1 bg-zinc-100 p-2"
+                className="message-box rounded-none border-1 bg-zinc-50 p-2"
                 placeholder="Message"
                 required
               ></textarea>
             </div>
             <button
-              className="submit-button w-[20%] self-end rounded-sm border-1 bg-zinc-100 p-2"
+              className="submit-button w-[20%] self-end rounded-none border-1 bg-zinc-50 p-2"
               type="submit"
             >
               <div className="submit-button-text">Send</div>

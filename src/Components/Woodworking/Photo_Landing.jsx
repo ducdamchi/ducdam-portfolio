@@ -229,7 +229,7 @@ export default function Landing() {
               <div className="photo-landing-viewButton-wrapper flex justify-center">
                 <div
                   ref={mobileBtnRef}
-                  className="photo-landing-viewButton flex cursor-pointer items-center justify-center gap-1 rounded-xl border-1 bg-white p-3 pt-2 pb-2 text-base font-bold uppercase"
+                  className="photo-landing-viewButton flex cursor-pointer items-center justify-center gap-1 rounded-none border-1 bg-white p-3 pt-2 pb-2 text-base font-bold uppercase"
                   onClick={() => {
                     setOpenModalId(matchedAlbum.id)
                     setModalOpened(true)
@@ -262,12 +262,12 @@ export default function Landing() {
             <>
               <div className="photo-landing-info-wrapper flex justify-center">
                 <div
-                  className="photo-landing-info-all flex flex-col rounded-lg border-0"
+                  className="photo-landing-info-all flex flex-col rounded-none border-0"
                   id={`photo-landing-info-all-${matchedAlbum.id}`}
                   ref={infoBoxRef}
                 >
                   <div
-                    className="photo-landing-header rounded-t-lg p-3 pl-6"
+                    className="photo-landing-header rounded-t-none p-3 pl-6"
                     ref={headerRef}
                   >
                     <div className="photo-landing-button-back z-2 flex w-[15%] items-center justify-start text-white">
@@ -309,7 +309,7 @@ export default function Landing() {
                   <div className="photo-landing-buttons absolute bottom-0 mb-5 flex w-full justify-center p-6">
                     <div
                       ref={viewBtnRef}
-                      className="photo-landing-button-view z-10 flex cursor-pointer items-center justify-center gap-1 rounded-lg p-3 font-bold text-zinc-50"
+                      className="photo-landing-button-view z-10 flex cursor-pointer items-center justify-center gap-1 rounded-none p-3 font-bold text-zinc-50"
                       onClick={() => {
                         setOpenModalId(matchedAlbum.id)
                         setModalOpened(true)
