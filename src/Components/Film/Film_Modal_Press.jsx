@@ -192,7 +192,7 @@ export default function Modal({
   } else {
     return ReactDom.createPortal(
       /* The entire modal has height = 110vh, meaning there's a little added space for scrolling at bottom */
-      <div className="absolute top-0 h-[110vh] w-[100vw]">
+      <div className="absolute top-0 z-100 h-[110vh] w-[100vw]">
         <div
           ref={bgRef}
           className="modal-background relative z-20 h-full w-full bg-zinc-50"

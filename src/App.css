@@ -5,7 +5,7 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities);
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -139,7 +139,7 @@ h1 {
 .navbar-name {
   /* filter: drop-shadow(-2px -1px 3px rgba(0, 0, 0, 0.2)); */
   /* background-color: black;
-  color: white;
+  color: white; 
   font-weight: 700; */
 }
 /*********************************************/

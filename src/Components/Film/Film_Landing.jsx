@@ -211,11 +211,18 @@ export default function Landing() {
                 </div>
                 <div className="film-landing-director">{`Directed by ${matchedFilm.director}`}</div>
                 <div className="flex gap-1">
-                  <div className="film-landing-country">{`${matchedFilm.year} | ${matchedFilm.country} |`}</div>
-                  <div className="film-landing-runtime mb-5 flex items-center gap-1">
-                    <BiTimeFive />
-                    {`${matchedFilm.runtime} mins`}
+                  <div className="film-landing-country flex items-center justify-center gap-1">
+                    {`${matchedFilm.year} | ${matchedFilm.country} | ${matchedFilm.runtime} mins`}
                   </div>
+                  {/* <div className="film-landing-country flex items-center justify-center gap-1">
+                    <span className="">{matchedFilm.year} | </span>
+                    <span className="">{matchedFilm.country} |</span>
+                    <span className="flex items-center gap-1">
+                      <BiTimeFive />
+                      {`${matchedFilm.runtime} mins`}
+                    </span>
+                  </div> */}
+                  {/* <div className="film-landing-runtime mb-5 flex items-center gap-1"></div> */}
                 </div>
               </div>
               {!isMobileMode && (
