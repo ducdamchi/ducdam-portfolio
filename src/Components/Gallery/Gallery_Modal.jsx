@@ -1,10 +1,15 @@
 import ReactDom from 'react-dom'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import '../../App.css'
 import './Gallery.css'
+import Gallery_Thumbstrip from './Gallery_Thumbstrip'
+import Gallery_Immersion from './Gallery_Immersion'
 import { CgLayoutGridSmall } from 'react-icons/cg'
 import { TfiLayoutSlider } from 'react-icons/tfi'
 import { BiChevronRight, BiLeftArrowAlt, BiChevronLeft } from 'react-icons/bi'
+
+// Fixed height for the bottom panel (description + gap + thumbstrip + bottom padding)
+const BOTTOM_H = '11rem'
 
 export default function Gallery_Modal({
   config,
@@ -15,53 +20,22 @@ export default function Gallery_Modal({
   screenWidth,
   isMobileMode,
 }) {
-  const MODAL_BG = {
-    transition: 'background 400ms ease-in-out',
-  }
-
-  const MODAL_REF = {
-    transition: 'color 400ms ease-in-out',
-  }
-
-  const MODAL_DESC_REF = {
-    transition: 'all 400ms ease-in-out',
-  }
-
   const [slideIndex, setSlideIndex] = useState(0)
   const [isGalleryView, setGalleryView] = useState(false)
-  const bgRef = useRef(null)
-  const modalRef = useRef(null)
-  const modalContentRef = useRef(null)
-  const modalDescriptionRef = useRef(null)
-  const galleryRef = useRef(null)
-  const slidesRef = useRef(null)
-  const modal_slides_btnLeft = useRef(null)
-  const modal_slides_btnRight = useRef(null)
+  const [isImmersionOpen, setIsImmersionOpen] = useState(false)
 
-  function prevSlide() {
-    setSlideIndex((prevIndex) => {
-      let newIndex = prevIndex - 1
-      if (newIndex < 0) {
-        newIndex = album.numImages - 1
-      }
-      return newIndex
-    })
-  }
+  const touchStart = useRef({ x: 0 })
 
-  function nextSlide() {
-    setSlideIndex((prevIndex) => {
-      let newIndex = prevIndex + 1
-      if (newIndex > album.numImages - 1) {
-        newIndex = 0
-      }
-      return newIndex
-    })
-  }
+  const prevSlide = useCallback(() => {
+    setSlideIndex((prev) => (prev <= 0 ? album.numImages - 1 : prev - 1))
+  }, [album.numImages])
+
+  const nextSlide = useCallback(() => {
+    setSlideIndex((prev) => (prev >= album.numImages - 1 ? 0 : prev + 1))
+  }, [album.numImages])
 
   function toggleView() {
-    setGalleryView((galleryView) => {
-      return galleryView ? false : true
-    })
+    setGalleryView((v) => !v)
   }
 
   function handleGalleryClick(imgIndex) {
@@ -69,177 +43,195 @@ export default function Gallery_Modal({
     setGalleryView(false)
   }
 
+  // Keyboard navigation
   useEffect(() => {
-    if (slidesRef.current) {
-      const allSlides = slidesRef.current.querySelectorAll('.slides-each')
-      Array.from(allSlides)
+    if (isImmersionOpen) return
 
-      for (let i = 0; i < allSlides.length; i++) {
-        if (i != slideIndex) {
-          allSlides[i].style.display = 'none'
-        } else {
-          allSlides[i].style.display = 'inline-block'
-        }
-      }
+    const handleKey = (e) => {
+      if (e.key === 'Escape') closeModal()
+      else if (e.key === 'ArrowLeft') prevSlide()
+      else if (e.key === 'ArrowRight') nextSlide()
+      else if (e.key === 'g' || e.key === 'G') toggleView()
     }
-  }, [slideIndex])
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [isImmersionOpen, closeModal, prevSlide, nextSlide])
 
+  // Lock body scroll when modal is open
   useEffect(() => {
-    if (slidesRef.current && galleryRef.current) {
-      if (isGalleryView) {
-        slidesRef.current.style.display = 'none'
-        if (modal_slides_btnLeft.current && modal_slides_btnRight.current) {
-          modal_slides_btnLeft.current.style.display = 'none'
-          modal_slides_btnRight.current.style.display = 'none'
-        }
-        galleryRef.current.style.display = 'grid'
-      } else {
-        galleryRef.current.style.display = 'none'
-        slidesRef.current.style.display = 'block'
-        if (modal_slides_btnLeft.current && modal_slides_btnRight.current) {
-          modal_slides_btnLeft.current.style.display = 'block'
-          modal_slides_btnRight.current.style.display = 'block'
-        }
-      }
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
     }
-  }, [isGalleryView])
+  }, [])
 
-  useEffect(() => {
-    if (modalContentRef.current) {
-      if (isMobileMode && screenHeight <= 640) {
-        modalContentRef.current.style.height = '90vh'
-      } else if (isMobileMode && screenHeight > 640) {
-        modalContentRef.current.style.height = '30vh'
-      } else {
-        modalContentRef.current.style.height = '75vh'
-      }
+  // Touch handlers for swipe navigation (mobile)
+  const handleTouchStart = (e) => {
+    touchStart.current.x = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e) => {
+    const dx = e.changedTouches[0].clientX - touchStart.current.x
+    if (Math.abs(dx) > 50) {
+      if (dx > 0) prevSlide()
+      else nextSlide()
     }
-  }, [screenHeight, screenWidth, isMobileMode])
+  }
 
-  if (openModalId === null) {
-    return null
-  } else {
-    return ReactDom.createPortal(
-      <div className="absolute top-0 h-[110vh] w-[100vw]">
-        <div
-          ref={bgRef}
-          className="modal-background relative z-20 h-full w-full bg-zinc-50"
-          style={MODAL_BG}
-        />
+  if (openModalId === null) return null
 
-        <div
-          ref={modalRef}
-          style={MODAL_REF}
-          className="relative top-[-110vh] z-30 flex h-auto w-[100vw] flex-col items-center justify-start gap-0"
-        >
-          {/* NAVBAR */}
-          <div className="modal-navbar-wrapper z-30 mt-5 flex w-full justify-center">
-            <div className="modal-navbar flex w-[85%] max-w-[2400px] items-center justify-between gap-10 p-2 font-thin">
-              <button
-                className="modal-navbar-back flex items-center gap-1"
-                onClick={closeModal}
-              >
-                <BiLeftArrowAlt className="text-xl" />
-                <div className="text-base">BACK</div>
-              </button>
+  return ReactDom.createPortal(
+    <div className="fixed inset-0 z-30 flex flex-col bg-zinc-50">
+      {/* NAVBAR */}
+      <div className="flex w-full shrink-0 justify-center pt-4">
+        <div className="flex w-[90%] max-w-[2400px] items-center justify-between p-1 font-thin">
+          <button
+            className="modal-navbar-back flex items-center gap-1"
+            onClick={closeModal}
+          >
+            <BiLeftArrowAlt className="text-xl" />
+            <div className="text-sm md:text-base">BACK</div>
+          </button>
 
-              <div className="flex items-center gap-2">
-                <div className="text-xs font-thin md:text-sm xl:text-base">
-                  {`${slideIndex + 1}/${album.numImages}`}
-                </div>
-
-                <button
-                  className="text-md duration-200 ease-out hover:scale-[1.1] sm:text-lg md:text-xl lg:text-2xl xl:text-3xl"
-                  onClick={toggleView}
-                >
-                  {isGalleryView ? (
-                    <TfiLayoutSlider className="m-[5px] text-xl" />
-                  ) : (
-                    <CgLayoutGridSmall className="text-3xl" />
-                  )}
-                </button>
+          <div className="flex items-center gap-2">
+            {!isGalleryView && (
+              <div className="text-xs font-thin md:text-sm">
+                {`${slideIndex + 1}/${album.numImages}`}
               </div>
-            </div>
-          </div>
-
-          {/* TITLE */}
-          <div className="z-30 mb-10 flex w-full justify-center p-2 font-thin">
-            <div className={`modal-title ${config.titleTransform}`}>
-              {album.title}
-            </div>
-          </div>
-
-          {/* IMAGE DISPLAY WINDOW */}
-          <div className="modal-content relative h-full w-full">
-            <div
-              ref={modalContentRef}
-              className="modal-flexContainer relative flex h-full w-full justify-center"
+            )}
+            <button
+              className="duration-200 ease-out hover:scale-[1.1] sm:text-lg md:text-xl lg:text-2xl"
+              onClick={toggleView}
             >
-              {/* LEFT BUTTON */}
-              <div className="modal-left-flexItem flex h-full w-[10%] max-w-[11rem] items-center justify-center">
+              {isGalleryView ? (
+                <TfiLayoutSlider className="m-[4px] text-lg" />
+              ) : (
+                <CgLayoutGridSmall className="text-2xl" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* TITLE */}
+      <div className="flex w-full shrink-0 justify-center p-1 pb-2 font-thin">
+        <div className={`modal-title ${config.titleTransform}`}>
+          {album.title}
+        </div>
+      </div>
+
+      {/* SLIDES VIEW */}
+      {!isGalleryView && (
+        <div className="relative min-h-0 flex-1">
+          {/* Image area — absolute so it never reflows from bottom content */}
+          <div
+            className="absolute inset-x-0 top-0 flex justify-center"
+            style={{ bottom: BOTTOM_H }}
+            onTouchStart={isMobileMode ? handleTouchStart : undefined}
+            onTouchEnd={isMobileMode ? handleTouchEnd : undefined}
+          >
+            {/* Left arrow — hidden on mobile */}
+            {!isMobileMode && (
+              <div className="flex w-[8%] max-w-[8rem] items-center justify-center">
                 <button
-                  ref={modal_slides_btnLeft}
-                  className="text-md font-thin duration-200 ease-out hover:scale-[1.1] sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+                  className="font-thin duration-200 ease-out hover:scale-[1.1] sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl"
                   onClick={prevSlide}
                 >
                   <BiChevronLeft />
                 </button>
               </div>
+            )}
 
-              {/* CENTER FRAME */}
-              <div className="modal-center-flexItem flex h-full w-[80%] max-w-[2400px] flex-30 items-center justify-center">
-                {/* Slides View Mode */}
-                <div ref={slidesRef} className="slides-all h-full w-full">
-                  {album.imgList.map((slide) => (
-                    <img
-                      className="slides-each h-full w-full object-contain"
-                      key={slide.id}
-                      src={`${import.meta.env.BASE_URL}${slide.src}`}
-                    />
-                  ))}
-                </div>
+            {/* Image container */}
+            <div className="relative flex h-full w-[84%] max-w-[2400px] items-center justify-center">
+              {album.imgList.map((slide, i) => (
+                <img
+                  key={slide.id}
+                  className="absolute max-h-[90%] max-w-full cursor-zoom-in object-contain transition-opacity duration-200 ease-in-out"
+                  style={{
+                    opacity: i === slideIndex ? 1 : 0,
+                    pointerEvents: i === slideIndex ? 'auto' : 'none',
+                  }}
+                  src={`${import.meta.env.BASE_URL}${slide.src}`}
+                  alt=""
+                  onClick={() => setIsImmersionOpen(true)}
+                />
+              ))}
+            </div>
 
-                {/* Gallery View Mode */}
-                <div ref={galleryRef} className="gallery-all">
-                  {album.imgList.map((img) => (
-                    <img
-                      className="gallery-each"
-                      key={img.id}
-                      src={`${import.meta.env.BASE_URL}${img.src}`}
-                      onClick={() => handleGalleryClick(img.index)}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              {/* RIGHT BUTTON */}
-              <div className="modal-right-flexItem flex h-full w-[10%] max-w-[11rem] items-center justify-center">
+            {/* Right arrow — hidden on mobile */}
+            {!isMobileMode && (
+              <div className="flex w-[8%] max-w-[8rem] items-center justify-center">
                 <button
-                  ref={modal_slides_btnRight}
-                  className="text-md font-thin duration-200 ease-out hover:scale-[1.1] sm:text-xl md:text-3xl lg:text-4xl xl:text-6xl"
+                  className="font-thin duration-200 ease-out hover:scale-[1.1] sm:text-lg md:text-2xl lg:text-3xl xl:text-5xl"
                   onClick={nextSlide}
                 >
                   <BiChevronRight />
                 </button>
               </div>
-            </div>
+            )}
+
+            {/* Mobile swipe hint */}
+            {isMobileMode && (
+              <div className="absolute bottom-2 left-0 flex w-full items-center justify-center gap-2 text-xs tracking-widest text-zinc-400">
+                <span>‹</span>
+                <span>·</span>
+                <span>›</span>
+              </div>
+            )}
           </div>
 
-          {/* PHOTO DESCRIPTION (ONLY IN SLIDES MODE) */}
-          {!isGalleryView && (
+          {/* Bottom panel — absolute, fixed height */}
+          <div
+            className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-3 pb-3"
+            style={{ height: BOTTOM_H }}
+          >
+            {/* Description — tall, narrow, scrollable */}
             <div
-              style={MODAL_DESC_REF}
-              ref={modalDescriptionRef}
-              className="relative z-30 mt-2 flex w-full items-center justify-center font-thin"
+              className="modal-description desc-scroll w-[100%] max-w-[800px] overflow-y-auto px-4 leading-relaxed"
+              style={{ height: '3.5rem' }}
             >
-              <div className="modal-description w-[80%] max-w-[1600px] p-3 text-xs">
-                {album.imgList[slideIndex].description}
-              </div>
+              {album.imgList[slideIndex]?.description}
             </div>
-          )}
+
+            {/* Thumbnail strip */}
+            <div className="w-full">
+              <Gallery_Thumbstrip
+                imgList={album.imgList}
+                currentIndex={slideIndex}
+                onSelect={setSlideIndex}
+              />
+            </div>
+          </div>
         </div>
-      </div>,
-      document.getElementById('portal'),
-    )
-  }
+      )}
+
+      {/* GALLERY VIEW */}
+      {isGalleryView && (
+        <div className="flex-1 overflow-y-auto">
+          <div className="gallery-all">
+            {album.imgList.map((img) => (
+              <img
+                className="gallery-each"
+                key={img.id}
+                src={`${import.meta.env.BASE_URL}${img.src}`}
+                onClick={() => handleGalleryClick(img.index)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* IMMERSION VIEW */}
+      {isImmersionOpen && (
+        <Gallery_Immersion
+          imgList={album.imgList}
+          currentIndex={slideIndex}
+          onClose={() => setIsImmersionOpen(false)}
+          onNavigate={setSlideIndex}
+        />
+      )}
+    </div>,
+    document.getElementById('portal'),
+  )
 }

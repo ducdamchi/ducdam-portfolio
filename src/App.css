@@ -128,8 +128,8 @@ h1 {
 /* Small size, grey text */
 .modal-description {
   color: rgb(60, 60, 60);
-  font-weight: 300;
-  /* font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem); */
+  font-weight: 100;
+  font-size: clamp(0.75rem, calc(1vw + 0.3rem), 0.85rem);
 }
 
 /* Smallest, footer text */
