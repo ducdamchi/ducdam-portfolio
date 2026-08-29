@@ -4,7 +4,8 @@ import { useParams, Link, useLocation } from 'react-router-dom'
 import '../../App.css'
 import './Film.css'
 import Modal from './Film_Modal'
-import PressGalleryModal from './Film_Modal_Press'
+import Gallery_Modal from '../Gallery/Gallery_Modal'
+import { filmConfig } from '../Gallery/configs'
 import filmsData from './films.json'
 import {
   BiLeftArrowAlt,
@@ -127,14 +128,14 @@ export default function Landing() {
           <img
             ref={imgRef}
             className="film-landing-background hidden"
-            src={`${import.meta.env.BASE_URL}${matchedFilm.thumbnail}`}
+            src={`${import.meta.env.BASE_URL}${matchedFilm.thumbnail.src}`}
             id={`thumbnail-film-${matchedFilm.id}`}
             alt=""
           />
           {(!matchedFilm?.previewLanding || isMobileMode) && (
             <img
               className="film-landing-background"
-              src={`${import.meta.env.BASE_URL}${matchedFilm.thumbnail}`}
+              src={`${import.meta.env.BASE_URL}${matchedFilm.thumbnail.src}`}
               id={`thumbnail-film-${matchedFilm.id}`}
               alt=""
             />
@@ -376,18 +377,22 @@ export default function Landing() {
         />
       )}
 
-      {/* Press Gallery Modal Viewer, hidden until press gallery button is clicked on, then rendered on portal different from root */}
       {matchedFilm.id === openPressId && (
-        <PressGalleryModal
-          film={matchedFilm}
-          openPressId={openPressId}
+        <Gallery_Modal
+          config={filmConfig}
+          album={{
+            ...matchedFilm,
+            title: matchedFilm.pressGallery.title,
+            imgList: matchedFilm.pressGallery.imgList,
+            numImages: matchedFilm.pressGallery.numImages,
+          }}
+          openModalId={openPressId}
           screenHeight={screenHeight}
           screenWidth={screenWidth}
           isMobileMode={isMobileMode}
           closeModal={() => {
             setOpenPressId(null)
             setPressOpened(false)
-            // console.log('closing modal')
           }}
         />
       )}

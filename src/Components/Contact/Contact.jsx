@@ -38,25 +38,22 @@ export default function Contact() {
   useEffect(() => {}, [sent])
 
   return (
-    <>
+    <div className="flex min-h-screen flex-col">
       <NavSection />
 
-      <div className="relative top-25 flex w-[100vw] items-center justify-center p-5">
+      <div className="mt-25 flex w-[100vw] items-center justify-center p-5">
         <h1 className="m-1 flex w-auto items-center justify-center overflow-hidden rounded-none border-0 bg-zinc-50 p-4 font-black">
           CONTACT
         </h1>
       </div>
 
-      <div className="contact-all relative mt-30 mb-[4rem] flex h-auto w-full flex-col items-center justify-center gap-1">
+      <div className="contact-all mt-5 mb-[4rem] flex flex-grow flex-col items-center justify-center gap-1">
         <div className="m-2 rounded-none bg-zinc-50 p-4">
           For all inquiries, please contact Duc using the form below.
         </div>
         <div className="contact-form m-2 gap-1 rounded-none border-1 p-7">
           <form onSubmit={onSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
-              {/* <label htmlFor="name" className="font-bold">
-                Name
-              </label> */}
               <input
                 type="text"
                 name="name"
@@ -68,9 +65,6 @@ export default function Contact() {
               ></input>
             </div>
             <div className="flex flex-col gap-1">
-              {/* <label htmlFor="email" className="font-bold">
-                Email
-              </label> */}
               <input
                 type="email"
                 name="email"
@@ -82,9 +76,6 @@ export default function Contact() {
               ></input>
             </div>
             <div className="flex flex-col gap-1">
-              {/* <label htmlFor="message" className="font-bold">
-                Message
-              </label> */}
               <textarea
                 name="message"
                 id="message"
@@ -103,15 +94,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* {(sent || !sent) && (
-        <div className="absolute top-0 flex h-full w-full justify-center border-1">
-          <div className="w-[300px] border-1 bg-zinc-50">Message Sent</div>
-        </div>
-      )} */}
-
-      <div className="relative bottom-0 z-0 h-[20rem] border-blue-500"></div>
-
       <Footer />
-    </>
+    </div>
   )
 }

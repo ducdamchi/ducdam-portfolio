@@ -4,22 +4,20 @@
   "title": "DISTANCE UNKNOWN",
   "year": "2026",
   "director": "Duc Dam, Quynh-Anh Cao-Le",
-  "runtime": "90",
+  "runtime": "60",
   "country": "USA, Vietnam",
   "language": "Vietnamese, English",
   "synopsis": "50 years after the Vietnam War, wounds still exist for both the domestic and diasporic communities. Two young filmmakers from Hanoi travel to Orange County, California, where many Vietnamese war refugees resettled in the 1980s. They ask three men of different generations, unknown to one another, to reflect on their Vietnamese identities and the war’s legacy.",
+  "description": [
+   "50 years after the Vietnam War, wounds still exist for both the domestic and diasporic communities. Two young filmmakers from Hanoi travel to Orange County, California, where many Vietnamese war refugees resettled in the 1980s. They ask three men of different generations, unknown to one another, to reflect on their Vietnamese identities and the war’s legacy."
+  ],
   "recognition": "",
   "screenings": "",
-  "poster": "film/01-distance-unknown/poster.jpg",
-  "thumbnail": "film/01-distance-unknown/thumb.jpg",
   "youtube": "",
   "url": "distance-unknown-2026",
+  "availability": "The film is currently in post-production and is scheduled to release in Winter 2026. A full 60-minute rough cut is available upon request. Please Press Gallery for pitch deck.",
+  "poster": "film/01-distance-unknown/poster.jpg",
   "pressGallery": {
-   "title": "DISTANCE UNKNOWN - PRESS GALLERY",
-   "captions": [
-    "Updated Feb 27, 2025."
-   ],
-   "numImages": 23,
    "imgList": [
     {
      "id": "1",
@@ -30,116 +28,145 @@
     {
      "id": "2",
      "src": "film/01-distance-unknown/press_gallery/02.jpg",
-     "index": 1
+     "index": 1,
+     "description": ""
     },
     {
      "id": "3",
      "src": "film/01-distance-unknown/press_gallery/03.jpg",
-     "index": 2
+     "index": 2,
+     "description": ""
     },
     {
      "id": "4",
      "src": "film/01-distance-unknown/press_gallery/04.jpg",
-     "index": 3
+     "index": 3,
+     "description": ""
     },
     {
      "id": "5",
      "src": "film/01-distance-unknown/press_gallery/05.jpg",
-     "index": 4
+     "index": 4,
+     "description": ""
     },
     {
      "id": "6",
      "src": "film/01-distance-unknown/press_gallery/06.jpg",
-     "index": 5
+     "index": 5,
+     "description": ""
     },
     {
      "id": "7",
      "src": "film/01-distance-unknown/press_gallery/07.jpg",
-     "index": 6
+     "index": 6,
+     "description": ""
     },
     {
      "id": "8",
      "src": "film/01-distance-unknown/press_gallery/08.jpg",
-     "index": 7
+     "index": 7,
+     "description": ""
     },
     {
      "id": "9",
      "src": "film/01-distance-unknown/press_gallery/09.jpg",
-     "index": 8
+     "index": 8,
+     "description": ""
     },
     {
      "id": "10",
      "src": "film/01-distance-unknown/press_gallery/10.jpg",
-     "index": 9
+     "index": 9,
+     "description": ""
     },
     {
      "id": "11",
      "src": "film/01-distance-unknown/press_gallery/11.jpg",
-     "index": 10
+     "index": 10,
+     "description": ""
     },
     {
      "id": "12",
      "src": "film/01-distance-unknown/press_gallery/12.jpg",
-     "index": 11
+     "index": 11,
+     "description": ""
     },
     {
      "id": "13",
      "src": "film/01-distance-unknown/press_gallery/13.jpg",
-     "index": 12
+     "index": 12,
+     "description": ""
     },
     {
      "id": "14",
      "src": "film/01-distance-unknown/press_gallery/14.jpg",
-     "index": 13
+     "index": 13,
+     "description": ""
     },
     {
      "id": "15",
      "src": "film/01-distance-unknown/press_gallery/15.jpg",
-     "index": 14
+     "index": 14,
+     "description": ""
     },
     {
      "id": "16",
      "src": "film/01-distance-unknown/press_gallery/16.jpg",
-     "index": 15
+     "index": 15,
+     "description": ""
     },
     {
      "id": "17",
      "src": "film/01-distance-unknown/press_gallery/17.jpg",
-     "index": 16
+     "index": 16,
+     "description": ""
     },
     {
      "id": "18",
      "src": "film/01-distance-unknown/press_gallery/18.jpg",
-     "index": 17
+     "index": 17,
+     "description": ""
     },
     {
      "id": "19",
      "src": "film/01-distance-unknown/press_gallery/19.jpg",
-     "index": 18
+     "index": 18,
+     "description": ""
     },
     {
      "id": "20",
      "src": "film/01-distance-unknown/press_gallery/20.jpg",
-     "index": 19
+     "index": 19,
+     "description": ""
     },
     {
      "id": "21",
      "src": "film/01-distance-unknown/press_gallery/21.jpg",
-     "index": 20
+     "index": 20,
+     "description": ""
     },
     {
      "id": "22",
      "src": "film/01-distance-unknown/press_gallery/22.jpg",
-     "index": 21
+     "index": 21,
+     "description": ""
     },
     {
      "id": "23",
      "src": "film/01-distance-unknown/press_gallery/23.jpg",
-     "index": 22
+     "index": 22,
+     "description": ""
     }
-   ]
+   ],
+   "title": "DISTANCE UNKNOWN - PRESS GALLERY",
+   "captions": [
+    "Updated Feb 27, 2025."
+   ],
+   "numImages": 23
   },
-  "availability": "The film is currently in post-production and is scheduled to release in Winter 2026. A rough cut of the first 40 minutes can be available upon request. Please Press Gallery for pitch deck."
+  "thumbnail": {
+   "src": "film/01-distance-unknown/thumb.jpg"
+  }
  },
  {
   "id": 2,
@@ -150,30 +177,17 @@
   "country": "India, Vietnam",
   "language": "French, English, Spanish, Malay",
   "synopsis": "Due to COVID-19, students from a utopian high school are forced to return home. Heartbroken from a recent break up, Tom wanders around and confronts lovers who were also experiencing separation.",
+  "description": [
+   "Due to COVID-19, students from a utopian high school are forced to return home. Heartbroken from a recent break up, Tom wanders around and confronts lovers who were also experiencing separation."
+  ],
   "recognition": "Official Selection, Cannes Indie Shorts",
   "screenings": "OKIA Outdoor Cinema (Hanoi, Vietnam), Fulbright University Vietnam (HCMC, Vietnam), Mahindra United World College (Pune, India), Olympia Cinema (Cannes, France)",
-  "poster": "film/02-a-short-film-about-loving/poster.jpg",
-  "thumbnail": "film/02-a-short-film-about-loving/thumb.png",
   "youtube": "https://www.youtube.com/embed/R3FXbEKPpLw?si=NKTsv8k6vMgUTnJh",
   "url": "a-short-film-about-loving-2020",
+  "availability": "This film is only available for offline screenings. Please contact for more details.",
   "logo": "film/02-a-short-film-about-loving/logo.png",
+  "poster": "film/02-a-short-film-about-loving/poster.jpg",
   "pressGallery": {
-   "title": "A SHORT FILM ABOUT LOVING - PRESS GALLERY",
-   "captions": [
-    "Official poster.",
-    "Email from Indie Shorts Cannes.",
-    "Hanoi Grapevine News.",
-    "VietnamNet News.",
-    "Tien Phong News.",
-    "Poster for Hanoi Screening.",
-    "Post from Fulbright University Vietnam's Art Lab.",
-    "With Cuong Le and Thanh Nguyen, Director and D.O.P. of 'The Glorious Pain' (2020), and Thao Luu, Project Coordinator of OKIA Hanoi Film Production & Creative Hub.",
-    "Audience at Hanoi screening (1).",
-    "Audience at Hanoi screening (2).",
-    "Q&A with Nguyen Hoang Diep, Director of 'Đập Cánh Giữa Không Trung' (2014) and Founder of OKIA Hanoi Film Production & Creative Hub.",
-    "Screening at Fulbright University."
-   ],
-   "numImages": 12,
    "imgList": [
     {
      "id": "1",
@@ -247,11 +261,30 @@
      "index": 11,
      "description": "Screening at Fulbright University."
     }
-   ]
+   ],
+   "title": "A SHORT FILM ABOUT LOVING - PRESS GALLERY",
+   "captions": [
+    "Official poster.",
+    "Email from Indie Shorts Cannes.",
+    "Hanoi Grapevine News.",
+    "VietnamNet News.",
+    "Tien Phong News.",
+    "Poster for Hanoi Screening.",
+    "Post from Fulbright University Vietnam's Art Lab.",
+    "With Cuong Le and Thanh Nguyen, Director and D.O.P. of 'The Glorious Pain' (2020), and Thao Luu, Project Coordinator of OKIA Hanoi Film Production & Creative Hub.",
+    "Audience at Hanoi screening (1).",
+    "Audience at Hanoi screening (2).",
+    "Q&A with Nguyen Hoang Diep, Director of 'Đập Cánh Giữa Không Trung' (2014) and Founder of OKIA Hanoi Film Production & Creative Hub.",
+    "Screening at Fulbright University."
+   ],
+   "numImages": 12
   },
-  "availability": "This film is only available for offline screenings. Please contact for more details.",
   "previewLanding": "film/02-a-short-film-about-loving/preview-landing.mp4",
-  "previewThumbnail": "film/02-a-short-film-about-loving/preview-thumbnail.mp4"
+  "previewThumbnail": "film/02-a-short-film-about-loving/preview-thumbnail.mp4",
+  "preview": "film/02-a-short-film-about-loving/preview-thumbnail.mp4",
+  "thumbnail": {
+   "src": "film/02-a-short-film-about-loving/thumb.png"
+  }
  },
  {
   "id": 3,
@@ -262,14 +295,20 @@
   "country": "India",
   "language": "English",
   "synopsis": "Pressed to do well in classes, Juan is oblivious to everything that takes place around him. That is, until an incident completely disrupts his routine.",
+  "description": [
+   "Pressed to do well in classes, Juan is oblivious to everything that takes place around him. That is, until an incident completely disrupts his routine."
+  ],
   "recognition": "",
   "screenings": "",
-  "poster": "film/03-last-days/poster.jpg",
-  "thumbnail": "film/03-last-days/thumb.jpg",
   "youtube": "https://www.youtube.com/embed/COQGJy_WiyU",
   "url": "last-days-2019",
   "availability": "This film is available on YouTube.",
+  "poster": "film/03-last-days/poster.jpg",
   "previewLanding": "film/03-last-days/preview-landing.mp4",
-  "previewThumbnail": "film/03-last-days/preview-thumbnail.mp4"
+  "previewThumbnail": "film/03-last-days/preview-thumbnail.mp4",
+  "preview": "film/03-last-days/preview-thumbnail.mp4",
+  "thumbnail": {
+   "src": "film/03-last-days/thumb.jpg"
+  }
  }
 ]

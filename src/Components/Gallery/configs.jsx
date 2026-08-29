@@ -1,6 +1,7 @@
 import { BiTimeFive } from 'react-icons/bi'
 import albumsData from '../Photography/albums.json'
 import woodData from '../Woodworking/wood.json'
+import filmsData from '../Film/films.json'
 
 export const photographyConfig = {
   sectionName: 'photography',
@@ -25,4 +26,17 @@ export const woodworkingConfig = {
     { key: 'materials' },
   ],
   data: woodData,
+}
+
+export const filmConfig = {
+  sectionName: 'film',
+  title: 'FILM',
+  urlParam: 'filmURL',
+  filterFn: null,
+  titleTransform: 'uppercase',
+  metaFields: [],
+  cardImage: (item) => item.poster,
+  cardSubtitle: (item) =>
+    `${item.year} | ${item.country} | ${item.runtime} mins`,
+  data: filmsData,
 }

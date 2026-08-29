@@ -1,148 +1,3 @@
-:root {
-  --slider-padding: 1.5rem;
-}
-
-.film-carousel-whole {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  /* border-width: 2px;
-  border-color: orange; */
-  /* width: 100vw; */
-  /* height: auto; */
-  overflow: hidden;
-}
-
-.film-carousel-btn-bg {
-  /* position: absolute;
-  top: 0%;
-  z-index: 2; */
-  transition: background-color 200ms ease-in-out;
-  /* background-color: rgb(250, 250, 250); */
-  width: var(--slider-padding);
-  height: 100%;
-}
-
-/* .film-carousel-whole:hover .film-carousel-btn-bg {
-  background-color: rgba(250, 250, 250, 0.4);
-} */
-.film-object {
-  position: relative;
-  flex: none;
-  z-index: 2;
-  padding: 0.2rem;
-  /* height: auto; */
-  text-align: center;
-}
-
-@keyframes slidedown {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.thumbnail-box {
-  scale: 1;
-  z-index: 2;
-  transition: 200ms ease-in-out;
-}
-
-.thumbnail-description {
-  position: relative;
-  z-index: 10;
-  backdrop-filter: blur(4px);
-  animation-duration: 150ms;
-  animation-timing-function: ease-in;
-  /* border-width: 4px;
-  border-color: blue; */
-
-  animation-name: slidedown;
-  /* border-width: 1px; */
-  /* border: 1px solid rgba(255, 255, 255, 0.18); */
-  background-color: #6d6d6d;
-  padding: 1.5rem;
-  width: 100%;
-  text-align: left;
-}
-
-.poster {
-  /* scale: 1; */
-  z-index: 2;
-  transition: 200ms ease-in-out;
-  /* border-width: 1px;
-  border-color: red; */
-  aspect-ratio: 3/2;
-  width: 100%;
-  /* max-width: 200px; */
-  /* height: auto; */
-  object-fit: cover;
-}
-
-/* .poster:hover {
-  scale: 1.05;
-  transition-delay: 400ms;
-  box-shadow: 1px 1px 5px 0.02px rgba(0, 0, 0, 0.43);
-} */
-
-/* .info-slide {
-  overflow: scroll;
-  line-height: 1.8;
-} */
-
-.thumbnail-title-year {
-  display: flex;
-  position: absolute;
-  bottom: 0%;
-  left: 0%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  /* border-width: 2px;
-  border-color: blue; */
-  width: 80%;
-  height: 35%;
-  color: white;
-}
-
-.thumbnail-title {
-  position: absolute;
-  bottom: 25%;
-  left: 7%;
-  /* border-width: 2px;
-  border-color: blue; */
-  font-weight: 1000;
-  line-height: 0.9;
-  text-align: left;
-}
-
-.thumbnail-year {
-  font-weight: 300;
-}
-
-.thumbnail-title,
-.thumbnail-year,
-.thumbnail-description {
-  color: rgb(250, 250, 250);
-}
-
-.thumbnail-img-overlay {
-  position: absolute;
-  top: 0rem;
-  /* border-width: 1px;
-  border-color: red; */
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.3) 15%,
-    rgba(0, 0, 0, 0) 35%
-  );
-  width: 100%;
-  height: 100%;
-}
-
 /* LANDING PAGE */
 .film-landing-background,
 .film-landing-overlay {
@@ -167,11 +22,6 @@
 .film-landing-viewButton-icon {
   transition: 200ms ease-out;
 }
-
-/* .film-landing-viewButton:hover {
-  background-color: white;
-  color: rgba(0, 0, 0, 50);
-} */
 
 .film-landing-viewButton:hover .film-landing-viewButton-icon {
   scale: 1.05;
@@ -203,14 +53,6 @@
   position: absolute;
   top: 40%;
   z-index: 2;
-  /* -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.1); */
-  /* border: 1px solid rgba(255, 255, 255, 1); */
-  /* padding: 1rem; */
-  /* color: white; */
 }
 
 .film-landing-info-all {
@@ -225,9 +67,6 @@
 .film-landing-info {
   position: relative;
   bottom: 5%;
-  /* left: 0%; */
-  /* flex-basis 100 because this section gets priority (in mobile mode, want this to display full width and push other two columns down) */
-  /* flex-basis: 100%; */
   z-index: 3;
   width: 100%;
   min-width: 10rem;
@@ -254,7 +93,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  /* gap: 0.1rem; */
 }
 
 .film-landing-availability {
@@ -266,9 +104,7 @@
 }
 
 .film-landing-press {
-  /* transition: 200ms ease-out; */
   margin-left: 1rem;
-  /* color: white; */
 }
 
 .film-landing-press:hover {
@@ -277,112 +113,11 @@
 }
 
 .film-landing-logo {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* border-width: 1px; */
-  /* width: 100%; */
   max-width: 9rem;
-}
-
-/* Responsive based on width */
-@media (min-width: 0rem) {
-  .film-carousel-whole {
-    width: 100%;
-    height: 10rem;
-  }
-  /* .poster {
-    max-width: 15rem;
-  } */
-}
-
-@media (min-width: 20rem) {
-  :root {
-    --slider-padding: 2rem;
-  }
-
-  .film-carousel-whole {
-    width: 100%;
-    height: 27rem;
-  }
-
-  .film-carousel-btn {
-    font-size: 1.2rem;
-  }
-
-  .film-object {
-    padding: 0.5rem;
-  }
-
-  /* .poster {
-    max-width: 25rem;
-  } */
-}
-
-@media (min-width: 30rem) {
-  :root {
-    --slider-padding: 2.5rem;
-  }
-
-  .film-carousel-whole {
-    width: 100%;
-    height: 32rem;
-  }
-
-  .film-carousel-btn {
-    font-size: 1.5rem;
-  }
-
-  /* .poster {
-    max-width: 20rem;
-  } */
-}
-
-@media (min-width: 40rem) {
-  :root {
-    --slider-padding: 3rem;
-  }
-
-  .film-carousel-whole {
-    width: 100%;
-    height: 35rem;
-  }
-
-  .film-carousel-btn {
-    font-size: 2rem;
-  }
-
-  .film-object {
-    padding: 1rem;
-  }
-
-  /* .poster {
-    max-width: 22.5rem;
-  } */
 }
 
 /* Non-mobile break point */
 @media (min-width: 48rem) {
-  :root {
-    --slider-padding: 4rem;
-  }
-
-  .film-carousel-whole {
-    width: 100%;
-    height: 41rem;
-  }
-
-  .film-carousel-btn {
-    font-size: 2.5rem;
-  }
-
-  .film-object {
-    padding: 1.5rem;
-  }
-
-  /* .poster {
-    max-width: 30rem;
-  } */
-
   .film-landing-info {
     flex-basis: 35%;
     padding: 1rem;
@@ -398,53 +133,5 @@
   .film-landing-backArrow-wrapper-1 {
     top: 5rem;
     width: 80%;
-  }
-}
-
-@media (min-width: 64rem) {
-  .film-carousel-whole {
-    width: 65rem;
-    height: 40rem;
-  }
-
-  .film-carousel-btn {
-    font-size: 2.5rem;
-  }
-
-  /* .poster {
-    max-width: 35rem;
-  } */
-}
-
-@media (min-width: 80rem) {
-  :root {
-    --slider-padding: 5rem;
-  }
-
-  .film-carousel-whole {
-    width: 75rem;
-    height: 45rem;
-  }
-
-  .film-carousel-btn {
-    font-size: 3rem;
-  }
-
-  .film-object {
-    padding: 2rem;
-  }
-  /* .poster {
-    max-width: 35rem;
-  } */
-}
-
-@media (min-width: 96rem) {
-  :root {
-    --slider-padding: 6rem;
-  }
-
-  .film-carousel-whole {
-    width: 85rem;
-    height: 50rem;
   }
 }

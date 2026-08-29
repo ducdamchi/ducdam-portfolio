@@ -1,22 +1,6 @@
 [
  {
   "id": 1,
-  "title": "oak bench",
-  "description": [
-   "The inspiration for this piece came from my discovery of an oak slab that was discarded because of its irregular shape. Its extremely warped condition must have posed a challenge for both a planer and a CNC machine when it comes to getting a flat surface to work with. Interestingly, I noticed that the warpedness of the concave surface closely resembles a carved seat saddle. I decided to pose a challenge for myself: now that I don't have to carve a seat saddle, can I create a base structure that would support this seating surface?",
-   "The process could be broken down into: (1) filling the gaps in the slab with black epoxy and sanding its surface, (2) make a firm bench base, and (3) connect the base to the slab. In order to match the asthetics of the warped seating surface, I decided to use uneven pieces to compose the base of the bench. This makes (3) become the biggest challenge: I had to do a version of a blind mortise and tenon joint, but with the mortise manually chiseled to fit the irregular shape of the bench base.",
-   "This is the first substantial project I tried with hard wood, which took about 3 months to complete, bringing about many, many precious learning moments."
-  ],
-  "year": "2023",
-  "dimensions": "17 x 38 x 14 inches (H x W x D)",
-  "materials": "White oak, epoxy",
-  "thumbnail": {
-   "id": "1.0",
-   "src": "woodworking/01-oak-bench/thumb.jpg",
-   "index": null,
-   "description": ""
-  },
-  "numImages": 6,
   "imgList": [
    {
     "id": "1.1",
@@ -55,27 +39,27 @@
     "description": ""
    }
   ],
-  "url": "oak-bench",
-  "captions": []
- },
- {
-  "id": 2,
-  "title": "Triangle Low Chairs",
+  "title": "oak bench",
   "description": [
-   "I designed these chairs with one question in mind: what's the minimum number of wood pieces that it takes to make a sturdy chair? After many sketches, 3 seemed like an appropriate answer. It is perhaps not by coincidence that the triangle is the strongest and most stable shape in geometry, its rigidity preventing it from collapsing under pressure. To further entertain the mathematical beauty of this idea, I decided to incorporate a Pythagorean triple into the design, such that the interections of the joints would form three edges measuring to an exact 3:4:5 ratio.",
-   "The low form of the chair was inspired by the street food and drinks culture in Vietnam, where people sit on very low chairs and tables just for the duration of the meal before standing up and leave. It is less about sinking into comfort, and more about savoring an experience for a quick moment. After many prototypes, I decided on a scissor joint of the two surfaces that would form the legs, and a half-domino joint of the surface that would become the seating area into the remaining two.",
-   "The project took about 3 months to complete."
+   "The inspiration for this piece came from my discovery of an oak slab that was discarded because of its irregular shape. Its extremely warped condition must have posed a challenge for both a planer and a CNC machine when it comes to getting a flat surface to work with. Interestingly, I noticed that the warpedness of the concave surface closely resembles a carved seat saddle. I decided to pose a challenge for myself: now that I don't have to carve a seat saddle, can I create a base structure that would support this seating surface?",
+   "The process could be broken down into: (1) filling the gaps in the slab with black epoxy and sanding its surface, (2) make a firm bench base, and (3) connect the base to the slab. In order to match the asthetics of the warped seating surface, I decided to use uneven pieces to compose the base of the bench. This makes (3) become the biggest challenge: I had to do a version of a blind mortise and tenon joint, but with the mortise manually chiseled to fit the irregular shape of the bench base.",
+   "This is the first substantial project I tried with hard wood, which took about 3 months to complete, bringing about many, many precious learning moments."
   ],
-  "year": "2024",
-  "dimensions": "18 x 14 x 16 inches",
-  "materials": "Plywood, hardwood pegs",
+  "year": "2023",
+  "dimensions": "17 x 38 x 14 inches (H x W x D)",
+  "materials": "White oak, epoxy",
+  "url": "oak-bench",
+  "captions": [],
   "thumbnail": {
-   "id": "2.0",
-   "src": "woodworking/02-triangle-low-chairs/thumb.jpg",
+   "id": "1.0",
+   "src": "woodworking/01-oak-bench/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 8,
+  "numImages": 6
+ },
+ {
+  "id": 2,
   "imgList": [
    {
     "id": "2.1",
@@ -126,27 +110,27 @@
     "description": ""
    }
   ],
-  "url": "triangle-low-chairs",
-  "captions": []
- },
- {
-  "id": 3,
-  "title": "round bedside tables",
+  "title": "Triangle Low Chairs",
   "description": [
-   "The most standout feature of these bedside tables is perhaps best seen from its back: one single piece of 3/4 inch plywood designed to bend and wrap around three oval-like platforms, upholding the entire structure.",
-   "The back piece was designed on Rhino and cut on a CNC machine, with alternating 'one stripe, two stripe' patterns at equidistance to take out as much material as possible, making the slab of plywood extremely flexible yet sturdy. The legs were made by combining two pieces of 3/4 inch plywood, running them through a router table, and using the bandsaw to obtain the rounded peg shape at the top. The trickiest step was installing the loose components, which required applying constant pressure with rachet straps, and inserting screws into meticulously planned positions.",
-   "The photos in this album are taken when the pieces are drying from polycrilic (and therefore flipped upside down). More photos will be available in the future."
+   "I designed these chairs with one question in mind: what's the minimum number of wood pieces that it takes to make a sturdy chair? After many sketches, 3 seemed like an appropriate answer. It is perhaps not by coincidence that the triangle is the strongest and most stable shape in geometry, its rigidity preventing it from collapsing under pressure. To further entertain the mathematical beauty of this idea, I decided to incorporate a Pythagorean triple into the design, such that the interections of the joints would form three edges measuring to an exact 3:4:5 ratio.",
+   "The low form of the chair was inspired by the street food and drinks culture in Vietnam, where people sit on very low chairs and tables just for the duration of the meal before standing up and leave. It is less about sinking into comfort, and more about savoring an experience for a quick moment. After many prototypes, I decided on a scissor joint of the two surfaces that would form the legs, and a half-domino joint of the surface that would become the seating area into the remaining two.",
+   "The project took about 3 months to complete."
   ],
-  "year": "2025",
-  "dimensions": "20 x 21 x 12 inches (H x W x D)",
-  "materials": "Plywood",
+  "year": "2024",
+  "dimensions": "18 x 14 x 16 inches (H x W x D)",
+  "materials": "Plywood, hardwood pegs",
+  "url": "triangle-low-chairs",
+  "captions": [],
   "thumbnail": {
-   "id": "3.0",
-   "src": "woodworking/03-bed-side-tables/thumb.jpg",
+   "id": "2.0",
+   "src": "woodworking/02-triangle-low-chairs/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 5,
+  "numImages": 8
+ },
+ {
+  "id": 3,
   "imgList": [
    {
     "id": "3.1",
@@ -179,26 +163,27 @@
     "description": ""
    }
   ],
-  "url": "round-bedside-tables",
-  "captions": []
- },
- {
-  "id": 4,
-  "title": "Trapezoid Low Shelf",
+  "title": "round bedside tables",
   "description": [
-   "The design of this shelf came out of the necessity to add more storage to an irregularly shaped corner of a 20th century row home. The corner would fit a rectangular shelf, but I decided to extend the front edges to maximize surface area. This resulted in a Windows-shaped shelf, extremely wide in the front for ease of accessing kitchem supplies, and stretches deep into the back to increase storage space.",
-   "The piece was completed in about three weeks."
+   "The most standout feature of these bedside tables is perhaps best seen from its back: one single piece of 3/4 inch plywood designed to bend and wrap around three oval-like platforms, upholding the entire structure.",
+   "The back piece was designed on Rhino and cut on a CNC machine, with alternating 'one stripe, two stripe' patterns at equidistance to take out as much material as possible, making the slab of plywood extremely flexible yet sturdy. The legs were made by combining two pieces of 3/4 inch plywood, running them through a router table, and using the bandsaw to obtain the rounded peg shape at the top. The trickiest step was installing the loose components, which required applying constant pressure with rachet straps, and inserting screws into meticulously planned positions.",
+   "The photos in this album are taken when the pieces are drying from polycrilic (and therefore flipped upside down). More photos will be available in the future."
   ],
   "year": "2025",
-  "dimensions": "a x b x c inches",
+  "dimensions": "20 x 21 x 12 inches (H x W x D)",
   "materials": "Plywood",
+  "url": "round-bedside-tables",
+  "captions": [],
   "thumbnail": {
-   "id": "4.0",
-   "src": "woodworking/06-trapezoid-low-shelf/thumb.jpg",
+   "id": "3.0",
+   "src": "woodworking/03-bed-side-tables/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 7,
+  "numImages": 5
+ },
+ {
+  "id": 4,
   "imgList": [
    {
     "id": "4.1",
@@ -243,26 +228,26 @@
     "description": ""
    }
   ],
-  "url": "trapezoid-low-shelf",
-  "captions": []
- },
- {
-  "id": 5,
-  "title": "Cedar Tray",
+  "title": "Trapezoid Low Shelf",
   "description": [
-   "One day, I walked into the woodshop for a shift and found at least 30 nicely-planed, fifteen-feet-long slabs of cedar magically sitting there. I was immediately drawn to two things: the warm musky scent of the tree, and the soft, curvy edges of the slabs. At the time, I needed a tray to hold dining table essentials like napkins and salt/pepper grinders. I then thought, can I make one out of these spectacular pieces of softwood, but somehow preserve the softness and gentle curve of their edges?",
-   "The idea came for me to use a dado blade on the table saw to hollow out the center of one cedar slab, then applying two extra edge pieces onto its sides to create a continous-looking live edge effect. Lots of sanding happened before the edges seemed like they were just flowing into one another. After a week of working on it, the tray was sanded to perfect smoothness and finished with food-safe beeswax."
+   "The design of this shelf came out of the necessity to add more storage to an irregularly shaped corner of a 20th century row home. The corner would fit a rectangular shelf, but I decided to extend the front edges to maximize surface area. This resulted in a Windows-shaped shelf, extremely wide in the front for ease of accessing kitchem supplies, and stretches deep into the back to increase storage space.",
+   "The piece was completed in about three weeks."
   ],
   "year": "2025",
   "dimensions": "a x b x c inches",
-  "materials": "Red cedar",
+  "materials": "Plywood",
+  "url": "trapezoid-low-shelf",
+  "captions": [],
   "thumbnail": {
-   "id": "5.0",
-   "src": "woodworking/07-cedar-tray/thumb.jpg",
+   "id": "4.0",
+   "src": "woodworking/06-trapezoid-low-shelf/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 2,
+  "numImages": 7
+ },
+ {
+  "id": 5,
   "imgList": [
    {
     "id": "5.1",
@@ -277,25 +262,26 @@
     "description": ""
    }
   ],
-  "url": "cedar-tray",
-  "captions": []
- },
- {
-  "id": 6,
-  "title": "Oak objects",
+  "title": "Cedar Tray",
   "description": [
-   "One time, I found a relatively small, but flat slab of oak, and a broken-off piece from a giant oak slab. I decided to make the former into a cutting board, and the latter into two bat-shaped objects. They were sanded until extremely smooth to the touch, and laser engraved with Chinese characters that said 'Full Moon Board', and 'Great Oak Stick'. I find their side by side presence uncanny, but aesthetically pleasing."
+   "One day, I walked into the woodshop for a shift and found at least 30 nicely-planed, fifteen-feet-long slabs of cedar magically sitting there. I was immediately drawn to two things: the warm musky scent of the tree, and the soft, curvy edges of the slabs. At the time, I needed a tray to hold dining table essentials like napkins and salt/pepper grinders. I then thought, can I make one out of these spectacular pieces of softwood, but somehow preserve the softness and gentle curve of their edges?",
+   "The idea came for me to use a dado blade on the table saw to hollow out the center of one cedar slab, then applying two extra edge pieces onto its sides to create a continous-looking live edge effect. Lots of sanding happened before the edges seemed like they were just flowing into one another. After a week of working on it, the tray was sanded to perfect smoothness and finished with food-safe beeswax."
   ],
-  "year": "2024",
-  "dimensions": "Cutting board: 14 x 14 x 1.5 inches, Sticks: 17 x 2 x 2 inches (H x W x D)",
-  "materials": "White oak",
+  "year": "2025",
+  "dimensions": "a x b x c inches",
+  "materials": "Red cedar",
+  "url": "cedar-tray",
+  "captions": [],
   "thumbnail": {
-   "id": "6.0",
-   "src": "woodworking/08-oak-objects/thumb.jpg",
+   "id": "5.0",
+   "src": "woodworking/07-cedar-tray/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 1,
+  "numImages": 2
+ },
+ {
+  "id": 6,
   "imgList": [
    {
     "id": "6.1",
@@ -304,25 +290,25 @@
     "description": ""
    }
   ],
-  "url": "oak-objects",
-  "captions": []
- },
- {
-  "id": 7,
-  "title": "Painting Frame",
+  "title": "Oak objects",
   "description": [
-   "A frame for a large painting, with hollowed out edges that fits its exact width."
+   "One time, I found a relatively small, but flat slab of oak, and a broken-off piece from a giant oak slab. I decided to make the former into a cutting board, and the latter into two bat-shaped objects. They were sanded until extremely smooth to the touch, and laser engraved with Chinese characters that said 'Full Moon Board', and 'Great Oak Stick'. I find their side by side presence uncanny, but aesthetically pleasing."
   ],
-  "year": "2022",
-  "dimensions": "24 x 48 x 1.5 inches (H x W x D)",
-  "materials": "Cedar",
+  "year": "2024",
+  "dimensions": "Cutting board: 14 x 14 x 1.5 inches, Sticks: 17 x 2 x 2 inches (H x W x D)",
+  "materials": "White oak",
+  "url": "oak-objects",
+  "captions": [],
   "thumbnail": {
-   "id": "7.0",
-   "src": "woodworking/09-painting-frame/thumb.jpg",
+   "id": "6.0",
+   "src": "woodworking/08-oak-objects/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 1,
+  "numImages": 1
+ },
+ {
+  "id": 7,
   "imgList": [
    {
     "id": "7.1",
@@ -331,25 +317,25 @@
     "description": ""
    }
   ],
-  "url": "painting-frame",
-  "captions": []
- },
- {
-  "id": 8,
-  "title": "Document Organizer",
+  "title": "Painting Frame",
   "description": [
-   "Document organizers with pull-out handles, which each fit around 600 sheets of letter-sized paper."
+   "A frame for a large painting, with hollowed out edges that fits its exact width."
   ],
-  "year": "2024",
-  "dimensions": "4 x 9 x 13 inches",
-  "materials": "Pine",
+  "year": "2022",
+  "dimensions": "24 x 48 x 1.5 inches (H x W x D)",
+  "materials": "Cedar",
+  "url": "painting-frame",
+  "captions": [],
   "thumbnail": {
-   "id": "8.0",
-   "src": "woodworking/10-document-organizer/thumb.jpg",
+   "id": "7.0",
+   "src": "woodworking/09-painting-frame/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 3,
+  "numImages": 1
+ },
+ {
+  "id": 8,
   "imgList": [
    {
     "id": "8.1",
@@ -370,25 +356,25 @@
     "description": ""
    }
   ],
-  "url": "document-organizer",
-  "captions": []
- },
- {
-  "id": 9,
-  "title": "Shrinking Patterns",
+  "title": "Document Organizer",
   "description": [
-   "An art experiment on creating a unique 2D patern on plywood, then scaling it up and down as much as the tools and resources in the shop allow for. And a great project for mastering the portable bandsaw."
+   "Document organizers with pull-out handles, which each fit around 600 sheets of letter-sized paper."
   ],
-  "year": "2022",
-  "dimensions": "Smallest: 4 x 4 x 3/4 inches, Largest: 30 x 30 x 3/4 inches (H x W x D)",
-  "materials": "Plywood",
+  "year": "2024",
+  "dimensions": "4 x 9 x 13 inches",
+  "materials": "Pine",
+  "url": "document-organizer",
+  "captions": [],
   "thumbnail": {
-   "id": "9.0",
-   "src": "woodworking/11-shrinking-patterns/thumb.jpg",
+   "id": "8.0",
+   "src": "woodworking/10-document-organizer/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 6,
+  "numImages": 3
+ },
+ {
+  "id": 9,
   "imgList": [
    {
     "id": "9.1",
@@ -427,25 +413,25 @@
     "description": ""
    }
   ],
-  "url": "shrinking-patterns",
-  "captions": []
- },
- {
-  "id": 10,
-  "title": "In-wall Shelving Unit",
+  "title": "Shrinking Patterns",
   "description": [
-   "An customized shelving unit for a walk-in closet, with wooden shelf brackets."
+   "An art experiment on creating a unique 2D patern on plywood, then scaling it up and down as much as the tools and resources in the shop allow for. And a great project for mastering the portable bandsaw."
   ],
-  "year": "2023",
-  "dimensions": "80 x 30 x 30 inches (H x W x D)",
+  "year": "2022",
+  "dimensions": "Smallest: 4 x 4 x 3/4 inches, Largest: 30 x 30 x 3/4 inches (H x W x D)",
   "materials": "Plywood",
+  "url": "shrinking-patterns",
+  "captions": [],
   "thumbnail": {
-   "id": "10.0",
-   "src": "woodworking/12-in-wall-shelving-unit/thumb.jpg",
+   "id": "9.0",
+   "src": "woodworking/11-shrinking-patterns/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 2,
+  "numImages": 6
+ },
+ {
+  "id": 10,
   "imgList": [
    {
     "id": "10.1",
@@ -460,25 +446,25 @@
     "description": ""
    }
   ],
-  "url": "in-wall-shelving-unit",
-  "captions": []
- },
- {
-  "id": 11,
-  "title": "Weight Rack",
+  "title": "In-wall Shelving Unit",
   "description": [
-   "This project started as I needed an efficient way to store Olympics weight for a personal workout setup. I designed steep miter saw cuts where different parts meet one another to emphasize the triangular structure of the rack. The long pegs on which the weights are mounted was connected to the main body through chiseled square holes, which are secured with heavy-duty screws coming from the opposite direction."
+   "An customized shelving unit for a walk-in closet, with wooden shelf brackets."
   ],
-  "year": "2025",
-  "dimensions": "41 x 32 x 18 inches",
-  "materials": "Pine",
+  "year": "2023",
+  "dimensions": "80 x 30 x 30 inches (H x W x D)",
+  "materials": "Plywood",
+  "url": "in-wall-shelving-unit",
+  "captions": [],
   "thumbnail": {
-   "id": "11.0",
-   "src": "woodworking/13-weight-rack/thumb.jpg",
+   "id": "10.0",
+   "src": "woodworking/12-in-wall-shelving-unit/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 4,
+  "numImages": 2
+ },
+ {
+  "id": 11,
   "imgList": [
    {
     "id": "11.1",
@@ -505,25 +491,25 @@
     "description": ""
    }
   ],
-  "url": "weight-rack",
-  "captions": []
- },
- {
-  "id": 12,
-  "title": "Porch Chest",
+  "title": "Weight Rack",
   "description": [
-   "A porch chest for package drop-off. It was made as an experiment of what I could achieve with woodworking in under 2 hours."
+   "This project started as I needed an efficient way to store Olympics weight for a personal workout setup. I designed steep miter saw cuts where different parts meet one another to emphasize the triangular structure of the rack. The long pegs on which the weights are mounted was connected to the main body through chiseled square holes, which are secured with heavy-duty screws coming from the opposite direction."
   ],
-  "year": "2024",
-  "dimensions": "21 x 37 x 15 inches (H x W x D)",
-  "materials": "Plywood, screws, metal handle and hinges",
+  "year": "2025",
+  "dimensions": "41 x 32 x 18 inches",
+  "materials": "Pine",
+  "url": "weight-rack",
+  "captions": [],
   "thumbnail": {
-   "id": "12.0",
-   "src": "woodworking/14-porch-chest/thumb.jpg",
+   "id": "11.0",
+   "src": "woodworking/13-weight-rack/thumb.jpg",
    "index": null,
    "description": ""
   },
-  "numImages": 1,
+  "numImages": 4
+ },
+ {
+  "id": 12,
   "imgList": [
    {
     "id": "12.1",
@@ -532,7 +518,21 @@
     "description": ""
    }
   ],
+  "title": "Porch Chest",
+  "description": [
+   "A porch chest for package drop-off. It was made as an experiment of what I could achieve with woodworking in under 2 hours."
+  ],
+  "year": "2024",
+  "dimensions": "21 x 37 x 15 inches (H x W x D)",
+  "materials": "Plywood, screws, metal handle and hinges",
   "url": "porch-chest",
-  "captions": []
+  "captions": [],
+  "thumbnail": {
+   "id": "12.0",
+   "src": "woodworking/14-porch-chest/thumb.jpg",
+   "index": null,
+   "description": ""
+  },
+  "numImages": 1
  }
 ]

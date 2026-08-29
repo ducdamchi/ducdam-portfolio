@@ -4,8 +4,8 @@ import Gallery_Landing from './Components/Gallery/Gallery_Landing'
 import {
   photographyConfig,
   woodworkingConfig,
+  filmConfig,
 } from './Components/Gallery/configs'
-import Film from './Components/Film/Film'
 import Film_Landing from './Components/Film/Film_Landing'
 import About from './Components/About/About'
 import Contact from './Components/Contact/Contact'
@@ -19,21 +19,24 @@ export default function App() {
         <Routes>
           <Route
             path="/"
-            element={<Gallery config={photographyConfig} />}
+            element={<Gallery key="photography" config={photographyConfig} />}
           />
           <Route
             path="/photography"
-            element={<Gallery config={photographyConfig} />}
+            element={<Gallery key="photography" config={photographyConfig} />}
           />
           <Route
             path="/photography/:photoURL"
             element={<Gallery_Landing config={photographyConfig} />}
           />
-          <Route path="/film" element={<Film />} />
+          <Route
+            path="/film"
+            element={<Gallery key="film" config={filmConfig} />}
+          />
           <Route path="/film/:filmURL" element={<Film_Landing />} />
           <Route
             path="/woodworking"
-            element={<Gallery config={woodworkingConfig} />}
+            element={<Gallery key="woodworking" config={woodworkingConfig} />}
           />
           <Route
             path="/woodworking/:woodURL"

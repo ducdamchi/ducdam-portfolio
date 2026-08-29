@@ -31,7 +31,7 @@ export default function Gallery_Landing({ config }) {
   const urlValue = params[config.urlParam]
   const matchedAlbum = albumsData.find((album) => album.url === urlValue)
 
-  const { currentIndex, currentOffset } = location.state || {}
+  const { currentIndex } = location.state || {}
 
   const measureBoxHeight = () => {
     if (infoBoxRef.current) {
@@ -111,7 +111,7 @@ export default function Gallery_Landing({ config }) {
       img.addEventListener('load', applyColor)
       return () => img.removeEventListener('load', applyColor)
     }
-  }, [matchedAlbum?.id, modalOpened])
+  }, [matchedAlbum?.id, modalOpened, isMobileMode])
 
   useEffect(() => {
     if (
@@ -190,7 +190,6 @@ export default function Gallery_Landing({ config }) {
                       to={`/${config.sectionName}`}
                       state={{
                         returnToIndex: currentIndex,
-                        returnToOffset: currentOffset,
                       }}
                       className="flex items-center gap-1 text-base"
                     >
@@ -247,7 +246,6 @@ export default function Gallery_Landing({ config }) {
                         to={`/${config.sectionName}`}
                         state={{
                           returnToIndex: currentIndex,
-                          returnToOffset: currentOffset,
                         }}
                         className="z-10 flex items-center justify-center"
                       >

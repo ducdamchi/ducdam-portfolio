@@ -70,6 +70,7 @@ h1,
 .film-landing-backArrow,
 .film-landing-viewButton,
 .photo-landing-backArrow,
+.photo-landing-viewButton,
 .photo-landing-mobile-title-year,
 .photo-landing-mobile-info,
 .photo-landing-buttons,
@@ -132,9 +133,6 @@ h1 {
 }
 
 /* Smallest, footer text */
-.footer-text {
-  font-size: clamp(0.5rem, calc(1.3vw + 0.3rem), 0.8rem);
-}
 
 .navbar-name {
   /* filter: drop-shadow(-2px -1px 3px rgba(0, 0, 0, 0.2)); */
