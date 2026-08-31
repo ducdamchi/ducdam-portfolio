@@ -3,7 +3,7 @@ import { useState, useRef } from 'react'
 import { BiMenu } from 'react-icons/bi'
 import { MdClose } from 'react-icons/md'
 import { useWindowSize } from '../hooks/useWindowSize'
-import '../App.css'
+import '../app.css'
 
 export default function NavSection() {
   const { width: screenWidth } = useWindowSize()

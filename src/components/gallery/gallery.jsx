@@ -1,7 +1,7 @@
-import NavSection from '../NavSection'
-import Gallery_Carousel from './Gallery_Carousel'
-import Footer from '../Footer'
-import '../../App.css'
+import NavSection from '../nav-section'
+import Gallery_Carousel from './gallery-carousel'
+import Footer from '../footer'
+import '../../app.css'
 
 export default function Gallery({ config }) {
   const albumsData = config.data

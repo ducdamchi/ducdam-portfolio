@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
-import NavSection from '../NavSection'
-import Footer from '../Footer'
-import '../../App.css'
-import './Contact.css'
+import NavSection from '../nav-section'
+import Footer from '../footer'
+import '../../app.css'
+import './contact.css'
 import Swal from 'sweetalert2'
 
 export default function Contact() {

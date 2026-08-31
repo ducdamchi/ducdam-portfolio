@@ -29,3 +29,7 @@ dist-ssr
 /public/photoScan.js
 /public/filmScan.js
 /project_snapshots
+
+# TanStack Router
+src/routeTree.gen.ts
+.tanstack/

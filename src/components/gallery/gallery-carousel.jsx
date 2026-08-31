@@ -8,7 +8,7 @@ import {
 import { useSearch } from '@tanstack/react-router'
 
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
-import Gallery_Card from './Gallery_Card'
+import Gallery_Card from './gallery-card'
 
 const CARD_WIDTH = 576
 const NAV_WIDTH = 56

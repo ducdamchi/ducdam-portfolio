@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import { useParams, useSearch, Link } from '@tanstack/react-router'
-import '../../App.css'
-import './Gallery.css'
-import Gallery_Modal from './Gallery_Modal'
+import '../../app.css'
+import './gallery.css'
+import Gallery_Modal from './gallery-modal'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
 

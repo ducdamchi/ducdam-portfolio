@@ -1,10 +1,10 @@
 import { useRef } from 'react'
-import NavSection from '../NavSection'
-import Footer from '../Footer'
+import NavSection from '../nav-section'
+import Footer from '../footer'
 import aboutData from '../../../public/about.json'
 import { useDominantColor } from '../../hooks/useDominantColor'
-import '../../App.css'
-import './About.css'
+import '../../app.css'
+import './about.css'
 
 export default function About() {
   const imgRef = useRef(null)
