@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useParams, Link, useLocation } from 'react-router-dom'
+import { useParams, useSearch, Link } from '@tanstack/react-router'
 import '../../App.css'
 import './Film.css'
 import Modal from './Film_Modal'
@@ -21,8 +21,7 @@ export default function Landing() {
   const [modalOpened, setModalOpened] = useState(false)
   const [openPressId, setOpenPressId] = useState(null)
   const [pressOpened, setPressOpened] = useState(false)
-  const { filmURL } = useParams()
-  const location = useLocation()
+  const { filmURL } = useParams({ strict: false })
   const playBtnRef = useRef(null)
   const imgRef = useRef(null)
 
@@ -39,7 +38,7 @@ export default function Landing() {
     ? adjustColor(colorData.color, colorData.brightness)
     : ''
 
-  const { currentIndex } = location.state || {}
+  const { from: currentIndex } = useSearch({ strict: false })
 
   if (!matchedFilm) {
     return <div>Page not found</div>
@@ -86,11 +85,9 @@ export default function Landing() {
                 id="film-landing-backArrow"
               >
                 <Link
-                  to={`/film`}
+                  to="/film"
                   className="z-20 flex items-center gap-1 font-bold"
-                  state={{
-                    returnToIndex: currentIndex,
-                  }}
+                  search={{ returnTo: currentIndex }}
                 >
                   <BiLeftArrowAlt className="text-xl" />
                   <div className="text-lg">BACK</div>

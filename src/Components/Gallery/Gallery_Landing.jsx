@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useParams, useLocation, Link } from 'react-router-dom'
+import { useParams, useSearch, Link } from '@tanstack/react-router'
 import '../../App.css'
 import './Gallery.css'
 import Gallery_Modal from './Gallery_Modal'
@@ -24,12 +24,11 @@ export default function Gallery_Landing({ config }) {
   const imgRef = useRef(null)
   const infoBoxRef = useRef(null)
 
-  const location = useLocation()
-  const params = useParams()
+  const params = useParams({ strict: false })
   const urlValue = params[config.urlParam]
   const matchedAlbum = albumsData.find((album) => album.url === urlValue)
 
-  const { currentIndex } = location.state || {}
+  const { from: currentIndex } = useSearch({ strict: false })
 
   const colorData = useDominantColor(imgRef, {
     deps: [matchedAlbum?.id, modalOpened, isMobileMode],
@@ -125,9 +124,7 @@ export default function Gallery_Landing({ config }) {
                   <div className="photo-landing-backArrow z-10">
                     <Link
                       to={`/${config.sectionName}`}
-                      state={{
-                        returnToIndex: currentIndex,
-                      }}
+                      search={{ returnTo: currentIndex }}
                       className="flex items-center gap-1 text-base"
                     >
                       <BiLeftArrowAlt className="text-xl" />

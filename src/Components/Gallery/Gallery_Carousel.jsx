@@ -5,7 +5,7 @@ import {
   useRef,
   useCallback,
 } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useSearch } from '@tanstack/react-router'
 
 import { BiChevronLeft, BiChevronRight } from 'react-icons/bi'
 import Gallery_Card from './Gallery_Card'
@@ -49,7 +49,7 @@ function NavButton({ direction, show, onClick, width }) {
 }
 
 export default function Gallery_Carousel({ config, items }) {
-  const location = useLocation()
+  const { returnTo } = useSearch({ strict: false })
   const [outerEl, setOuterEl] = useState(null)
   const outerRef = useCallback((node) => setOuterEl(node), [])
   const trackRef = useRef(null)
@@ -138,13 +138,12 @@ export default function Gallery_Carousel({ config, items }) {
   // Restore carousel position from router state (returning from landing page)
   useEffect(() => {
     if (restoredRef.current || !layoutReady) return
-    const { returnToIndex } = location.state || {}
-    if (returnToIndex !== undefined) {
+    if (returnTo !== undefined) {
       restoredRef.current = true
-      setCurrentIndex(returnToIndex)
-      applyTransform(returnToIndex, 0)
+      setCurrentIndex(returnTo)
+      applyTransform(returnTo, 0)
     }
-  }, [layoutReady, location.state, applyTransform])
+  }, [layoutReady, returnTo, applyTransform])
 
   // Reset position when switching from mobile back to carousel
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { Link, useMatch, useResolvedPath } from 'react-router-dom'
+import { Link, useMatchRoute } from '@tanstack/react-router'
 import { useState, useRef } from 'react'
 import { BiMenu } from 'react-icons/bi'
 import { MdClose } from 'react-icons/md'
@@ -26,8 +26,8 @@ export default function NavSection() {
   }
 
   function CustomLink({ to, children, ...props }) {
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
+    const matchRoute = useMatchRoute()
+    const isActive = !!matchRoute({ to })
     return (
       <div className={isActive ? 'active' : ''}>
         <Link to={to} {...props}>
@@ -43,7 +43,6 @@ export default function NavSection() {
         <div className="navbar-all absolute top-0 z-100 flex h-auto w-full items-center justify-start p-5">
           {/* Logo section */}
           <div className="navbar-name m-1 flex aspect-square h-[4rem] items-center justify-center rounded-none border-2 border-black bg-zinc-50 p-2 text-xl font-medium">
-            {/* <Link to="/">DUC DAM</Link> */}
             DUC <br />
             DAM
           </div>
@@ -61,10 +60,6 @@ export default function NavSection() {
             <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
               <CustomLink to="/woodworking">Woodworking</CustomLink>
             </div>
-
-            {/* <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
-              <Link to="/woodworking">Woodworking</Link>
-            </div> */}
 
             <div className="navbar-item m-1 inline-block p-1 duration-200 ease-out hover:scale-[1.05]">
               <CustomLink to="/about">About</CustomLink>
@@ -93,7 +88,6 @@ export default function NavSection() {
 
             {/* Logo section */}
             <div className="logo-hamburger z-80 flex h-full items-center justify-center p-3 text-center text-base font-medium">
-              {/* <Link to="/">DUC DAM</Link> */}
               DUC DAM
             </div>
           </div>
@@ -111,10 +105,6 @@ export default function NavSection() {
               <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
                 <CustomLink to="/woodworking">Woodworking</CustomLink>
               </div>
-
-              {/* <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
-                <Link to="/woodworking">Woodworking</Link>
-              </div> */}
 
               <div className="navbar-item inline-block w-full border-t-1 border-zinc-200 p-2 pl-5">
                 <CustomLink to="/about">About</CustomLink>

@@ -1,14 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-// import { BrowserRouter} from "react-router-dom"
-import { HashRouter } from 'react-router-dom'
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from './router'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <RouterProvider router={router} />
   </StrictMode>,
 )

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from '@tanstack/react-router'
 import Gallery_Skeleton from './Gallery_Skeleton'
 import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
 
@@ -66,8 +66,9 @@ export default function Gallery_Card({
       <div className="relative aspect-3/2 w-full overflow-hidden">
         {!isClone && (
           <Link
-            to={`../${config.sectionName}/${album.url}`}
-            state={{ currentIndex }}
+            to={`/${config.sectionName}/$${config.urlParam}`}
+            params={{ [config.urlParam]: album.url }}
+            search={{ from: currentIndex }}
             className="absolute inset-0 z-20"
           />
         )}
