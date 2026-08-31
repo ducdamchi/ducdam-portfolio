@@ -1,7 +1,7 @@
 import { BiTimeFive } from 'react-icons/bi'
-import albumsData from '../Photography/albums.json'
-import woodData from '../Woodworking/wood.json'
-import filmsData from '../Film/films.json'
+import albumsData from '../../data/photo.json'
+import woodData from '../../data/wood.json'
+import filmsData from '../../data/film.json'
 
 export const photographyConfig = {
   sectionName: 'photography',

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Gallery_Skeleton from './Gallery_Skeleton'
+import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
 
 export default function Gallery_Card({
   album,
@@ -10,7 +11,6 @@ export default function Gallery_Card({
   isClone,
   isMobile = false,
 }) {
-  const [dynamicColor, setDynamicColor] = useState('#6d6d6d')
   const [thumbnailState, setThumbnailState] = useState('image')
   const [isHovering, setIsHovering] = useState(false)
   const [titleSize, setTitleSize] = useState(0)
@@ -20,43 +20,13 @@ export default function Gallery_Card({
 
   const titleClass = `font-[1000] leading-[0.9] text-left ${config.titleTransform === 'uppercase' ? 'uppercase' : ''}`
 
-  // ColorThief — re-run when album changes (e.g. navigating between sections)
-  useEffect(() => {
-    if (isClone) return
-    const img = imgRef.current
-    if (!img) return
-
-    setDynamicColor('#6d6d6d')
-
-    const extractColor = () => {
-      try {
-        const colorThief = new ColorThief()
-        const color = colorThief.getColor(img)
-        const brightness = Math.round(
-          Math.sqrt(
-            color[0] * color[0] * 0.241 +
-              color[1] * color[1] * 0.691 +
-              color[2] * color[2] * 0.068,
-          ),
-        )
-        let scale = 1
-        if (brightness >= 194) scale = 0.33
-        else if (brightness >= 130) scale = 0.66
-        setDynamicColor(
-          `rgba(${color[0] * scale}, ${color[1] * scale}, ${color[2] * scale}, 0.85)`,
-        )
-      } catch (err) {
-        console.warn('ColorThief error:', err)
-      }
-    }
-
-    if (img.complete && img.naturalHeight !== 0) {
-      extractColor()
-    } else {
-      img.addEventListener('load', extractColor)
-      return () => img.removeEventListener('load', extractColor)
-    }
-  }, [isClone, album.id])
+  const colorData = useDominantColor(imgRef, {
+    deps: [isClone, album.id],
+    enabled: !isClone,
+  })
+  const dynamicColor = colorData
+    ? adjustColor(colorData.color, colorData.brightness)
+    : '#6d6d6d'
 
   // Video preview delay
   useEffect(() => {

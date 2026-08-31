@@ -3,6 +3,8 @@ import { useParams, useLocation, Link } from 'react-router-dom'
 import '../../App.css'
 import './Gallery.css'
 import Gallery_Modal from './Gallery_Modal'
+import { useWindowSize } from '../../hooks/useWindowSize'
+import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
 
 import {
   BiLogoGmail,
@@ -14,17 +16,13 @@ import {
 export default function Gallery_Landing({ config }) {
   const albumsData = config.data
   const [openModalId, setOpenModalId] = useState(null)
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-  const [screenHeight, setScreenHeight] = useState(window.innerHeight)
-  const [isMobileMode, setIsMobileMode] = useState(false)
+  const { width: screenWidth, height: screenHeight } = useWindowSize()
+  const isMobileMode = screenWidth < 768 || screenHeight < 768
   const [modalOpened, setModalOpened] = useState(false)
   const [boxHeight, setBoxHeight] = useState(0)
   const landingRef = useRef(null)
   const imgRef = useRef(null)
   const infoBoxRef = useRef(null)
-  const headerRef = useRef(null)
-  const mobileBtnRef = useRef(null)
-  const viewBtnRef = useRef(null)
 
   const location = useLocation()
   const params = useParams()
@@ -32,6 +30,14 @@ export default function Gallery_Landing({ config }) {
   const matchedAlbum = albumsData.find((album) => album.url === urlValue)
 
   const { currentIndex } = location.state || {}
+
+  const colorData = useDominantColor(imgRef, {
+    deps: [matchedAlbum?.id, modalOpened, isMobileMode],
+    enabled: !!matchedAlbum && !modalOpened,
+  })
+  const accentColor = colorData
+    ? adjustColor(colorData.color, colorData.brightness)
+    : null
 
   const measureBoxHeight = () => {
     if (infoBoxRef.current) {
@@ -42,76 +48,7 @@ export default function Gallery_Landing({ config }) {
 
   useEffect(() => {
     measureBoxHeight()
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth)
-      setScreenHeight(window.innerHeight)
-      measureBoxHeight()
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
   }, [])
-
-  useEffect(() => {
-    screenWidth < 768 || screenHeight < 768
-      ? setIsMobileMode(true)
-      : setIsMobileMode(false)
-  }, [screenWidth])
-
-  useEffect(() => {
-    if (!matchedAlbum || modalOpened) return
-
-    const img = imgRef.current
-    const header = headerRef.current
-    const viewBtn = viewBtnRef.current
-    const mobileBtn = mobileBtnRef.current
-
-    if (!img || (!header && !viewBtn && !mobileBtn)) return
-
-    const colorThief = new ColorThief()
-
-    const getColorWithBrightness = () => {
-      const color = colorThief.getColor(img)
-      const brightness = Math.round(
-        Math.sqrt(
-          color[0] * color[0] * 0.241 +
-            color[1] * color[1] * 0.691 +
-            color[2] * color[2] * 0.068,
-        ),
-      )
-      return { color, brightness }
-    }
-
-    const getAdjustedColor = (color, brightness) => {
-      let scale = 1
-      if (brightness >= 194) scale = 0.33
-      else if (brightness >= 130) scale = 0.66
-
-      return `rgba(${color[0] * scale}, ${color[1] * scale}, ${color[2] * scale}, 0.85)`
-    }
-
-    const applyColor = () => {
-      try {
-        const { color, brightness } = getColorWithBrightness()
-        const bgColor = getAdjustedColor(color, brightness)
-
-        if (mobileBtn) mobileBtn.style.color = bgColor
-        if (header) header.style.backgroundColor = bgColor
-        if (viewBtn) viewBtn.style.backgroundColor = bgColor
-      } catch (err) {
-        console.warn('ColorThief error:', err)
-      }
-    }
-
-    if (img.complete && img.naturalHeight !== 0) {
-      applyColor()
-    } else {
-      img.addEventListener('load', applyColor)
-      return () => img.removeEventListener('load', applyColor)
-    }
-  }, [matchedAlbum?.id, modalOpened, isMobileMode])
 
   useEffect(() => {
     if (
@@ -202,8 +139,8 @@ export default function Gallery_Landing({ config }) {
 
               <div className="photo-landing-viewButton-wrapper flex justify-center">
                 <div
-                  ref={mobileBtnRef}
                   className="photo-landing-viewButton flex cursor-pointer items-center justify-center gap-1 rounded-none border-1 bg-white p-3 pt-2 pb-2 text-base font-bold uppercase"
+                  style={accentColor ? { color: accentColor } : undefined}
                   onClick={() => {
                     setOpenModalId(matchedAlbum.id)
                     setModalOpened(true)
@@ -239,7 +176,7 @@ export default function Gallery_Landing({ config }) {
                 >
                   <div
                     className="photo-landing-header rounded-t-none p-3 pl-6"
-                    ref={headerRef}
+                    style={accentColor ? { backgroundColor: accentColor } : undefined}
                   >
                     <div className="photo-landing-button-back z-2 flex w-[15%] items-center justify-start text-white">
                       <Link
@@ -275,8 +212,8 @@ export default function Gallery_Landing({ config }) {
                   </div>
                   <div className="photo-landing-buttons absolute bottom-0 mb-5 flex w-full justify-center p-6">
                     <div
-                      ref={viewBtnRef}
                       className="photo-landing-button-view z-10 flex cursor-pointer items-center justify-center gap-1 rounded-none p-3 font-bold text-zinc-50"
+                      style={accentColor ? { backgroundColor: accentColor } : undefined}
                       onClick={() => {
                         setOpenModalId(matchedAlbum.id)
                         setModalOpened(true)

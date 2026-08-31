@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import { useParams, Link, useLocation } from 'react-router-dom'
 import '../../App.css'
@@ -6,15 +5,15 @@ import './Film.css'
 import Modal from './Film_Modal'
 import Gallery_Modal from '../Gallery/Gallery_Modal'
 import { filmConfig } from '../Gallery/configs'
-import filmsData from './films.json'
+import filmsData from '../../data/film.json'
+import { useWindowSize } from '../../hooks/useWindowSize'
+import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
 import {
   BiLeftArrowAlt,
   BiLogoGmail,
   BiLogoInstagramAlt,
   BiPlay,
-  BiTimeFive,
   BiNews,
-  BiLogoGithub,
 } from 'react-icons/bi'
 
 export default function Landing() {
@@ -22,100 +21,25 @@ export default function Landing() {
   const [modalOpened, setModalOpened] = useState(false)
   const [openPressId, setOpenPressId] = useState(null)
   const [pressOpened, setPressOpened] = useState(false)
-  const [isMobileMode, setIsMobileMode] = useState(false)
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-  const [screenHeight, setScreenHeight] = useState(window.innerHeight)
   const { filmURL } = useParams()
   const location = useLocation()
   const playBtnRef = useRef(null)
   const imgRef = useRef(null)
-  const [backdropColor, setBackdropColor] = useState('')
+
+  const { width: screenWidth, height: screenHeight } = useWindowSize()
+  const isMobileMode = screenWidth <= 820 || screenHeight <= 768
 
   const matchedFilm = filmsData.find((film) => film.url === filmURL)
 
-  const [visible, setVisible] = useState(true)
+  const colorData = useDominantColor(imgRef, {
+    deps: [matchedFilm?.id, modalOpened, pressOpened],
+    enabled: !!matchedFilm && !modalOpened && !pressOpened,
+  })
+  const backdropColor = colorData
+    ? adjustColor(colorData.color, colorData.brightness)
+    : ''
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(false)
-    }, 5000)
-    return () => clearTimeout(timer)
-  }, [])
-
-  /* Receive data about carouselIndex and slidesOffset from Carousel page. Then send this data back to Carousel page, so that when user return from Landing page, they're at the part of the carousel that were being viewed (instead of scrolling from the start) */
   const { currentIndex } = location.state || {}
-
-  /* Dynamically obtain window size */
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth)
-      setScreenHeight(window.innerHeight)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-
-    console.log(matchedFilm.pressGallery)
-  }, [])
-
-  /* Flag mobile mode if screenwidth smaller than 768px */
-  useEffect(() => {
-    screenWidth <= 820 || screenHeight <= 768
-      ? setIsMobileMode(true)
-      : setIsMobileMode(false)
-    // console.log(`Mobile mode: ${isMobileMode}`)
-  }, [screenWidth])
-
-  useEffect(() => {
-    if (!matchedFilm || modalOpened || pressOpened) return
-
-    const img = imgRef.current
-    // const playBtn = playBtnRef.current
-
-    if (!img) return
-
-    const colorThief = new ColorThief()
-
-    const getColorWithBrightness = () => {
-      const color = colorThief.getColor(img)
-      const brightness = Math.round(
-        Math.sqrt(
-          color[0] * color[0] * 0.241 +
-            color[1] * color[1] * 0.691 +
-            color[2] * color[2] * 0.068,
-        ),
-      )
-      return { color, brightness }
-    }
-
-    const getAdjustedColor = (color, brightness) => {
-      let scale = 1
-      if (brightness >= 194) scale = 0.33
-      else if (brightness >= 130) scale = 0.66
-
-      return `rgba(${color[0] * scale}, ${color[1] * scale}, ${color[2] * scale}, 0.85)`
-    }
-
-    const applyColor = () => {
-      try {
-        const { color, brightness } = getColorWithBrightness()
-        const bgColor = getAdjustedColor(color, brightness)
-        setBackdropColor(bgColor)
-        // if (playBtn) playBtn.style.color = bgColor
-      } catch (err) {
-        console.warn('ColorThief error:', err)
-      }
-    }
-
-    if (img.complete && img.naturalHeight !== 0) {
-      applyColor()
-    } else {
-      img.addEventListener('load', applyColor)
-      return () => img.removeEventListener('load', applyColor)
-    }
-  }, [matchedFilm?.id, modalOpened, pressOpened])
 
   if (!matchedFilm) {
     return <div>Page not found</div>

@@ -1,35 +1,15 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react'
-import { PiDotsThreeOutlineVertical } from 'react-icons/pi'
+import { useState, useRef } from 'react'
 import { BiMenu } from 'react-icons/bi'
-import { BiArrowBack } from 'react-icons/bi'
 import { MdClose } from 'react-icons/md'
+import { useWindowSize } from '../hooks/useWindowSize'
 import '../App.css'
-// import NavModal from './NavModal'
 
 export default function NavSection() {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-  const [isHamburger, setIsHamburger] = useState(true)
+  const { width: screenWidth } = useWindowSize()
+  const isHamburger = screenWidth < 768
   const [menuOpened, setMenuOpened] = useState(false)
   const navModalRef = useRef(null)
-
-  /* Dynamically obtain window size */
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth)
-    }
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
-  /* Set hamburger menu if screenwidth smaller than 640px */
-  useEffect(() => {
-    screenWidth < 768 ? setIsHamburger(true) : setIsHamburger(false)
-    // console.log(`Hamburger menu: ${isHamburger}`)
-  }, [screenWidth])
 
   function openHamburger() {
     setMenuOpened(true)

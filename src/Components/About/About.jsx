@@ -1,45 +1,24 @@
-import { useState, useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import NavSection from '../NavSection'
 import Footer from '../Footer'
 import aboutData from '../../../public/about.json'
+import { useDominantColor } from '../../hooks/useDominantColor'
 import '../../App.css'
 import './About.css'
 
 export default function About() {
   const imgRef = useRef(null)
-  const [bgColor, setBgColor] = useState('rgb(250, 250, 250)')
 
-  useEffect(() => {
-    const img = imgRef.current
-    if (!img) return
-
-    const extractColor = () => {
-      try {
-        const colorThief = new ColorThief()
-        const color = colorThief.getColor(img)
-        const brightness = Math.round(
-          Math.sqrt(
-            color[0] * color[0] * 0.241 +
-              color[1] * color[1] * 0.691 +
-              color[2] * color[2] * 0.068,
-          ),
-        )
-        const r = Math.round(240 + (color[0] - 240) * 0.12)
-        const g = Math.round(240 + (color[1] - 240) * 0.12)
-        const b = Math.round(240 + (color[2] - 240) * 0.12)
-        setBgColor(`rgb(${r}, ${g}, ${b})`)
-      } catch (err) {
-        console.warn('ColorThief error:', err)
-      }
-    }
-
-    if (img.complete && img.naturalHeight !== 0) {
-      extractColor()
-    } else {
-      img.addEventListener('load', extractColor)
-      return () => img.removeEventListener('load', extractColor)
-    }
-  }, [])
+  const colorData = useDominantColor(imgRef, { deps: [] })
+  const bgColor = colorData
+    ? (() => {
+        const [c0, c1, c2] = colorData.color
+        const r = Math.round(240 + (c0 - 240) * 0.12)
+        const g = Math.round(240 + (c1 - 240) * 0.12)
+        const b = Math.round(240 + (c2 - 240) * 0.12)
+        return `rgb(${r}, ${g}, ${b})`
+      })()
+    : 'rgb(250, 250, 250)'
 
   return (
     <div className="flex min-h-screen flex-col">
