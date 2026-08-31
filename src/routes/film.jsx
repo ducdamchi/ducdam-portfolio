@@ -1,11 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router'
-import Gallery from '../components/gallery/gallery'
-import { filmConfig } from '../components/gallery/configs'
+import { createFileRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/film')({
-  validateSearch: (search) => ({
-    returnTo:
-      search.returnTo !== undefined ? Number(search.returnTo) : undefined,
-  }),
-  component: () => <Gallery config={filmConfig} />,
+  component: Outlet,
 })
