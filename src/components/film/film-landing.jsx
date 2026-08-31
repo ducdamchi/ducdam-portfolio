@@ -67,7 +67,7 @@ export default function Landing() {
             <div>
               <video
                 className="film-landing-background"
-                src={matchedFilm.previewLanding}
+                src={`${import.meta.env.BASE_URL}${matchedFilm.previewLanding}`}
                 autoPlay
                 loop
                 muted
@@ -100,7 +100,7 @@ export default function Landing() {
             <div className="flex w-full justify-end">
               <div className="film-landing-logo-wrapper max absolute top-[7.5%] right-[5%] right-[10%] z-2 flex w-[10%] max-w-[15rem] min-w-[10rem] justify-end md:top-[15%] md:right-[15%]">
                 <div className="film-landing-logo">
-                  <img src={matchedFilm.logo} alt="" />
+                  <img src={`${import.meta.env.BASE_URL}${matchedFilm.logo}`} alt="" />
                 </div>
               </div>
             </div>

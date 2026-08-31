@@ -117,7 +117,7 @@ export default function Gallery_Landing({ config }) {
           <div className="photo-landing-overlay"></div>
 
           {/* MOBILE MODE */}
-          {isMobileMode && !modalOpened && (
+          {isMobileMode && (
             <>
               <div className="photo-landing-backArrow-wrapper-2 flex justify-center">
                 <div className="photo-landing-backArrow-wrapper-1 flex p-6">
@@ -163,7 +163,7 @@ export default function Gallery_Landing({ config }) {
           )}
 
           {/* DESKTOP MODE */}
-          {!isMobileMode && !modalOpened && (
+          {!isMobileMode && (
             <>
               <div className="photo-landing-info-wrapper flex justify-center">
                 <div
@@ -178,9 +178,7 @@ export default function Gallery_Landing({ config }) {
                     <div className="photo-landing-button-back z-2 flex w-[15%] items-center justify-start text-white">
                       <Link
                         to={`/${config.sectionName}`}
-                        state={{
-                          returnToIndex: currentIndex,
-                        }}
+                        search={{ returnTo: currentIndex }}
                         className="z-10 flex items-center justify-center"
                       >
                         <BiLeftArrowAlt className="text-xl" />
@@ -237,7 +235,7 @@ export default function Gallery_Landing({ config }) {
           )}
         </div>
 
-        {isMobileMode && !modalOpened && (
+        {isMobileMode && (
           <div className="relative">
             <div className="photo-landing-mobileBottom relative bg-zinc-50">
               <div className="photo-landing-mobile-info flex flex-col justify-center gap-2 p-6">

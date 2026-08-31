@@ -1,4 +1,5 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router'
+import NotFound from '../components/not-found'
 import '../app.css'
 
 export const Route = createRootRoute({
@@ -9,4 +10,5 @@ export const Route = createRootRoute({
       </div>
     </div>
   ),
+  notFoundComponent: NotFound,
 })

@@ -101,7 +101,7 @@ export default function Gallery_Card({
             thumbnailState === 'video' &&
             isHovering && (
               <video
-                src={album.preview}
+                src={`${import.meta.env.BASE_URL}${album.preview}`}
                 autoPlay
                 loop
                 muted
