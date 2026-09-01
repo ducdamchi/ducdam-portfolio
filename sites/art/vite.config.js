@@ -4,13 +4,17 @@ import tailwindcss from '@tailwindcss/vite'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import path from 'path'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [TanStackRouterVite({ target: 'react' }), react(), tailwindcss()],
+  plugins: [
+    TanStackRouterVite({ target: 'react', routesDirectory: './src/routes' }),
+    react(),
+    tailwindcss(),
+  ],
   base: '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@ducdam/shared': path.resolve(__dirname, '../../packages/shared/src'),
     },
   },
 })

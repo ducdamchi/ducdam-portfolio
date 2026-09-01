@@ -1,65 +1,65 @@
-# ducdam-portfolio
+# ducdam-portfolio (monorepo)
 
-Art & creative portfolio website for Duc Dam, deployed at ducdam.com.
+Multi-site portfolio for Duc Dam. Art portfolio at ducdam.com, with planned sites at celebs.ducdam.com and cs.ducdam.com.
 
 ## Tech Stack
 
+- **Package manager**: pnpm with workspaces
 - **Framework**: React 18 with Vite 6
 - **Styling**: Tailwind CSS v4 (via @tailwindcss/vite plugin), custom CSS
-- **Routing**: TanStack Router v1 with hash history
+- **Routing**: TanStack Router v1 (file-based routing)
 - **Icons**: react-icons, lucide-react
-- **UI**: shadcn/ui primitives (button, flickering-grid), class-variance-authority
-- **Formatting**: Prettier with tailwindcss + css-order plugins (config in package.json)
-- **Deploy**: GitHub Pages via gh-pages
+- **UI**: shadcn/ui primitives, class-variance-authority
+- **Formatting**: Prettier with tailwindcss + css-order plugins
+- **Deploy**: GitHub Pages via gh-pages (separate deploy repos per site)
 
-## Project Structure
+## Monorepo Structure
 
 ```
-src/
-  router.jsx           # TanStack Router route tree + root layout
-  App.css              # Global styles + Tailwind imports
-  main.jsx             # Entry point (RouterProvider)
-  index.css            # Base styles
-  Components/
-    NavSection.jsx     # Responsive navbar (desktop + hamburger mobile)
-    Footer.jsx         # Fixed footer with social links
-    Photography/       # Photo gallery section
-      Photography.jsx  # Grid listing page
-      Photo_Landing.jsx # Individual album view
-      Photo_Carousel.jsx # Carousel controller
-      Photo_Items.jsx  # Carousel renderer
-      Photo_Modal.jsx  # Fullscreen image modal
-      albums.json      # Album metadata
-    Film/              # Film portfolio section
-      Film.jsx         # Grid listing page
-      Film_Landing.jsx # Individual film view
-      Film_Carousel.jsx # Carousel controller
-      Film_Items.jsx   # Carousel renderer
-      Film_Modal.jsx   # Fullscreen image modal
-      Film_Modal_Press.jsx # Press gallery modal
-      films.json       # Film metadata
-    Woodworking/       # Woodworking section (mirrors Photography structure)
-    About/             # About page
-    Contact/           # Contact page
-    Home/              # Home page (currently unused)
-    ui/                # shadcn/ui components
-public/
-  photography/         # Photo album images organized by collection
-  film/                # Film assets (posters, press galleries, previews)
-  CNAME                # Custom domain config (ducdam.com)
-docs/
-  carousel-architecture.md  # Detailed carousel implementation docs
+/
+  package.json              # Root workspace orchestrator (pnpm)
+  pnpm-workspace.yaml       # Workspace config
+  .npmrc                    # pnpm settings (shamefully-hoist for now)
+  eslint.config.js          # Shared ESLint config
+  tsconfig.json             # Shared TypeScript config
+  packages/
+    shared/                 # @ducdam/shared — shared components & hooks
+      src/
+        components/
+          navbar.jsx        # Parameterized navbar (currentSite, navLinks props)
+          footer.jsx        # Footer with GitHub link
+        hooks/
+          useWindowSize.js
+          useDominantColor.js
+        styles/
+          shared.css        # Shared font stacks, nav modal styles
+        index.js            # Barrel export
+  sites/
+    art/                    # @ducdam/art — ducdam.com (main art portfolio)
+      vite.config.js
+      src/
+        main.jsx
+        routes/             # TanStack file-based routes
+        components/
+          navbar.jsx        # Thin wrapper: passes art-specific navLinks to shared Navbar
+          footer.jsx        # Re-export from shared
+          gallery/          # Gallery system (carousel, modal, cards, configs)
+          film/             # Film-specific components
+        data/               # photo.json, film.json, wood.json
+      public/               # Static assets (photography/, film/)
+    celebs/                 # @ducdam/celebs — celebs.ducdam.com (placeholder)
+    cs/                     # @ducdam/cs — cs.ducdam.com (placeholder)
 ```
 
 ## Key Patterns
 
-- **Carousel**: Clone-based infinite loop carousel shared across Photography, Film, and Woodworking. See `docs/carousel-architecture.md` for full architecture.
-- **Three-layer component pattern**: Parent (layout metrics) -> Controller (navigation state) -> Renderer (items + transforms). Used in all gallery sections.
-- **Content data**: Album/film/wood metadata stored in `src/data/` (photo.json, film.json, wood.json).
-- **Responsive**: Hamburger nav below 768px, variable items-per-slide in carousels.
+- **Carousel**: Clone-based infinite loop carousel shared across Photography, Film, and Woodworking. See `docs/carousel-architecture.md`.
+- **Three-layer component pattern**: Parent (layout metrics) -> Controller (navigation state) -> Renderer (items + transforms).
+- **Shared navbar**: `packages/shared` Navbar accepts `currentSite` and `navLinks` props. Each site wraps it with site-specific config.
+- **Content data**: Album/film/wood metadata in `sites/art/src/data/`.
 - **Portals**: Modals render via React portals (`#portal` div in index.html).
 
-## Routes
+## Routes (art site)
 
 | Path | Component |
 |---|---|
@@ -75,21 +75,18 @@ docs/
 
 ## Commands
 
-- `npm run dev` - Start dev server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run deploy` - Deploy to GitHub Pages
-- `npm run lint` - Run ESLint
+- `pnpm dev:art` - Start art site dev server
+- `pnpm dev:celebs` - Start celebs site dev server
+- `pnpm dev:cs` - Start CS site dev server
+- `pnpm build:art` - Build art site for production
+- `pnpm build:celebs` - Build celebs site
+- `pnpm build:cs` - Build CS site
+- `pnpm -r lint` - Lint all workspaces
 
 ## Conventions
 
 - Single quotes, no semicolons (Prettier config)
-- JSX files use `.jsx` extension, UI primitives use `.tsx`
-- Path alias: `@` maps to `./src`
-- Component filenames use PascalCase with underscores (e.g., `Photo_Landing.jsx`)
+- JSX files use `.jsx` extension
+- Path alias: `@` maps to `./src` (per site), `@ducdam/shared` maps to shared package
+- Component filenames use lowercase kebab-case (e.g., `gallery-landing.jsx`)
 - CSS is a mix of Tailwind utility classes and component-scoped CSS files
-
-## Future Plans
-
-- Monorepo restructure: multiple sites under subdomains (ducdam.com, celebs.ducdam.com, cs.ducdam.com)
-- Shared packages extracted to `packages/shared/` for reusable components

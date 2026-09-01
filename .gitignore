@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+**/dist
 dist-ssr
 *.local
 
@@ -23,13 +23,13 @@ dist-ssr
 *.sln
 *.sw?
 
-# /public/photography/
-# /public/film/
-/public/woodworking/
-/public/photoScan.js
-/public/filmScan.js
-/project_snapshots
+# /sites/art/public/photography/
+# /sites/art/public/film/
+/sites/art/public/woodworking/
+/sites/art/public/photoScan.js
+/sites/art/public/filmScan.js
+/snapshots
 
 # TanStack Router
-src/routeTree.gen.ts
+**/routeTree.gen.ts
 .tanstack/

@@ -6,8 +6,7 @@ import Modal from './film-modal'
 import Gallery_Modal from '../gallery/gallery-modal'
 import { filmConfig } from '../gallery/configs'
 import filmsData from '../../data/film.json'
-import { useWindowSize } from '../../hooks/useWindowSize'
-import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
+import { useWindowSize, useDominantColor, adjustColor } from '@ducdam/shared'
 import {
   BiLeftArrowAlt,
   BiLogoGmail,

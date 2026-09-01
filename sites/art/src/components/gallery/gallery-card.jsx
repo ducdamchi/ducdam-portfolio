@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from '@tanstack/react-router'
 import Gallery_Skeleton from './gallery-skeleton'
-import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
+import { useDominantColor, adjustColor } from '@ducdam/shared'
 
 export default function Gallery_Card({
   album,

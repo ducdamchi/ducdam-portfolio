@@ -1,9 +1,9 @@
 import { BiLogoGithub } from 'react-icons/bi'
-import '../app.css'
+import '../styles/shared.css'
 
 export default function Footer() {
   return (
-    <div className="flex w-full items-center justify-center gap-1.5 bg-zinc-50 p-3 pt-15 footer-text text-xs">
+    <div className="footer-text flex w-full items-center justify-center gap-1.5 bg-zinc-50 p-3 pt-15 text-xs">
       <span className="font-thin text-black">DEVELOPED BY</span>
       <a
         href="https://github.com/ducdamchi"
@@ -12,9 +12,7 @@ export default function Footer() {
       >
         <BiLogoGithub />
       </a>
-      <span className="font-thin text-black">
-      DUC DAM
-      </span>
+      <span className="font-thin text-black">DUC DAM</span>
     </div>
   )
 }

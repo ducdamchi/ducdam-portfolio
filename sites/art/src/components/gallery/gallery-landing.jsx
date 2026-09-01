@@ -3,8 +3,7 @@ import { useParams, useSearch, Link } from '@tanstack/react-router'
 import '../../app.css'
 import './gallery.css'
 import Gallery_Modal from './gallery-modal'
-import { useWindowSize } from '../../hooks/useWindowSize'
-import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
+import { useWindowSize, useDominantColor, adjustColor } from '@ducdam/shared'
 
 import {
   BiLogoGmail,

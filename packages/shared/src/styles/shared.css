@@ -1,0 +1,38 @@
+/* Shared font stacks for navbar + footer */
+.navbar-item,
+.thumbnail-description {
+  font-family: 'Calisto', 'Palatino', 'Garamond', 'Georgia', serif;
+}
+
+.logo-hamburger,
+.navbar-name,
+.footer-text {
+  font-family: 'Candara', 'Optima', 'Helvetica', sans-serif;
+}
+
+/* Navbar item size */
+.navbar-item {
+  font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem);
+}
+
+.navbar-name {
+}
+
+/* Mobile nav modal */
+.navModal {
+  position: absolute;
+  top: 3rem;
+  transform: translateY(-100%);
+  z-index: 30;
+  transition: transform ease-out 200ms;
+  background-color: rgb(250, 250, 250);
+  width: 100vw;
+}
+
+.navModal.open {
+  transform: translateY(0%);
+}
+
+.navbar-item .active {
+  text-decoration: underline;
+}
