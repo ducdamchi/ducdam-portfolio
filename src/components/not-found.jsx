@@ -1,12 +1,12 @@
 import { Link } from '@tanstack/react-router'
-import NavSection from './nav-section'
+import Navbar from './navbar'
 import Footer from './footer'
 import '../app.css'
 
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col">
-      <NavSection />
+      <Navbar />
 
       <div className="mt-25 flex w-[100vw] items-center justify-center p-5">
         <h1 className="m-1 flex w-auto items-center justify-center overflow-hidden rounded-none border-0 bg-zinc-50 p-4 font-black">
