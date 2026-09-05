@@ -1,0 +1,206 @@
+/**************** CAROUSEL CARD FONTS *****************/
+
+.gallery-card-title {
+  font-family: 'Candara', 'Optima', 'Helvetica', sans-serif;
+}
+
+.gallery-card-description {
+  font-family: 'Calisto', 'Palatino', 'Garamond', 'Georgia', serif;
+}
+
+/**************** MODAL *****************/
+
+.modal-navbar-back {
+  justify-self: start;
+  transition: 200ms ease-out;
+}
+
+.photo-landing-button-back {
+  transition: 200ms ease-out;
+}
+
+.modal-navbar-back:hover,
+.photo-landing-button-back:hover {
+  scale: 1.05;
+  text-decoration: underline;
+}
+
+/* SLIDES VIEW MODE CONTENT */
+@media (max-height: 28.125rem) {
+  .modal-topRightNav {
+    gap: 0.3125rem;
+  }
+}
+
+/**************** LANDING PAGE *****************/
+
+.photo-landing-background,
+.photo-landing-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-landing-overlay {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+}
+
+.photo-landing-backArrow-wrapper-1 {
+  position: absolute;
+  top: 2rem;
+  z-index: 2;
+  width: 100%;
+  color: white;
+}
+
+.photo-landing-backArrow {
+  position: relative;
+  transition: 200ms ease-out;
+  color: white;
+}
+
+.photo-landing-backArrow:hover {
+  scale: 1.05;
+  text-decoration: underline;
+}
+
+.photo-landing-viewButton {
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+}
+
+.photo-landing-mobile-title-year {
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  z-index: 3;
+  width: 100%;
+  min-width: 10rem;
+  color: white;
+}
+
+.photo-landing-button-back,
+.photo-landing-button-view {
+  transition: 200ms ease-out;
+}
+
+.photo-landing-button-back:hover,
+.photo-landing-button-view:hover {
+  scale: 1.05;
+  text-decoration: underline;
+}
+
+.photo-landing-info-all {
+  display: flex;
+  position: absolute;
+
+  top: 12.5%;
+  justify-content: start;
+  z-index: 2;
+  background: rgb(250, 250, 250);
+  width: 60%;
+  min-width: 40rem;
+  max-width: 80rem;
+  height: auto;
+}
+
+.photo-landing-info {
+  z-index: 2;
+  color: black;
+}
+
+/* GALLERY VIEW MODE CONTENT */
+.gallery-all {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(3.125rem, 37.5rem));
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 30rem) {
+  .gallery-all {
+    gap: 0.6rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .gallery-all {
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .gallery-all {
+    gap: 1.5rem;
+    padding: 1.75rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .gallery-all {
+    gap: 1.875rem;
+    padding: 2rem;
+  }
+}
+
+.gallery-each {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.gallery-each:hover {
+  opacity: 0.75;
+}
+
+/* DESCRIPTION SCROLL */
+.desc-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+.desc-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.desc-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.desc-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
+/* THUMBNAIL STRIP */
+.thumbstrip-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.thumbstrip-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thumbstrip-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thumbstrip-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+.thumbstrip-container::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+}

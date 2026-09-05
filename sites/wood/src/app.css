@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+@import '@ducdam/shared/styles/shared.css';
+
+:root {
+  background-color: rgb(250, 250, 250);
+}
+
+/* FONTS */
+.navbar-item,
+.thumbnail-description {
+  font-family: 'Calisto', 'Palatino', 'Garamond', 'Georgia', serif;
+}
+
+h1,
+.thumbnail-title,
+.thumbnail-year,
+.modal-slides-counter,
+.navbar-name,
+.footer-text,
+.photo-landing-info,
+.photo-landing-backArrow,
+.photo-landing-viewButton,
+.photo-landing-mobile-title-year,
+.photo-landing-mobile-info,
+.photo-landing-buttons,
+.photo-landing-button-back,
+.modal-title,
+.modal-description,
+.modal-navbar-back {
+  font-family: 'Candara', 'Optima', 'Helvetica', sans-serif;
+}
+
+/**************** TYPOGRAPHY *****************/
+h1 {
+  font-size: clamp(1.15rem, calc(2vw + 0.5rem), 1.6rem);
+}
+
+.modal-title {
+  font-size: clamp(0.9rem, calc(2vw + 0.5rem), 1.3rem);
+}
+
+.photo-landing-mobile-title,
+.photo-landing-info-title {
+  font-weight: 800;
+  font-size: clamp(1.3rem, calc(1.5vw + 0.4rem), 1.4rem);
+}
+
+.photo-landing-backArrow,
+.photo-landing-mobile-year,
+.photo-landing-info-year {
+  font-weight: 100;
+  font-size: clamp(1.05rem, calc(1.3vw + 0.3rem), 1.2rem);
+}
+
+.navbar-item,
+.thumbnail-description,
+.modal-description {
+  font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem);
+}
+
+.modal-description {
+  color: rgb(60, 60, 60);
+  font-weight: 100;
+  font-size: clamp(0.75rem, calc(1vw + 0.3rem), 0.85rem);
+}
+
+.navbar-item .active {
+  text-decoration: underline;
+}

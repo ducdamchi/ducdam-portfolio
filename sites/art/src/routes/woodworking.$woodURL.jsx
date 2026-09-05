@@ -1,5 +1,5 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import GalleryLanding from '../components/gallery/gallery-landing'
+import { GalleryLanding } from '@ducdam/shared'
 import { woodworkingConfig } from '../components/gallery/configs'
 
 export const Route = createFileRoute('/woodworking/$woodURL')({

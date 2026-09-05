@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Gallery from '../components/gallery/gallery'
+import { Gallery } from '@ducdam/shared'
+import Navbar from '../components/navbar'
+import Footer from '../components/footer'
 import { woodworkingConfig } from '../components/gallery/configs'
 
 export const Route = createFileRoute('/woodworking/')({
@@ -7,5 +9,11 @@ export const Route = createFileRoute('/woodworking/')({
     returnTo:
       search.returnTo !== undefined ? Number(search.returnTo) : undefined,
   }),
-  component: () => <Gallery config={woodworkingConfig} />,
+  component: () => (
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <Gallery config={woodworkingConfig} />
+      <Footer />
+    </div>
+  ),
 })

@@ -1,6 +1,15 @@
 # ducdam-portfolio (monorepo)
 
-Multi-site portfolio for Duc Dam. Art portfolio at ducdam.com, with planned sites at celebs.ducdam.com and cs.ducdam.com.
+Multi-site portfolio for Duc Dam.
+
+## Sites
+
+| Label | Domain | Dev Port | Package |
+|---|---|---|---|
+| HOME | `ducdam.com` | 5173 | `@ducdam/art` |
+| EVENTS | `events.ducdam.com` | 5174 | `@ducdam/events` |
+| DEV | `dev.ducdam.com` | 5175 | `@ducdam/dev` |
+| WOOD | `wood.ducdam.com` | 5176 | `@ducdam/wood` |
 
 ## Tech Stack
 
@@ -21,66 +30,85 @@ Multi-site portfolio for Duc Dam. Art portfolio at ducdam.com, with planned site
   pnpm-workspace.yaml       # Workspace config
   .npmrc                    # pnpm settings (shamefully-hoist for now)
   eslint.config.js          # Shared ESLint config
-  tsconfig.json             # Shared TypeScript config
   packages/
     shared/                 # @ducdam/shared — shared components & hooks
       src/
         components/
           navbar.jsx        # Parameterized navbar (currentSite, navLinks props)
           footer.jsx        # Footer with GitHub link
+          site-brand.jsx    # Site name + DUC DAM branding
+          subdomain-picker.jsx  # Scroll wheel site switcher
+          site-transition.jsx   # Cross-site transition overlay
+          gallery/          # Shared gallery system (carousel, modal, cards)
         hooks/
           useWindowSize.js
           useDominantColor.js
         styles/
           shared.css        # Shared font stacks, nav modal styles
+        sites.js            # Dev/prod URL mappings for all sites
         index.js            # Barrel export
   sites/
-    art/                    # @ducdam/art — ducdam.com (main art portfolio)
-      vite.config.js
+    art/                    # @ducdam/art — ducdam.com (HOME)
       src/
-        main.jsx
         routes/             # TanStack file-based routes
         components/
-          navbar.jsx        # Thin wrapper: passes art-specific navLinks to shared Navbar
+          navbar.jsx        # Thin wrapper: passes HOME-specific navLinks
           footer.jsx        # Re-export from shared
-          gallery/          # Gallery system (carousel, modal, cards, configs)
+          gallery/configs.jsx  # Photography, Film, Woodworking configs
           film/             # Film-specific components
         data/               # photo.json, film.json, wood.json
-      public/               # Static assets (photography/, film/)
-    celebs/                 # @ducdam/celebs — celebs.ducdam.com (placeholder)
-    cs/                     # @ducdam/cs — cs.ducdam.com (placeholder)
+      public/               # Static assets (photography/, film/, woodworking/)
+    wood/                   # @ducdam/wood — wood.ducdam.com
+      src/
+        routes/             # / (gallery), /$woodURL (landing)
+        components/
+          navbar.jsx        # WOOD navLinks
+          gallery-configs.jsx  # Woodworking config
+        data/wood.json
+      public/woodworking/   # Woodworking images
+    events/                 # @ducdam/events — events.ducdam.com (placeholder)
+    dev/                    # @ducdam/dev — dev.ducdam.com (placeholder)
 ```
 
 ## Key Patterns
 
-- **Carousel**: Clone-based infinite loop carousel shared across Photography, Film, and Woodworking. See `docs/carousel-architecture.md`.
+- **Gallery system**: Config-driven, lives in `packages/shared/src/components/gallery/`. Carousel, modal, cards, landing pages. Each site defines its own config (data, fields, URL params).
+- **Carousel**: Clone-based infinite loop carousel. See `docs/carousel-architecture.md`.
 - **Three-layer component pattern**: Parent (layout metrics) -> Controller (navigation state) -> Renderer (items + transforms).
 - **Shared navbar**: `packages/shared` Navbar accepts `currentSite` and `navLinks` props. Each site wraps it with site-specific config.
-- **Content data**: Album/film/wood metadata in `sites/art/src/data/`.
+- **Subdomain picker**: Scroll wheel in navbar for switching between sites. Uses URL query params for cross-site transition state.
+- **Content data**: Album/film/wood metadata in each site's `src/data/`.
 - **Portals**: Modals render via React portals (`#portal` div in index.html).
 
-## Routes (art site)
+## Routes (art/HOME site)
 
 | Path | Component |
 |---|---|
-| `/` | Photography |
-| `/photography` | Photography |
-| `/photography/:photoURL` | Photo_Landing |
-| `/film` | Film |
+| `/` | Redirect to /photography |
+| `/photography` | Gallery (photographyConfig) |
+| `/photography/:photoURL` | GalleryLanding |
+| `/film` | Gallery (filmConfig) |
 | `/film/:filmURL` | Film_Landing |
-| `/woodworking` | Woodworking |
-| `/woodworking/:woodURL` | Wood_Landing |
+| `/woodworking` | Gallery (woodworkingConfig) |
+| `/woodworking/:woodURL` | GalleryLanding |
 | `/about` | About |
 | `/contact` | Contact |
 
+## Routes (wood site)
+
+| Path | Component |
+|---|---|
+| `/` | Gallery (woodworkingConfig) |
+| `/:woodURL` | GalleryLanding |
+
 ## Commands
 
-- `pnpm dev:art` - Start art site dev server
-- `pnpm dev:celebs` - Start celebs site dev server
-- `pnpm dev:cs` - Start CS site dev server
-- `pnpm build:art` - Build art site for production
-- `pnpm build:celebs` - Build celebs site
-- `pnpm build:cs` - Build CS site
+- `pnpm dev:art` - Start HOME site dev server (port 5173)
+- `pnpm dev:wood` - Start WOOD site dev server (port 5176)
+- `pnpm dev:events` - Start EVENTS site dev server (port 5174)
+- `pnpm dev:dev` - Start DEV site dev server (port 5175)
+- `pnpm dev:all` - Start all sites simultaneously
+- `pnpm build:art` / `build:wood` / `build:events` / `build:dev` - Build sites
 - `pnpm -r lint` - Lint all workspaces
 
 ## Conventions

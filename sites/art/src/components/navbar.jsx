@@ -9,5 +9,5 @@ const NAV_LINKS = [
 ]
 
 export default function ArtNavbar() {
-  return <Navbar currentSite="ART" navLinks={NAV_LINKS} />
+  return <Navbar currentSite="HOME" navLinks={NAV_LINKS} />
 }

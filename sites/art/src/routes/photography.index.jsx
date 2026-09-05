@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Gallery from '../components/gallery/gallery'
+import { Gallery } from '@ducdam/shared'
+import Navbar from '../components/navbar'
+import Footer from '../components/footer'
 import { photographyConfig } from '../components/gallery/configs'
 
 export const Route = createFileRoute('/photography/')({
@@ -7,5 +9,11 @@ export const Route = createFileRoute('/photography/')({
     returnTo:
       search.returnTo !== undefined ? Number(search.returnTo) : undefined,
   }),
-  component: () => <Gallery config={photographyConfig} />,
+  component: () => (
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <Gallery config={photographyConfig} />
+      <Footer />
+    </div>
+  ),
 })
