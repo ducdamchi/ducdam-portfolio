@@ -7,7 +7,7 @@ Multi-site portfolio for Duc Dam.
 | Label | Domain | Dev Port | Package |
 |---|---|---|---|
 | HOME | `ducdam.com` | 5173 | `@ducdam/art` |
-| EVENTS | `events.ducdam.com` | 5174 | `@ducdam/events` |
+| CELEBRATIONS | `celeb.ducdam.com` | 5174 | `@ducdam/events` |
 | DEV | `dev.ducdam.com` | 5175 | `@ducdam/dev` |
 | WOOD | `wood.ducdam.com` | 5176 | `@ducdam/wood` |
 
@@ -66,7 +66,7 @@ Multi-site portfolio for Duc Dam.
           gallery-configs.jsx  # Woodworking config
         data/wood.json
       public/woodworking/   # Woodworking images
-    events/                 # @ducdam/events — events.ducdam.com (placeholder)
+    events/                 # @ducdam/events — celeb.ducdam.com (placeholder)
     dev/                    # @ducdam/dev — dev.ducdam.com (placeholder)
 ```
 
@@ -105,7 +105,7 @@ Multi-site portfolio for Duc Dam.
 
 - `pnpm dev:art` - Start HOME site dev server (port 5173)
 - `pnpm dev:wood` - Start WOOD site dev server (port 5176)
-- `pnpm dev:events` - Start EVENTS site dev server (port 5174)
+- `pnpm dev:events` - Start CELEBRATIONS site dev server (port 5174)
 - `pnpm dev:dev` - Start DEV site dev server (port 5175)
 - `pnpm dev:all` - Start all sites simultaneously
 - `pnpm build:art` / `build:wood` / `build:events` / `build:dev` - Build sites

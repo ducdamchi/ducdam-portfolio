@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Navbar, Footer } from '@ducdam/shared'
+import { Contact, Navbar, Footer } from '@ducdam/shared'
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -7,13 +7,11 @@ const NAV_LINKS = [
   { to: '/contact', label: 'Contact' },
 ]
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/contact')({
   component: () => (
     <div className="flex min-h-screen flex-col">
       <Navbar currentSite="CELEBRATIONS" navLinks={NAV_LINKS} />
-      <div className="flex items-center justify-center p-20 pt-40">
-        <h1 className="navbar-name text-2xl font-light">coming soon ...</h1>
-      </div>
+      <Contact />
       <Footer />
     </div>
   ),

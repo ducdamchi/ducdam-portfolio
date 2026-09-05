@@ -59,7 +59,6 @@ h1,
 .navbar-name,
 .footer-text,
 .about-text,
-.wood-text,
 .photo-landing-info,
 .film-modal-close,
 .film-landing-info,
@@ -116,7 +115,6 @@ h1 {
 /* Medium size */
 .navbar-item,
 .about-text,
-.contact-all,
 .thumbnail-description,
 .film-landing-synopsis,
 .film-landing-country,
@@ -188,97 +186,6 @@ video {
 
   video::-webkit-media-controls-start-playback-button {
     display: none !important;
-  }
-}
-
-.swal2-popup {
-  border-radius: 0px;
-  font-family: 'Candara', 'Optima', 'Helvetica', sans-serif;
-}
-
-.swal2-html-container {
-  color: black;
-  font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem);
-  text-align: left;
-}
-
-.swal2-title {
-  color: black;
-  font-style: italic;
-  font-size: clamp(1.3rem, calc(1.5vw + 0.4rem), 1.4rem);
-  text-align: left;
-}
-
-.swal2-actions {
-  /* display: flex !important;
-  justify-content: end !important;
-  align-items: end !important; */
-  margin-right: 2rem;
-}
-.swal2-actions button {
-  font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem);
-}
-
-.swal2-actions:hover .swal2-actions button {
-  scale: 1.03;
-}
-
-.swal2-confirm {
-  transition: 200ms ease-in-out;
-  border: 1px solid black !important;
-  border-radius: 0px;
-  /* border-width: ; */
-  background-color: white;
-  padding: 0.4rem;
-  width: 5rem;
-  color: black;
-  font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem);
-}
-
-.swal2-confirm:hover {
-  background-color: black;
-  color: white;
-}
-
-/**************** CONTACT *****************/
-
-.message-box {
-  min-height: 12rem;
-}
-
-.submit-button,
-.submit-button-text {
-  transition: 200ms ease-in-out;
-}
-
-.submit-button:hover {
-  background-color: black;
-  color: white;
-}
-
-.submit-button:hover .submit-button-text {
-  scale: 1.03;
-}
-
-@media (min-width: 0rem) {
-  .contact-form {
-    width: 90%;
-  }
-}
-
-@media (min-width: 20rem) {
-  .contact-form {
-    width: 80%;
-  }
-}
-
-/* Non-mobile break point */
-@media (min-width: 48rem) {
-  .contact-form {
-    width: 40rem;
-  }
-  .message-box {
-    height: 15rem;
   }
 }
 

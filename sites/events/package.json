@@ -14,6 +14,7 @@
     "@tanstack/react-router": "^1.170.32",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "sweetalert2": "^11.23.0",
     "tailwindcss": "^4.0.3"
   },
   "devDependencies": {

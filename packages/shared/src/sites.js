@@ -1,15 +1,15 @@
 const DEV_SITES = [
-  { label: 'HOME', url: 'http://localhost:5173' },
-  { label: 'EVENTS', url: 'http://localhost:5174' },
-  { label: 'DEV', url: 'http://localhost:5175' },
-  { label: 'WOOD', url: 'http://localhost:5176' },
+  { label: 'FILM & PHOTO', url: 'http://localhost:5173' },
+  { label: 'CELEBRATIONS', url: 'http://localhost:5174' },
+  { label: 'SOFTWARE', url: 'http://localhost:5175' },
+  { label: 'WOODWORKING', url: 'http://localhost:5176' },
 ]
 
 const PROD_SITES = [
-  { label: 'HOME', url: 'https://ducdam.com' },
-  { label: 'EVENTS', url: 'https://events.ducdam.com' },
-  { label: 'DEV', url: 'https://dev.ducdam.com' },
-  { label: 'WOOD', url: 'https://wood.ducdam.com' },
+  { label: 'FILM & PHOTO', url: 'https://ducdam.com' },
+  { label: 'CELEBRATIONS', url: 'https://celeb.ducdam.com' },
+  { label: 'SOFTWARE', url: 'https://dev.ducdam.com' },
+  { label: 'WOODWORKING', url: 'https://wood.ducdam.com' },
 ]
 
 export const SITES =

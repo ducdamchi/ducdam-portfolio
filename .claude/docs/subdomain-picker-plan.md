@@ -15,7 +15,7 @@ The "DUC DAM" box remains static. Only the left box (site name) becomes the pick
 | Label | Subdomain | Dev Port |
 |---|---|---|
 | ART | `art.ducdam.com` (also `ducdam.com`) | 5173 |
-| EVENTS | `events.ducdam.com` | 5174 |
+| CELEBRATIONS | `celeb.ducdam.com` | 5174 |
 | DEV | `dev.ducdam.com` | 5175 |
 | POETRY | `poetry.ducdam.com` | 5176 |
 | SCULPT | `sculpt.ducdam.com` | 5177 |
@@ -145,7 +145,7 @@ packages/shared/src/
   currentSite="ART"           // Active site label
   sites={[
     { label: 'ART', url: 'https://art.ducdam.com' },
-    { label: 'EVENTS', url: 'https://events.ducdam.com' },
+    { label: 'CELEBRATIONS', url: 'https://celeb.ducdam.com' },
     { label: 'DEV', url: 'https://dev.ducdam.com' },
     { label: 'POETRY', url: 'https://poetry.ducdam.com' },
     { label: 'SCULPT', url: 'https://sculpt.ducdam.com' },
@@ -224,7 +224,7 @@ Open state (ART selected):
   ├──────────┤
   │  ▸ ART  │  ← full size, highlighted
   ├──────────┤
-  │  EVENTS  │  ← faded, scaled down
+  │  CELEBRATIONS  │  ← faded, scaled down
   └──────────┘
               ┌──────────────┐
               │   DUC DAM   │
@@ -253,7 +253,7 @@ During development, all sites run on `localhost` with different ports. The `site
 export const SITES = import.meta.env.DEV
   ? [
       { label: 'ART', url: 'http://localhost:5173' },
-      { label: 'EVENTS', url: 'http://localhost:5174' },
+      { label: 'CELEBRATIONS', url: 'http://localhost:5174' },
       { label: 'DEV', url: 'http://localhost:5175' },
       { label: 'POETRY', url: 'http://localhost:5176' },
       { label: 'SCULPT', url: 'http://localhost:5177' },
@@ -261,7 +261,7 @@ export const SITES = import.meta.env.DEV
     ]
   : [
       { label: 'ART', url: 'https://art.ducdam.com' },
-      { label: 'EVENTS', url: 'https://events.ducdam.com' },
+      { label: 'CELEBRATIONS', url: 'https://celeb.ducdam.com' },
       { label: 'DEV', url: 'https://dev.ducdam.com' },
       { label: 'POETRY', url: 'https://poetry.ducdam.com' },
       { label: 'SCULPT', url: 'https://sculpt.ducdam.com' },
