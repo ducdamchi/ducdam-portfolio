@@ -100,14 +100,25 @@ export default function Gallery_Modal({
               </div>
             )}
             <button
-              className="duration-200 ease-out hover:scale-[1.1] sm:text-lg md:text-xl lg:text-2xl"
+              className="relative h-8 w-8 hover:scale-[1.1] duration-200 ease-out"
               onClick={toggleView}
             >
-              {isGalleryView ? (
-                <TfiLayoutSlider className="m-[4px] text-lg" />
-              ) : (
-                <CgLayoutGridSmall className="text-2xl" />
-              )}
+              <CgLayoutGridSmall
+                className="absolute inset-0 m-auto text-3xl"
+                style={{
+                  opacity: isGalleryView ? 0 : 1,
+                  transform: isGalleryView ? 'rotate(180deg)' : 'rotate(0deg)',
+                  transition: 'opacity 300ms ease, transform 300ms ease',
+                }}
+              />
+              <TfiLayoutSlider
+                className="absolute inset-0 m-auto text-lg"
+                style={{
+                  opacity: isGalleryView ? 1 : 0,
+                  transform: isGalleryView ? 'rotate(0deg)' : 'rotate(-180deg)',
+                  transition: 'opacity 300ms ease, transform 300ms ease',
+                }}
+              />
             </button>
           </div>
         </div>

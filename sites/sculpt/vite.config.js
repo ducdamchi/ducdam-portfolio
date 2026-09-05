@@ -11,7 +11,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: '/',
-  server: { port: 5173, strictPort: true },
+  server: { port: 5177, strictPort: true },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

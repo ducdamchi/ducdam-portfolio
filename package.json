@@ -15,11 +15,18 @@
   "type": "module",
   "scripts": {
     "dev:art": "pnpm --filter @ducdam/art dev",
-    "dev:celebs": "pnpm --filter @ducdam/celebs dev",
-    "dev:cs": "pnpm --filter @ducdam/cs dev",
+    "dev:events": "pnpm --filter @ducdam/events dev",
+    "dev:dev": "pnpm --filter @ducdam/dev dev",
+    "dev:poetry": "pnpm --filter @ducdam/poetry dev",
+    "dev:sculpt": "pnpm --filter @ducdam/sculpt dev",
+    "dev:ink": "pnpm --filter @ducdam/ink dev",
+    "dev:all": "pnpm --filter @ducdam/art dev & pnpm --filter @ducdam/events dev & pnpm --filter @ducdam/dev dev & pnpm --filter @ducdam/poetry dev & pnpm --filter @ducdam/sculpt dev & pnpm --filter @ducdam/ink dev",
     "build:art": "pnpm --filter @ducdam/art build",
-    "build:celebs": "pnpm --filter @ducdam/celebs build",
-    "build:cs": "pnpm --filter @ducdam/cs build",
+    "build:events": "pnpm --filter @ducdam/events build",
+    "build:dev": "pnpm --filter @ducdam/dev build",
+    "build:poetry": "pnpm --filter @ducdam/poetry build",
+    "build:sculpt": "pnpm --filter @ducdam/sculpt build",
+    "build:ink": "pnpm --filter @ducdam/ink build",
     "lint": "pnpm -r lint"
   },
   "devDependencies": {

@@ -207,7 +207,7 @@ Each placeholder site is a minimal Vite + React app:
 - `index.html`
 - `src/main.jsx` — TanStack RouterProvider
 - `src/routes/__root.jsx` — imports shared Navbar/Footer, renders Outlet
-- `src/routes/index.jsx` — simple landing page ("Coming Soon" or similar)
+- `src/routes/index.jsx` — simple landing page ("coming soon ..." or similar)
 - `public/CNAME` — `celebs.ducdam.com` or `cs.ducdam.com`
 
 These are real runnable apps that demonstrate the shared navbar working across sites.

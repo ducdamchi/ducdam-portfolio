@@ -15,24 +15,13 @@
   font-size: clamp(0.8rem, calc(1.5vw + 0.4rem), 1rem);
 }
 
-.navbar-name {
-}
-
-/* Mobile nav modal */
-.navModal {
-  position: absolute;
-  top: 3rem;
-  transform: translateY(-100%);
-  z-index: 30;
-  transition: transform ease-out 200ms;
-  background-color: rgb(250, 250, 250);
-  width: 100vw;
-}
-
-.navModal.open {
-  transform: translateY(0%);
-}
 
 .navbar-item .active {
   text-decoration: underline;
+}
+
+/* Site transition wipes */
+@keyframes wipeUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
 }
