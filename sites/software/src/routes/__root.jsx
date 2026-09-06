@@ -7,7 +7,7 @@ const NAV_LINKS = [{ to: '/', label: 'Home' }]
 export const Route = createRootRoute({
   component: () => (
     <div className="min-h-screen bg-zinc-50">
-      <Navbar currentSite="DEV" navLinks={NAV_LINKS} />
+      <Navbar currentSite="SOFTWARE" navLinks={NAV_LINKS} />
       <div className="pt-20">
         <Outlet />
       </div>
