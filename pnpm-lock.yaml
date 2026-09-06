@@ -57,7 +57,47 @@ importers:
         specifier: ^11.23.0
         version: 11.23.0
 
-  sites/art:
+  sites/celebrations:
+    dependencies:
+      '@ducdam/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
+      '@tailwindcss/vite':
+        specifier: ^4.0.3
+        version: 4.0.3(vite@6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1))
+      '@tanstack/react-router':
+        specifier: ^1.170.32
+        version: 1.170.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+      react-icons:
+        specifier: ^5.7.0
+        version: 5.7.0(react@18.3.1)
+      sweetalert2:
+        specifier: ^11.23.0
+        version: 11.23.0
+      tailwindcss:
+        specifier: ^4.0.3
+        version: 4.0.3
+    devDependencies:
+      '@tanstack/router-plugin':
+        specifier: ^1.168.35
+        version: 1.168.35(@tanstack/react-router@1.170.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(esbuild@0.24.2)(rollup@4.32.1)(supports-color@7.2.0)(vite@6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1))
+      '@vitejs/plugin-react':
+        specifier: ^4.3.4
+        version: 4.3.4(supports-color@7.2.0)(vite@6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1))
+      image-size:
+        specifier: ^2.0.2
+        version: 2.0.2
+      vite:
+        specifier: ^6.0.5
+        version: 6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1)
+
+  sites/film & photo:
     dependencies:
       '@ducdam/shared':
         specifier: workspace:*
@@ -124,7 +164,7 @@ importers:
         specifier: ^6.0.5
         version: 6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1)
 
-  sites/dev:
+  sites/software:
     dependencies:
       '@ducdam/shared':
         specifier: workspace:*
@@ -155,41 +195,7 @@ importers:
         specifier: ^6.0.5
         version: 6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1)
 
-  sites/events:
-    dependencies:
-      '@ducdam/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
-      '@tailwindcss/vite':
-        specifier: ^4.0.3
-        version: 4.0.3(vite@6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1))
-      '@tanstack/react-router':
-        specifier: ^1.170.32
-        version: 1.170.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
-      sweetalert2:
-        specifier: ^11.23.0
-        version: 11.23.0
-      tailwindcss:
-        specifier: ^4.0.3
-        version: 4.0.3
-    devDependencies:
-      '@tanstack/router-plugin':
-        specifier: ^1.168.35
-        version: 1.168.35(@tanstack/react-router@1.170.32(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(esbuild@0.24.2)(rollup@4.32.1)(supports-color@7.2.0)(vite@6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1))
-      '@vitejs/plugin-react':
-        specifier: ^4.3.4
-        version: 4.3.4(supports-color@7.2.0)(vite@6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1))
-      vite:
-        specifier: ^6.0.5
-        version: 6.0.11(@types/node@25.0.3)(jiti@2.7.0)(lightningcss@1.29.1)
-
-  sites/wood:
+  sites/woodworking:
     dependencies:
       '@ducdam/shared':
         specifier: workspace:*
@@ -1339,6 +1345,11 @@ packages:
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
+
+  image-size@2.0.2:
+    resolution: {integrity: sha512-IRqXKlaXwgSMAMtpNzZa1ZAe8m+Sa1770Dhk8VkSsP9LS+iHD62Zd8FQKs8fbPiagBE7BzoFX23cxFnwshpV6w==}
+    engines: {node: '>=16.x'}
+    hasBin: true
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -3369,6 +3380,8 @@ snapshots:
       function-bind: 1.1.2
 
   ignore@5.3.2: {}
+
+  image-size@2.0.2: {}
 
   import-fresh@3.3.0:
     dependencies:

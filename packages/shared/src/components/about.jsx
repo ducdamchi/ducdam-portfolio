@@ -1,3 +1,5 @@
+import SkeletonImage from './skeleton-image'
+
 const aboutData = {
   image: 'about.jpg',
   bio: [
@@ -23,12 +25,14 @@ export default function About() {
 
       <div className="about-text mt-5 flex flex-grow items-center justify-center pb-10">
         <div className="relative flex h-auto w-[50%] max-w-[540px] min-w-[320px] flex-col gap-4 p-2">
-          <img
-            src={`${import.meta.env.BASE_URL}${aboutData.image}`}
-            alt=""
-            className="rounded-none border-1"
-          />
-          <div className="info-box-gradient rounded-none border-1 p-4 text-zinc-900">
+          <div className="relative">
+            <SkeletonImage
+              src={`${import.meta.env.BASE_URL}${aboutData.image}`}
+              alt=""
+              className="w-full rounded-none border-1 border-[oklch(0.922_0_0)]"
+            />
+          </div>
+          <div className="info-box-gradient rounded-none border-1 border-[oklch(0.922_0_0)] p-4 text-zinc-900">
             {aboutData.bio.map((paragraph, i) => (
               <span key={i}>
                 {i > 0 && (
@@ -41,7 +45,7 @@ export default function About() {
               </span>
             ))}
           </div>
-          <div className="info-box-gradient rounded-none border-1 p-4 text-zinc-900">
+          <div className="info-box-gradient rounded-none border-1 border-[oklch(0.922_0_0)] p-4 text-zinc-900">
             <div>
               EDUCATION: <br />
             </div>

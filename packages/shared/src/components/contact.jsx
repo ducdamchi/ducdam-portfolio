@@ -43,7 +43,7 @@ export default function Contact() {
         <div className="m-2 rounded-none bg-zinc-50 p-4">
           For all inquiries, please contact Duc using the form below.
         </div>
-        <div className="contact-form info-box-gradient m-2 gap-1 rounded-none border-1 p-7">
+        <div className="contact-form info-box-gradient m-2 gap-1 rounded-none border-1 p-7 border-[oklch(0.922_0_0)]">
           <form onSubmit={onSubmit} className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
               <input
@@ -51,7 +51,7 @@ export default function Contact() {
                 name="name"
                 id="name"
                 autoComplete="name"
-                className="rounded-none border-1 bg-zinc-50 p-2"
+                className="rounded-none border-1 bg-zinc-50 p-2 border-[oklch(0.922_0_0)]"
                 placeholder="Name"
                 required
               ></input>
@@ -62,7 +62,7 @@ export default function Contact() {
                 name="email"
                 id="email"
                 autoComplete="email"
-                className="rounded-none border-1 bg-zinc-50 p-2"
+                className="rounded-none border-1 bg-zinc-50 p-2 border-[oklch(0.922_0_0)]"
                 placeholder="Email address"
                 required
               ></input>
@@ -71,13 +71,13 @@ export default function Contact() {
               <textarea
                 name="message"
                 id="message"
-                className="message-box rounded-none border-1 bg-zinc-50 p-2"
+                className="message-box rounded-none border-1 bg-zinc-50 p-2 border-[oklch(0.922_0_0)]"
                 placeholder="Message"
                 required
               ></textarea>
             </div>
             <button
-              className="submit-button w-[20%] self-end rounded-none border-1 bg-zinc-50 p-2"
+              className="submit-button w-[20%] self-end rounded-none border-1 bg-zinc-50 p-2 border-[oklch(0.922_0_0)]"
               type="submit"
             >
               <div className="submit-button-text">Send</div>

@@ -6,6 +6,7 @@ import Gallery_Immersion from './gallery-immersion'
 import { CgLayoutGridSmall } from 'react-icons/cg'
 import { TfiLayoutSlider } from 'react-icons/tfi'
 import { BiChevronRight, BiLeftArrowAlt, BiChevronLeft } from 'react-icons/bi'
+import ViewToggle from '../view-toggle'
 
 // Fixed height for the bottom panel (description + gap + thumbstrip + bottom padding)
 const BOTTOM_H = '11rem'
@@ -18,8 +19,9 @@ export default function Gallery_Modal({
   screenHeight,
   screenWidth,
   isMobileMode,
+  initialIndex,
 }) {
-  const [slideIndex, setSlideIndex] = useState(0)
+  const [slideIndex, setSlideIndex] = useState(initialIndex ?? 0)
   const [isGalleryView, setGalleryView] = useState(false)
   const [isImmersionOpen, setIsImmersionOpen] = useState(false)
 
@@ -98,27 +100,16 @@ export default function Gallery_Modal({
                 {`${slideIndex + 1}/${album.numImages}`}
               </div>
             )}
-            <button
-              className="relative h-8 w-8 hover:scale-[1.1] duration-200 ease-out"
-              onClick={toggleView}
-            >
-              <CgLayoutGridSmall
-                className="absolute inset-0 m-auto text-3xl"
-                style={{
-                  opacity: isGalleryView ? 0 : 1,
-                  transform: isGalleryView ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'opacity 300ms ease, transform 300ms ease',
-                }}
-              />
-              <TfiLayoutSlider
-                className="absolute inset-0 m-auto text-lg"
-                style={{
-                  opacity: isGalleryView ? 1 : 0,
-                  transform: isGalleryView ? 'rotate(0deg)' : 'rotate(-180deg)',
-                  transition: 'opacity 300ms ease, transform 300ms ease',
-                }}
-              />
-            </button>
+            <ViewToggle
+              isAlt={isGalleryView}
+              onToggle={toggleView}
+              label=""
+              altLabel=""
+              Icon={CgLayoutGridSmall}
+              AltIcon={TfiLayoutSlider}
+              iconSize="text-3xl"
+              altIconSize="text-lg"
+            />
           </div>
         </div>
       </div>

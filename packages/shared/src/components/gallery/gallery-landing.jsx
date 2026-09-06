@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useParams, useSearch, Link } from '@tanstack/react-router'
 import './gallery.css'
 import Gallery_Modal from './gallery-modal'
+import SkeletonImage from '../skeleton-image'
 import { useWindowSize } from '../../hooks/useWindowSize'
 import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
 
@@ -106,7 +107,7 @@ export default function Gallery_Landing({ config }) {
           className="photo-landing-whole relative top-0 left-0 h-[100vh]"
           ref={landingRef}
         >
-          <img
+          <SkeletonImage
             ref={imgRef}
             className="photo-landing-background"
             src={`${import.meta.env.BASE_URL}${matchedAlbum.thumbnail.src}`}

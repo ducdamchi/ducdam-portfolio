@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from '@tanstack/react-router'
-import Gallery_Skeleton from './gallery-skeleton'
+import SkeletonImage from '../skeleton-image'
 import { useDominantColor, adjustColor } from '../../hooks/useDominantColor'
 
 export default function Gallery_Card({
@@ -14,7 +14,6 @@ export default function Gallery_Card({
   const [thumbnailState, setThumbnailState] = useState('image')
   const [isHovering, setIsHovering] = useState(false)
   const [titleSize, setTitleSize] = useState(0)
-  const [imageLoaded, setImageLoaded] = useState(false)
   const imgRef = useRef(null)
   const titleRef = useRef(null)
 
@@ -73,16 +72,13 @@ export default function Gallery_Card({
           />
         )}
 
-        {!imageLoaded && <Gallery_Skeleton cardWidth={cardWidth} />}
-
-        <div className={`relative h-full w-full ${!imageLoaded ? 'invisible' : ''}`}>
-          <img
+        <div className="relative h-full w-full">
+          <SkeletonImage
             ref={imgRef}
             className="h-full w-full object-cover"
             crossOrigin="anonymous"
             src={`${import.meta.env.BASE_URL}${config.cardImage ? config.cardImage(album) : album.thumbnail.src}`}
             alt={album.title}
-            onLoad={() => setImageLoaded(true)}
             style={
               album.preview
                 ? {
@@ -90,9 +86,7 @@ export default function Gallery_Card({
                       thumbnailState === 'transition' && isHovering
                         ? 'brightness(0)'
                         : 'brightness(1)',
-                    opacity:
-                      thumbnailState === 'video' && isHovering ? '0' : '1',
-                    transition: 'filter 200ms ease-in-out, opacity 200ms ease-in-out',
+                    transition: 'filter 200ms ease-in-out',
                   }
                 : undefined
             }

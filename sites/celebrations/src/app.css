@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@import '@ducdam/shared/styles/shared.css';
+
+:root {
+  background-color: rgb(250, 250, 250);
+}
