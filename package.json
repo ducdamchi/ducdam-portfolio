@@ -23,7 +23,11 @@
     "build:celebrations": "pnpm --filter @ducdam/celebrations build",
     "build:software": "pnpm --filter @ducdam/software build",
     "build:woodworking": "pnpm --filter @ducdam/woodworking build",
-    "lint": "pnpm -r lint"
+    "lint": "pnpm -r lint",
+    "deploy:film-photo": "pnpm build:film-photo && gh-pages -d 'sites/film & photo/dist' -r git@github.com:ducdamchi/art-portfolio-react.git -b gh-pages",
+    "deploy:celebrations": "pnpm build:celebrations && gh-pages -d sites/celebrations/dist -r git@github.com:ducdamchi/celebrations-site.git -b gh-pages",
+    "deploy:woodworking": "pnpm build:woodworking && gh-pages -d sites/woodworking/dist -r git@github.com:ducdamchi/woodworking-site.git -b gh-pages",
+    "deploy:software": "pnpm build:software && gh-pages -d sites/software/dist -r git@github.com:ducdamchi/software-site.git -b gh-pages"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
