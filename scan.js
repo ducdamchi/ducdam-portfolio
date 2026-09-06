@@ -28,35 +28,35 @@ function getDirs(dirPath) {
 
 // ── Photography ──
 
-function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
-  const albums = []
+function scanPhotography() {
+  const pathname = 'photography'
+  const dirs = getDirs(pathname)
+  const all_albums = []
   let album_id = 0
 
-  subDirs.forEach((subdir) => {
+  dirs.forEach((dir) => {
     album_id += 1
-    const subdir_contents = fs.readdirSync(path.resolve(pathname, dir, subdir))
+    const dir_contents = fs.readdirSync(path.resolve(pathname, dir))
     const album = { id: album_id, imgList: [] }
     let img_count = 0
 
-    const json_file = subdir_contents.find((f) => f === 'info.json')
+    const json_file = dir_contents.find((f) => f === 'info.json')
     if (json_file) {
-      const data = require(path.resolve(pathname, dir, subdir, json_file))
+      const data = require(path.resolve(pathname, dir, json_file))
       album.title = data.title
       album.year = data.year
       album.description = data.description
       album.captions = data.captions
       album.url = toDashedLowerCase(data.title)
     } else {
-      console.log(`Warning: info.json not found for ${subdir}`)
+      console.log(`Warning: info.json not found for ${dir}`)
     }
 
-    subdir_contents.forEach((content) => {
+    dir_contents.forEach((content) => {
       if (json_file && isImage(content)) {
         img_count += 1
-        const img_path = path.join(pathname, dir, subdir, content)
+        const img_path = path.join(pathname, dir, content)
         const img = { id: '', src: img_path, index: null, description: '' }
-
-        album.isHighlight = isHighlight
 
         if (content.includes('thumb')) {
           img_count--
@@ -71,7 +71,7 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
       }
 
       if (content.includes('preview')) {
-        album.preview = path.join(pathname, dir, subdir, content)
+        album.preview = path.join(pathname, dir, content)
       }
     })
 
@@ -82,22 +82,7 @@ function fetchSubDirAlbums(pathname, dir, subDirs, isHighlight) {
       )
     }
     album.viewTime = Math.round((img_count * 30) / 60 + 1)
-    albums.push(album)
-  })
-  return albums
-}
-
-function scanPhotography() {
-  const pathname = 'photography'
-  const dirs = getDirs(pathname)
-  let all_albums = []
-
-  dirs.forEach((dir) => {
-    const subdirs = getDirs(path.resolve(pathname, dir))
-    const isHighlight = dir.includes('Highlights')
-    all_albums = all_albums.concat(
-      fetchSubDirAlbums(pathname, dir, subdirs, isHighlight),
-    )
+    all_albums.push(album)
   })
 
   const outPath = path.resolve(
